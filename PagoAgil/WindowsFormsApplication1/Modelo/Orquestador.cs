@@ -23,8 +23,8 @@ namespace WindowsFormsApplication1
 
             if (CantidadDeIntentos >= 3)
             {
-                throw new LogingDemasiadosIntentosException("Intentaste logear más de 3 veces");
                 CantidadDeIntentos = 0;
+                throw new LogingDemasiadosIntentosException("Intentaste logear más de 3 veces");                
             }
 
             return false;
