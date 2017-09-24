@@ -291,7 +291,6 @@ __pycache__/
 
 #----------------------EXTRAS
 *.csproj
-*.sln
 *.resx
 ./AssemblyInfo
 ./Resources
