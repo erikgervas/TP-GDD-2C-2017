@@ -12,6 +12,9 @@ namespace WindowsFormsApplication1
 {
     public partial class FormLogin : Form
     {
+
+        Orquestador miOrquestador = new Orquestador();
+
         public FormLogin()
         {
             InitializeComponent();
@@ -28,11 +31,24 @@ namespace WindowsFormsApplication1
 
             String pass = textPassword.Text.Trim();
 
-            if (ServicioSQL.Instance.esUsuarioValido(usuario, pass))
+            Boolean esUsuarioValido = false;
+
+            try
             {
-                FormMain miMain = new FormMain();
+                esUsuarioValido = miOrquestador.esUsuarioValido(usuario, pass);
+            }
+            catch(LogingDemasiadosIntentosException)
+            {
+                MessageBox.Show("Usuario inhabilitado");
+                miOrquestador.inhabilitar(usuario);
+                return;
+            }
+
+            if (esUsuarioValido)
+            {
+                FormSeleccionarRol miSeleccionadorDeRol = new FormSeleccionarRol();
                 this.Hide();
-                miMain.Show();
+                miSeleccionadorDeRol.Show();
             }
             else
             {

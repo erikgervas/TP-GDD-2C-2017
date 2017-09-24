@@ -6,24 +6,10 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApplication1
 {
-    class ServicioSQL
+    class Orquestador
     {
 
-        private static ServicioSQL instance;
-
-        private ServicioSQL() { }
-
-        public static ServicioSQL Instance
-        {
-            get 
-            {
-                if (instance == null)
-                {
-                    instance = new ServicioSQL();
-                }
-                return instance;
-            }
-        }
+        int CantidadDeIntentos = 0;
 
         public Boolean esUsuarioValido(string usuario, string pass)
         {
@@ -33,11 +19,24 @@ namespace WindowsFormsApplication1
                 return ClienteSQL.Instance.verificarUsuario(usuario, pass);
             }
 
+            CantidadDeIntentos++;
+
+            if (CantidadDeIntentos >= 3)
+            {
+                throw new LogingDemasiadosIntentosException("Intentaste logear más de 3 veces");
+                CantidadDeIntentos = 0;
+            }
+
             return false;
         
         }
 
-        
+        public void inhabilitar(string usuario)
+        {
+            if (ValidadorDeInputs.Instance.esValido(usuario)) {
+                ClienteSQL.Instance.inhabilitarUsuario(usuario);
+            }
 
+        }
     }
 }

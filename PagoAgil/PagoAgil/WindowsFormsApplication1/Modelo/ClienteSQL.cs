@@ -55,5 +55,15 @@ namespace WindowsFormsApplication1
 
         }
 
+        public void inhabilitarUsuario(string usuario)
+        {
+            // ⇊
+
+            // Hacer query que haga usuario.estado = false
+
+            // ⇈
+
+            throw new NotImplementedException();
+        }
     }
 }
