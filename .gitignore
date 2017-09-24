@@ -289,9 +289,3 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 
-#----------------------EXTRAS
-*.csproj
-*.resx
-./AssemblyInfo
-./Resources
-*.settings
