@@ -17,17 +17,17 @@ namespace PagoAgil
             InitializeComponent();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void FormSeleccionarRol_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboSucursal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboRol_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
@@ -35,10 +35,9 @@ namespace PagoAgil
         private void button1_Click(object sender, EventArgs e)
         {
 
-            // Verificar contenido de rol
-
             // Dar acceso
 
         }
+
     }
 }
