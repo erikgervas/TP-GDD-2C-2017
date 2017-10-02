@@ -73,7 +73,6 @@
             this.label2.Size = new System.Drawing.Size(77, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Contraseña";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // textPassword
             // 

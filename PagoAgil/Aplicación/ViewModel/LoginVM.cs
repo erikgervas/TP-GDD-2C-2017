@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagoAgil.Aplicación.Modelo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace PagoAgil
 {
-    class Orquestador
+    class LoginVM
     {
 
         int CantidadDeIntentos = 0;
 
-        public Boolean esUsuarioValido(string usuario, string pass)
+        public UsuarioDB obtener(string usuario, string pass)
         {
         
             if (ValidadorDeInputs.Instance.esValido(usuario) && ValidadorDeInputs.Instance.esValido(pass))
             {
-                return ClienteSQL.Instance.verificarUsuario(usuario, pass);
+                return this.obtenerUsuario(usuario, pass);
             }
 
             CantidadDeIntentos++;
@@ -24,10 +25,10 @@ namespace PagoAgil
             if (CantidadDeIntentos >= 3)
             {
                 CantidadDeIntentos = 0;
-                throw new LogingDemasiadosIntentosException("Intentaste logear más de 3 veces");                
+                throw new DemasiadosIntentosException("Intentaste logear más de 3 veces");                
             }
 
-            return false;
+            return null;
         
         }
 
@@ -38,5 +39,13 @@ namespace PagoAgil
             }
 
         }
+
+        private UsuarioDB obtenerUsuario(string nombreUsuario, string pass)
+        {
+            
+            return ClienteSQL.Instance.obtenerUsuario(nombreUsuario, pass);
+            
+        }
+
     }
 }

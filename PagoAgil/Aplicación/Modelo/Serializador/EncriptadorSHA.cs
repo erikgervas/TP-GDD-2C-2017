@@ -9,20 +9,20 @@ using System.IO;
 
 namespace PagoAgil
 {
-    class Encriptador
+    class EncriptadorSHA
     {
 
-        private static Encriptador instance;
+        private static EncriptadorSHA instance;
 
-        private Encriptador() { }
+        private EncriptadorSHA() { }
 
-        public static Encriptador Instance
+        public static EncriptadorSHA Instance
         {
             get 
             {
                 if (instance == null)
                 {
-                    instance = new Encriptador();
+                    instance = new EncriptadorSHA();
                 }
                 return instance;
             }

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 using System.Data.SqlClient;
 using System.Data;
+using PagoAgil.Aplicación.Modelo;
+using PagoAgil.Aplicación.ViewModel;
+using PagoAgil.Aplicación.Modelo.Cliente;
 
 namespace PagoAgil
 {
@@ -29,9 +32,9 @@ namespace PagoAgil
             }
         }
 
-        public Boolean verificarUsuario(string usuario, string password) {
+        public UsuarioDB obtenerUsuario(string usuario, string password) {
 
-            String passwordSHA = Encriptador.Instance.encriptar(password);
+            String passwordSHA = EncriptadorSHA.Instance.encriptar(password);
 
             String query = "SELECT * FROM Usuario where Nombre = '" + usuario + "' AND Contraseña = '" + passwordSHA + "'"; // Se debería implementar una clase que hace queries
 
@@ -44,14 +47,18 @@ namespace PagoAgil
             DataTable tabla = new DataTable();
 
             adapterSQL.Fill(tabla);
+             
+            return tabla.Rows.Count == 1;
 
             // ⇈ NO SE QUE MIERDA ES ESTO ⇈
-
-            return tabla.Rows.Count == 1;
-            
+    
             */
 
-            return true;
+            /*
+             * Tiene que retornar un UsuarioDB(int pk, string nombre) 
+            */
+
+            throw new NotImplementedException();
 
         }
 
@@ -65,5 +72,45 @@ namespace PagoAgil
 
             throw new NotImplementedException();
         }
+
+        public SucursalDB[] obtenerSucursales(int usuario)
+        {
+
+            // ⇊
+
+            // Hacer query que obtenga los nombres de las sucursales junto a sus ID las cuales estan relacionadas con el usuario. NO TIENEN QUE ESTAR REPETIDAS
+
+            // ⇈
+
+            throw new NotImplementedException();
+
+        }
+
+        public RolDB[] obtenerRoles(int usuario, int sucursal)
+        {
+
+            // ⇊
+
+            // Hacer query que obtenga los nombres de los roles junto a sus ID los cuales tiene un usuario en esa sucursal.
+
+            // ⇈
+
+            throw new NotImplementedException();
+
+        }
+
+        public Rol obtenerRol(int rol)
+        {
+
+            // ⇊
+
+            // Hacer query que obtenga el rol completo, junto a sus funcionalidades.
+
+            // ⇈
+
+            throw new NotImplementedException();
+
+        }
+
     }
 }

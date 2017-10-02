@@ -44,7 +44,6 @@
             this.label1.Size = new System.Drawing.Size(29, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Rol";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // comboRol
             // 
@@ -60,6 +59,7 @@
             // 
             // button1
             // 
+            this.button1.Enabled = false;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(158, 117);
             this.button1.Name = "button1";
@@ -78,7 +78,6 @@
             this.label2.Size = new System.Drawing.Size(60, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Sucursal";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // comboSucursal
             // 

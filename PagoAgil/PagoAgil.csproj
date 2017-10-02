@@ -44,9 +44,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Aplicación\Modelo\ClienteSQL.cs" />
-    <Compile Include="Aplicación\Modelo\Encriptador.cs" />
-    <Compile Include="Aplicación\Modelo\Excepciones\LogingDemasiadosIntentosException.cs" />
+    <Compile Include="Aplicación\Modelo\Cliente\ClienteSQL.cs" />
+    <Compile Include="Aplicación\Modelo\RolDB.cs" />
+    <Compile Include="Aplicación\Modelo\UsuarioDB.cs" />
+    <Compile Include="Aplicación\Modelo\Usuario\Funcionalidad.cs" />
+    <Compile Include="Aplicación\ViewModel\SeleccionadorDeRolVM.cs" />
+    <Compile Include="Aplicación\Modelo\Usuario\Rol.cs" />
+    <Compile Include="Aplicación\Modelo\Serializador\EncriptadorSHA.cs" />
+    <Compile Include="Aplicación\Modelo\Excepcion\LogingDemasiadosIntentosException.cs" />
+    <Compile Include="Aplicación\Modelo\Usuario\Usuario.cs" />
+    <Compile Include="Aplicación\Modelo\SucursalDB.cs" />
     <Compile Include="Aplicación\View\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,8 +68,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Aplicación\Modelo\Orquestador.cs" />
-    <Compile Include="Aplicación\Modelo\ValidadorDeInputs.cs" />
+    <Compile Include="Aplicación\ViewModel\LoginVM.cs" />
+    <Compile Include="Aplicación\ViewModel\Validador\ValidadorDeInputs.cs" />
     <EmbeddedResource Include="Aplicación\View\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -92,6 +99,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagoAgil.Aplicación.Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,40 +14,35 @@ namespace PagoAgil
     public partial class FormLogin : Form
     {
 
-        Orquestador miOrquestador = new Orquestador();
+        LoginVM loginVM = new LoginVM();
 
         public FormLogin()
         {
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            String usuario = textUsername.Text.Trim();
+            String nombreUsuario = textUsername.Text.Trim();
 
             String pass = textPassword.Text.Trim();
 
-            Boolean esUsuarioValido = false;
+            UsuarioDB usuario = null;
 
             try
             {
-                esUsuarioValido = miOrquestador.esUsuarioValido(usuario, pass);
+                usuario = loginVM.obtener(nombreUsuario, pass);
             }
-            catch(LogingDemasiadosIntentosException)
+            catch(DemasiadosIntentosException)
             {
                 MessageBox.Show("Usuario inhabilitado");
-                miOrquestador.inhabilitar(usuario);
+                loginVM.inhabilitar(nombreUsuario);
                 return;
             }
 
-            if (esUsuarioValido)
+            if (usuario != null)
             {
-                FormSeleccionarRol miSeleccionadorDeRol = new FormSeleccionarRol();
+                FormSeleccionarRol miSeleccionadorDeRol = new FormSeleccionarRol(usuario);
                 this.Hide();
                 miSeleccionadorDeRol.Show();
             }
