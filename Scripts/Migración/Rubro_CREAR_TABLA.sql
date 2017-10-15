@@ -4,6 +4,7 @@ CREATE TABLE Rubro (
 );
 
 SET IDENTITY_INSERT Rubro ON
+/* Para poder setear la PK con el valor que viene de la tabla maestra. */
 
 INSERT INTO Rubro (ID, Descripcion)
 
@@ -15,3 +16,4 @@ INSERT INTO Rubro (ID, Descripcion)
 	FROM [GD2C2017].[gd_esquema].[Maestra];
 
 SET IDENTITY_INSERT Rubro OFF
+/* Para no poder setear la PK con otro valor. */

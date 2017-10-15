@@ -17,6 +17,6 @@ INSERT INTO Sucursal (Nombre, Domicilio, Codigo_Postal, Habilitada)
 
 	FROM [GD2C2017].[gd_esquema].[Maestra]
 
-	WHERE	Sucursal_Nombre IS NOT NULL AND
+	WHERE	Sucursal_Nombre IS NOT NULL AND		/* Hay una fila de sucursal con todos sus campos nulos */
 			Sucursal_Dirección IS NOT NULL AND
 			Sucursal_Codigo_Postal IS NOT NULL

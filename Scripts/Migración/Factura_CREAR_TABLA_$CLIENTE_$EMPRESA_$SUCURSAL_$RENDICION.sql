@@ -8,6 +8,7 @@ CREATE TABLE Factura (
 	Habilitada BIT
 )
 
+SET IDENTITY_INSERT Factura ON;
 
 INSERT INTO Factura (Numero_Factura, Monto_Total, Fecha_Alta, Fecha_Vencimiento, Id_Cliente, Id_Empresa, Habilitada)
 
@@ -17,14 +18,15 @@ INSERT INTO Factura (Numero_Factura, Monto_Total, Fecha_Alta, Fecha_Vencimiento,
 		[Factura_Total] AS Monto_Total,
 		[Factura_Fecha] AS Fecha_Alta,
 		[Factura_Fecha_Vencimiento] AS Fecha_Vencimiento,
-
-
+		c.Id_Cliente AS Id_Cliente,
+		e.Id_Empresa AS Id_Empresa,
 		Habilitada = 1
 
-		
+	FROM
 
-	FROM [GD2C2017].[gd_esquema].[Maestra]
-	
-	WHERE
-	;
-/* TODO */
+		[GD2C2017].[gd_esquema].[Maestra] m
+
+	JOIN Cliente c ON m.[Cliente-Dni] = c.Dni_Cliente
+	JOIN Empresa e ON m.Empresa_Cuit = c.Cuit;
+
+SET IDENTITY_INSERT Factura OFF;

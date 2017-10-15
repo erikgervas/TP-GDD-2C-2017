@@ -24,6 +24,6 @@ INSERT INTO Cliente (Dni, Nombre, Apellido, Nacimiento, Mail, Domicilio, Codigo_
 		[Cliente_Codigo_Postal] AS Codigo_Postal,
 		Habilitado = 1
 
-	FROM [GD2C2017].[gd_esquema].[Maestra] m, ClienteParalitico cp
+	FROM [GD2C2017].[gd_esquema].[Maestra]
 	
-	WHERE m.[Cliente-Dni] != cp.Dni;
+	WHERE NOT EXISTS (SELECT 1 FROM ClienteParalitico WHERE [Cliente-Dni] = ClienteParalitico.Dni);
