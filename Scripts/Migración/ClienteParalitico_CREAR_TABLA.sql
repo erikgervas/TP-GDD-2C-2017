@@ -8,13 +8,12 @@ CREATE TABLE ClienteParalitico (
 	Domicilio NVARCHAR(255) NOT NULL,
 	Codigo_Postal NVARCHAR(255) NOT NULL,
 	Telefono INT,
-	Habilitado BIT,
-	Repeticiones INT
+	Habilitado BIT
 );
 
-INSERT INTO ClienteParalitico (Dni, Nombre, Apellido, Nacimiento, Mail, Domicilio, Codigo_Postal, Habilitado, Repeticiones)
+INSERT INTO ClienteParalitico (Dni, Nombre, Apellido, Nacimiento, Mail, Domicilio, Codigo_Postal, Habilitado)
 
-	SELECT DISTINCT p1.[Cliente-Dni], p1.[Cliente-Apellido], p1.[Cliente-Nombre], p1.Cliente_Mail, p1.[Cliente-Fecha_Nac], p1.Cliente_Direccion, p1.Cliente_Codigo_Postal,
+	SELECT DISTINCT p1.[Cliente-Dni] as Dni, p1.[Cliente-Apellido] as Apellido, p1.[Cliente-Nombre] as Nombre, p1.Cliente_Mail as Mail, p1.[Cliente-Fecha_Nac] as Nacimiento, p1.Cliente_Direccion as Direccion, p1.Cliente_Codigo_Postal as Codigo_Postal, Habilitado = 0,
 					p2.[Cliente-Dni], p2.[Cliente-Apellido], p2.[Cliente-Nombre], p2.Cliente_Mail, p2.[Cliente-Fecha_Nac], p2.Cliente_Direccion, p2.Cliente_Codigo_Postal
 
 	FROM	gd_esquema.Maestra p1, gd_esquema.Maestra p2
