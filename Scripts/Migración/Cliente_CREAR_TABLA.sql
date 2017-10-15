@@ -3,8 +3,8 @@ CREATE TABLE Cliente (
 	Dni NUMERIC(18,0) NOT NULL UNIQUE,
 	Nombre NVARCHAR(255) NOT NULL,
 	Apellido NVARCHAR(255) NOT NULL,
-	Nacimiento DateTime NOT NULL,
-	Mail NVARCHAR(255) NOT NULL /*UNIQUE*/, 
+	Nacimiento DATETIME NOT NULL,
+	Mail NVARCHAR(255) NOT NULL UNIQUE, 
 	Domicilio NVARCHAR(255) NOT NULL,
 	Codigo_Postal NVARCHAR(255) NOT NULL,
 	Telefono INT,
@@ -24,4 +24,6 @@ INSERT INTO Cliente (Dni, Nombre, Apellido, Nacimiento, Mail, Domicilio, Codigo_
 		[Cliente_Codigo_Postal] AS Codigo_Postal,
 		Habilitado = 1
 
-	FROM [GD2C2017].[gd_esquema].[Maestra];
+	FROM [GD2C2017].[gd_esquema].[Maestra] m, ClienteParalitico cp
+	
+	WHERE m.[Cliente-Dni] != cp.Dni;
