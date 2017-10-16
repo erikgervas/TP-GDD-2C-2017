@@ -100,11 +100,11 @@ CREATE TABLE Pago (
 CREATE TABLE Item_Pago (
 	id_item INT FOREIGN KEY REFERENCES Item(id_item) NOT NULL,
 	numero_pago INT FOREIGN KEY REFERENCES Pago(numero_pago) NOT NULL,
-	CONSTRAINT id_funcionalidad_por_rol PRIMARY KEY(id_item, numero_pago)
+	CONSTRAINT id_item_pago PRIMARY KEY(id_item, numero_pago)
 );
 
 CREATE TABLE Item_Rendicion (
 	id_item INT FOREIGN KEY REFERENCES Item(id_item) NOT NULL,
 	numero_rendicion INT FOREIGN KEY REFERENCES Rendicion(numero_rendicion) NOT NULL,
-	CONSTRAINT id_funcionalidad_por_rol PRIMARY KEY(id_item, numero_rendicion)
+	CONSTRAINT id_item_rendicion PRIMARY KEY(id_item, numero_rendicion)
 );
