@@ -80,6 +80,8 @@ CREATE TABLE Item (
 CREATE TABLE Devolucion (
 	id_devolucion INT IDENTITY(1, 1) PRIMARY KEY,
 	fecha_devolucion DATETIME NOT NULL,
+	motivo NVARCHAR(255) NOT NULL,
+	numero_factura INT FOREIGN KEY REFERENCES Factura(numero_factura),
 );
 
 CREATE TABLE Medio_De_Pago (
