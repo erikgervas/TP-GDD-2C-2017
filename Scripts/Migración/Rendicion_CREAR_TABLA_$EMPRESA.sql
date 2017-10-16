@@ -1,16 +1,23 @@
 CREATE TABLE Rendicion (
-	ID int primary key IDENTITY(1, 1) NOT NULL,
-	CuandoFueRendida DateTime NOT NULL,
-	Id_Empresa int foreign key REFERENCES Empresa(ID) NOT NULL
+	Nro_Rendicion int primary key IDENTITY (1,1) NOT NULL,
+	Importe_Comision numeric(18,2) NOT NULL,
+	Fecha_Rendicion DateTime NOT NULL,
 )
 
-INSERT INTO Rendicion (CuandoFueRendida, Id_Empresa)
+SET IDENTITY_INSERT Rendicion ON;
 
-	SELECT
+INSERT INTO Rendicion (Nro_Rendicion, Importe_Comision, Fecha_Rendicion)
 
-		Rendicion_Fecha AS CuandoFueRendida,
-		(SELECT ID FROM Empresa where TablaMaestra.Empresa_Cuit = Empresa.Cuit) AS Id_Empresa
+	SELECT DISTINCT
+		
+		[Rendicion_Nro] AS Nro_Rendicion,
+		[ItemRendicion_Importe] AS Importe_Comision,
+		[Rendicion_Fecha] AS Fecha_Rendicion
 
-	FROM [GD2C2017].[gd_esquema].[Maestra] as TablaMaestra
+	FROM
 
-	WHERE Rendicion_Fecha IS NOT NULL
+		[GD2C2017].[gd_esquema].[Maestra] m
+
+	WHERE Rendicion_Nro IS NOT NULL
+
+	SET IDENTITY_INSERT Rendicion OFF;
