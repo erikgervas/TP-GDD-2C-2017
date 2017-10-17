@@ -48,12 +48,39 @@
     <Compile Include="Aplicación\Modelo\RolDB.cs" />
     <Compile Include="Aplicación\Modelo\UsuarioDB.cs" />
     <Compile Include="Aplicación\Modelo\Usuario\Funcionalidad.cs" />
+    <Compile Include="Aplicación\ViewModel\AltaSucursalVM.cs" />
+    <Compile Include="Aplicación\ViewModel\BajaSucursalVM.cs" />
+    <Compile Include="Aplicación\ViewModel\ModificacionSucursalVM.cs" />
     <Compile Include="Aplicación\ViewModel\SeleccionadorDeRolVM.cs" />
     <Compile Include="Aplicación\Modelo\Usuario\Rol.cs" />
     <Compile Include="Aplicación\Modelo\Serializador\EncriptadorSHA.cs" />
     <Compile Include="Aplicación\Modelo\Excepcion\LogingDemasiadosIntentosException.cs" />
     <Compile Include="Aplicación\Modelo\Usuario\Usuario.cs" />
     <Compile Include="Aplicación\Modelo\SucursalDB.cs" />
+    <Compile Include="Aplicación\View\FormAltaSucursal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicación\View\FormAltaSucursal.Designer.cs">
+      <DependentUpon>FormAltaSucursal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicación\View\FormBajaSucursal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicación\View\FormBajaSucursal.Designer.cs">
+      <DependentUpon>FormBajaSucursal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicación\View\FormModificacionSucursal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicación\View\FormModificacionSucursal.Designer.cs">
+      <DependentUpon>FormModificacionSucursal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicación\View\FormABMSucursal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicación\View\FormABMSucursal.Designer.cs">
+      <DependentUpon>FormABMSucursal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Aplicación\View\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,8 +97,20 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Aplicación\ViewModel\LoginVM.cs" />
     <Compile Include="Aplicación\ViewModel\Validador\ValidadorDeInputs.cs" />
+    <EmbeddedResource Include="Aplicación\View\FormABMSucursal.resx">
+      <DependentUpon>FormABMSucursal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicación\View\FormAltaSucursal.resx">
+      <DependentUpon>FormAltaSucursal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicación\View\FormBajaSucursal.resx">
+      <DependentUpon>FormBajaSucursal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Aplicación\View\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicación\View\FormModificacionSucursal.resx">
+      <DependentUpon>FormModificacionSucursal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicación\View\FormSeleccionadorDeRol.resx">
       <DependentUpon>FormSeleccionadorDeRol.cs</DependentUpon>
