@@ -93,7 +93,6 @@ CREATE TABLE Pago (
 	numero_pago INT PRIMARY KEY ,
 	monto_total NUMERIC(18,2) NOT NULL,
 	fecha_pago DATETIME NOT NULL,
-	numero_factura INT FOREIGN KEY REFERENCES Factura(numero_factura) NOT NULL,
 	id_medio_de_pago INT FOREIGN KEY REFERENCES Medio_De_Pago(id_medio_de_pago) NOT NULL,
 	id_cliente INT FOREIGN KEY REFERENCES Cliente(id_cliente) NOT NULL,
 	id_sucursal INT FOREIGN KEY REFERENCES Sucursal(id_sucursal) NOT NULL,
@@ -101,8 +100,9 @@ CREATE TABLE Pago (
 
 CREATE TABLE Item_Pago (
 	id_item INT FOREIGN KEY REFERENCES Item(id_item) NOT NULL,
+	numero_factura INT FOREIGN KEY REFERENCES Factura(numero_factura) NOT NULL,
 	numero_pago INT FOREIGN KEY REFERENCES Pago(numero_pago) NOT NULL,
-	CONSTRAINT id_item_pago PRIMARY KEY(id_item, numero_pago)
+	CONSTRAINT id_item_pago PRIMARY KEY(id_item, numero_factura, numero_pago)
 );
 
 CREATE TABLE Item_Rendicion (
