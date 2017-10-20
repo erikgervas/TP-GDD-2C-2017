@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aplicacion\Modelo\Cliente.cs" />
     <Compile Include="Aplicacion\Modelo\Cliente\ClienteSQL.cs" />
     <Compile Include="Aplicacion\Modelo\Empresa.cs" />
     <Compile Include="Aplicacion\Modelo\Identificable.cs" />
