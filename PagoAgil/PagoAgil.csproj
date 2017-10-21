@@ -50,9 +50,9 @@
     <Compile Include="Aplicacion\Modelo\Cliente.cs" />
     <Compile Include="Aplicacion\Modelo\Cliente\ClienteSQL.cs" />
     <Compile Include="Aplicacion\Modelo\Empresa.cs" />
+    <Compile Include="Aplicacion\Modelo\Entidad.cs" />
     <Compile Include="Aplicacion\Modelo\Habilitable.cs" />
     <Compile Include="Aplicacion\Modelo\Identificable.cs" />
-    <Compile Include="Aplicacion\Modelo\Entidad.cs" />
     <Compile Include="Aplicacion\Modelo\RolDB.cs" />
     <Compile Include="Aplicacion\Modelo\UsuarioDB.cs" />
     <Compile Include="Aplicacion\Modelo\Usuario\Funcionalidad.cs" />

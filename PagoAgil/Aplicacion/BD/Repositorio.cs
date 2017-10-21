@@ -12,12 +12,17 @@ namespace PagoAgil.Aplicacion.BD
     {
         private Medio<E> almacenamiento { get; set; }
 
-        public virtual void alta(E unaEntidad)
+        public List<E> listarElementos()
+        {
+           return this.almacenamiento.darTodos();
+        }
+
+        public void alta(E unaEntidad)
         {
             this.almacenamiento.aniadir(unaEntidad);
         }
 
-        public virtual void baja(E unaEntidad)
+        public void baja(E unaEntidad)
         {
             this.almacenamiento.eliminar(unaEntidad);
         }

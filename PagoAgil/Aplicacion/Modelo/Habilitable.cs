@@ -8,7 +8,7 @@ namespace PagoAgil.Aplicacion.Modelo
 {
     public abstract class Habilitable : Identificable
     {
-        private bool habilitado { get; set; }
+        public bool habilitado { get; set; }
 
         public Habilitable(long unId, string unNombre, bool unEstado) : base(unId, unNombre)
         {
