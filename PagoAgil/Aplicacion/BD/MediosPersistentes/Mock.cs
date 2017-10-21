@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace PagoAgil.Aplicacion.Modelo
+namespace PagoAgil.Aplicacion.BD.MediosPersistentes
 {
-    class Rubro
+    public class Mock
     {
+
     }
 }

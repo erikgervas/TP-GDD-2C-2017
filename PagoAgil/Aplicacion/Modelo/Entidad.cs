@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace PagoAgil.Aplicacion.Modelo
 {
-    interface Entidad
+    private class Entidad
     {
+        private long id { get; set /* Hacer que sólo el repositorio lo pueda setear */ ; }
+
+        public Entidad (long unId)
+        {
+            this.id = unId;
+        }
     }
 }
