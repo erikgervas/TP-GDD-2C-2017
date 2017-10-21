@@ -48,13 +48,14 @@
     <Compile Include="Aplicacion\BD\MediosPersistentes\Mock.cs" />
     <Compile Include="Aplicacion\BD\Repositorio.cs" />
     <Compile Include="Aplicacion\Modelo\Cliente.cs" />
-    <Compile Include="Aplicacion\Modelo\Cliente\ClienteSQL.cs" />
+    <Compile Include="Aplicacion\Modelo\Cliente\ClienteTSQL.cs" />
+    <Compile Include="Aplicacion\Modelo\Cliente\RolDB.cs" />
+    <Compile Include="Aplicacion\Modelo\Cliente\SucursalDB.cs" />
+    <Compile Include="Aplicacion\Modelo\Cliente\UsuarioDB.cs" />
     <Compile Include="Aplicacion\Modelo\Empresa.cs" />
     <Compile Include="Aplicacion\Modelo\Habilitable.cs" />
     <Compile Include="Aplicacion\Modelo\Identificable.cs" />
     <Compile Include="Aplicacion\Modelo\Entidad.cs" />
-    <Compile Include="Aplicacion\Modelo\RolDB.cs" />
-    <Compile Include="Aplicacion\Modelo\UsuarioDB.cs" />
     <Compile Include="Aplicacion\Modelo\Usuario\Funcionalidad.cs" />
     <Compile Include="Aplicacion\ViewModel\AltaSucursalVM.cs" />
     <Compile Include="Aplicacion\ViewModel\BajaSucursalVM.cs" />
@@ -65,7 +66,6 @@
     <Compile Include="Aplicacion\Modelo\Serializador\EncriptadorSHA.cs" />
     <Compile Include="Aplicacion\Modelo\Excepciones\LogingDemasiadosIntentosException.cs" />
     <Compile Include="Aplicacion\Modelo\Usuario\Usuario.cs" />
-    <Compile Include="Aplicacion\Modelo\SucursalDB.cs" />
     <Compile Include="Aplicacion\View\Empresas\EmpresaAlta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,12 +89,6 @@
     </Compile>
     <Compile Include="Aplicacion\View\FormBajaSucursal.Designer.cs">
       <DependentUpon>FormBajaSucursal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Aplicacion\View\FormEstadisticas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Aplicacion\View\FormEstadisticas.Designer.cs">
-      <DependentUpon>FormEstadisticas.cs</DependentUpon>
     </Compile>
     <Compile Include="Aplicacion\View\FormHome.cs">
       <SubType>Form</SubType>

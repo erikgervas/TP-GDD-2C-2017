@@ -4,23 +4,23 @@ using PagoAgil.Aplicacion.ViewModel;
 using System;
 using System.Data.SqlClient;
 
-namespace PagoAgil.Aplicacion.Modelo.Cliente
+namespace PagoAgil.Aplicacion.Modelo.ClienteSQL
 {
-    public class ClienteSQL
+    public class ClienteTSQL
     {
         SqlConnection conexionSQL = new SqlConnection(@""); // TODO
 
-        private static ClienteSQL instance;
+        private static ClienteTSQL instance;
 
-        private ClienteSQL() { }
+        private ClienteTSQL() { }
 
-        public static ClienteSQL Instance
+        public static ClienteTSQL Instance
         {
             get 
             {
                 if (instance == null)
                 {
-                    instance = new ClienteSQL();
+                    instance = new ClienteTSQL();
                 }
                 return instance;
             }

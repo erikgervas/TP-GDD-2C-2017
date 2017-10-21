@@ -1,10 +1,10 @@
 ﻿using PagoAgil.Aplicacion.Modelo;
-using PagoAgil.Aplicacion.Modelo.Cliente;
+using PagoAgil.Aplicacion.Modelo.ClienteSQL;
 using PagoAgil.Aplicacion.Modelo.Usuario;
 
 namespace PagoAgil.Aplicacion.ViewModel
 {
-    class SeleccionadorDeRolVM
+    public class SeleccionadorDeRolVM
     {
 
         UsuarioDB usuarioActual;
@@ -21,14 +21,14 @@ namespace PagoAgil.Aplicacion.ViewModel
         public SucursalDB[] obtenerSucursales()
         {
 
-            return ClienteSQL.Instance.obtenerSucursales(usuarioActual.getID());
+            return ClienteTSQL.Instance.obtenerSucursales(usuarioActual.getID());
 
         }
 
         public RolDB[] obtenerRoles(SucursalDB sucursal)
         {
 
-            return ClienteSQL.Instance.obtenerRoles(usuarioActual.getID(), sucursal.getID());
+            return ClienteTSQL.Instance.obtenerRoles(usuarioActual.getID(), sucursal.getID());
            
         }
 
@@ -42,7 +42,7 @@ namespace PagoAgil.Aplicacion.ViewModel
 
         private Rol armarRol(RolDB rol)
         {
-            return ClienteSQL.Instance.obtenerRol(rol.getID());
+            return ClienteTSQL.Instance.obtenerRol(rol.getID());
         }
 
     }

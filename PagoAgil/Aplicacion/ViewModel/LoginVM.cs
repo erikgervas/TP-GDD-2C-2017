@@ -1,5 +1,4 @@
-﻿using PagoAgil.Aplicacion.Modelo;
-using PagoAgil.Aplicacion.Modelo.Cliente;
+﻿using PagoAgil.Aplicacion.Modelo.ClienteSQL;
 using PagoAgil.Aplicacion.Modelo.Excepciones;
 using PagoAgil.Aplicacion.ViewModel.Validador;
 
@@ -33,7 +32,7 @@ namespace PagoAgil
         public void inhabilitar(string usuario)
         {
             if (ValidadorDeInputs.Instance.esValido(usuario)) {
-                ClienteSQL.Instance.inhabilitarUsuario(usuario);
+                ClienteTSQL.Instance.inhabilitarUsuario(usuario);
             }
 
         }
@@ -41,7 +40,7 @@ namespace PagoAgil
         private UsuarioDB obtenerUsuario(string nombreUsuario, string pass)
         {
             
-            return ClienteSQL.Instance.obtenerUsuario(nombreUsuario, pass);
+            return ClienteTSQL.Instance.obtenerUsuario(nombreUsuario, pass);
             
         }
 

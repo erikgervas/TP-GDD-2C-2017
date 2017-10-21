@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace PagoAgil.Aplicacion.BD.MediosPersistentes
 {
-    interface Medio<E> where E : Entidad
+    public interface Medio<E> where E : Entidad
     {
         List<E> darTodos();
 
-        void aniadir(object unaEntidad);
+        void aniadir(E unaEntidad);
 
-        void eliminar(object unaEntidad);
+        void eliminar(E unaEntidad);
 
-        void modificar(object unaEntidad);
+        void modificar(E unaEntidad);
     }
 }

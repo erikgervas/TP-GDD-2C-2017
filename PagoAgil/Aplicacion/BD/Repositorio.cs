@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace PagoAgil.Aplicacion.BD
 {
-    public abstract static class Repositorio<E> where E : Entidad
+    public abstract class Repositorio<E> where E : Entidad
     {
-        private Medio<E> almacenamiento { get; set; }
+        public Medio<E> almacenamiento { get; set; }
 
         public List<E> listarElementos()
         {

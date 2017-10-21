@@ -1,9 +1,6 @@
 ﻿using PagoAgil.Aplicacion.Modelo;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PagoAgil.Aplicacion.BD.MediosPersistentes
 {
@@ -31,6 +28,22 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes
             E entidadDesactualizada = this.lista.First(e => e.id == unaEntidad.id);
             
             entidadDesactualizada = unaEntidad;
+        }
+
+
+        public void aniadir(object unaEntidad)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void eliminar(object unaEntidad)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void modificar(object unaEntidad)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

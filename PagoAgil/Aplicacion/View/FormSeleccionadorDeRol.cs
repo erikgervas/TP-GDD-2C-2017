@@ -1,5 +1,5 @@
 ﻿using PagoAgil.Aplicacion.Modelo;
-using PagoAgil.Aplicacion.Modelo.Cliente;
+using PagoAgil.Aplicacion.Modelo.ClienteSQL;
 using PagoAgil.Aplicacion.Modelo.Usuario;
 using PagoAgil.Aplicacion.ViewModel;
 using System;
@@ -10,7 +10,7 @@ namespace PagoAgil.Aplicacion.View
     public partial class FormSeleccionarRol : Form
     {
 
-        SeleccionadorDeRolVM seleccionadorDeRolVM;
+        public SeleccionadorDeRolVM seleccionadorDeRolVM;
 
         public FormSeleccionarRol(UsuarioDB usuario)
         {
@@ -60,8 +60,6 @@ namespace PagoAgil.Aplicacion.View
             this.Hide();
 
             miHome.Show();
-
-            // Pasar a la siguiente ventana con este usuario
 
         }
 
