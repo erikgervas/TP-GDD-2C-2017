@@ -69,12 +69,19 @@
     <Compile Include="Aplicacion\ViewModel\ModificacionSucursalVM.cs" />
     <Compile Include="Aplicacion\ViewModel\SeleccionadorDeRolVM.cs" />
     <Compile Include="Aplicacion\ViewModel\Validador\ValidadorDeInputs.cs" />
-    <Compile Include="Aplicacion\View\Empresas\EmpresaAlta.cs">
+    <Compile Include="Aplicacion\View\Empresas\AltaEmpresas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Aplicacion\View\Empresas\EmpresaAlta.Designer.cs">
-      <DependentUpon>EmpresaAlta.cs</DependentUpon>
+    <Compile Include="Aplicacion\View\Empresas\AltaEmpresas.Designer.cs">
+      <DependentUpon>AltaEmpresas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Aplicacion\View\Empresas\AltaEmpresasOk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Empresas\AltaEmpresasOk.Designer.cs">
+      <DependentUpon>AltaEmpresasOk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicacion\View\Empresas\EmpresaBuilder.cs" />
     <Compile Include="Aplicacion\View\FormABMCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,8 +132,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Aplicacion\View\Empresas\EmpresaAlta.resx">
-      <DependentUpon>EmpresaAlta.cs</DependentUpon>
+    <EmbeddedResource Include="Aplicacion\View\Empresas\AltaEmpresas.resx">
+      <DependentUpon>AltaEmpresas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Empresas\AltaEmpresasOk.resx">
+      <DependentUpon>AltaEmpresasOk.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\FormABMCliente.resx">
       <DependentUpon>FormABMCliente.cs</DependentUpon>

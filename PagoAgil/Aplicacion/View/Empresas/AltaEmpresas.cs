@@ -58,7 +58,7 @@ namespace PagoAgil.Aplicacion.View.Empresas
 
             RepositorioEmpresas.instanciar().alta(empresaNueva);
 
-            AltaEmpresasOk formAlta = new AltaEmpresasOk(empresaNueva);
+            AltaEmpresasOk formAlta = new AltaEmpresasOk(empresaNueva, this);
 
             formAlta.Show();
 

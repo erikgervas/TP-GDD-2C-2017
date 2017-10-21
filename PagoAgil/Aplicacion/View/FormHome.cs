@@ -22,6 +22,11 @@ namespace PagoAgil.Aplicacion.View
             homeVM = new HomeVM(usuario);
         }
 
+        public FormHome()
+        {
+            // TODO: Complete member initialization
+        }
+
         private void button_abm_cliente_Click(object sender, EventArgs e)
         {
 

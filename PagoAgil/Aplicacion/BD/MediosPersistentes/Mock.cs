@@ -6,7 +6,12 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes
 {
     public class Mock<E> : Medio<E> where E : Entidad
     {
-        List<E> lista { get; set; }
+        public List<E> lista { get; set; }
+
+        public Mock(List<E> unaLista)
+        {
+            this.lista = unaLista;
+        }
 
         public List<E> darTodos()
         {
@@ -33,22 +38,6 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes
             E entidadDesactualizada = this.lista.First(e => e.id == unaEntidad.id);
             
             entidadDesactualizada = unaEntidad;
-        }
-
-
-        public void aniadir(object unaEntidad)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void eliminar(object unaEntidad)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void modificar(object unaEntidad)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

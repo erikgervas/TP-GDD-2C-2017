@@ -57,7 +57,7 @@ CREATE TABLE Cliente (
 	nombre NVARCHAR(255) NOT NULL,
 	apellido NVARCHAR(255) NOT NULL,
 	nacimiento DATETIME NOT NULL,
-	mail NVARCHAR(255) NOT NULL, 
+	mail NVARCHAR(255) NOT NULL UNIQUE, 
 	domicilio NVARCHAR(255) NOT NULL,
 	codigo_postal NVARCHAR(255) NOT NULL,
 	telefono INT,

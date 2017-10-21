@@ -1,16 +1,3 @@
-CREATE TABLE Cliente (
-	ID INT PRIMARY KEY IDENTITY(1, 1) NOT NULL,
-	Dni NUMERIC(18,0) NOT NULL UNIQUE,
-	Nombre NVARCHAR(255) NOT NULL,
-	Apellido NVARCHAR(255) NOT NULL,
-	Nacimiento DATETIME NOT NULL,
-	Mail NVARCHAR(255) NOT NULL UNIQUE, 
-	Domicilio NVARCHAR(255) NOT NULL,
-	Codigo_Postal NVARCHAR(255) NOT NULL,
-	Telefono INT,
-	Habilitado BIT
-);
-
 INSERT INTO Cliente (Dni, Nombre, Apellido, Nacimiento, Mail, Domicilio, Codigo_Postal, Habilitado)
 
 	SELECT DISTINCT
