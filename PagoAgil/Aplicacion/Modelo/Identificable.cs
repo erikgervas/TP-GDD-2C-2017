@@ -1,43 +1,12 @@
 ﻿namespace PagoAgil.Aplicacion.Modelo
 {
-    public abstract class Identificable
+    public abstract class Identificable : Entidad
     {
-        private long id;
-        private string nombre;
-        private bool habilitada;
+        private string nombre { get; set; }
 
-        public Identificable (long unId, string unNombre, bool unEstado)
+        public Identificable (long unId, string unNombre) : base(unId)
         {
-            id = unId;
-            this.Nombre = unNombre;
-            this.Estado = unEstado;
-        }
-
-        public long Id
-        {
-            get { return id; }
-        }
-
-        public string Nombre
-        {
-            get { return nombre; }
-            set { nombre = value; }
-        }
-
-        public bool Estado
-        {
-            get { return habilitada; }
-            set { habilitada = value; }
-        }
-
-        public virtual void habilitar()
-        {
-            this.Estado = true;
-        }
-
-        public virtual void deshabilitar()
-        {
-            this.Estado = false;
+            this.nombre = unNombre;
         }
     }
 }
