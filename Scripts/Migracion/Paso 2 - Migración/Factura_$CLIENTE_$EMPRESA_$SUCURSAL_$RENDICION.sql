@@ -1,5 +1,3 @@
-SET IDENTITY_INSERT Factura ON;
-
 INSERT INTO Factura (numero_factura, factura_monto_total, factura_fecha_alta, factura_fecha_vencimiento, id_cliente, id_empresa, numero_rendicion)
 
 	SELECT DISTINCT
@@ -16,8 +14,6 @@ INSERT INTO Factura (numero_factura, factura_monto_total, factura_fecha_alta, fa
 
 		[GD2C2017].[gd_esquema].[Maestra] m
 
-	JOIN Cliente c ON m.[Cliente-Dni] = c.Dni
-	JOIN Empresa e ON m.Empresa_Cuit = e.Cuit
+	JOIN Cliente c ON m.[Cliente-Dni] = c.dni
+	JOIN Empresa e ON m.Empresa_Cuit = e.cuit
 	JOIN Rendicion r ON m.Rendicion_Nro = r.numero_rendicion;
-
-SET IDENTITY_INSERT Factura OFF;
