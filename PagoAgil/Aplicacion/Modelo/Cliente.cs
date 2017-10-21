@@ -4,22 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PagoAgil.Aplicacion
+namespace PagoAgil.Aplicacion.Modelo
 {
-    class Cliente
+    public class Cliente : Identificable
     {
-        private string nombre;
-        private string apellido;
-        private int dni;
-        private string mail;
-        private int telefono;
-        private string direccion;
-        private int codigoPostal;
-        private DateTime fechaNacimiento;
+        public string apellido { get; set; }
+        public int dni { get; set; }
+        public string mail { get; set; }
+        public int telefono { get; set; }
+        public string direccion { get; set; }
+        public int codigoPostal { get; set; }
+        public DateTime fechaNacimiento { get; set; }
 
-        Cliente(string nombre,string apellido,int dni,string mail,int telefono,string direccion, int codigoPostal, DateTime fechaNacimiento)
+        public Cliente(long id, string nombre, string apellido, int dni, string mail, int telefono, string direccion, int codigoPostal, DateTime fechaNacimiento) : base (id, nombre)
         {
-            this.nombre = nombre;
             this.apellido = apellido;
             this.dni = dni;
             this.mail = mail;
@@ -28,14 +26,6 @@ namespace PagoAgil.Aplicacion
             this.codigoPostal = codigoPostal;
             this.fechaNacimiento = fechaNacimiento;
         }
-        public string Nombre { get => nombre; set => nombre = value; }
-        public string Apellido { get => apellido; set => apellido = value; }
-        public int Dni { get => dni; set => dni = value; }
-        public string Mail { get => mail; set => mail = value; }
-        public int Telefono { get => telefono; set => telefono = value; }
-        public string Direccion { get => direccion; set => direccion = value; }
-        public int CodigoPostal { get => codigoPostal; set => codigoPostal = value; }
-        public DateTime FechaNacimiento { get => fechaNacimiento; set => fechaNacimiento = value; }
     }
 }
 

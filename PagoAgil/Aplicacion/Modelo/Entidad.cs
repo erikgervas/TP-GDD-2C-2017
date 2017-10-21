@@ -8,7 +8,7 @@ namespace PagoAgil.Aplicacion.Modelo
 {
     public class Entidad
     {
-        public long id { get; set /* Hacer que sólo el repositorio lo pueda setear */ ; }
+        public long id { get; set; }
 
         public Entidad (long unId)
         {

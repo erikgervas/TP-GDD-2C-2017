@@ -1,4 +1,5 @@
 ﻿using PagoAgil.Aplicacion.Modelo;
+using PagoAgil.Aplicacion.Modelo.ClienteSQL;
 using PagoAgil.Aplicacion.Modelo.Excepciones;
 using System;
 using System.Windows.Forms;
