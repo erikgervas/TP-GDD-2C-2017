@@ -11,6 +11,8 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes
     {
         List<E> darTodos();
 
+        long asignarId();
+
         void aniadir(E unaEntidad);
 
         void eliminar(E unaEntidad);

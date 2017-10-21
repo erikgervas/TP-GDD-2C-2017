@@ -1,4 +1,4 @@
-﻿using PagoAgil.Aplicacion.ViewModel;
+﻿using PagoAgil.Aplicacion.View;
 using System;
 using System.Windows.Forms;
 

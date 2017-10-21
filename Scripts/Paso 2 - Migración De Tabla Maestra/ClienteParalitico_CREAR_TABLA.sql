@@ -1,3 +1,5 @@
+DROP TABLE ClienteParalitico
+
 CREATE TABLE ClienteParalitico (
 	ID INT PRIMARY KEY IDENTITY(1, 1) NOT NULL,
 	Dni NUMERIC(18,0) NOT NULL UNIQUE,
@@ -10,7 +12,7 @@ CREATE TABLE ClienteParalitico (
 	Telefono INT,
 );
 
-INSERT INTO ClienteParalitico (Dni, Nombre, Apellido, Nacimiento, Mail, Domicilio, Codigo_Postal)
+INSERT INTO ClienteParalitico (Dni, Nombre, Apellido, Mail, Domicilio, Codigo_Postal)
 
 	SELECT DISTINCT
 
@@ -18,7 +20,7 @@ INSERT INTO ClienteParalitico (Dni, Nombre, Apellido, Nacimiento, Mail, Domicili
 		p1.[Cliente-Apellido] as Apellido,
 		p1.[Cliente-Nombre] as Nombre,
 		p1.Cliente_Mail as Mail,
-		p1.[Cliente-Fecha_Nac] as Nacimiento,
+		/*p1.[Cliente-Fecha_Nac] as Nacimiento,*/
 		p1.Cliente_Direccion as Direccion,
 		p1.Cliente_Codigo_Postal as Codigo_Postal
 

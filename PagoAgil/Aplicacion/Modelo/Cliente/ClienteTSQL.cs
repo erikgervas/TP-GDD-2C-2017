@@ -1,6 +1,6 @@
 ﻿using PagoAgil.Apliacion.Modelo.Serializador;
 using PagoAgil.Aplicacion.Modelo.Usuario;
-using PagoAgil.Aplicacion.ViewModel;
+using PagoAgil.Aplicacion.View;
 using System;
 using System.Data.SqlClient;
 

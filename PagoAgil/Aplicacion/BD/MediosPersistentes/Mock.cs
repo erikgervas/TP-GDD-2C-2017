@@ -18,6 +18,11 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes
             this.lista.Add(unaEntidad);
         }
 
+        public long asignarId()
+        {
+            return this.lista.Count + 1;
+        }
+
         public void eliminar(E unaEntidad)
         {
             this.lista.Remove(unaEntidad);

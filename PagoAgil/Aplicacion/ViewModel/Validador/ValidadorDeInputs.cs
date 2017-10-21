@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PagoAgil.Aplicacion.ViewModel.Validador
+namespace PagoAgil.Aplicacion.View.Validador
 {
     class ValidadorDeInputs
     {

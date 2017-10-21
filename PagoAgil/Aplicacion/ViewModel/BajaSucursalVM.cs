@@ -1,4 +1,4 @@
-﻿namespace PagoAgil.Aplicacion.ViewModel
+﻿namespace PagoAgil.Aplicacion.View
 {
     class BajaSucursalVM
     {
