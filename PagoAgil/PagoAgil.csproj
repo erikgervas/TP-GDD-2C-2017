@@ -50,14 +50,15 @@
     <Compile Include="Aplicacion\Modelo\Cliente.cs" />
     <Compile Include="Aplicacion\Modelo\Cliente\ClienteSQL.cs" />
     <Compile Include="Aplicacion\Modelo\Empresa.cs" />
-    <Compile Include="Aplicacion\Modelo\Entidad.cs" />
     <Compile Include="Aplicacion\Modelo\Habilitable.cs" />
     <Compile Include="Aplicacion\Modelo\Identificable.cs" />
+    <Compile Include="Aplicacion\Modelo\Entidad.cs" />
     <Compile Include="Aplicacion\Modelo\RolDB.cs" />
     <Compile Include="Aplicacion\Modelo\UsuarioDB.cs" />
     <Compile Include="Aplicacion\Modelo\Usuario\Funcionalidad.cs" />
     <Compile Include="Aplicacion\ViewModel\AltaSucursalVM.cs" />
     <Compile Include="Aplicacion\ViewModel\BajaSucursalVM.cs" />
+    <Compile Include="Aplicacion\ViewModel\HomeVM.cs" />
     <Compile Include="Aplicacion\ViewModel\ModificacionSucursalVM.cs" />
     <Compile Include="Aplicacion\ViewModel\SeleccionadorDeRolVM.cs" />
     <Compile Include="Aplicacion\Modelo\Usuario\Rol.cs" />
@@ -88,6 +89,12 @@
     </Compile>
     <Compile Include="Aplicacion\View\FormBajaSucursal.Designer.cs">
       <DependentUpon>FormBajaSucursal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicacion\View\FormEstadisticas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\FormEstadisticas.Designer.cs">
+      <DependentUpon>FormEstadisticas.cs</DependentUpon>
     </Compile>
     <Compile Include="Aplicacion\View\FormHome.cs">
       <SubType>Form</SubType>
@@ -140,6 +147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\FormBajaSucursal.resx">
       <DependentUpon>FormBajaSucursal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\FormHome.resx">
+      <DependentUpon>FormHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>

@@ -206,6 +206,11 @@ namespace PagoAgil.Aplicacion.View
 
         }
 
+        public FormABMCliente()
+        {
+            InitializeComponent();
+        }
+
         private void nuevoClienteButton_Click(object sender, EventArgs e)
         {
             Form altaClinte = new FormAltaCliente();
