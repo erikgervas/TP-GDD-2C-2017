@@ -11,9 +11,9 @@ DROP TABLE
 	Rubro,
 	Cliente,
 	ClienteParalitico,
-/*	Rol_De_Usuario_Por_Sucursal, */
-	Sucursal
-/*	Funcionalidad_Por_Rol,
+	Rol_De_Usuario_Por_Sucursal, 
+	Sucursal,
+	Funcionalidad_Por_Rol,
 	Funcionalidad,
 	Rol,
-	Usuario */;
+	Usuario;
