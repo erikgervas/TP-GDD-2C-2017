@@ -4,10 +4,16 @@
     {
 
         int ID;
+        string descripcion;
 
         public int getID()
         {
             return this.ID;
+        }
+
+        public override string ToString()
+        {
+            return this.descripcion;
         }
 
     }

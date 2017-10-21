@@ -28,6 +28,7 @@ namespace PagoAgil.Aplicacion
             this.codigoPostal = codigoPostal;
             this.fechaNacimiento = fechaNacimiento;
         }
+        /*
         public string Nombre { get => nombre; set => nombre = value; }
         public string Apellido { get => apellido; set => apellido = value; }
         public int Dni { get => dni; set => dni = value; }
@@ -36,6 +37,7 @@ namespace PagoAgil.Aplicacion
         public string Direccion { get => direccion; set => direccion = value; }
         public int CodigoPostal { get => codigoPostal; set => codigoPostal = value; }
         public DateTime FechaNacimiento { get => fechaNacimiento; set => fechaNacimiento = value; }
+        */
     }
 }
 

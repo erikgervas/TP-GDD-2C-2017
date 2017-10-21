@@ -80,6 +80,12 @@
     <Compile Include="Aplicacion\View\FormBajaSucursal.Designer.cs">
       <DependentUpon>FormBajaSucursal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Aplicacion\View\FormHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\FormHome.Designer.cs">
+      <DependentUpon>FormHome.cs</DependentUpon>
+    </Compile>
     <Compile Include="Aplicacion\View\FormModificacionSucursal.cs">
       <SubType>Form</SubType>
     </Compile>

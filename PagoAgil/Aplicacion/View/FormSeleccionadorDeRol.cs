@@ -55,6 +55,12 @@ namespace PagoAgil.Aplicacion.View
 
             Usuario usuario = seleccionadorDeRolVM.armarUsuario(rolSeleccionado);
 
+            FormHome miHome = new FormHome(usuario);
+
+            this.Hide();
+
+            miHome.Show();
+
             // Pasar a la siguiente ventana con este usuario
 
         }
