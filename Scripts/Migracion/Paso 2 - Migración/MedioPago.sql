@@ -1,13 +1,8 @@
-CREATE TABLE MedioPago(
-		ID INT PRIMARY KEY IDENTITY(1, 1) NOT NULL,
-		Descripcion nvarchar(50) NOT NULL,
-);
-
-INSERT INTO MedioPago (Descripcion)
+INSERT INTO Medio_De_Pago (descripcion)
 
 	SELECT DISTINCT 
 
-		[FormaPagoDescripcion] AS Descripcion
+		[FormaPagoDescripcion] AS descripcion
 
 	FROM [GD2C2017].[gd_esquema].[Maestra]
 

@@ -1,18 +1,12 @@
-CREATE TABLE Rendicion (
-	Nro_Rendicion int primary key IDENTITY (1,1) NOT NULL,
-	Importe_Comision numeric(18,2) NOT NULL,
-	Fecha_Rendicion DateTime NOT NULL,
-)
-
 SET IDENTITY_INSERT Rendicion ON;
 
-INSERT INTO Rendicion (Nro_Rendicion, Importe_Comision, Fecha_Rendicion)
+INSERT INTO Rendicion (numero_rendicion, importe_comision, fecha)
 
 	SELECT DISTINCT
 		
-		[Rendicion_Nro] AS Nro_Rendicion,
-		[ItemRendicion_Importe] AS Importe_Comision,
-		[Rendicion_Fecha] AS Fecha_Rendicion
+		[Rendicion_Nro] AS numero_rendicion,
+		[ItemRendicion_Importe] AS importe_comision,
+		[Rendicion_Fecha] AS fecha
 
 	FROM
 

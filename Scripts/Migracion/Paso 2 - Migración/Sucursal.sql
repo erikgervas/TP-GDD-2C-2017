@@ -1,19 +1,11 @@
-CREATE TABLE Sucursal (
-	ID INT PRIMARY KEY IDENTITY(1, 1) NOT NULL,
-	Nombre NVARCHAR(255) NOT NULL,
-	Domicilio NVARCHAR(255) NOT NULL,
-	Codigo_Postal NVARCHAR(255) NOT NULL UNIQUE,
-	Habilitada BIT
-);
-
-INSERT INTO Sucursal (Nombre, Domicilio, Codigo_Postal, Habilitada)
+INSERT INTO Sucursal (nombre, domicilio, codigo_postal, habilitada)
 
 	SELECT DISTINCT
 
-		[Sucursal_Nombre] AS Nombre,
-		[Sucursal_Dirección] AS Domicilio,
-		[Sucursal_Codigo_Postal] AS Codigo_Postal,
-		Habilitada = 1
+		[Sucursal_Nombre] AS nombre,
+		[Sucursal_Dirección] AS domicilio,
+		[Sucursal_Codigo_Postal] AS codigo_Postal,
+		habilitada = 1
 
 	FROM [GD2C2017].[gd_esquema].[Maestra]
 
