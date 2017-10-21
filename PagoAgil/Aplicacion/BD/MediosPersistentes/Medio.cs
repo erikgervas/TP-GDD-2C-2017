@@ -9,6 +9,8 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes
 {
     interface Medio<E> where E : Entidad
     {
+        List<E> darTodos();
+
         void aniadir(object unaEntidad);
 
         void eliminar(object unaEntidad);
