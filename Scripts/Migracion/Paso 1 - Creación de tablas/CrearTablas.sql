@@ -8,7 +8,7 @@ CREATE TABLE Funcionalidad (
 CREATE TABLE Rol (
 	id_rol INT IDENTITY(1, 1) PRIMARY KEY,
 	nombre NVARCHAR(255) NOT NULL,
-	habilitado BIT NOT NULL
+	estado BIT NOT NULL
 )
 
 CREATE TABLE Funcionalidad_Por_Rol (
@@ -21,7 +21,7 @@ CREATE TABLE Usuario (
 	id_usuario INT IDENTITY(1, 1) PRIMARY KEY,
 	username NVARCHAR(255) NOT NULL,
 	contraseña NVARCHAR(255) NOT NULL,
-	habilitado BIT NOT NULL
+	estado BIT NOT NULL
 )
 
 CREATE TABLE Sucursal (
@@ -29,7 +29,7 @@ CREATE TABLE Sucursal (
 	nombre NVARCHAR(255) NOT NULL,
 	domicilio NVARCHAR(255) NOT NULL,
 	codigo_postal NVARCHAR(255) NOT NULL UNIQUE,
-	habilitada BIT NOT NULL
+	estado BIT NOT NULL
 )
 
 CREATE TABLE Rol_De_Usuario_Por_Sucursal (
@@ -48,7 +48,6 @@ CREATE TABLE ClienteParalitico (
 	mail NVARCHAR(255) NOT NULL, 
 	domicilio NVARCHAR(255) NOT NULL,
 	codigo_postal NVARCHAR(255) NOT NULL,
-	telefono INT,
 )
 
 CREATE TABLE Cliente (
@@ -61,7 +60,7 @@ CREATE TABLE Cliente (
 	domicilio NVARCHAR(255) NOT NULL,
 	codigo_postal NVARCHAR(255) NOT NULL,
 	telefono INT,
-	habilitado BIT NOT NULL
+	estado BIT NOT NULL
 )
 
 CREATE TABLE Rubro (
@@ -74,15 +73,15 @@ CREATE TABLE Empresa (
 	nombre NVARCHAR(255) NOT NULL,
 	cuit NVARCHAR(50) NOT NULL UNIQUE,
 	domicilio NVARCHAR(255) NOT NULL,
-	dia_rendicion INT NOT NULL,
-	habilitada BIT NOT NULL,
+	dia_rendicion INT,
+	estado BIT NOT NULL,
 	id_rubro INT FOREIGN KEY REFERENCES Rubro(id_rubro) NOT NULL
 )
 
 CREATE TABLE Rendicion (
-	numero_rendicion INT PRIMARY KEY,
+	numero_rendicion INT IDENTITY(1, 1) PRIMARY KEY,
 	importe_comision NUMERIC(18,2) NOT NULL,
-	fecha DATETIME NOT NULL,
+	fecha_rendicion DATETIME NOT NULL
 )
 
 CREATE TABLE Factura (
@@ -90,10 +89,9 @@ CREATE TABLE Factura (
 	factura_monto_total NUMERIC(18, 2) NOT NULL,
 	factura_fecha_alta DATETIME NOT NULL,
 	factura_fecha_vencimiento DATETIME NOT NULL,
-	factura_habilitada BIT NOT NULL,
 	id_cliente INT FOREIGN KEY REFERENCES Cliente(id_cliente) NOT NULL,
 	id_empresa INT FOREIGN KEY REFERENCES Empresa(id_empresa) NOT NULL,
-	numero_rendicion INT FOREIGN KEY REFERENCES Rendicion(numero_rendicion),
+	numero_rendicion INT FOREIGN KEY REFERENCES Rendicion(numero_rendicion)
 )
 
 CREATE TABLE Item (
@@ -101,28 +99,28 @@ CREATE TABLE Item (
 	nombre NVARCHAR(255) NOT NULL,
 	monto NUMERIC(18, 2) NOT NULL,
 	cantidad INT NOT NULL,
-	numero_factura INT FOREIGN KEY REFERENCES Factura(numero_factura),
+	numero_factura INT FOREIGN KEY REFERENCES Factura(numero_factura) NOT NULL
 )
 
 CREATE TABLE Devolucion (
 	id_devolucion INT IDENTITY(1, 1) PRIMARY KEY,
 	fecha_devolucion DATETIME NOT NULL,
 	motivo NVARCHAR(255) NOT NULL,
-	numero_factura INT FOREIGN KEY REFERENCES Factura(numero_factura),
+	numero_factura INT FOREIGN KEY REFERENCES Factura(numero_factura)
 )
 
 CREATE TABLE Medio_De_Pago (
 	id_medio_de_pago INT IDENTITY(1, 1) PRIMARY KEY,
-	descripcion nvarchar(50) NOT NULL,
+	descripcion nvarchar(50) NOT NULL
 )
 
 CREATE TABLE Pago (
-	numero_pago INT PRIMARY KEY ,
+	numero_pago INT IDENTITY(1, 1) PRIMARY KEY,
 	monto_total NUMERIC(18,2) NOT NULL,
 	fecha_pago DATETIME NOT NULL,
 	id_medio_de_pago INT FOREIGN KEY REFERENCES Medio_De_Pago(id_medio_de_pago) NOT NULL,
 	id_cliente INT FOREIGN KEY REFERENCES Cliente(id_cliente) NOT NULL,
-	id_sucursal INT FOREIGN KEY REFERENCES Sucursal(id_sucursal) NOT NULL,
+	id_sucursal INT FOREIGN KEY REFERENCES Sucursal(id_sucursal) NOT NULL
 )
 
 CREATE TABLE Item_Pago (
@@ -130,7 +128,7 @@ CREATE TABLE Item_Pago (
 	numero_factura INT FOREIGN KEY REFERENCES Factura(numero_factura) NOT NULL,
 	numero_pago INT FOREIGN KEY REFERENCES Pago(numero_pago) NOT NULL,
 	CONSTRAINT id_item_pago PRIMARY KEY(id_item, numero_factura, numero_pago)
-);
+)
 
 CREATE TABLE Item_Rendicion (
 	id_item INT FOREIGN KEY REFERENCES Item(id_item) NOT NULL,
