@@ -2,7 +2,7 @@
 using PagoAgil.Aplicacion.Modelo.ClienteSQL;
 using PagoAgil.Aplicacion.Modelo.Usuario;
 
-namespace PagoAgil.Aplicacion.ViewModel
+namespace PagoAgil.Aplicacion.View
 {
     public class SeleccionadorDeRolVM
     {

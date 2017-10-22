@@ -1,5 +1,5 @@
 ﻿using PagoAgil.Aplicacion.Modelo.Usuario;
-using PagoAgil.Aplicacion.ViewModel;
+using PagoAgil.Aplicacion.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +20,11 @@ namespace PagoAgil.Aplicacion.View
         {
             InitializeComponent();
             homeVM = new HomeVM(usuario);
+        }
+
+        public FormHome()
+        {
+            // TODO: Complete member initialization
         }
 
         private void button_abm_cliente_Click(object sender, EventArgs e)

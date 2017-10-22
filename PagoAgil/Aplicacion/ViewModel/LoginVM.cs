@@ -1,7 +1,7 @@
 ﻿using PagoAgil.Aplicacion.BD;
 using PagoAgil.Aplicacion.Modelo.ClienteSQL;
 using PagoAgil.Aplicacion.Modelo.Excepciones;
-using PagoAgil.Aplicacion.ViewModel.Validador;
+using PagoAgil.Aplicacion.View.Validador;
 
 namespace PagoAgil
 {

@@ -1,7 +1,7 @@
 ﻿using PagoAgil.Aplicacion.Modelo;
 using PagoAgil.Aplicacion.Modelo.ClienteSQL;
 using PagoAgil.Aplicacion.Modelo.Usuario;
-using PagoAgil.Aplicacion.ViewModel;
+using PagoAgil.Aplicacion.View;
 using System;
 using System.Windows.Forms;
 

@@ -6,7 +6,7 @@ INSERT INTO ClienteParalitico (Dni, Nombre, Apellido, Nacimiento, Mail, Domicili
 		p1.[Cliente-Apellido] as Apellido,
 		p1.[Cliente-Nombre] as Nombre,
 		p1.Cliente_Mail as Mail,
-		p1.[Cliente-Fecha_Nac] as Nacimiento,
+		/*p1.[Cliente-Fecha_Nac] as Nacimiento,*/
 		p1.Cliente_Direccion as Direccion,
 		p1.Cliente_Codigo_Postal as Codigo_Postal
 

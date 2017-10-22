@@ -11,6 +11,7 @@ namespace PagoAgil.Aplicacion.BD
     public abstract class Repositorio<E> where E : Entidad
     {
         public Medio<E> almacenamiento { get; set; }
+        public long proximoId { get { return this.almacenamiento.asignarId(); } }
 
         public List<E> listarElementos()
         {

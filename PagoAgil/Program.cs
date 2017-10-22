@@ -15,8 +15,12 @@ namespace PagoAgil
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+<<<<<<< HEAD
 
             Application.Run(new FormLogin());
+=======
+            Application.Run(new FormHome());
+>>>>>>> 569c238ffde73fa3ffe113c22d57b8cb55f46f54
         }
     }
 }
