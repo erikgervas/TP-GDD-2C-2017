@@ -5,11 +5,19 @@ using System.Text;
 
 namespace PagoAgil.Aplicacion.Modelo.ClienteSQL
 {
-    public class SucursalDB
+    public class SucursalDB : Entidad
     {
-        internal int getID()
+
+        string nombre;
+
+        internal long getID()
         {
-            throw new NotImplementedException();
+            return this.id;
+        }
+
+        public override string ToString()
+        {
+            return this.nombre;
         }
     }
 }

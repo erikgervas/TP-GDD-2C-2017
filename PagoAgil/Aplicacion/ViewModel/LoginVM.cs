@@ -1,4 +1,5 @@
-﻿using PagoAgil.Aplicacion.Modelo.ClienteSQL;
+﻿using PagoAgil.Aplicacion.BD;
+using PagoAgil.Aplicacion.Modelo.ClienteSQL;
 using PagoAgil.Aplicacion.Modelo.Excepciones;
 using PagoAgil.Aplicacion.ViewModel.Validador;
 
@@ -7,41 +8,18 @@ namespace PagoAgil
     class LoginVM
     {
 
-        int CantidadDeIntentos = 0;
-
-        public UsuarioDB obtener(string usuario, string pass)
+        public UsuarioDB obtener(string nombre, string pass)
         {
-        
-            if (ValidadorDeInputs.Instance.esValido(usuario) && ValidadorDeInputs.Instance.esValido(pass))
-            {
-                return this.obtenerUsuario(usuario, pass);
-            }
-
-            CantidadDeIntentos++;
-
-            if (CantidadDeIntentos >= 3)
-            {
-                CantidadDeIntentos = 0;
-                throw new DemasiadosIntentosException("Intentaste logear más de 3 veces");                
-            }
-
-            return null;
+ 
+            return GestorDeUsuarios.getInstance().obtenerUsuario(nombre, pass);
         
         }
 
-        public void inhabilitar(string usuario)
+        public void inhabilitar(string nombre)
         {
-            if (ValidadorDeInputs.Instance.esValido(usuario)) {
-                ClienteTSQL.Instance.inhabilitarUsuario(usuario);
-            }
 
-        }
+            GestorDeUsuarios.getInstance().inhabilitar(nombre);
 
-        private UsuarioDB obtenerUsuario(string nombreUsuario, string pass)
-        {
-            
-            return ClienteTSQL.Instance.obtenerUsuario(nombreUsuario, pass);
-            
         }
 
     }

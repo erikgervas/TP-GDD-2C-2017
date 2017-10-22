@@ -5,16 +5,26 @@ using System.Text;
 
 namespace PagoAgil.Aplicacion.Modelo.ClienteSQL
 {
-    public class UsuarioDB
+    public class UsuarioDB : Entidad
     {
-        internal string getNombre()
+
+        string nombre;
+        string contrasenia;
+
+        public UsuarioDB(long id, string nombre) : base(id)
         {
-            throw new NotImplementedException();
+            this.nombre = nombre;
         }
 
-        internal int getID()
+        public string getNombre()
         {
-            throw new NotImplementedException();
+            return this.nombre;
         }
+
+        public string getContrasenia()
+        {
+            return this.contrasenia;
+        }
+
     }
 }

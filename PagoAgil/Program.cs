@@ -1,4 +1,5 @@
-﻿using PagoAgil.Aplicacion.View;
+﻿using PagoAgil.Aplicacion.BD;
+using PagoAgil.Aplicacion.View;
 using System;
 using System.Windows.Forms;
 
@@ -14,6 +15,7 @@ namespace PagoAgil
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
             Application.Run(new FormLogin());
         }
     }

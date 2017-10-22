@@ -16,5 +16,7 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes
         void eliminar(E unaEntidad);
 
         void modificar(E unaEntidad);
+
+        E dar(string nombre);
     }
 }
