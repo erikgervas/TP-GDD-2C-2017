@@ -13,20 +13,6 @@ namespace PagoAgil.Aplicacion.View
             InitializeComponent();
 
             bajaSucursalVM = new BajaSucursalVM();
-
-            String[] criterios = {"Codigo Postal", "Nombre", "Direccion"};
-
-            comboCriterios.Items.AddRange(criterios);
-        }
-
-        private void comboCriterios_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
