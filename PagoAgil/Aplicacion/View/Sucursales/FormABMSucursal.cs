@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using PagoAgil.Aplicacion.View.Sucursales;
 
 namespace PagoAgil.Aplicacion.View
 {
@@ -10,25 +11,26 @@ namespace PagoAgil.Aplicacion.View
             InitializeComponent();
         }
 
-        private void FormABMSucursal_Load(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             FormAltaSucursal altaSucursal = new FormAltaSucursal();
             this.Hide();
             altaSucursal.Show();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-            FormModificacionSucursal modificacionSucursal = new FormModificacionSucursal();
-            this.Hide();
-            modificacionSucursal.Show();
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
-            FormBajaSucursal bajaSucursal = new FormBajaSucursal();
+            FormListadoSucursales listado = new FormListadoSucursales("modificacion");
             this.Hide();
-            bajaSucursal.Show();
+            listado.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            FormListadoSucursales listado = new FormListadoSucursales("baja");
+            this.Hide();
+            listado.Show();
+        }
+
     }
 }

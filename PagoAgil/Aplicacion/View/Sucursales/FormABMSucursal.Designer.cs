@@ -44,7 +44,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Seleccione una acción";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button1
             // 
@@ -56,6 +55,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Ingresar nueva sucursal";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -79,6 +79,7 @@
             this.button3.TabIndex = 3;
             this.button3.Text = "Eliminar una sucursal";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // FormABMSucursal
             // 
@@ -91,7 +92,6 @@
             this.Controls.Add(this.label1);
             this.Name = "FormABMSucursal";
             this.Text = "ABM-Sucursal";
-            this.Load += new System.EventHandler(this.FormABMSucursal_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

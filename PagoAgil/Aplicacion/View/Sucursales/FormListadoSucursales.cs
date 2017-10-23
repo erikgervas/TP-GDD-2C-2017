@@ -12,7 +12,7 @@ namespace PagoAgil.Aplicacion.View.Sucursales
 {
     public partial class FormListadoSucursales : Form
     {
-        public FormListadoSucursales()
+        public FormListadoSucursales(String accion)
         {
             InitializeComponent();
         }
