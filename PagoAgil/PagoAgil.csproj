@@ -48,6 +48,7 @@
     <Compile Include="Aplicacion\BD\MediosPersistentes\Mock.cs" />
     <Compile Include="Aplicacion\BD\Repositorio.cs" />
     <Compile Include="Aplicacion\BD\Repositorios\RepositorioEmpresas.cs" />
+    <Compile Include="Aplicacion\BD\Repositorios\RepositorioSucursales.cs" />
     <Compile Include="Aplicacion\BD\Repositorios\RepositorioUsuarios.cs" />
     <Compile Include="Aplicacion\Modelo\Cliente.cs" />
     <Compile Include="Aplicacion\Modelo\ClienteSQL\RolDB.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="Aplicacion\Modelo\Habilitable.cs" />
     <Compile Include="Aplicacion\Modelo\Identificable.cs" />
     <Compile Include="Aplicacion\Modelo\Serializador\EncriptadorSHA.cs" />
+    <Compile Include="Aplicacion\Modelo\Sucursal.cs" />
     <Compile Include="Aplicacion\Modelo\Usuario\Funcionalidad.cs" />
     <Compile Include="Aplicacion\Modelo\Usuario\Rol.cs" />
     <Compile Include="Aplicacion\Modelo\Usuario\Usuario.cs" />
@@ -87,25 +89,25 @@
     <Compile Include="Aplicacion\View\FormABMCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Aplicacion\View\FormABMSucursal.cs">
+    <Compile Include="Aplicacion\View\Sucursales\FormABMSucursal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Aplicacion\View\FormABMSucursal.Designer.cs">
+    <Compile Include="Aplicacion\View\Sucursales\FormABMSucursal.Designer.cs">
       <DependentUpon>FormABMSucursal.cs</DependentUpon>
     </Compile>
     <Compile Include="Aplicacion\View\FormAltaCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Aplicacion\View\FormAltaSucursal.cs">
+    <Compile Include="Aplicacion\View\Sucursales\FormAltaSucursal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Aplicacion\View\FormAltaSucursal.Designer.cs">
+    <Compile Include="Aplicacion\View\Sucursales\FormAltaSucursal.Designer.cs">
       <DependentUpon>FormAltaSucursal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Aplicacion\View\FormBajaSucursal.cs">
+    <Compile Include="Aplicacion\View\Sucursales\FormBajaSucursal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Aplicacion\View\FormBajaSucursal.Designer.cs">
+    <Compile Include="Aplicacion\View\Sucursales\FormBajaSucursal.Designer.cs">
       <DependentUpon>FormBajaSucursal.cs</DependentUpon>
     </Compile>
     <Compile Include="Aplicacion\View\FormHome.cs">
@@ -120,10 +122,10 @@
     <Compile Include="Aplicacion\View\FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Aplicacion\View\FormModificacionSucursal.cs">
+    <Compile Include="Aplicacion\View\Sucursales\FormModificacionSucursal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Aplicacion\View\FormModificacionSucursal.Designer.cs">
+    <Compile Include="Aplicacion\View\Sucursales\FormModificacionSucursal.Designer.cs">
       <DependentUpon>FormModificacionSucursal.cs</DependentUpon>
     </Compile>
     <Compile Include="Aplicacion\View\FormSeleccionadorDeRol.cs">
@@ -132,6 +134,7 @@
     <Compile Include="Aplicacion\View\FormSeleccionadorDeRol.Designer.cs">
       <DependentUpon>FormSeleccionadorDeRol.cs</DependentUpon>
     </Compile>
+    <Compile Include="Aplicacion\View\Sucursales\SucursalesBuilder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Aplicacion\View\Empresas\AltaEmpresas.resx">
@@ -143,16 +146,16 @@
     <EmbeddedResource Include="Aplicacion\View\FormABMCliente.resx">
       <DependentUpon>FormABMCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Aplicacion\View\FormABMSucursal.resx">
+    <EmbeddedResource Include="Aplicacion\View\Sucursales\FormABMSucursal.resx">
       <DependentUpon>FormABMSucursal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\FormAltaCliente.resx">
       <DependentUpon>FormAltaCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Aplicacion\View\FormAltaSucursal.resx">
+    <EmbeddedResource Include="Aplicacion\View\Sucursales\FormAltaSucursal.resx">
       <DependentUpon>FormAltaSucursal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Aplicacion\View\FormBajaSucursal.resx">
+    <EmbeddedResource Include="Aplicacion\View\Sucursales\FormBajaSucursal.resx">
       <DependentUpon>FormBajaSucursal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\FormHome.resx">
@@ -161,7 +164,7 @@
     <EmbeddedResource Include="Aplicacion\View\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Aplicacion\View\FormModificacionSucursal.resx">
+    <EmbeddedResource Include="Aplicacion\View\Sucursales\FormModificacionSucursal.resx">
       <DependentUpon>FormModificacionSucursal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\FormSeleccionadorDeRol.resx">
