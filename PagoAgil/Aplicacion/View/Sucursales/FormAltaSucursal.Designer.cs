@@ -34,8 +34,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxDireccion = new System.Windows.Forms.TextBox();
             this.numericUpDownCP = new System.Windows.Forms.NumericUpDown();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonConfirmar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.buttonLimpiar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCP)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,13 +104,14 @@
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(144, 246);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(161, 28);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Confirmar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonConfirmar.Location = new System.Drawing.Point(251, 246);
+            this.buttonConfirmar.Name = "button1";
+            this.buttonConfirmar.Size = new System.Drawing.Size(161, 28);
+            this.buttonConfirmar.TabIndex = 7;
+            this.buttonConfirmar.Text = "Confirmar";
+            this.buttonConfirmar.UseVisualStyleBackColor = true;
+            this.buttonConfirmar.Click += new System.EventHandler(this.buttonConfirmar_Click);
             // 
             // label4
             // 
@@ -123,13 +125,25 @@
             this.label4.Text = "*Recuerde que el mismo debe ser único";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
+            // button2
+            // 
+            this.buttonLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLimpiar.Location = new System.Drawing.Point(56, 246);
+            this.buttonLimpiar.Name = "button2";
+            this.buttonLimpiar.Size = new System.Drawing.Size(161, 28);
+            this.buttonLimpiar.TabIndex = 9;
+            this.buttonLimpiar.Text = "Limpiar";
+            this.buttonLimpiar.UseVisualStyleBackColor = true;
+            this.buttonLimpiar.Click += new System.EventHandler(this.buttonLimpiar_Click);
+            // 
             // FormAltaSucursal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 286);
+            this.Controls.Add(this.buttonLimpiar);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonConfirmar);
             this.Controls.Add(this.numericUpDownCP);
             this.Controls.Add(this.textBoxDireccion);
             this.Controls.Add(this.label3);
@@ -152,7 +166,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxDireccion;
         private System.Windows.Forms.NumericUpDown numericUpDownCP;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonConfirmar;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button buttonLimpiar;
     }
 }

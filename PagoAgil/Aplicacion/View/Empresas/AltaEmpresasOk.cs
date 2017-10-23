@@ -41,5 +41,6 @@ namespace PagoAgil.Aplicacion.View.Empresas
 
             this.Close();
         }
+
     }
 }

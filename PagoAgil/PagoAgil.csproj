@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -104,6 +105,12 @@
     <Compile Include="Aplicacion\View\Sucursales\FormAltaSucursal.Designer.cs">
       <DependentUpon>FormAltaSucursal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Aplicacion\View\Sucursales\FormAltaSucursalOk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Sucursales\FormAltaSucursalOk.Designer.cs">
+      <DependentUpon>FormAltaSucursalOk.cs</DependentUpon>
+    </Compile>
     <Compile Include="Aplicacion\View\Sucursales\FormBajaSucursal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +129,12 @@
     <Compile Include="Aplicacion\View\FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Aplicacion\View\Sucursales\FormListadoSucursales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Sucursales\FormListadoSucursales.Designer.cs">
+      <DependentUpon>FormListadoSucursales.cs</DependentUpon>
+    </Compile>
     <Compile Include="Aplicacion\View\Sucursales\FormModificacionSucursal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +148,11 @@
       <DependentUpon>FormSeleccionadorDeRol.cs</DependentUpon>
     </Compile>
     <Compile Include="Aplicacion\View\Sucursales\SucursalesBuilder.cs" />
+    <Compile Include="GD2C2017DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GD2C2017DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Aplicacion\View\Empresas\AltaEmpresas.resx">
@@ -155,6 +173,9 @@
     <EmbeddedResource Include="Aplicacion\View\Sucursales\FormAltaSucursal.resx">
       <DependentUpon>FormAltaSucursal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Sucursales\FormAltaSucursalOk.resx">
+      <DependentUpon>FormAltaSucursalOk.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\Sucursales\FormBajaSucursal.resx">
       <DependentUpon>FormBajaSucursal.cs</DependentUpon>
     </EmbeddedResource>
@@ -163,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Sucursales\FormListadoSucursales.resx">
+      <DependentUpon>FormListadoSucursales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\Sucursales\FormModificacionSucursal.resx">
       <DependentUpon>FormModificacionSucursal.cs</DependentUpon>
@@ -180,6 +204,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="GD2C2017DataSet1.xsc">
+      <DependentUpon>GD2C2017DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="GD2C2017DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GD2C2017DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GD2C2017DataSet1.xss">
+      <DependentUpon>GD2C2017DataSet1.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

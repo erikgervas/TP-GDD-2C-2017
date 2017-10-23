@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using PagoAgil.Aplicacion.View.Sucursales;
+using PagoAgil.Aplicacion.BD.Repositorios;
+using PagoAgil.Aplicacion.Modelo;
 
 namespace PagoAgil.Aplicacion.View
 {
@@ -42,5 +44,23 @@ namespace PagoAgil.Aplicacion.View
         {
             sucursalBuilder.codigoPostal = (int) numericUpDownCP.Value;
         }
+
+        private void buttonLimpiar_Click(object sender, EventArgs e)
+        {
+            sucursalBuilder = new SucursalesBuilder();
+        }
+
+        private void buttonConfirmar_Click(object sender, EventArgs e)
+        {
+           Sucursal sucursalNueva = sucursalBuilder.crearSucursal();
+
+            RepositorioSucursales.instanciar().alta(sucursalNueva);
+
+            FormAltaSucursalOk formAlta = new FormAltaSucursalOk(sucursalNueva);
+
+            formAlta.Show();
+
+        }
+
     }
 }
