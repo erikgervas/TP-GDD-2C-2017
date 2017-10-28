@@ -16,5 +16,10 @@ namespace PagoAgil.Aplicacion.BD
             return instance;
         }
 
+        public UsuarioDB obtener(string nombre)
+        {
+            return this.almacenamiento.dar(nombre);
+        }
+
     }
 }

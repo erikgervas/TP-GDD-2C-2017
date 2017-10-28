@@ -1,6 +1,8 @@
-﻿using PagoAgil.Aplicacion.BD;
+﻿using PagoAgil.Apliacion.Modelo.Serializador;
+using PagoAgil.Aplicacion.BD;
 using PagoAgil.Aplicacion.Modelo.ClienteSQL;
 using PagoAgil.Aplicacion.Modelo.Excepciones;
+using PagoAgil.Aplicacion.View.Validador;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +31,7 @@ namespace PagoAgil.Aplicacion.ViewModel.Validador
 
                 UsuarioDB usuario = RepositorioUsuarios.getInstance().obtener(nombreUsuario);
 
-                if (usuario != null && usuario.getContrasenia().Equals(password))
+                if (this.esUsuarioValido(usuario, password))
                 {
                     cantidadDeIntentos = 0;
                     return usuario;
@@ -50,6 +52,13 @@ namespace PagoAgil.Aplicacion.ViewModel.Validador
             {
                 RepositorioUsuarios.getInstance().baja(RepositorioUsuarios.getInstance().obtener(nombre));
             }
+
+        }
+
+        private Boolean esUsuarioValido(UsuarioDB usuario, string password)
+        {
+
+            return usuario != null && usuario.getContrasenia().Equals(EncriptadorSHA.Instance.encriptar(password))
 
         }
 
