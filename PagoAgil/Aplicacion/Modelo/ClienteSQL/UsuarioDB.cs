@@ -10,6 +10,7 @@ namespace PagoAgil.Aplicacion.Modelo.ClienteSQL
 
         string nombre;
         string contrasenia;
+        Boolean habilitado;
 
         public UsuarioDB(long id, string nombre) : base(id)
         {
@@ -24,6 +25,11 @@ namespace PagoAgil.Aplicacion.Modelo.ClienteSQL
         public string getContrasenia()
         {
             return this.contrasenia;
+        }
+
+        public Boolean getHabilitado()
+        {
+            return this.habilitado;
         }
 
     }

@@ -28,7 +28,7 @@ namespace PagoAgil.Aplicacion.View
             {
                 usuario = loginVM.obtener(nombreUsuario, pass);
             }
-            catch(DemasiadosIntentosException)
+            catch(UsuarioInhabilitadoException)
             {
                 MessageBox.Show("Usuario inhabilitado");
                 loginVM.inhabilitar(nombreUsuario);

@@ -3,18 +3,18 @@
 namespace PagoAgil.Aplicacion.Modelo.Excepciones
 {
 
-    public class DemasiadosIntentosException : Exception
+    public class UsuarioInhabilitadoException : Exception
     {
-        public DemasiadosIntentosException()
+        public UsuarioInhabilitadoException()
         {
         }
 
-        public DemasiadosIntentosException(string message)
+        public UsuarioInhabilitadoException(string message)
             : base(message)
         {
         }
 
-        public DemasiadosIntentosException(string message, Exception inner)
+        public UsuarioInhabilitadoException(string message, Exception inner)
             : base(message, inner)
         {
         }

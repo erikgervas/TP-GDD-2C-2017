@@ -58,8 +58,8 @@ namespace PagoAgil.Aplicacion.ViewModel.Validador
         private Boolean esUsuarioValido(UsuarioDB usuario, string password)
         {
 
-            return usuario != null && usuario.getContrasenia().Equals(EncriptadorSHA.Instance.encriptar(password))
-
+            return usuario != null && usuario.getContrasenia().Equals(EncriptadorSHA.Instance.encriptar(password)) && usuario.getHabilitado() != false;
+            
         }
 
         private void loginErroneo()
@@ -69,7 +69,7 @@ namespace PagoAgil.Aplicacion.ViewModel.Validador
             if (cantidadDeIntentos >= 3)
             {
                 cantidadDeIntentos = 0;
-                throw new DemasiadosIntentosException("Intentaste logear más de 3 veces");
+                throw new UsuarioInhabilitadoException("Intentaste logear más de 3 veces");
             }
 
         }
