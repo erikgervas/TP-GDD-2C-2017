@@ -58,7 +58,7 @@ namespace PagoAgil.Aplicacion.ViewModel.Validador
         private Boolean esUsuarioValido(UsuarioDB usuario, string password)
         {
 
-            return usuario != null && usuario.getContrasenia().Equals(EncriptadorSHA.Instance.encriptar(password)) && usuario.getHabilitado() != false;
+            return usuario != null && usuario.getContrasenia().Equals(EncriptadorSHA.Instance.encriptar(password)) && usuario.getHabilitado();
             
         }
 

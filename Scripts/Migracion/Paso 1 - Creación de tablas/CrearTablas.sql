@@ -33,10 +33,10 @@ CREATE TABLE Sucursal (
 )
 
 CREATE TABLE Rol_De_Usuario_Por_Sucursal (
-	id_rol INT FOREIGN KEY REFERENCES Rol(id_rol) NOT NULL,
 	id_usuario INT FOREIGN KEY REFERENCES Usuario(id_usuario) NOT NULL,
+	id_rol INT FOREIGN KEY REFERENCES Rol(id_rol) NOT NULL,
 	id_sucursal INT FOREIGN KEY REFERENCES Sucursal(id_sucursal) NOT NULL,
-	CONSTRAINT id_rol_de_usuario_por_sucursal PRIMARY KEY(id_rol, id_usuario, id_sucursal)
+	CONSTRAINT id_rol_de_usuario_por_sucursal PRIMARY KEY(id_usuario, id_rol, id_sucursal)
 )
 
 CREATE TABLE ClienteParalitico (

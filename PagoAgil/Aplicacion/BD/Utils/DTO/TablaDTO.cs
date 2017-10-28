@@ -19,7 +19,14 @@ namespace PagoAgil.Aplicacion.BD
         public FilaDTO obtener(int posicion)
         {
 
-            return filas.ElementAt(posicion);
+            try
+            {
+                return filas.ElementAt(posicion);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                return null;
+            }
 
         }
 

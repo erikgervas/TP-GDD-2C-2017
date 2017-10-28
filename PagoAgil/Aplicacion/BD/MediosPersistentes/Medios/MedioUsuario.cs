@@ -19,7 +19,13 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes
 
             TablaDTO tabla = LectorDeTablas.getInstance().obtener(query, 4);
 
-            return new UsuarioDB(tabla.obtener(0));
+            FilaDTO fila = tabla.obtener(0);
+
+            if (fila == null)
+                return null;
+                
+            return new UsuarioDB(fila);
+
 
         }
 
