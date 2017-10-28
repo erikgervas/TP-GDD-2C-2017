@@ -71,14 +71,16 @@
     <Compile Include="Aplicacion\Modelo\Usuario\Funcionalidad.cs" />
     <Compile Include="Aplicacion\Modelo\Usuario\Rol.cs" />
     <Compile Include="Aplicacion\Modelo\Usuario\Usuario.cs" />
+    <Compile Include="Aplicacion\Orquestradores\GestorDeRoles.cs" />
+    <Compile Include="Aplicacion\Orquestradores\GestorDeSucursales.cs" />
     <Compile Include="Aplicacion\ViewModel\AltaSucursalVM.cs" />
     <Compile Include="Aplicacion\ViewModel\BajaSucursalVM.cs" />
     <Compile Include="Aplicacion\ViewModel\HomeVM.cs" />
     <Compile Include="Aplicacion\ViewModel\LoginVM.cs" />
     <Compile Include="Aplicacion\ViewModel\ModificacionSucursalVM.cs" />
     <Compile Include="Aplicacion\ViewModel\SeleccionadorDeRolVM.cs" />
-    <Compile Include="Aplicacion\ViewModel\Validador\GestorDeUsuarios.cs" />
-    <Compile Include="Aplicacion\ViewModel\Validador\ValidadorDeInputs.cs" />
+    <Compile Include="Aplicacion\Orquestradores\GestorDeUsuarios.cs" />
+    <Compile Include="Aplicacion\Orquestradores\ValidadorDeInputs.cs" />
     <Compile Include="Aplicacion\View\Empresas\AltaEmpresas.cs">
       <SubType>Form</SubType>
     </Compile>

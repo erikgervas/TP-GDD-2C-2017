@@ -30,5 +30,10 @@ namespace PagoAgil.Aplicacion.BD
 
         }
 
+        public int cantidadDeFilas()
+        {
+            return this.filas.Count();
+        }
+
     }
 }

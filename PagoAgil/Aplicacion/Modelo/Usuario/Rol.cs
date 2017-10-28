@@ -1,14 +1,24 @@
-﻿using System;
+﻿using PagoAgil.Aplicacion.BD;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace PagoAgil.Aplicacion.Modelo.Usuario
 {
     public class Rol
     {
 
-        String nombre;
+        string nombre;
 
         List<Funcionalidad> funcionalides;
+
+        public Rol(string nuevoNombre, List<Funcionalidad> nuevasFuncionalidades) {
+
+            this.nombre = nuevoNombre;
+            this.funcionalides = nuevasFuncionalidades;
+
+        }
 
     }
 }
