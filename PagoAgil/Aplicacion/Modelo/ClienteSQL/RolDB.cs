@@ -10,11 +10,6 @@ namespace PagoAgil.Aplicacion.Modelo.ClienteSQL
 
         string nombre;
 
-        internal long getID()
-        {
-            return this.id;
-        }
-
         public override string ToString()
         {
             return this.nombre;

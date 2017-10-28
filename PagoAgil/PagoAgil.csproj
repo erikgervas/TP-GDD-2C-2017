@@ -45,12 +45,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aplicacion\BD\Utils\Conexion.cs" />
+    <Compile Include="Aplicacion\BD\Utils\DTO\FilaDTO.cs" />
+    <Compile Include="Aplicacion\BD\Utils\LectorDeTablas.cs" />
     <Compile Include="Aplicacion\BD\MediosPersistentes\Medio.cs" />
+    <Compile Include="Aplicacion\BD\MediosPersistentes\Medios\MedioUsuario.cs" />
     <Compile Include="Aplicacion\BD\MediosPersistentes\Mock.cs" />
     <Compile Include="Aplicacion\BD\Repositorio.cs" />
     <Compile Include="Aplicacion\BD\Repositorios\RepositorioEmpresas.cs" />
     <Compile Include="Aplicacion\BD\Repositorios\RepositorioSucursales.cs" />
     <Compile Include="Aplicacion\BD\Repositorios\RepositorioUsuarios.cs" />
+    <Compile Include="Aplicacion\BD\Utils\DTO\TablaDTO.cs" />
     <Compile Include="Aplicacion\Modelo\Cliente.cs" />
     <Compile Include="Aplicacion\Modelo\ClienteSQL\RolDB.cs" />
     <Compile Include="Aplicacion\Modelo\ClienteSQL\SucursalDB.cs" />

@@ -18,11 +18,6 @@ namespace PagoAgil.Aplicacion.BD
            return this.almacenamiento.darTodos();
         }
 
-        public E obtener(string nombre)
-        {
-            return this.almacenamiento.dar(nombre);
-        }
-
         public void alta(E unaEntidad)
         {
             this.almacenamiento.aniadir(unaEntidad);

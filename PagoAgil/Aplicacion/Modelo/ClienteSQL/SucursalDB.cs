@@ -10,6 +10,11 @@ namespace PagoAgil.Aplicacion.Modelo.ClienteSQL
 
         string nombre;
 
+        public SucursalDB()
+        {
+
+        }
+
         internal long getID()
         {
             return this.id;

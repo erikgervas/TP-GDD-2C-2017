@@ -1,4 +1,5 @@
-﻿using PagoAgil.Aplicacion.Modelo.ClienteSQL;
+﻿using PagoAgil.Aplicacion.BD.MediosPersistentes;
+using PagoAgil.Aplicacion.Modelo.ClienteSQL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace PagoAgil.Aplicacion.BD
     {
 
         private static RepositorioUsuarios instance = new RepositorioUsuarios();
+        private MedioUsuario almacenamiento = new MedioUsuario();
 
         public static RepositorioUsuarios getInstance() {
             return instance;

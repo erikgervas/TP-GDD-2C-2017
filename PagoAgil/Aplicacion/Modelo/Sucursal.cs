@@ -7,7 +7,7 @@ using PagoAgil.Aplicacion.BD.Repositorios;
 
 namespace PagoAgil.Aplicacion.Modelo
 {
-    class Sucursal : Habilitable
+    public class Sucursal : Habilitable
     {
 
         public string domicilio { get; set; }

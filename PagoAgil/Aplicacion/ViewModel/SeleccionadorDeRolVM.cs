@@ -1,6 +1,7 @@
 ﻿using PagoAgil.Aplicacion.Modelo;
 using PagoAgil.Aplicacion.Modelo.ClienteSQL;
 using PagoAgil.Aplicacion.Modelo.Usuario;
+using System;
 
 namespace PagoAgil.Aplicacion.View
 {
@@ -21,15 +22,17 @@ namespace PagoAgil.Aplicacion.View
         public SucursalDB[] obtenerSucursales()
         {
 
-            return ClienteTSQL.Instance.obtenerSucursales(usuarioActual.getID());
+            //return ClienteTSQL.Instance.obtenerSucursales(usuarioActual.getId());
 
+            throw new NotImplementedException();
         }
 
         public RolDB[] obtenerRoles(SucursalDB sucursal)
         {
 
-            return ClienteTSQL.Instance.obtenerRoles(usuarioActual.getID(), sucursal.getID());
-           
+            //return ClienteTSQL.Instance.obtenerRoles(usuarioActual.getId(), sucursal.getID());
+
+            throw new NotImplementedException();
         }
 
         public Usuario armarUsuario(RolDB rol)
@@ -42,7 +45,9 @@ namespace PagoAgil.Aplicacion.View
 
         private Rol armarRol(RolDB rol)
         {
-            return ClienteTSQL.Instance.obtenerRol(rol.getID());
+            //return ClienteTSQL.Instance.obtenerRol(rol.getID());
+
+            throw new NotImplementedException();
         }
 
     }
