@@ -1,11 +1,11 @@
-INSERT INTO Sucursal (nombre, domicilio, codigo_postal, habilitada)
+INSERT INTO Sucursal (nombre, domicilio, codigo_postal,estado)
 
 	SELECT DISTINCT
 
 		[Sucursal_Nombre] AS nombre,
 		[Sucursal_Dirección] AS domicilio,
 		[Sucursal_Codigo_Postal] AS codigo_Postal,
-		habilitada = 1
+		estado = 1
 
 	FROM [GD2C2017].[gd_esquema].[Maestra]
 

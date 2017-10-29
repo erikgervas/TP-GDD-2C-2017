@@ -120,7 +120,9 @@ CREATE TABLE Pago (
 	fecha_pago DATETIME NOT NULL,
 	id_medio_de_pago INT FOREIGN KEY REFERENCES Medio_De_Pago(id_medio_de_pago) NOT NULL,
 	id_cliente INT FOREIGN KEY REFERENCES Cliente(id_cliente) NOT NULL,
-	id_sucursal INT FOREIGN KEY REFERENCES Sucursal(id_sucursal) NOT NULL
+	id_sucursal INT FOREIGN KEY REFERENCES Sucursal(id_sucursal) NOT NULL,
+	id_rendicion INT FOREIGN KEY REFERENCES Rendicion(numero_rendicion),
+	id_factura INT FOREIGN KEY REFERENCES Factura(numero_factura) NOT NULL
 )
 
 CREATE TABLE Item_Pago (
