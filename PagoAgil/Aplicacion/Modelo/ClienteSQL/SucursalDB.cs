@@ -10,6 +10,8 @@ namespace PagoAgil.Aplicacion.Modelo.ClienteSQL
     {
 
         string nombre;
+        string domicilio;
+        int codigoPostal;
         Boolean habilitado;
 
         public SucursalDB(FilaDTO fila)
@@ -19,6 +21,8 @@ namespace PagoAgil.Aplicacion.Modelo.ClienteSQL
 
             this.id = long.Parse(elementos.ElementAt(0));
             this.nombre = elementos.ElementAt(1);
+            this.domicilio = elementos.ElementAt(2);
+            this.codigoPostal = int.Parse(elementos.ElementAt(3));
             this.habilitado = elementos.ElementAt(4).Equals("True") ? true : false;
 
         }

@@ -35,5 +35,11 @@ namespace PagoAgil.Aplicacion.BD
             return this.filas.Count();
         }
 
+        public List<FilaDTO> getFilas()
+        {
+            return this.filas;
+        }
+ 
+
     }
 }

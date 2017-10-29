@@ -22,5 +22,14 @@ namespace PagoAgil.Aplicacion.View.Sucursales
 
         }
 
+        private void buttonFiltrar_Click(object sender, EventArgs e)
+        {
+            String nombreSucursal = textBoxNombre.Text.Trim();
+            String direccionSucursal = textBoxDireccion.Text.Trim();
+            String CPSucursal = textBoxCP.Text.Trim();
+
+
+        }
+
     }
 }

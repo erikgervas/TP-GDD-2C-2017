@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aplicacion\BD\MediosPersistentes\Medios\MedioSucursal.cs" />
     <Compile Include="Aplicacion\BD\Utils\Conexion.cs" />
     <Compile Include="Aplicacion\BD\Utils\DTO\FilaDTO.cs" />
     <Compile Include="Aplicacion\BD\Utils\LectorDeTablas.cs" />
