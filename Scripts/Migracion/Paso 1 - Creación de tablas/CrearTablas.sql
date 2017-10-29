@@ -26,9 +26,9 @@ CREATE TABLE Usuario (
 
 CREATE TABLE Sucursal (
 	id_sucursal INT IDENTITY(1, 1) PRIMARY KEY,
-	nombre NVARCHAR(255) NOT NULL,
-	domicilio NVARCHAR(255) NOT NULL,
-	codigo_postal NVARCHAR(255) NOT NULL UNIQUE,
+	nombre NVARCHAR(50) NOT NULL,
+	domicilio NVARCHAR(50) NOT NULL,
+	codigo_postal numeric(18,0) NOT NULL UNIQUE,
 	estado BIT NOT NULL
 )
 
@@ -64,7 +64,7 @@ CREATE TABLE Cliente (
 )
 
 CREATE TABLE Rubro (
-	id_rubro INT IDENTITY(1, 1) PRIMARY KEY,
+	id_rubro NUMERIC(18,0) IDENTITY(1, 1) PRIMARY KEY,
 	descripcion NVARCHAR(50) NOT NULL 
 )
 
@@ -85,7 +85,7 @@ CREATE TABLE Rendicion (
 )
 
 CREATE TABLE Factura (
-	numero_factura INT PRIMARY KEY,
+	numero_factura NUMERIC(18,0) PRIMARY KEY,
 	factura_monto_total NUMERIC(18, 2) NOT NULL,
 	factura_fecha_alta DATETIME NOT NULL,
 	factura_fecha_vencimiento DATETIME NOT NULL,
@@ -98,7 +98,7 @@ CREATE TABLE Item (
 	id_item INT IDENTITY(1, 1) PRIMARY KEY,
 	nombre NVARCHAR(255) NOT NULL,
 	monto NUMERIC(18, 2) NOT NULL,
-	cantidad INT NOT NULL,
+	cantidad NUMERIC(18,0) NOT NULL,
 	numero_factura INT FOREIGN KEY REFERENCES Factura(numero_factura) NOT NULL
 )
 
@@ -111,7 +111,7 @@ CREATE TABLE Devolucion (
 
 CREATE TABLE Medio_De_Pago (
 	id_medio_de_pago INT IDENTITY(1, 1) PRIMARY KEY,
-	descripcion nvarchar(50) NOT NULL
+	descripcion nvarchar(255) NOT NULL
 )
 
 CREATE TABLE Pago (
