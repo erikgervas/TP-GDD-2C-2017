@@ -9,10 +9,10 @@ namespace PagoAgil.Aplicacion.Modelo.ClienteSQL
     public class SucursalDB : Entidad
     {
 
-        string nombre;
-        string domicilio;
-        int codigoPostal;
-        Boolean habilitado;
+        string nombre { get; set; }
+        string domicilio { get; set; }
+        int codigoPostal { get; set; }
+        Boolean habilitado { get; set; }
 
         public SucursalDB(FilaDTO fila)
         {

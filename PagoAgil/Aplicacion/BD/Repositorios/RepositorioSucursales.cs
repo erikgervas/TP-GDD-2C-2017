@@ -15,11 +15,16 @@ namespace PagoAgil.Aplicacion.BD.Repositorios
 
         private RepositorioSucursales() { }
 
-        public static RepositorioSucursales instanciar()
+        public static RepositorioSucursales getInstancia()
         {
             if (instancia == null) instancia = new RepositorioSucursales();
 
             return instancia;
+        }
+
+        public MedioSucursal getAlmacenamiento()
+        {
+            return almacenamiento;
         }
     }
 }

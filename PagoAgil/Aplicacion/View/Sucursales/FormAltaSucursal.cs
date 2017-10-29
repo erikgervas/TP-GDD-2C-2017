@@ -54,7 +54,7 @@ namespace PagoAgil.Aplicacion.View
         {
            Sucursal sucursalNueva = sucursalBuilder.crearSucursal();
 
-            RepositorioSucursales.instanciar().alta(sucursalNueva);
+            RepositorioSucursales.getInstancia().alta(sucursalNueva);
 
             FormAltaSucursalOk formAlta = new FormAltaSucursalOk(sucursalNueva);
 

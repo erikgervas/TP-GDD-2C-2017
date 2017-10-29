@@ -34,15 +34,12 @@
             this.textBoxDireccion = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dirección = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CódigoPostal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonFiltrar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBoxCP = new System.Windows.Forms.TextBox();
+            this.numericUpDownCP = new System.Windows.Forms.NumericUpDown();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,44 +100,6 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Dirección";
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Nombre,
-            this.Dirección,
-            this.CódigoPostal,
-            this.Estado});
-            this.dataGridView1.Location = new System.Drawing.Point(15, 175);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(917, 250);
-            this.dataGridView1.TabIndex = 7;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.Width = 200;
-            // 
-            // Dirección
-            // 
-            this.Dirección.HeaderText = "Dirección";
-            this.Dirección.Name = "Dirección";
-            this.Dirección.Width = 440;
-            // 
-            // CódigoPostal
-            // 
-            this.CódigoPostal.HeaderText = "CódigoPostal";
-            this.CódigoPostal.Name = "CódigoPostal";
-            this.CódigoPostal.Width = 150;
-            // 
-            // Estado
-            // 
-            this.Estado.HeaderText = "Estado";
-            this.Estado.Name = "Estado";
-            // 
             // buttonFiltrar
             // 
             this.buttonFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -172,24 +131,37 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Si lo desea puede continuar seleccionando una de las filas obtenidas";
             // 
-            // textBox1
+            // numericUpDownCP
             // 
-            this.textBoxCP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCP.Location = new System.Drawing.Point(753, 57);
-            this.textBoxCP.Name = "textBox1";
-            this.textBoxCP.Size = new System.Drawing.Size(150, 22);
-            this.textBoxCP.TabIndex = 11;
+            this.numericUpDownCP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDownCP.Location = new System.Drawing.Point(753, 58);
+            this.numericUpDownCP.Maximum = new decimal(new int[] {
+            1410065408,
+            2,
+            0,
+            0});
+            this.numericUpDownCP.Name = "numericUpDownCP";
+            this.numericUpDownCP.Size = new System.Drawing.Size(150, 22);
+            this.numericUpDownCP.TabIndex = 11;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(15, 185);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(888, 240);
+            this.dataGridView1.TabIndex = 12;
             // 
             // FormListadoSucursales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(933, 437);
-            this.Controls.Add(this.textBoxCP);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.numericUpDownCP);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.buttonFiltrar);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBoxDireccion);
@@ -198,6 +170,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FormListadoSucursales";
             this.Text = "FormListadoSucursales";
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -212,14 +185,10 @@
         private System.Windows.Forms.TextBox textBoxDireccion;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button buttonFiltrar;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Dirección;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CódigoPostal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
-        private System.Windows.Forms.TextBox textBoxCP;
+        private System.Windows.Forms.NumericUpDown numericUpDownCP;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

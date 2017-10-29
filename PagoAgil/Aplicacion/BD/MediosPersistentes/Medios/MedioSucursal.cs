@@ -14,7 +14,41 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
         {
             string query = "SELECT * FROM dbo.Sucursal";
 
+            return obtainSucursalesFromQuery(query);
+
+        }
+
+        public List<SucursalDB> filtrarPorNombre(string nombre)
+        {
+
+            string query = "SELECT * from dbo.obtenerSucursalPorNombre('" + nombre + "')";
+
+            return obtainSucursalesFromQuery(query);
+
+        }
+
+        public List<SucursalDB> filtrarPorDireccion(string direccion)
+        {
+
+            string query = "SELECT * from dbo.obtenerSucursalPorDireccion('" + direccion + "')";
+
+            return obtainSucursalesFromQuery(query);
+
+        }
+
+        public List<SucursalDB> filtrarPorCodigoPostal(int cp)
+        {
+
+            string query = "SELECT * from dbo.obtenerSucursalPorCodigoPostal('" + cp.ToString() + "')";
+
+            return obtainSucursalesFromQuery(query);
+
+        }
+
+        private List<SucursalDB> obtainSucursalesFromQuery(string query)
+        {
             TablaDTO tabla = LectorDeTablas.getInstance().obtener(query);
+
             FilaDTO fila;
             List<SucursalDB> sucursales = new List<SucursalDB>();
             int cant = tabla.cantidadDeFilas();
@@ -30,6 +64,7 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
             return sucursales;
 
         }
+        
 
         public long asignarId()
         {

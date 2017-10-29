@@ -7,11 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PagoAgil.Aplicacion.ViewModel;
+using PagoAgil.Aplicacion.Modelo.ClienteSQL;
+
+using PagoAgil.Aplicacion.BD.Repositorios;
+using PagoAgil.Aplicacion.Modelo;
 
 namespace PagoAgil.Aplicacion.View.Sucursales
 {
     public partial class FormListadoSucursales : Form
     {
+        ListadoSucursalesVM VM = new ListadoSucursalesVM();
+
         public FormListadoSucursales(String accion)
         {
             InitializeComponent();
@@ -24,11 +31,21 @@ namespace PagoAgil.Aplicacion.View.Sucursales
 
         private void buttonFiltrar_Click(object sender, EventArgs e)
         {
-            String nombreSucursal = textBoxNombre.Text.Trim();
-            String direccionSucursal = textBoxDireccion.Text.Trim();
-            String CPSucursal = textBoxCP.Text.Trim();
+            string nombreSucursal = textBoxNombre.Text.Trim();
+            string direccionSucursal = textBoxDireccion.Text.Trim();
+            int codigoPostal = (int) numericUpDownCP.Value;
 
+            List<SucursalDB> sucursalesFiltradas = new List<SucursalDB>();
 
+            sucursalesFiltradas = VM.filtrarSucursales(nombreSucursal,direccionSucursal,codigoPostal);
+
+            /*List<Sucursal> sucursalesFiltradas2 = new List<Sucursal>();
+            Sucursal sucu = new Sucursal(1, "Sucu", true, "Meh", 1111);
+            sucursalesFiltradas2.Add(sucu);
+
+            sucursalesFiltradas2.Add(RepositorioSucursales.getInstancia().getAlmacenamiento().darTodos().ElementAt(0));*/
+
+            dataGridView1.DataSource = sucursalesFiltradas;
 
         }
 
