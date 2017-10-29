@@ -124,10 +124,35 @@ INSERT INTO Item (nombre, monto, cantidad, numero_factura)
 	SELECT DISTINCT
 
 		'Sin nombre' AS nombre,
-		m.[ItemFactura_Monto] AS monto,
-		m.[ItemFactura_Cantidad] AS cantidad,
-		m.[Nro_Factura] AS numero_factura
+		i.view_monto AS monto,
+		i.view_cantidad AS cantidad,
+		i.view_numero_factura AS numero_factura
 
-	FROM [GD2C2017].[gd_esquema].[Maestra] m
+	FROM View_Item i
 
-	JOIN Factura f ON f.numero_factura = m.[Nro_Factura];
+	JOIN Factura f ON f.numero_factura = i.view_numero_factura;
+
+INSERT INTO Item_Pago (id_item, numero_factura, numero_pago)
+	
+	SELECT DISTINCT
+
+		i.id_item AS id_item,
+		i.numero_factura AS numero_factura,
+		p.numero_pago AS numero_pago
+
+	FROM View_Item vi
+
+	JOIN Item i ON i.numero_factura = vi.view_numero_factura
+	JOIN Pago p ON p.numero_pago = vi.view_numero_pago
+
+INSERT INTO Item_Rendicion(id_item, numero_rendicion)
+
+	SELECT DISTINCT
+
+		i.id_item AS id_item,
+		r.numero_rendicion AS numero_rendicion
+
+	FROM View_Item vi
+
+	JOIN Item i ON i.numero_factura = vi.view_numero_factura
+	JOIN Rendicion r ON r.numero_rendicion = vi.view_numero_rendicion - 1

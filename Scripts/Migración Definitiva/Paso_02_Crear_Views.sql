@@ -91,6 +91,22 @@ CREATE VIEW View_Pago_Medio_De_Pago AS
 
 GO
 
+/* Vista para no tener que recorrer la tabla otra vez para obtener los items y sus variantes. */
+
+CREATE VIEW View_Item AS
+
+	SELECT DISTINCT
+
+		m.[ItemFactura_Monto] AS view_monto,
+		m.[ItemFactura_Cantidad] AS view_cantidad,
+		m.[Nro_Factura] AS view_numero_factura,
+		m.[ItemPago_nro] AS view_numero_pago,
+		m.[ItemRendicion_nro] AS view_numero_rendicion
+
+	FROM [GD2C2017].[gd_esquema].[Maestra] m
+
+GO
+
 /* Como los clientes conflictivos también tienen facturas, pagos y rendiciones, decidimos apartar las filas de la tabla maestra de dichos clientes. */
 
 CREATE VIEW View_Tabla_Maestra_Conflictiva AS
