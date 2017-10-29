@@ -24,6 +24,7 @@ DROP VIEW
 	View_Cliente_Conflictivo,
 	View_Empresa_Rubro,
 	View_Factura,
+	View_Factura_Con_Rendicion,
 	View_Pago_Medio_De_Pago,
 	View_Item,
 	View_Tabla_Maestra_Conflictiva

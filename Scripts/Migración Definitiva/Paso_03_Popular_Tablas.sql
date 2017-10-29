@@ -71,7 +71,7 @@ INSERT INTO Rendicion (numero_rendicion, importe_comision, fecha_rendicion)
 
 SET IDENTITY_INSERT Rendicion OFF;
 
-INSERT INTO Factura (numero_factura, factura_monto_total, factura_fecha_alta, factura_fecha_vencimiento, dni_cliente, id_empresa)
+INSERT INTO Factura (numero_factura, factura_monto_total, factura_fecha_alta, factura_fecha_vencimiento, dni_cliente, id_empresa, numero_rendicion)
 
 	SELECT
 		
@@ -80,13 +80,14 @@ INSERT INTO Factura (numero_factura, factura_monto_total, factura_fecha_alta, fa
 		f.view_factura_fecha_alta AS factura_fecha_alta,
 		f.view_factura_fecha_vencimiento AS factura_fecha_vencimiento,
 		f.view_dni_cliente AS dni_cliente,
-		e.id_empresa AS id_empresa
+		e.id_empresa AS id_empresa,
+		f.view_numero_rendicion AS numero_rendicion
 
-	FROM View_Factura f
+	FROM View_Factura_Con_Rendicion f
 
 	JOIN Empresa e ON f.view_cuit_empresa = e.cuit
 
-	WHERE f.view_numero_rendicion IS NULL AND NOT EXISTS (SELECT 1 FROM View_Cliente_Conflictivo c WHERE f.view_dni_cliente = c.view_dni_cliente)
+	WHERE NOT EXISTS (SELECT 1 FROM View_Cliente_Conflictivo c WHERE f.view_dni_cliente = c.view_dni_cliente)
 
 INSERT INTO Medio_De_Pago (descripcion)
 
