@@ -29,6 +29,7 @@ namespace PagoAgil.Aplicacion.View.Sucursales
             String CPSucursal = textBoxCP.Text.Trim();
 
 
+
         }
 
     }
