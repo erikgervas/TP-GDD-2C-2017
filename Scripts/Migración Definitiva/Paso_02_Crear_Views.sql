@@ -72,6 +72,42 @@ CREATE VIEW View_Factura AS
 
 GO
 
+/* Vista para obtener las facturas con sus rendiciones, ya que en el anterior no se añadieron. */
+
+CREATE VIEW View_Factura_Con_Rendicion AS
+
+	SELECT
+
+		v1.view_numero_factura AS view_numero_factura,
+		v1.view_factura_monto_total AS view_factura_monto_total,
+		v1.view_factura_fecha_alta AS view_factura_fecha_alta,
+		v1.view_factura_fecha_vencimiento AS view_factura_fecha_vencimiento,
+		v1.view_dni_cliente AS view_dni_cliente,
+		v1.view_cuit_empresa AS view_cuit_empresa,
+		v1.view_numero_rendicion AS view_numero_rendicion
+		
+	FROM View_Factura v1
+		
+	WHERE v1.view_numero_rendicion IS NOT NULL
+
+	UNION
+
+	SELECT
+	
+		v2.view_numero_factura AS view_numero_factura,
+		v2.view_factura_monto_total AS view_factura_monto_total,
+		v2.view_factura_fecha_alta AS view_factura_fecha_alta,
+		v2.view_factura_fecha_vencimiento AS view_factura_fecha_vencimiento,
+		v2.view_dni_cliente AS view_dni_cliente,
+		v2.view_cuit_empresa AS view_cuit_empresa,
+		v2.view_numero_rendicion AS view_numero_rendicion
+		
+	FROM View_Factura v2
+	
+	WHERE NOT EXISTS (SELECT 1 FROM View_Factura v1 WHERE v2.view_numero_factura = v1.view_numero_factura AND v1.view_numero_rendicion IS NOT NULL)
+
+GO
+
 /* Vista para no tener que recorrer la tabla otra vez para obtener los medios de pago o los pagos. */
 
 CREATE VIEW View_Pago_Medio_De_Pago AS
@@ -88,6 +124,22 @@ CREATE VIEW View_Pago_Medio_De_Pago AS
 	FROM [GD2C2017].[gd_esquema].[Maestra]
 
 	WHERE [Pago_nro] IS NOT NULL
+
+GO
+
+/* Vista para no tener que recorrer la tabla otra vez para obtener los items y sus variantes. */
+
+CREATE VIEW View_Item AS
+
+	SELECT DISTINCT
+
+		m.[ItemFactura_Monto] AS view_monto,
+		m.[ItemFactura_Cantidad] AS view_cantidad,
+		m.[Nro_Factura] AS view_numero_factura,
+		m.[ItemPago_nro] AS view_numero_pago,
+		m.[ItemRendicion_nro] AS view_numero_rendicion
+
+	FROM [GD2C2017].[gd_esquema].[Maestra] m
 
 GO
 

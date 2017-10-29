@@ -71,7 +71,7 @@ INSERT INTO Rendicion (numero_rendicion, importe_comision, fecha_rendicion)
 
 SET IDENTITY_INSERT Rendicion OFF;
 
-INSERT INTO Factura (numero_factura, factura_monto_total, factura_fecha_alta, factura_fecha_vencimiento, dni_cliente, id_empresa)
+INSERT INTO Factura (numero_factura, factura_monto_total, factura_fecha_alta, factura_fecha_vencimiento, dni_cliente, id_empresa, numero_rendicion)
 
 	SELECT
 		
@@ -80,13 +80,14 @@ INSERT INTO Factura (numero_factura, factura_monto_total, factura_fecha_alta, fa
 		f.view_factura_fecha_alta AS factura_fecha_alta,
 		f.view_factura_fecha_vencimiento AS factura_fecha_vencimiento,
 		f.view_dni_cliente AS dni_cliente,
-		e.id_empresa AS id_empresa
+		e.id_empresa AS id_empresa,
+		f.view_numero_rendicion AS numero_rendicion
 
-	FROM View_Factura f
+	FROM View_Factura_Con_Rendicion f
 
 	JOIN Empresa e ON f.view_cuit_empresa = e.cuit
 
-	WHERE f.view_numero_rendicion IS NULL AND NOT EXISTS (SELECT 1 FROM View_Cliente_Conflictivo c WHERE f.view_dni_cliente = c.view_dni_cliente)
+	WHERE NOT EXISTS (SELECT 1 FROM View_Cliente_Conflictivo c WHERE f.view_dni_cliente = c.view_dni_cliente)
 
 INSERT INTO Medio_De_Pago (descripcion)
 
@@ -124,10 +125,35 @@ INSERT INTO Item (nombre, monto, cantidad, numero_factura)
 	SELECT DISTINCT
 
 		'Sin nombre' AS nombre,
-		m.[ItemFactura_Monto] AS monto,
-		m.[ItemFactura_Cantidad] AS cantidad,
-		m.[Nro_Factura] AS numero_factura
+		i.view_monto AS monto,
+		i.view_cantidad AS cantidad,
+		i.view_numero_factura AS numero_factura
 
-	FROM [GD2C2017].[gd_esquema].[Maestra] m
+	FROM View_Item i
 
-	JOIN Factura f ON f.numero_factura = m.[Nro_Factura];
+	JOIN Factura f ON f.numero_factura = i.view_numero_factura;
+
+INSERT INTO Item_Pago (id_item, numero_factura, numero_pago)
+	
+	SELECT DISTINCT
+
+		i.id_item AS id_item,
+		i.numero_factura AS numero_factura,
+		p.numero_pago AS numero_pago
+
+	FROM View_Item vi
+
+	JOIN Item i ON i.numero_factura = vi.view_numero_factura
+	JOIN Pago p ON p.numero_pago = vi.view_numero_pago
+
+INSERT INTO Item_Rendicion(id_item, numero_rendicion)
+
+	SELECT DISTINCT
+
+		i.id_item AS id_item,
+		r.numero_rendicion AS numero_rendicion
+
+	FROM View_Item vi
+
+	JOIN Item i ON i.numero_factura = vi.view_numero_factura
+	JOIN Rendicion r ON r.numero_rendicion = vi.view_numero_rendicion - 1
