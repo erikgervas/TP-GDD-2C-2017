@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PagoAgil.Aplicacion.Modelo.ClienteSQL;
+using PagoAgil.Aplicacion.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,8 +9,12 @@ using System.Windows.Forms;
 
 namespace PagoAgil.Aplicacion.View
 {
+    
     class FormABMCliente : Form
     {
+        ClientesVM clientesVM = new ClientesVM();
+
+
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn nombre;
         private DataGridViewTextBoxColumn apellido;
@@ -220,6 +226,19 @@ namespace PagoAgil.Aplicacion.View
 
         private void FormABMCliente_Load(object sender, EventArgs e)
         {
+            
+
+            List<ClienteDB> clientes = clientesVM.obtenerClientes();
+            BindingSource bs = new BindingSource();
+            bs.DataSource = typeof(ClienteDB);                                //**
+            clientes.ForEach(delegate(ClienteDB c)
+                {
+                    bs.Add(c); });
+
+            dataGridView1.DataSource = bs;                                            //**
+            dataGridView1.AutoGenerateColumns = true; // create columns automatically //**
+            
+
 
         }
     }

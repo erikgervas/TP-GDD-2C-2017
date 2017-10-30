@@ -35,5 +35,10 @@ namespace PagoAgil.Aplicacion.Modelo.ClienteSQL
             this.habilitado = elementos.ElementAt(8).Equals("True") ? true : false;
 
         }
+
+        public Boolean getHabilitado()
+        {
+            return this.habilitado;
+        }
     }
 }

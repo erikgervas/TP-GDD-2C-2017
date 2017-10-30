@@ -14,7 +14,6 @@ namespace PagoAgil
         {
            
 
-            string b = EncriptadorSHA.Instance.encriptar("admin");
  
             return GestorDeUsuarios.getInstance().obtenerUsuario(nombre, pass);
         

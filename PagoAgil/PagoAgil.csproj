@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aplicacion\BD\MediosPersistentes\Medios\MedioCliente.cs" />
     <Compile Include="Aplicacion\BD\MediosPersistentes\Medios\MedioSucursal.cs" />
     <Compile Include="Aplicacion\BD\Repositorios\RepositorioClientes.cs" />
     <Compile Include="Aplicacion\BD\Utils\Conexion.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="Aplicacion\ViewModel\SeleccionadorDeRolVM.cs" />
     <Compile Include="Aplicacion\Orquestradores\GestorDeUsuarios.cs" />
     <Compile Include="Aplicacion\Orquestradores\ValidadorDeInputs.cs" />
+    <Compile Include="Aplicacion\ViewModel\ClientesVM.cs" />
     <Compile Include="Aplicacion\View\Empresas\EmpresasAlta.cs">
       <SubType>Form</SubType>
     </Compile>
