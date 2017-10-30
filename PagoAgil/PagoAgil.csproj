@@ -83,27 +83,40 @@
     <Compile Include="Aplicacion\ViewModel\SeleccionadorDeRolVM.cs" />
     <Compile Include="Aplicacion\Orquestradores\GestorDeUsuarios.cs" />
     <Compile Include="Aplicacion\Orquestradores\ValidadorDeInputs.cs" />
-    <Compile Include="Aplicacion\View\Empresas\AltaEmpresas.cs">
+    <Compile Include="Aplicacion\View\Empresas\EmpresasAlta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Aplicacion\View\Empresas\AltaEmpresas.Designer.cs">
-      <DependentUpon>AltaEmpresas.cs</DependentUpon>
+    <Compile Include="Aplicacion\View\Empresas\EmpresasAlta.Designer.cs">
+      <DependentUpon>EmpresasAlta.cs</DependentUpon>
     </Compile>
-    <Compile Include="Aplicacion\View\Empresas\AltaEmpresasOk.cs">
+    <Compile Include="Aplicacion\View\Empresas\EmpresasAltaOk.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Aplicacion\View\Empresas\AltaEmpresasOk.Designer.cs">
-      <DependentUpon>AltaEmpresasOk.cs</DependentUpon>
+    <Compile Include="Aplicacion\View\Empresas\EmpresasAltaOk.Designer.cs">
+      <DependentUpon>EmpresasAltaOk.cs</DependentUpon>
     </Compile>
-    <Compile Include="Aplicacion\View\Empresas\EmpresaBuilder.cs" />
+    <Compile Include="Aplicacion\View\Empresas\EmpresasBuscador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Empresas\EmpresasBuscador.Designer.cs">
+      <DependentUpon>EmpresasBuscador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicacion\View\Empresas\EmpresasSeleccionABM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Empresas\EmpresasSeleccionABM.Designer.cs">
+      <DependentUpon>EmpresasSeleccionABM.cs</DependentUpon>
+    </Compile>
     <Compile Include="Aplicacion\View\FormABMCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Aplicacion\View\Sucursales\FormABMSucursal.cs">
       <SubType>Form</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Aplicacion\View\Sucursales\FormABMSucursal.Designer.cs">
       <DependentUpon>FormABMSucursal.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Aplicacion\View\FormAltaCliente.cs">
       <SubType>Form</SubType>
@@ -164,17 +177,29 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Aplicacion\View\Empresas\AltaEmpresas.resx">
-      <DependentUpon>AltaEmpresas.cs</DependentUpon>
+    <Compile Include="DataSet\SQL_BOYS_Data_Set.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SQL_BOYS_Data_Set.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Aplicacion\View\Empresas\EmpresasAlta.resx">
+      <DependentUpon>EmpresasAlta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Aplicacion\View\Empresas\AltaEmpresasOk.resx">
-      <DependentUpon>AltaEmpresasOk.cs</DependentUpon>
+    <EmbeddedResource Include="Aplicacion\View\Empresas\EmpresasAltaOk.resx">
+      <DependentUpon>EmpresasAltaOk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Empresas\EmpresasBuscador.resx">
+      <DependentUpon>EmpresasBuscador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Empresas\EmpresasSeleccionABM.resx">
+      <DependentUpon>EmpresasSeleccionABM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\FormABMCliente.resx">
       <DependentUpon>FormABMCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\Sucursales\FormABMSucursal.resx">
       <DependentUpon>FormABMSucursal.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\FormAltaCliente.resx">
       <DependentUpon>FormAltaCliente.cs</DependentUpon>
@@ -233,6 +258,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="DataSet\SQL_BOYS_Data_Set.xsc">
+      <DependentUpon>SQL_BOYS_Data_Set.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\SQL_BOYS_Data_Set.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SQL_BOYS_Data_Set.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSet\SQL_BOYS_Data_Set.xss">
+      <DependentUpon>SQL_BOYS_Data_Set.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

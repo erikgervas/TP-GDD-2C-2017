@@ -16,12 +16,5 @@ namespace PagoAgil.Aplicacion.View.Empresas
         {
             InitializeComponent();
         }
-
-        private void EmpresasBuscador_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'gD2C2017DataSet.Empresa' table. You can move, or remove it, as needed.
-            this.empresaTableAdapter.Fill(this.gD2C2017DataSet.Empresa);
-
-        }
     }
 }

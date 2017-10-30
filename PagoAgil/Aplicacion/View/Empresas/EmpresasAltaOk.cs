@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PagoAgil.Aplicacion.View.Empresas
 {
-    public partial class EmpresasAlta : Form
+    public partial class EmpresasAltaOk : Form
     {
-        public EmpresasAlta()
+        public EmpresasAltaOk()
         {
             InitializeComponent();
         }
