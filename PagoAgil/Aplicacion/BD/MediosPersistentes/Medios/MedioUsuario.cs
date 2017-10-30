@@ -15,7 +15,7 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes
         public UsuarioDB dar(string nombre)
         {
 
-            string query = "SELECT * from dbo.obtenerUsuario('" + nombre + "')";
+            string query = "SELECT * from dbo.obtenerUsuario('" + nombre + "')";            
 
             TablaDTO tabla = LectorDeTablas.getInstance().obtener(query);
 

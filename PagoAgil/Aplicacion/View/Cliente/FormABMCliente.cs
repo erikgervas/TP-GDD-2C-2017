@@ -179,7 +179,7 @@ namespace PagoAgil.Aplicacion.View
             // 
             // nuevoClienteButton
             // 
-            this.nuevoClienteButton.Location = new System.Drawing.Point(895, 12);
+            this.nuevoClienteButton.Location = new System.Drawing.Point(824, 30);
             this.nuevoClienteButton.Name = "nuevoClienteButton";
             this.nuevoClienteButton.Size = new System.Drawing.Size(199, 69);
             this.nuevoClienteButton.TabIndex = 7;
@@ -189,7 +189,7 @@ namespace PagoAgil.Aplicacion.View
             // 
             // FormABMCliente
             // 
-            this.ClientSize = new System.Drawing.Size(1106, 696);
+            this.ClientSize = new System.Drawing.Size(1055, 696);
             this.Controls.Add(this.nuevoClienteButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);

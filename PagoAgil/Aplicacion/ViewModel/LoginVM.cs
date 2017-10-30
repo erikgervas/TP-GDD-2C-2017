@@ -1,4 +1,5 @@
-﻿using PagoAgil.Aplicacion.BD;
+﻿using PagoAgil.Apliacion.Modelo.Serializador;
+using PagoAgil.Aplicacion.BD;
 using PagoAgil.Aplicacion.Modelo.ClienteSQL;
 using PagoAgil.Aplicacion.Modelo.Excepciones;
 using PagoAgil.Aplicacion.View.Validador;
@@ -11,6 +12,9 @@ namespace PagoAgil
 
         public UsuarioDB obtener(string nombre, string pass)
         {
+           
+
+            string b = EncriptadorSHA.Instance.encriptar("admin");
  
             return GestorDeUsuarios.getInstance().obtenerUsuario(nombre, pass);
         

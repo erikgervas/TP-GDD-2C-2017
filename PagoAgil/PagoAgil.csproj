@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aplicacion\BD\MediosPersistentes\Medios\MedioSucursal.cs" />
+    <Compile Include="Aplicacion\BD\Repositorios\RepositorioClientes.cs" />
     <Compile Include="Aplicacion\BD\Utils\Conexion.cs" />
     <Compile Include="Aplicacion\BD\Utils\DTO\FilaDTO.cs" />
     <Compile Include="Aplicacion\BD\Utils\LectorDeTablas.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Aplicacion\BD\Repositorios\RepositorioUsuarios.cs" />
     <Compile Include="Aplicacion\BD\Utils\DTO\TablaDTO.cs" />
     <Compile Include="Aplicacion\Modelo\Cliente.cs" />
+    <Compile Include="Aplicacion\Modelo\ClienteSQL\ClienteDB.cs" />
     <Compile Include="Aplicacion\Modelo\ClienteSQL\RolDB.cs" />
     <Compile Include="Aplicacion\Modelo\ClienteSQL\SucursalDB.cs" />
     <Compile Include="Aplicacion\Modelo\ClienteSQL\UsuarioDB.cs" />
@@ -72,6 +74,7 @@
     <Compile Include="Aplicacion\Modelo\Usuario\Funcionalidad.cs" />
     <Compile Include="Aplicacion\Modelo\Usuario\Rol.cs" />
     <Compile Include="Aplicacion\Modelo\Usuario\Usuario.cs" />
+    <Compile Include="Aplicacion\Orquestradores\GestorDeClientes.cs" />
     <Compile Include="Aplicacion\Orquestradores\GestorDeRoles.cs" />
     <Compile Include="Aplicacion\Orquestradores\GestorDeSucursales.cs" />
     <Compile Include="Aplicacion\ViewModel\AltaSucursalVM.cs" />
@@ -107,7 +110,7 @@
     <Compile Include="Aplicacion\View\Empresas\EmpresasSeleccionABM.Designer.cs">
       <DependentUpon>EmpresasSeleccionABM.cs</DependentUpon>
     </Compile>
-    <Compile Include="Aplicacion\View\FormABMCliente.cs">
+    <Compile Include="Aplicacion\View\Cliente\FormABMCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Aplicacion\View\Sucursales\FormABMSucursal.cs">
@@ -118,7 +121,7 @@
       <DependentUpon>FormABMSucursal.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Aplicacion\View\FormAltaCliente.cs">
+    <Compile Include="Aplicacion\View\Cliente\FormAltaCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Aplicacion\View\Sucursales\FormAltaSucursal.cs">
@@ -170,11 +173,6 @@
       <DependentUpon>FormSeleccionadorDeRol.cs</DependentUpon>
     </Compile>
     <Compile Include="Aplicacion\View\Sucursales\SucursalesBuilder.cs" />
-    <Compile Include="GD2C2017DataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GD2C2017DataSet1.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataSet\SQL_BOYS_Data_Set.Designer.cs">
@@ -194,14 +192,14 @@
     <EmbeddedResource Include="Aplicacion\View\Empresas\EmpresasSeleccionABM.resx">
       <DependentUpon>EmpresasSeleccionABM.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Aplicacion\View\FormABMCliente.resx">
+    <EmbeddedResource Include="Aplicacion\View\Cliente\FormABMCliente.resx">
       <DependentUpon>FormABMCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\Sucursales\FormABMSucursal.resx">
       <DependentUpon>FormABMSucursal.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Aplicacion\View\FormAltaCliente.resx">
+    <EmbeddedResource Include="Aplicacion\View\Cliente\FormAltaCliente.resx">
       <DependentUpon>FormAltaCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\Sucursales\FormAltaSucursal.resx">
@@ -238,17 +236,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="GD2C2017DataSet1.xsc">
-      <DependentUpon>GD2C2017DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="GD2C2017DataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>GD2C2017DataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="GD2C2017DataSet1.xss">
-      <DependentUpon>GD2C2017DataSet1.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

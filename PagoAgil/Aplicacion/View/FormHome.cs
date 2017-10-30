@@ -24,6 +24,7 @@ namespace PagoAgil.Aplicacion.View
 
         public FormHome()
         {
+            InitializeComponent();
             // TODO: Complete member initialization
         }
 
