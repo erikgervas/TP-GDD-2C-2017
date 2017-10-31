@@ -1,3 +1,19 @@
+SET IDENTITY_INSERT Rendicion ON;
+
+INSERT INTO Rendicion (numero_rendicion, importe_comision, fecha_rendicion)
+
+	SELECT DISTINCT
+		
+		[Rendicion_Nro] AS numero_rendicion,
+		[ItemRendicion_Importe] AS importe_comision,
+		[Rendicion_Fecha] AS fecha_rendicion
+
+	FROM [GD2C2017].[gd_esquema].[Maestra]
+
+	WHERE Rendicion_Nro IS NOT NULL
+
+SET IDENTITY_INSERT Rendicion OFF;
+
 INSERT INTO Sucursal (cp_sucursal, nombre, domicilio, habilitadx)
 
 	SELECT DISTINCT
@@ -49,27 +65,11 @@ INSERT INTO Empresa (nombre, cuit, domicilio, dia_rendicion, habilitadx, id_rubr
 		view_nombre AS nombre,
 		view_cuit AS cuit,
 		view_domicilio AS domicilio,
-		dia_rendicion = 0,
+		dia_rendicion = (SELECT TOP 1 DAY (r.fecha_rendicion) FROM Rendicion r, View_Factura f, View_Empresa_Rubro e WHERE r.numero_rendicion = f.view_numero_rendicion AND f.view_cuit_empresa = e.view_cuit ORDER BY r.fecha_rendicion DESC),
 		habilitadx = 1,
 		view_id_rubro AS id_rubro
 
 	FROM View_Empresa_Rubro;
-
-SET IDENTITY_INSERT Rendicion ON;
-
-INSERT INTO Rendicion (numero_rendicion, importe_comision, fecha_rendicion)
-
-	SELECT DISTINCT
-		
-		[Rendicion_Nro] AS numero_rendicion,
-		[ItemRendicion_Importe] AS importe_comision,
-		[Rendicion_Fecha] AS fecha_rendicion
-
-	FROM [GD2C2017].[gd_esquema].[Maestra]
-
-	WHERE Rendicion_Nro IS NOT NULL
-
-SET IDENTITY_INSERT Rendicion OFF;
 
 INSERT INTO Factura (numero_factura, factura_monto_total, factura_fecha_alta, factura_fecha_vencimiento, dni_cliente, id_empresa, numero_rendicion)
 

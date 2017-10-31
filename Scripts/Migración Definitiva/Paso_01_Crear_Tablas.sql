@@ -60,7 +60,7 @@ CREATE TABLE Empresa (
 	nombre NVARCHAR(255) NOT NULL,
 	cuit NVARCHAR(50) NOT NULL UNIQUE,
 	domicilio NVARCHAR(255) NOT NULL,
-	dia_rendicion INT NOT NULL,
+	dia_rendicion INT NOT NULL CHECK (dia_rendicion BETWEEN 1 AND 31),
 	habilitadx BIT NOT NULL,
 	id_rubro NUMERIC(18,0) FOREIGN KEY REFERENCES Rubro(id_rubro) NOT NULL
 )

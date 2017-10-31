@@ -5,14 +5,6 @@ namespace PagoAgil.Aplicacion.Modelo
 {
     public class Empresa : Habilitable
     {
-        private long p1;
-        private string p2;
-        private bool p3;
-        private string p4;
-        private string p5;
-        private string p6;
-        private int p7;
-
         public string cuit { get; set; }
         public string direccion { get; set; }
         public string rubro { get; set; }

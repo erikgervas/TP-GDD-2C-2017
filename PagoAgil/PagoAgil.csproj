@@ -88,11 +88,38 @@
     <Compile Include="Aplicacion\Orquestradores\GestorDeUsuarios.cs" />
     <Compile Include="Aplicacion\Orquestradores\ValidadorDeInputs.cs" />
     <Compile Include="Aplicacion\ViewModel\ClientesVM.cs" />
+    <Compile Include="Aplicacion\View\Cliente\FormABMCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Empresas\EmpresasAdvertenciaFaltanCampos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Empresas\EmpresasAdvertenciaFaltanCampos.Designer.cs">
+      <DependentUpon>EmpresasAdvertenciaFaltanCampos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicacion\View\Empresas\EmpresasAdvertenciaMismoCuit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Empresas\EmpresasAdvertenciaMismoCuit.Designer.cs">
+      <DependentUpon>EmpresasAdvertenciaMismoCuit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicacion\View\Empresas\EmpresasAdvertenciaRendicionesPendientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Empresas\EmpresasAdvertenciaRendicionesPendientes.Designer.cs">
+      <DependentUpon>EmpresasAdvertenciaRendicionesPendientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Aplicacion\View\Empresas\EmpresasAlta.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Aplicacion\View\Empresas\EmpresasAlta.Designer.cs">
       <DependentUpon>EmpresasAlta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicacion\View\Empresas\EmpresasAltaConfirmacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Empresas\EmpresasAltaConfirmacion.Designer.cs">
+      <DependentUpon>EmpresasAltaConfirmacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Aplicacion\View\Empresas\EmpresasAltaOk.cs">
       <SubType>Form</SubType>
@@ -100,20 +127,53 @@
     <Compile Include="Aplicacion\View\Empresas\EmpresasAltaOk.Designer.cs">
       <DependentUpon>EmpresasAltaOk.cs</DependentUpon>
     </Compile>
+    <Compile Include="Aplicacion\View\Empresas\EmpresasBaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Empresas\EmpresasBaja.Designer.cs">
+      <DependentUpon>EmpresasBaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicacion\View\Empresas\EmpresasBajaOk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Empresas\EmpresasBajaOk.Designer.cs">
+      <DependentUpon>EmpresasBajaOk.cs</DependentUpon>
+    </Compile>
     <Compile Include="Aplicacion\View\Empresas\EmpresasBuscador.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Aplicacion\View\Empresas\EmpresasBuscador.Designer.cs">
       <DependentUpon>EmpresasBuscador.cs</DependentUpon>
     </Compile>
+    <Compile Include="Aplicacion\View\Empresas\EmpresasBuscadorSeleccionar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Empresas\EmpresasBuscadorSeleccionar.Designer.cs">
+      <DependentUpon>EmpresasBuscadorSeleccionar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicacion\View\Empresas\EmpresasModificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Empresas\EmpresasModificacion.Designer.cs">
+      <DependentUpon>EmpresasModificacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicacion\View\Empresas\EmpresasModificacionConfirmacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Empresas\EmpresasModificacionConfirmacion.Designer.cs">
+      <DependentUpon>EmpresasModificacionConfirmacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicacion\View\Empresas\EmpresasModificacionOk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Empresas\EmpresasModificacionOk.Designer.cs">
+      <DependentUpon>EmpresasModificacionOk.cs</DependentUpon>
+    </Compile>
     <Compile Include="Aplicacion\View\Empresas\EmpresasSeleccionABM.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Aplicacion\View\Empresas\EmpresasSeleccionABM.Designer.cs">
       <DependentUpon>EmpresasSeleccionABM.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Aplicacion\View\Cliente\FormABMCliente.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Aplicacion\View\Sucursales\FormABMSucursal.cs">
       <SubType>Form</SubType>
@@ -182,20 +242,50 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SQL_BOYS_Data_Set.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Aplicacion\View\Cliente\FormABMCliente.resx">
+      <DependentUpon>FormABMCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Empresas\EmpresasAdvertenciaFaltanCampos.resx">
+      <DependentUpon>EmpresasAdvertenciaFaltanCampos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Empresas\EmpresasAdvertenciaMismoCuit.resx">
+      <DependentUpon>EmpresasAdvertenciaMismoCuit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Empresas\EmpresasAdvertenciaRendicionesPendientes.resx">
+      <DependentUpon>EmpresasAdvertenciaRendicionesPendientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\Empresas\EmpresasAlta.resx">
       <DependentUpon>EmpresasAlta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Empresas\EmpresasAltaConfirmacion.resx">
+      <DependentUpon>EmpresasAltaConfirmacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\Empresas\EmpresasAltaOk.resx">
       <DependentUpon>EmpresasAltaOk.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Empresas\EmpresasBaja.resx">
+      <DependentUpon>EmpresasBaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Empresas\EmpresasBajaOk.resx">
+      <DependentUpon>EmpresasBajaOk.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\Empresas\EmpresasBuscador.resx">
       <DependentUpon>EmpresasBuscador.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Empresas\EmpresasBuscadorSeleccionar.resx">
+      <DependentUpon>EmpresasBuscadorSeleccionar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Empresas\EmpresasModificacion.resx">
+      <DependentUpon>EmpresasModificacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Empresas\EmpresasModificacionConfirmacion.resx">
+      <DependentUpon>EmpresasModificacionConfirmacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Empresas\EmpresasModificacionOk.resx">
+      <DependentUpon>EmpresasModificacionOk.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\Empresas\EmpresasSeleccionABM.resx">
       <DependentUpon>EmpresasSeleccionABM.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Aplicacion\View\Cliente\FormABMCliente.resx">
-      <DependentUpon>FormABMCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\Sucursales\FormABMSucursal.resx">
       <DependentUpon>FormABMSucursal.cs</DependentUpon>

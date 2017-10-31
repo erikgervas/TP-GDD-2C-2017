@@ -1,6 +1,6 @@
 ﻿namespace PagoAgil.Aplicacion.View.Empresas
 {
-    partial class EmpresasAlta
+    partial class EmpresasModificacion
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tituloLabel = new System.Windows.Forms.Label();
+            this.altaButton = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.altaGroup = new System.Windows.Forms.GroupBox();
+            this.habilitadaCheckBox = new System.Windows.Forms.CheckBox();
+            this.limpiarButton = new System.Windows.Forms.Button();
             this.altaPanel = new System.Windows.Forms.TableLayoutPanel();
             this.direccionText = new System.Windows.Forms.TextBox();
             this.cuitText = new System.Windows.Forms.TextBox();
@@ -40,28 +44,63 @@
             this.nombreText = new System.Windows.Forms.TextBox();
             this.rubroComboBox = new System.Windows.Forms.ComboBox();
             this.diaNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.altaGroup = new System.Windows.Forms.GroupBox();
-            this.habilitadaCheckBox = new System.Windows.Forms.CheckBox();
-            this.limpiarButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.altaButton = new System.Windows.Forms.Button();
+            this.tituloLabel = new System.Windows.Forms.Label();
+            this.altaGroup.SuspendLayout();
             this.altaPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.diaNumericUpDown)).BeginInit();
-            this.altaGroup.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tituloLabel
+            // altaButton
             // 
-            this.tituloLabel.AccessibleName = "";
-            this.tituloLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.tituloLabel.AutoSize = true;
-            this.tituloLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tituloLabel.Location = new System.Drawing.Point(248, 34);
-            this.tituloLabel.Name = "tituloLabel";
-            this.tituloLabel.Size = new System.Drawing.Size(125, 20);
-            this.tituloLabel.TabIndex = 1;
-            this.tituloLabel.Text = "Alta de empresa";
-            this.tituloLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.altaButton.Location = new System.Drawing.Point(235, 379);
+            this.altaButton.Name = "altaButton";
+            this.altaButton.Size = new System.Drawing.Size(149, 30);
+            this.altaButton.TabIndex = 14;
+            this.altaButton.Text = "Modificar";
+            this.altaButton.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(12, 12);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(27, 23);
+            this.button2.TabIndex = 13;
+            this.button2.Text = "<<";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // altaGroup
+            // 
+            this.altaGroup.Controls.Add(this.habilitadaCheckBox);
+            this.altaGroup.Controls.Add(this.limpiarButton);
+            this.altaGroup.Controls.Add(this.altaPanel);
+            this.altaGroup.Location = new System.Drawing.Point(131, 76);
+            this.altaGroup.Name = "altaGroup";
+            this.altaGroup.Size = new System.Drawing.Size(357, 286);
+            this.altaGroup.TabIndex = 12;
+            this.altaGroup.TabStop = false;
+            this.altaGroup.Text = "Datos nuevos para la empresa";
+            // 
+            // habilitadaCheckBox
+            // 
+            this.habilitadaCheckBox.AutoSize = true;
+            this.habilitadaCheckBox.Checked = true;
+            this.habilitadaCheckBox.CheckState = System.Windows.Forms.CheckState.Indeterminate;
+            this.habilitadaCheckBox.Enabled = false;
+            this.habilitadaCheckBox.Location = new System.Drawing.Point(30, 249);
+            this.habilitadaCheckBox.Name = "habilitadaCheckBox";
+            this.habilitadaCheckBox.Size = new System.Drawing.Size(73, 17);
+            this.habilitadaCheckBox.TabIndex = 5;
+            this.habilitadaCheckBox.Text = "Habilitada";
+            this.habilitadaCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // limpiarButton
+            // 
+            this.limpiarButton.Location = new System.Drawing.Point(251, 244);
+            this.limpiarButton.Name = "limpiarButton";
+            this.limpiarButton.Size = new System.Drawing.Size(75, 23);
+            this.limpiarButton.TabIndex = 3;
+            this.limpiarButton.Text = "Limpiar";
+            this.limpiarButton.UseVisualStyleBackColor = true;
             // 
             // altaPanel
             // 
@@ -96,6 +135,7 @@
             this.direccionText.Name = "direccionText";
             this.direccionText.Size = new System.Drawing.Size(142, 20);
             this.direccionText.TabIndex = 7;
+            this.direccionText.Text = "<Rubro actual>";
             // 
             // cuitText
             // 
@@ -103,6 +143,7 @@
             this.cuitText.Name = "cuitText";
             this.cuitText.Size = new System.Drawing.Size(142, 20);
             this.cuitText.TabIndex = 6;
+            this.cuitText.Text = "<CUIT actual>";
             // 
             // nombreLabel
             // 
@@ -155,6 +196,7 @@
             this.nombreText.Name = "nombreText";
             this.nombreText.Size = new System.Drawing.Size(142, 20);
             this.nombreText.TabIndex = 5;
+            this.nombreText.Text = "<Nombre actual>";
             // 
             // rubroComboBox
             // 
@@ -163,6 +205,7 @@
             this.rubroComboBox.Name = "rubroComboBox";
             this.rubroComboBox.Size = new System.Drawing.Size(142, 21);
             this.rubroComboBox.TabIndex = 8;
+            this.rubroComboBox.Text = "<Rubro actual>";
             // 
             // diaNumericUpDown
             // 
@@ -186,58 +229,20 @@
             0,
             0});
             // 
-            // altaGroup
+            // tituloLabel
             // 
-            this.altaGroup.Controls.Add(this.habilitadaCheckBox);
-            this.altaGroup.Controls.Add(this.limpiarButton);
-            this.altaGroup.Controls.Add(this.altaPanel);
-            this.altaGroup.Location = new System.Drawing.Point(131, 76);
-            this.altaGroup.Name = "altaGroup";
-            this.altaGroup.Size = new System.Drawing.Size(358, 286);
-            this.altaGroup.TabIndex = 3;
-            this.altaGroup.TabStop = false;
-            this.altaGroup.Text = "Datos de la nueva empresa";
+            this.tituloLabel.AccessibleName = "";
+            this.tituloLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.tituloLabel.AutoSize = true;
+            this.tituloLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tituloLabel.Location = new System.Drawing.Point(218, 34);
+            this.tituloLabel.Name = "tituloLabel";
+            this.tituloLabel.Size = new System.Drawing.Size(185, 20);
+            this.tituloLabel.TabIndex = 11;
+            this.tituloLabel.Text = "Modificación de empresa";
+            this.tituloLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // habilitadaCheckBox
-            // 
-            this.habilitadaCheckBox.AutoSize = true;
-            this.habilitadaCheckBox.Checked = true;
-            this.habilitadaCheckBox.CheckState = System.Windows.Forms.CheckState.Indeterminate;
-            this.habilitadaCheckBox.Location = new System.Drawing.Point(30, 249);
-            this.habilitadaCheckBox.Name = "habilitadaCheckBox";
-            this.habilitadaCheckBox.Size = new System.Drawing.Size(73, 17);
-            this.habilitadaCheckBox.TabIndex = 4;
-            this.habilitadaCheckBox.Text = "Habilitada";
-            this.habilitadaCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // limpiarButton
-            // 
-            this.limpiarButton.Location = new System.Drawing.Point(251, 244);
-            this.limpiarButton.Name = "limpiarButton";
-            this.limpiarButton.Size = new System.Drawing.Size(75, 23);
-            this.limpiarButton.TabIndex = 3;
-            this.limpiarButton.Text = "Limpiar";
-            this.limpiarButton.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(12, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(28, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "<<";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // altaButton
-            // 
-            this.altaButton.Location = new System.Drawing.Point(235, 379);
-            this.altaButton.Name = "altaButton";
-            this.altaButton.Size = new System.Drawing.Size(150, 30);
-            this.altaButton.TabIndex = 6;
-            this.altaButton.Text = "Dar de alta";
-            this.altaButton.UseVisualStyleBackColor = true;
-            // 
-            // EmpresasAlta
+            // EmpresasModificacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -246,13 +251,13 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.altaGroup);
             this.Controls.Add(this.tituloLabel);
-            this.Name = "EmpresasAlta";
-            this.Text = "Alta de empresas";
+            this.Name = "EmpresasModificacion";
+            this.Text = "Modificación de empresas";
+            this.altaGroup.ResumeLayout(false);
+            this.altaGroup.PerformLayout();
             this.altaPanel.ResumeLayout(false);
             this.altaPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.diaNumericUpDown)).EndInit();
-            this.altaGroup.ResumeLayout(false);
-            this.altaGroup.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -260,7 +265,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Label tituloLabel;
+        private System.Windows.Forms.Button altaButton;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.GroupBox altaGroup;
+        private System.Windows.Forms.CheckBox habilitadaCheckBox;
+        private System.Windows.Forms.Button limpiarButton;
         private System.Windows.Forms.TableLayoutPanel altaPanel;
         private System.Windows.Forms.TextBox direccionText;
         private System.Windows.Forms.TextBox cuitText;
@@ -272,10 +281,6 @@
         private System.Windows.Forms.TextBox nombreText;
         private System.Windows.Forms.ComboBox rubroComboBox;
         private System.Windows.Forms.NumericUpDown diaNumericUpDown;
-        private System.Windows.Forms.GroupBox altaGroup;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button limpiarButton;
-        private System.Windows.Forms.Button altaButton;
-        private System.Windows.Forms.CheckBox habilitadaCheckBox;
+        private System.Windows.Forms.Label tituloLabel;
     }
 }

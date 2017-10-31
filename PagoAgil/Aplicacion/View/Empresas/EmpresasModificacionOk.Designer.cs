@@ -1,6 +1,6 @@
 ﻿namespace PagoAgil.Aplicacion.View.Empresas
 {
-    partial class EmpresasAltaOk
+    partial class EmpresasModificacionOk
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.confirmacionText = new System.Windows.Forms.Label();
-            this.volverAInicioButton = new System.Windows.Forms.Button();
             this.volverAEmpresasButton = new System.Windows.Forms.Button();
+            this.volverAInicioButton = new System.Windows.Forms.Button();
+            this.confirmacionText = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            // 
+            // volverAEmpresasButton
+            // 
+            this.volverAEmpresasButton.Location = new System.Drawing.Point(243, 88);
+            this.volverAEmpresasButton.Name = "volverAEmpresasButton";
+            this.volverAEmpresasButton.Size = new System.Drawing.Size(120, 30);
+            this.volverAEmpresasButton.TabIndex = 5;
+            this.volverAEmpresasButton.Text = "Volver a Empresas";
+            this.volverAEmpresasButton.UseVisualStyleBackColor = true;
+            // 
+            // volverAInicioButton
+            // 
+            this.volverAInicioButton.Location = new System.Drawing.Point(27, 88);
+            this.volverAInicioButton.Name = "volverAInicioButton";
+            this.volverAInicioButton.Size = new System.Drawing.Size(120, 30);
+            this.volverAInicioButton.TabIndex = 4;
+            this.volverAInicioButton.Text = "Volver a inicio";
+            this.volverAInicioButton.UseVisualStyleBackColor = true;
             // 
             // confirmacionText
             // 
@@ -39,29 +57,11 @@
             this.confirmacionText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.confirmacionText.Location = new System.Drawing.Point(23, 31);
             this.confirmacionText.Name = "confirmacionText";
-            this.confirmacionText.Size = new System.Drawing.Size(340, 20);
-            this.confirmacionText.TabIndex = 0;
-            this.confirmacionText.Text = "¡Se dio de alta la nueva empresa en el sistema!";
+            this.confirmacionText.Size = new System.Drawing.Size(335, 20);
+            this.confirmacionText.TabIndex = 3;
+            this.confirmacionText.Text = "Se realizaron las modifiaciones en la empresa.";
             // 
-            // volverAInicioButton
-            // 
-            this.volverAInicioButton.Location = new System.Drawing.Point(27, 88);
-            this.volverAInicioButton.Name = "volverAInicioButton";
-            this.volverAInicioButton.Size = new System.Drawing.Size(120, 30);
-            this.volverAInicioButton.TabIndex = 1;
-            this.volverAInicioButton.Text = "Volver a inicio";
-            this.volverAInicioButton.UseVisualStyleBackColor = true;
-            // 
-            // volverAEmpresasButton
-            // 
-            this.volverAEmpresasButton.Location = new System.Drawing.Point(243, 88);
-            this.volverAEmpresasButton.Name = "volverAEmpresasButton";
-            this.volverAEmpresasButton.Size = new System.Drawing.Size(120, 30);
-            this.volverAEmpresasButton.TabIndex = 2;
-            this.volverAEmpresasButton.Text = "Volver a Empresas";
-            this.volverAEmpresasButton.UseVisualStyleBackColor = true;
-            // 
-            // EmpresasAltaOk
+            // EmpresasModificacionOk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -69,8 +69,8 @@
             this.Controls.Add(this.volverAEmpresasButton);
             this.Controls.Add(this.volverAInicioButton);
             this.Controls.Add(this.confirmacionText);
-            this.Name = "EmpresasAltaOk";
-            this.Text = "Alta confirmada";
+            this.Name = "EmpresasModificacionOk";
+            this.Text = "Modificación confirmada";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -78,8 +78,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Label confirmacionText;
-        private System.Windows.Forms.Button volverAInicioButton;
         private System.Windows.Forms.Button volverAEmpresasButton;
+        private System.Windows.Forms.Button volverAInicioButton;
+        private System.Windows.Forms.Label confirmacionText;
     }
 }
