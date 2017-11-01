@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagoAgil.Aplicacion.Builders.Excepciones;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,15 @@ namespace PagoAgil.Aplicacion.View.Empresas
 {
     public partial class EmpresasAdvertenciaFaltanCampos : Form
     {
-        public EmpresasAdvertenciaFaltanCampos()
+        private EmpresasAlta empresasAlta;
+        private NoSePuedeCrearException excepcion;
+
+        public EmpresasAdvertenciaFaltanCampos(EmpresasAlta empresasAlta, NoSePuedeCrearException excepcion)
         {
             InitializeComponent();
+            this.CenterToScreen();
+            this.empresasAlta = empresasAlta;
+            this.excepcion = excepcion;
         }
     }
 }

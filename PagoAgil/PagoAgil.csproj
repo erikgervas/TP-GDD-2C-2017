@@ -59,6 +59,8 @@
     <Compile Include="Aplicacion\BD\Repositorios\RepositorioSucursales.cs" />
     <Compile Include="Aplicacion\BD\Repositorios\RepositorioUsuarios.cs" />
     <Compile Include="Aplicacion\BD\Utils\DTO\TablaDTO.cs" />
+    <Compile Include="Aplicacion\Builders\EmpresaBuilder.cs" />
+    <Compile Include="Aplicacion\Builders\Excepciones\NoSePuedeCrearException.cs" />
     <Compile Include="Aplicacion\Modelo\Cliente.cs" />
     <Compile Include="Aplicacion\Modelo\ClienteSQL\ClienteDB.cs" />
     <Compile Include="Aplicacion\Modelo\ClienteSQL\RolDB.cs" />
@@ -80,6 +82,7 @@
     <Compile Include="Aplicacion\Orquestradores\GestorDeSucursales.cs" />
     <Compile Include="Aplicacion\ViewModel\AltaSucursalVM.cs" />
     <Compile Include="Aplicacion\ViewModel\BajaSucursalVM.cs" />
+    <Compile Include="Aplicacion\ViewModel\EmpresasAltaVM.cs" />
     <Compile Include="Aplicacion\ViewModel\HomeVM.cs" />
     <Compile Include="Aplicacion\ViewModel\ListadoSucursalesVM.cs" />
     <Compile Include="Aplicacion\ViewModel\LoginVM.cs" />
@@ -175,6 +178,7 @@
     <Compile Include="Aplicacion\View\Empresas\EmpresasSeleccionABM.Designer.cs">
       <DependentUpon>EmpresasSeleccionABM.cs</DependentUpon>
     </Compile>
+    <Compile Include="Aplicacion\Builders\Excepciones\YaExisteObjetoConEsaClave.cs" />
     <Compile Include="Aplicacion\View\Sucursales\FormABMSucursal.cs">
       <SubType>Form</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

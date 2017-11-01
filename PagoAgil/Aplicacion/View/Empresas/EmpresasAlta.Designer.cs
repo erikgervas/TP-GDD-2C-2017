@@ -96,6 +96,7 @@
             this.direccionText.Name = "direccionText";
             this.direccionText.Size = new System.Drawing.Size(142, 20);
             this.direccionText.TabIndex = 7;
+            this.direccionText.TextChanged += new System.EventHandler(this.direccionText_TextChanged);
             // 
             // cuitText
             // 
@@ -103,6 +104,7 @@
             this.cuitText.Name = "cuitText";
             this.cuitText.Size = new System.Drawing.Size(142, 20);
             this.cuitText.TabIndex = 6;
+            this.cuitText.TextChanged += new System.EventHandler(this.cuitText_TextChanged);
             // 
             // nombreLabel
             // 
@@ -155,6 +157,7 @@
             this.nombreText.Name = "nombreText";
             this.nombreText.Size = new System.Drawing.Size(142, 20);
             this.nombreText.TabIndex = 5;
+            this.nombreText.TextChanged += new System.EventHandler(this.nombreText_TextChanged);
             // 
             // rubroComboBox
             // 
@@ -163,6 +166,7 @@
             this.rubroComboBox.Name = "rubroComboBox";
             this.rubroComboBox.Size = new System.Drawing.Size(142, 21);
             this.rubroComboBox.TabIndex = 8;
+            this.rubroComboBox.SelectedIndexChanged += new System.EventHandler(this.rubroComboBox_SelectedIndexChanged);
             // 
             // diaNumericUpDown
             // 
@@ -185,6 +189,7 @@
             0,
             0,
             0});
+            this.diaNumericUpDown.ValueChanged += new System.EventHandler(this.diaNumericUpDown_ValueChanged);
             // 
             // altaGroup
             // 
@@ -209,6 +214,7 @@
             this.habilitadaCheckBox.TabIndex = 4;
             this.habilitadaCheckBox.Text = "Habilitada";
             this.habilitadaCheckBox.UseVisualStyleBackColor = true;
+            this.habilitadaCheckBox.CheckedChanged += new System.EventHandler(this.habilitadaCheckBox_CheckedChanged);
             // 
             // limpiarButton
             // 
@@ -218,6 +224,7 @@
             this.limpiarButton.TabIndex = 3;
             this.limpiarButton.Text = "Limpiar";
             this.limpiarButton.UseVisualStyleBackColor = true;
+            this.limpiarButton.Click += new System.EventHandler(this.limpiarButton_Click);
             // 
             // button2
             // 
@@ -227,6 +234,7 @@
             this.button2.TabIndex = 5;
             this.button2.Text = "<<";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // altaButton
             // 
@@ -236,6 +244,7 @@
             this.altaButton.TabIndex = 6;
             this.altaButton.Text = "Dar de alta";
             this.altaButton.UseVisualStyleBackColor = true;
+            this.altaButton.Click += new System.EventHandler(this.altaButton_Click);
             // 
             // EmpresasAlta
             // 

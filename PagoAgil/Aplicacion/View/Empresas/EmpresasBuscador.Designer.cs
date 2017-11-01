@@ -172,6 +172,7 @@
             this.volverAInicioButton.TabIndex = 14;
             this.volverAInicioButton.Text = "<<";
             this.volverAInicioButton.UseVisualStyleBackColor = true;
+            this.volverAInicioButton.Click += new System.EventHandler(this.volverAInicioButton_Click);
             // 
             // filtrosPanel
             // 

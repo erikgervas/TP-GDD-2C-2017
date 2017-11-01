@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagoAgil.Aplicacion.View.Excepciones;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,15 @@ namespace PagoAgil.Aplicacion.View.Empresas
 {
     public partial class EmpresasAdvertenciaMismoCuit : Form
     {
-        public EmpresasAdvertenciaMismoCuit()
+        private EmpresasAlta empresasAlta;
+        private YaExisteObjetoConEsaClave excepcion;
+
+        public EmpresasAdvertenciaMismoCuit(EmpresasAlta empresasAlta, YaExisteObjetoConEsaClave excepcion)
         {
             InitializeComponent();
+            this.CenterToScreen();
+            this.empresasAlta = empresasAlta;
+            this.excepcion = excepcion;
         }
     }
 }
