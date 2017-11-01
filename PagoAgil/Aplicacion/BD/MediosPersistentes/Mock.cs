@@ -39,21 +39,5 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes
             
             entidadDesactualizada = unaEntidad;
         }
-
-        public void aniadir(object unaEntidad)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void eliminar(object unaEntidad)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void modificar(object unaEntidad)
-        {
-            throw new System.NotImplementedException();
-        }
-
     }
 }

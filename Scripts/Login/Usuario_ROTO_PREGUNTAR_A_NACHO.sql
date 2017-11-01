@@ -1,4 +1,4 @@
-CREATE TRIGGER SQL_BOYS.HashUsuariosPassword
+CREATE TRIGGER HashUsuariosPassword
 ON SQL_BOYS.Usuario
 INSTEAD OF INSERT
 AS

@@ -12,7 +12,7 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
 
         public List<SucursalDB> darTodos()
         {
-            string query = "SELECT * FROM dbo.Sucursal";
+            string query = "SELECT * FROM SQL_BOYS.Sucursal";
 
             return obtainSucursalesFromQuery(query);
 
@@ -21,7 +21,7 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
         public List<SucursalDB> filtrarPorNombre(string nombre)
         {
 
-            string query = "SELECT * from dbo.obtenerSucursalPorNombre('" + nombre + "')";
+            string query = "SELECT * from SQL_BOYS.obtenerSucursalPorNombre('" + nombre + "')";
 
             return obtainSucursalesFromQuery(query);
 
@@ -30,7 +30,7 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
         public List<SucursalDB> filtrarPorDireccion(string direccion)
         {
 
-            string query = "SELECT * from dbo.obtenerSucursalPorDireccion('" + direccion + "')";
+            string query = "SELECT * from SQL_BOYS.obtenerSucursalPorDireccion('" + direccion + "')";
 
             return obtainSucursalesFromQuery(query);
 
@@ -39,7 +39,7 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
         public List<SucursalDB> filtrarPorCodigoPostal(int cp)
         {
 
-            string query = "SELECT * from dbo.obtenerSucursalPorCodigoPostal('" + cp.ToString() + "')";
+            string query = "SELECT * from SQL_BOYS.obtenerSucursalPorCodigoPostal('" + cp.ToString() + "')";
 
             return obtainSucursalesFromQuery(query);
 

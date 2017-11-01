@@ -21,7 +21,7 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
 
         public List<ClienteDB> darTodos()
         {
-            string query = "SELECT * FROM dbo.Cliente";
+            string query = "SELECT * FROM SQL_BOYS.Cliente";
 
             return obtainSucursalesFromQuery(query);
 

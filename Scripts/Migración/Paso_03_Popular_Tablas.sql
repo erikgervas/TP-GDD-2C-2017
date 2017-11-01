@@ -1,18 +1,33 @@
-SET IDENTITY_INSERT SQL_BOYS.Rendicion ON;
+INSERT INTO SQL_BOYS.Funcionalidad (nombre)
 
-INSERT INTO SQL_BOYS.Rendicion (numero_rendicion, importe_comision, fecha_rendicion)
-
-	SELECT DISTINCT
+	VALUES
 		
-		[Rendicion_Nro] AS numero_rendicion,
-		[ItemRendicion_Importe] AS importe_comision,
-		[Rendicion_Fecha] AS fecha_rendicion
+		('Gestionar clientes'),
+		('Gestionar empresas'),
+		('Gestionar sucursales'),
+		('Gestionar facturas'),
+		('Cobrar facturas'),
+		('Rendir facturas'),
+		('Devolver facturas')
 
-	FROM [GD2C2017].[gd_esquema].[Maestra]
+INSERT INTO SQL_BOYS.Rol (nombre, habilitadx)
+	
+	VALUES
+		
+		('Cobrador', 1),
+		('Administrador', 1),
+		('Ajustador de cuentas', 0)
 
-	WHERE Rendicion_Nro IS NOT NULL
+INSERT INTO SQL_BOYS.Funcionalidad_Por_Rol (id_funcionalidad, id_rol)
 
-SET IDENTITY_INSERT SQL_BOYS.Rendicion OFF;
+	VALUES
+		
+		(1 , 1) , (2 , 1) , (3 , 1) , (4 , 1) , (5 , 1) ,
+		(1 , 2) , (2 , 2) , (3 , 2) , (4 , 2) , (5 , 2) , (6 , 2) , (7 , 2)
+
+INSERT INTO SQL_BOYS.Usuario (username, contraseña, habilitadx)
+
+	VALUES ('admin', 'e6b87050bfcb8143fcb8db0170a4dc9ed00d904ddd3e2a4ad1b1e8dc0fdc9be7', 1) /* Password: w23e */
 
 INSERT INTO SQL_BOYS.Sucursal (cp_sucursal, nombre, domicilio, habilitadx)
 
@@ -26,6 +41,10 @@ INSERT INTO SQL_BOYS.Sucursal (cp_sucursal, nombre, domicilio, habilitadx)
 	FROM [GD2C2017].[gd_esquema].[Maestra]
 
 	WHERE Sucursal_Codigo_Postal IS NOT NULL
+
+INSERT INTO SQL_BOYS.Rol_De_Usuario_Por_Sucursal (id_rol, id_usuario, cp_sucursal)
+
+	VALUES (2, 1, 7210)
 
 INSERT INTO SQL_BOYS.Cliente(dni_cliente, nombre, apellido, nacimiento, mail, domicilio, codigo_postal, telefono, habilitadx)
 	
@@ -70,6 +89,22 @@ INSERT INTO SQL_BOYS.Empresa (nombre, cuit, domicilio, dia_rendicion, habilitadx
 		view_id_rubro AS id_rubro
 
 	FROM SQL_BOYS.View_Empresa_Rubro;
+
+SET IDENTITY_INSERT SQL_BOYS.Rendicion ON;
+
+INSERT INTO SQL_BOYS.Rendicion (numero_rendicion, importe_comision, fecha_rendicion)
+
+	SELECT DISTINCT
+		
+		[Rendicion_Nro] AS numero_rendicion,
+		[ItemRendicion_Importe] AS importe_comision,
+		[Rendicion_Fecha] AS fecha_rendicion
+
+	FROM [GD2C2017].[gd_esquema].[Maestra]
+
+	WHERE Rendicion_Nro IS NOT NULL
+
+SET IDENTITY_INSERT SQL_BOYS.Rendicion OFF;
 
 INSERT INTO SQL_BOYS.Factura (numero_factura, factura_monto_total, factura_fecha_alta, factura_fecha_vencimiento, dni_cliente, id_empresa, numero_rendicion)
 

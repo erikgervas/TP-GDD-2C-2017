@@ -23,7 +23,7 @@ namespace PagoAgil.Aplicacion.Orquestradores
         public RolDB[] obtenerRoles(UsuarioDB usuario, SucursalDB sucursal)
         {
 
-            String query = "select * from dbo.obtenerRoles(" + usuario.getId() + ", " + sucursal.getId() + ")";
+            String query = "select * from SQL_BOYS.obtenerRoles(" + usuario.getId() + ", " + sucursal.getId() + ")";
 
             TablaDTO tabla = LectorDeTablas.getInstance().obtener(query);
 
@@ -46,7 +46,7 @@ namespace PagoAgil.Aplicacion.Orquestradores
         public Rol obtenerRol(RolDB rol)
         {
 
-            String query = "select * from dbo.obtenerRol(" + rol.getId() + ")";
+            String query = "select * from SQL_BOYS.obtenerRol(" + rol.getId() + ")";
 
             TablaDTO tabla = LectorDeTablas.getInstance().obtener(query);
 

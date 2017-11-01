@@ -22,7 +22,7 @@ namespace PagoAgil.Aplicacion.Orquestradores
         public List<ClienteDB> obtenerClientes()
         {
 
-            String query = "select * from dbo.obtenerClientes()";
+            String query = "select * from SQL_BOYS.obtenerClientes()";
 
             TablaDTO tabla = LectorDeTablas.getInstance().obtener(query);
 

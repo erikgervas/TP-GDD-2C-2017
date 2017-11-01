@@ -235,6 +235,9 @@
       <DependentUpon>FormSeleccionadorDeRol.cs</DependentUpon>
     </Compile>
     <Compile Include="Aplicacion\View\Sucursales\SucursalesBuilder.cs" />
+    <Compile Include="DataSet\SQL_BOYS_Data_Set.cs">
+      <DependentUpon>SQL_BOYS_Data_Set.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataSet\SQL_BOYS_Data_Set.Designer.cs">
