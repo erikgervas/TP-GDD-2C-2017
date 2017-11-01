@@ -4,6 +4,6 @@ RETURNS table
 	return (
 	
 		select * from dbo.Sucursal s
-			where s.domicilio = @domicilio
+			where s.cp_sucursal = @domicilio
 
 	)

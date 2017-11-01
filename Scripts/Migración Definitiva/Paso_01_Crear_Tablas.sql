@@ -19,7 +19,7 @@ CREATE TABLE Funcionalidad_Por_Rol (
 
 CREATE TABLE Usuario (
 	id_usuario INT IDENTITY(1, 1) PRIMARY KEY,
-	username NVARCHAR(255) NOT NULL,
+	username NVARCHAR(255) UNIQUE NOT NULL,
 	contraseña NVARCHAR(255) NOT NULL,
 	habilitadx BIT NOT NULL
 )

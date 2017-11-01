@@ -3,7 +3,7 @@ RETURNS table
 
 	return (
 
-		select s.* from Rol_De_Usuario_Por_Sucursal as rus join Sucursal s on rus.id_sucursal = s.id_sucursal
+		select s.* from Rol_De_Usuario_Por_Sucursal as rus join Sucursal s on rus.cp_sucursal = s.cp_sucursal
 			where @id_usuario = rus.id_usuario
 
 	)

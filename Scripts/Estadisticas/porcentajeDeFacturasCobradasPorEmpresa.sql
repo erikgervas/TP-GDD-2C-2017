@@ -11,7 +11,7 @@ AS
 			
 			where dbo.esFechaValida(p.fecha_pago, @anio, @trimestre) = 1
 
-			group by e.id_empresa, e.nombre, e.cuit, e.domicilio, e.id_rubro, e.dia_rendicion, e.habilitada
+			group by e.id_empresa, e.nombre, e.cuit, e.domicilio, e.id_rubro, e.dia_rendicion, e.habilitadx
 
 			order by (
 			
