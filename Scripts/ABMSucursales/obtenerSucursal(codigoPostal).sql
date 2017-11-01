@@ -1,9 +1,9 @@
-CREATE FUNCTION dbo.obtenerSucursalPorCodigoPostal(@CP NUMERIC(18,0))
+CREATE FUNCTION SQL_BOYS.obtenerSucursalPorCodigoPostal(@CP NUMERIC(18,0))
 RETURNS table
 
 	return (
 	
-		select * from dbo.Sucursal s
+		select * from SQL_BOYS.Sucursal s
 			where s.cp_sucursal = @CP
 
 	)

@@ -12,7 +12,7 @@ INSERT INTO Usuario (username, contraseña, habilitadx) values
 
 */
 
-INSERT INTO Usuario (username, contraseña, habilitadx) values 
+INSERT INTO SQL_BOYS.Usuario (username, contraseña, habilitadx) values 
 
 	('admin',			'e6b87050bfcb8143fcb8db0170a4dc9ed00d904ddd3e2a4ad1b1e8dc0fdc9be7', 1),		-- Password: w23e
 	('cobrador1',		'fda9be620062a617156c1c6dbc788a6a204f85fe06e8ead0e3a43817b0e382db', 1),		-- Password: cobrador

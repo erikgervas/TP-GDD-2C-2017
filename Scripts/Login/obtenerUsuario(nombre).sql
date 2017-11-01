@@ -1,9 +1,9 @@
-CREATE FUNCTION dbo.obtenerUsuario(@nombre nvarchar(255))
+CREATE FUNCTION SQL_BOYS.obtenerUsuario(@nombre nvarchar(255))
 RETURNS table
 
 	return (
 	
-		select u.* from dbo.Usuario u
+		select u.* from SQL_BOYS.Usuario u
 			where u.username = @nombre
 
 	)

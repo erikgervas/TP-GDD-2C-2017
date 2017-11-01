@@ -2,7 +2,7 @@
 
 /* Vista de todos los clientes del sistema, para optimizar la búsqueda de clientes con el mismo mail. */
 
-CREATE VIEW View_Cliente AS
+CREATE VIEW SQL_BOYS.View_Cliente AS
 
 	SELECT DISTINCT
 
@@ -20,7 +20,7 @@ GO
 
 /* Hay clientes con el mismo mail, que impiden cumplir con el requerimiento de mails únicos. Esto optimiza el tiempo de búsqueda de los mismos usando la vista anterior. */
 
-CREATE VIEW View_Cliente_Conflictivo AS
+CREATE VIEW SQL_BOYS.View_Cliente_Conflictivo AS
 
 	SELECT
 
@@ -32,7 +32,7 @@ CREATE VIEW View_Cliente_Conflictivo AS
 		c1.view_domicilio AS view_domicilio,
 		c1.view_codigo_postal AS view_codigo_postal
 
-	FROM View_Cliente c1, View_Cliente c2
+	FROM SQL_BOYS.View_Cliente c1, SQL_BOYS.View_Cliente c2
 	
 	WHERE c1.view_dni_cliente != c2.view_dni_cliente AND c1.view_mail = c2.view_mail
 
@@ -40,7 +40,7 @@ GO
 
 /* Vista para no recorrer toda la tabla maestra de nuevo sólo para buscar el rubro de una empresa. */
 
-CREATE VIEW View_Empresa_Rubro AS
+CREATE VIEW SQL_BOYS.View_Empresa_Rubro AS
 
 	SELECT DISTINCT
 
@@ -56,7 +56,7 @@ GO
 
 /* Vista para no tener que recorrer la tabla maestra de nuevo para buscar facturas. */
 
-CREATE VIEW View_Factura AS
+CREATE VIEW SQL_BOYS.View_Factura AS
 
 	SELECT DISTINCT
 		
@@ -74,7 +74,7 @@ GO
 
 /* Vista para obtener las facturas con sus rendiciones, ya que en el anterior no se añadieron. */
 
-CREATE VIEW View_Factura_Con_Rendicion AS
+CREATE VIEW SQL_BOYS.View_Factura_Con_Rendicion AS
 
 	SELECT
 
@@ -86,7 +86,7 @@ CREATE VIEW View_Factura_Con_Rendicion AS
 		v1.view_cuit_empresa AS view_cuit_empresa,
 		v1.view_numero_rendicion AS view_numero_rendicion
 		
-	FROM View_Factura v1
+	FROM SQL_BOYS.View_Factura v1
 		
 	WHERE v1.view_numero_rendicion IS NOT NULL
 
@@ -102,15 +102,15 @@ CREATE VIEW View_Factura_Con_Rendicion AS
 		v2.view_cuit_empresa AS view_cuit_empresa,
 		v2.view_numero_rendicion AS view_numero_rendicion
 		
-	FROM View_Factura v2
+	FROM SQL_BOYS.View_Factura v2
 	
-	WHERE NOT EXISTS (SELECT 1 FROM View_Factura v1 WHERE v2.view_numero_factura = v1.view_numero_factura AND v1.view_numero_rendicion IS NOT NULL)
+	WHERE NOT EXISTS (SELECT 1 FROM SQL_BOYS.View_Factura v1 WHERE v2.view_numero_factura = v1.view_numero_factura AND v1.view_numero_rendicion IS NOT NULL)
 
 GO
 
 /* Vista para no tener que recorrer la tabla otra vez para obtener los medios de pago o los pagos. */
 
-CREATE VIEW View_Pago_Medio_De_Pago AS
+CREATE VIEW SQL_BOYS.View_Pago_Medio_De_Pago AS
 
 	SELECT DISTINCT 
 		
@@ -129,7 +129,7 @@ GO
 
 /* Vista para no tener que recorrer la tabla otra vez para obtener los items y sus variantes. */
 
-CREATE VIEW View_Item AS
+CREATE VIEW SQL_BOYS.View_Item AS
 
 	SELECT DISTINCT
 
@@ -145,7 +145,7 @@ GO
 
 /* Como los clientes conflictivos también tienen facturas, pagos y rendiciones, decidimos apartar las filas de la tabla maestra de dichos clientes. */
 
-CREATE VIEW View_Tabla_Maestra_Conflictiva AS
+CREATE VIEW SQL_BOYS.View_Tabla_Maestra_Conflictiva AS
 
 	SELECT
 
@@ -182,4 +182,4 @@ CREATE VIEW View_Tabla_Maestra_Conflictiva AS
 
 	FROM [GD2C2017].[gd_esquema].[Maestra]
 
-	WHERE EXISTS (SELECT 1 FROM View_Cliente_Conflictivo WHERE view_dni_cliente = [Cliente-Dni])
+	WHERE EXISTS (SELECT 1 FROM SQL_BOYS.View_Cliente_Conflictivo WHERE view_dni_cliente = [Cliente-Dni])
