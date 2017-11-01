@@ -64,6 +64,22 @@ INSERT INTO SQL_BOYS.Cliente(dni_cliente, nombre, apellido, nacimiento, mail, do
 	
 	WHERE NOT EXISTS (SELECT 1 FROM SQL_BOYS.View_Cliente_Conflictivo cc WHERE c1.view_dni_cliente = cc.view_dni_cliente)
 
+SET IDENTITY_INSERT SQL_BOYS.Rendicion ON;
+
+INSERT INTO SQL_BOYS.Rendicion (numero_rendicion, importe_comision, fecha_rendicion)
+
+	SELECT DISTINCT
+		
+		[Rendicion_Nro] AS numero_rendicion,
+		[ItemRendicion_Importe] AS importe_comision,
+		[Rendicion_Fecha] AS fecha_rendicion
+
+	FROM [GD2C2017].[gd_esquema].[Maestra]
+
+	WHERE Rendicion_Nro IS NOT NULL
+
+SET IDENTITY_INSERT SQL_BOYS.Rendicion OFF;
+
 SET IDENTITY_INSERT SQL_BOYS.Rubro ON
 
 INSERT INTO SQL_BOYS.Rubro (id_rubro, descripcion)
@@ -89,22 +105,6 @@ INSERT INTO SQL_BOYS.Empresa (nombre, cuit, domicilio, dia_rendicion, habilitadx
 		view_id_rubro AS id_rubro
 
 	FROM SQL_BOYS.View_Empresa_Rubro;
-
-SET IDENTITY_INSERT SQL_BOYS.Rendicion ON;
-
-INSERT INTO SQL_BOYS.Rendicion (numero_rendicion, importe_comision, fecha_rendicion)
-
-	SELECT DISTINCT
-		
-		[Rendicion_Nro] AS numero_rendicion,
-		[ItemRendicion_Importe] AS importe_comision,
-		[Rendicion_Fecha] AS fecha_rendicion
-
-	FROM [GD2C2017].[gd_esquema].[Maestra]
-
-	WHERE Rendicion_Nro IS NOT NULL
-
-SET IDENTITY_INSERT SQL_BOYS.Rendicion OFF;
 
 INSERT INTO SQL_BOYS.Factura (numero_factura, factura_monto_total, factura_fecha_alta, factura_fecha_vencimiento, dni_cliente, id_empresa, numero_rendicion)
 
