@@ -37,15 +37,16 @@ namespace PagoAgil.Aplicacion.View.Sucursales
 
             List<SucursalDB> sucursalesFiltradas = new List<SucursalDB>();
 
-            sucursalesFiltradas = VM.filtrarSucursales(nombreSucursal,direccionSucursal,codigoPostal);
+            //sucursalesFiltradas = VM.filtrarSucursales(nombreSucursal,direccionSucursal,codigoPostal);
 
-            /*List<Sucursal> sucursalesFiltradas2 = new List<Sucursal>();
+            List<Sucursal> sucursalesFiltradas2 = new List<Sucursal>();
             Sucursal sucu = new Sucursal(1, "Sucu", true, "Meh", 1111);
             sucursalesFiltradas2.Add(sucu);
-
-            sucursalesFiltradas2.Add(RepositorioSucursales.getInstancia().getAlmacenamiento().darTodos().ElementAt(0));*/
-
+            
+            sucursalesFiltradas.Add(RepositorioSucursales.getInstancia().getAlmacenamiento().darTodos().ElementAt(0));
             dataGridView1.DataSource = sucursalesFiltradas;
+
+            //dataGridView1.Columns[1].HeaderText = "Codigo Postal";
 
         }
 

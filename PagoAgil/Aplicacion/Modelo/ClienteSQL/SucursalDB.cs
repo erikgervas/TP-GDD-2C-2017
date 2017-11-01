@@ -6,30 +6,31 @@ using System.Text;
 
 namespace PagoAgil.Aplicacion.Modelo.ClienteSQL
 {
-    public class SucursalDB : Entidad
+    public class SucursalDB
     {
-
+        int codigoPostal { get; set; }
         string nombre { get; set; }
         string domicilio { get; set; }
-        int codigoPostal { get; set; }
-        Boolean habilitado { get; set; }
+        bool habilitado { get; set; }
 
         public SucursalDB(FilaDTO fila)
         {
 
             List<string> elementos = fila.obtener();
-
-            this.id = long.Parse(elementos.ElementAt(0));
+            /*this.codigoPostal = int.Parse(elementos.ElementAt(0));
             this.nombre = elementos.ElementAt(1);
             this.domicilio = elementos.ElementAt(2);
-            this.codigoPostal = int.Parse(elementos.ElementAt(0));
-            this.habilitado = elementos.ElementAt(3).Equals("True") ? true : false;
+            this.habilitado = elementos.ElementAt(3).Equals("True") ? true : false;*/
 
+            this.codigoPostal = 2222;
+            this.nombre = "JAJ";
+            this.domicilio = "CHAU";
+            this.habilitado = true;
         }
 
-        internal long getID()
+        internal int getId()
         {
-            return this.id;
+            return this.codigoPostal;
         }
 
         public override string ToString()
@@ -37,7 +38,7 @@ namespace PagoAgil.Aplicacion.Modelo.ClienteSQL
             return this.nombre;
         }
 
-        public Boolean getHabilitado()
+        public bool getHabilitado()
         {
             return this.habilitado;
         }
