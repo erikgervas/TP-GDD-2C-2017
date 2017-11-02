@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PagoAgil.Aplicacion.BD
 {
-    public abstract class Repositorio<E> where E : Entidad
+    public abstract class Repositorio<E>
     {
         public Medio<E> almacenamiento { get; set; }
         public long proximoId { get { return this.almacenamiento.asignarId(); } }

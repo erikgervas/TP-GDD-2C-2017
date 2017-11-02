@@ -1,0 +1,3 @@
+DROP FUNCTION
+
+	SQL_BOYS.obtenerRubros

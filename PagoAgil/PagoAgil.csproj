@@ -45,15 +45,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aplicacion\BD\MediosPersistentes\Medios\MedioBD.cs" />
     <Compile Include="Aplicacion\BD\MediosPersistentes\Medios\MedioCliente.cs" />
+    <Compile Include="Aplicacion\BD\MediosPersistentes\Medios\MedioRubro.cs" />
     <Compile Include="Aplicacion\BD\MediosPersistentes\Medios\MedioSucursal.cs" />
     <Compile Include="Aplicacion\BD\Repositorios\RepositorioClientes.cs" />
+    <Compile Include="Aplicacion\BD\Repositorios\RepositorioRubros.cs" />
     <Compile Include="Aplicacion\BD\Utils\Conexion.cs" />
     <Compile Include="Aplicacion\BD\Utils\DTO\FilaDTO.cs" />
     <Compile Include="Aplicacion\BD\Utils\LectorDeTablas.cs" />
     <Compile Include="Aplicacion\BD\MediosPersistentes\Medio.cs" />
     <Compile Include="Aplicacion\BD\MediosPersistentes\Medios\MedioUsuario.cs" />
-    <Compile Include="Aplicacion\BD\MediosPersistentes\Mock.cs" />
     <Compile Include="Aplicacion\BD\Repositorio.cs" />
     <Compile Include="Aplicacion\BD\Repositorios\RepositorioEmpresas.cs" />
     <Compile Include="Aplicacion\BD\Repositorios\RepositorioSucursales.cs" />
@@ -77,6 +79,7 @@
     <Compile Include="Aplicacion\Modelo\Usuario\Funcionalidad.cs" />
     <Compile Include="Aplicacion\Modelo\Usuario\Rol.cs" />
     <Compile Include="Aplicacion\Modelo\Usuario\Usuario.cs" />
+    <Compile Include="Aplicacion\Orquestradores\Bootstrap.cs" />
     <Compile Include="Aplicacion\Orquestradores\GestorDeClientes.cs" />
     <Compile Include="Aplicacion\Orquestradores\GestorDeRoles.cs" />
     <Compile Include="Aplicacion\Orquestradores\GestorDeSucursales.cs" />

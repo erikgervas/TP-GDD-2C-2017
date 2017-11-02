@@ -24,6 +24,7 @@ namespace PagoAgil.Aplicacion.View.Empresas
             this.CenterToScreen();
             this.empresasSeleccionABM = empresasSeleccionABM;
             this.viewModel = new EmpresasAltaVM();
+            foreach (String rubro in this.viewModel.rubros) this.rubroComboBox.Items.Add(rubro);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -37,37 +38,42 @@ namespace PagoAgil.Aplicacion.View.Empresas
 
         private void nombreText_TextChanged(object sender, EventArgs e)
         {
-            this.viewModel.cambiarNombre(nombreText.Text);
+            this.viewModel.empresa.nombre = nombreText.Text;
         }
 
         private void cuitText_TextChanged(object sender, EventArgs e)
         {
-            this.viewModel.cambiarCuit(cuitText.Text);
+            this.viewModel.empresa.cuit = cuitText.Text;
         }
 
         private void direccionText_TextChanged(object sender, EventArgs e)
         {
-            this.viewModel.cambiarDireccion(direccionText.Text);
+            this.viewModel.empresa.direccion = direccionText.Text;
         }
 
         private void rubroComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.viewModel.cambiarRubro(rubroComboBox.Text);
+            this.viewModel.empresa.rubro = rubroComboBox.Text;
         }
 
         private void diaNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            this.viewModel.cambiarDiaRendicion((ushort) diaNumericUpDown.Value);
+            this.viewModel.empresa.diaRendicion = (ushort) diaNumericUpDown.Value;
         }
 
         private void habilitadaCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            this.viewModel.cambiarEstado(habilitadaCheckBox.Checked);
+            this.viewModel.empresa.estado = habilitadaCheckBox.Checked;
         }
 
         private void limpiarButton_Click(object sender, EventArgs e)
         {
-            this.viewModel.limpiar();
+            this.nombreText.Text = null;
+            this.cuitText.Text = null;
+            this.direccionText.Text = null;
+            this.diaNumericUpDown.Value = 1;
+            this.rubroComboBox.Text = null;
+            this.habilitadaCheckBox.Checked = false;
         }
 
         private void altaButton_Click(object sender, EventArgs e)
@@ -75,7 +81,7 @@ namespace PagoAgil.Aplicacion.View.Empresas
             try
             {
                 this.Hide();
-                new EmpresasAltaConfirmacion(this, this.viewModel.darDeAlta()).Show();
+                new EmpresasAltaConfirmacion(this, this.viewModel.empresa.crear()).Show();
             }
             catch (NoSePuedeCrearException excepcion)
             {

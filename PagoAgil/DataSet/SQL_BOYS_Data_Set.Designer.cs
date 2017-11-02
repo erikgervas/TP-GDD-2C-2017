@@ -13782,7 +13782,7 @@ namespace PagoAgil.DataSet {
                         return ((string)(this[this.tableView_Pago_Medio_De_Pago.view_medio_de_pagoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'view_medio_de_pago\' in table \'View_Pago_Medio_De_Pago\' is D" +
+                        throw new global::System.Data.StrongTypingException("The value for column \'view_medio_de_pago\' in table \'View_Pago_Medio_De_Pago\' is DTO" +
                                 "BNull.", e);
                     }
                 }
@@ -13920,7 +13920,7 @@ namespace PagoAgil.DataSet {
                         return ((decimal)(this[this.tableView_Tabla_Maestra_Conflictiva._Cliente_DniColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cliente-Dni\' in table \'View_Tabla_Maestra_Conflictiva\' is D" +
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cliente-Dni\' in table \'View_Tabla_Maestra_Conflictiva\' is DTO" +
                                 "BNull.", e);
                     }
                 }
@@ -14039,7 +14039,7 @@ namespace PagoAgil.DataSet {
                         return ((decimal)(this[this.tableView_Tabla_Maestra_Conflictiva.Nro_FacturaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Nro_Factura\' in table \'View_Tabla_Maestra_Conflictiva\' is D" +
+                        throw new global::System.Data.StrongTypingException("The value for column \'Nro_Factura\' in table \'View_Tabla_Maestra_Conflictiva\' is DTO" +
                                 "BNull.", e);
                     }
                 }
