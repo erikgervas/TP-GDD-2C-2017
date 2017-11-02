@@ -23,12 +23,6 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
         {
             string query = "SELECT * FROM dbo.Cliente";
 
-            return obtainSucursalesFromQuery(query);
-
-        }
-
-        private List<ClienteDB> obtainSucursalesFromQuery(string query)
-        {
             TablaDTO tabla = LectorDeTablas.getInstance().obtener(query);
 
             FilaDTO fila;
@@ -44,7 +38,27 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
             }
 
             return clientes;
+        }
 
+        internal List<ClienteDB> obtenerClientesFiltradosPor( string condicion,string filtro,  string valor)
+        {
+            string query = "SELECT * FROM dbo.Cliente WHERE "+condicion+filtro+"'"+valor+"'";
+
+            TablaDTO tabla = LectorDeTablas.getInstance().obtener(query);
+
+            FilaDTO fila;
+            List<ClienteDB> clientes = new List<ClienteDB>();
+            int cant = tabla.cantidadDeFilas();
+
+            for (int i = 0; i < cant; i++)
+            {
+
+                fila = tabla.obtener(i);
+
+                clientes.Add(new ClienteDB(fila));
+            }
+
+            return clientes;
         }
 
         public void eliminar(ClienteDB unaEntidad)
@@ -55,6 +69,26 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
         public void modificar(ClienteDB unaEntidad)
         {
             throw new NotImplementedException();
+        }
+
+        public List<string> obtenerCamposCliente()
+        {
+            string query = "SELECT COLUMN_NAME 'All_Columns' FROM GD2C2017.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='Cliente'";
+            TablaDTO tabla = LectorDeTablas.getInstance().obtener(query);
+            FilaDTO fila;
+            List<string> cond = new List<string>();
+            int cant = tabla.cantidadDeFilas();
+
+            for (int i = 0; i < cant; i++)
+            {
+
+                fila = tabla.obtener(i);
+
+                cond.Add(fila.obtener().ElementAt(0));
+            }
+            
+            return cond;
+
         }
     }
 }

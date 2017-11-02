@@ -19,30 +19,11 @@ namespace PagoAgil.Aplicacion.Orquestradores
 
         private GestorDeClientes() { }
 
-        public List<ClienteDB> obtenerClientes()
-        {
-
-            String query = "select * from dbo.obtenerClientes()";
-
-            TablaDTO tabla = LectorDeTablas.getInstance().obtener(query);
-
-            List<ClienteDB> clientes = new List<ClienteDB>();
-
-            
-            for (int i = 0; i < tabla.cantidadDeFilas(); i++)
-            {
-
-                ClienteDB cliente = new ClienteDB(tabla.obtener(i));
-
-                if (cliente.getHabilitado())
-                   clientes.Add(cliente);
-
-            }
+        
 
 
+        
 
-            return clientes;
-
-        }
+        
     }
 }
