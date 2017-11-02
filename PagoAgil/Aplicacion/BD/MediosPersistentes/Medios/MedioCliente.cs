@@ -42,7 +42,7 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
 
         internal List<ClienteDB> obtenerClientesFiltradosPor( string condicion,string filtro,  string valor)
         {
-            string query = "SELECT * FROM dbo.Cliente WHERE "+condicion+filtro+"'"+valor+"'";
+            string query = "SELECT * FROM SQL_BOYS.Cliente WHERE "+condicion+filtro+"'"+valor+"'";
 
             TablaDTO tabla = LectorDeTablas.getInstance().obtener(query);
 

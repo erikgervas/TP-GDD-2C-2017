@@ -18,7 +18,7 @@ namespace PagoAgil.Aplicacion.Orquestradores
         }
 
         private GestorDeClientes() { }
-
+/*
 <<<<<<< HEAD
         
 =======
@@ -34,7 +34,7 @@ namespace PagoAgil.Aplicacion.Orquestradores
             
             for (int i = 0; i < tabla.cantidadDeFilas(); i++)
             {
->>>>>>> 9548267faa0c9d3b420ea0aa27f49d82dafe949a
+>>>>>>> 9548267faa0c9d3b420ea0aa27f49d82dafe949a*/
 
 
         

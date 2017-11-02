@@ -9,14 +9,14 @@ namespace PagoAgil.Aplicacion.Modelo.ClienteSQL
 {
     class ClienteDB : Entidad
     {
-        string nombre;
-        string apellido;
-        DateTime nacimiento;
-        string mail;
-        string domicilio;
-        string codigoPostal;
-        int telefono;
-        Boolean habilitado;
+        public string nombre { get; set; }
+        public string apellido { get; set; }
+        public DateTime nacimiento { get; set; }
+        public string mail { get; set; }
+        public string domicilio { get; set; }
+        public string codigoPostal { get; set; }
+        public int telefono { get; set; }
+        public Boolean habilitado { get; set; }
 
         public ClienteDB()
         {
@@ -39,15 +39,6 @@ namespace PagoAgil.Aplicacion.Modelo.ClienteSQL
             this.habilitado = elementos.ElementAt(8).Equals("True") ? true : false;
 
         }
-
-        public string Nombre { get => nombre; set => nombre = value; }
-        public string Apellido { get => apellido; set => apellido = value; }
-        public DateTime Nacimiento { get => nacimiento; set => nacimiento = value; }
-        public string Mail { get => mail; set => mail = value; }
-        public string Domicilio { get => domicilio; set => domicilio = value; }
-        public string CodigoPostal { get => codigoPostal; set => codigoPostal = value; }
-        public int Telefono { get => telefono; set => telefono = value; }
-        public bool Habilitado { get => habilitado; set => habilitado = value; }
 
         public Boolean getHabilitado()
         {

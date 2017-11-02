@@ -242,7 +242,7 @@ namespace PagoAgil.Aplicacion.View
 
            
 
-            MessageBox.Show(cliente.Nombre);
+            //MessageBox.Show(cliente.Nombre);
         }
     }
 }
