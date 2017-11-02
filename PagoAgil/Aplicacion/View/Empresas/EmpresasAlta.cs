@@ -1,4 +1,5 @@
-﻿using PagoAgil.Aplicacion.Builders.Excepciones;
+﻿using PagoAgil.Aplicacion.Builders;
+using PagoAgil.Aplicacion.Builders.Excepciones;
 using PagoAgil.Aplicacion.View.Excepciones;
 using PagoAgil.Aplicacion.ViewModel;
 using System;
@@ -41,12 +42,19 @@ namespace PagoAgil.Aplicacion.View.Empresas
             this.viewModel.empresa.nombre = nombreText.Text;
         }
 
+        private void cuitText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsNumber(e.KeyChar) || e.KeyChar == '.' || e.KeyChar == 8) return;
+
+            else e.Handled = e.KeyChar != (char)Keys.Back;
+        }
+
         private void cuitText_TextChanged(object sender, EventArgs e)
         {
             this.viewModel.empresa.cuit = cuitText.Text;
         }
 
-        private void direccionText_TextChanged(object sender, EventArgs e)
+        private void direccionText_TextChanged_1(object sender, EventArgs e)
         {
             this.viewModel.empresa.direccion = direccionText.Text;
         }
@@ -74,6 +82,8 @@ namespace PagoAgil.Aplicacion.View.Empresas
             this.diaNumericUpDown.Value = 1;
             this.rubroComboBox.Text = null;
             this.habilitadaCheckBox.Checked = false;
+
+            this.viewModel.empresa = new EmpresaBuilder();
         }
 
         private void altaButton_Click(object sender, EventArgs e)

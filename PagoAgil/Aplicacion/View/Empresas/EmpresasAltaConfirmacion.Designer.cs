@@ -246,17 +246,17 @@
         private System.Windows.Forms.Button altaButton;
         private System.Windows.Forms.GroupBox altaGroup;
         private System.Windows.Forms.TableLayoutPanel altaPanel;
-        private System.Windows.Forms.Label diaAsignadoLabel;
-        private System.Windows.Forms.Label rubroAsignadoLabel;
-        private System.Windows.Forms.Label direccionAsignadaLabel;
-        private System.Windows.Forms.Label cuitAsignadoLabel;
         private System.Windows.Forms.Label nombreLabel;
         private System.Windows.Forms.Label cuitLabel;
         private System.Windows.Forms.Label direccionLabel;
         private System.Windows.Forms.Label rubroLabel;
         private System.Windows.Forms.Label diaLabel;
-        private System.Windows.Forms.Label nombreAsignadoLabel;
         private System.Windows.Forms.Label tituloLabel;
         private System.Windows.Forms.CheckBox habilitadaCheckBox;
+        public System.Windows.Forms.Label diaAsignadoLabel;
+        public System.Windows.Forms.Label rubroAsignadoLabel;
+        public System.Windows.Forms.Label direccionAsignadaLabel;
+        public System.Windows.Forms.Label cuitAsignadoLabel;
+        public System.Windows.Forms.Label nombreAsignadoLabel;
     }
 }

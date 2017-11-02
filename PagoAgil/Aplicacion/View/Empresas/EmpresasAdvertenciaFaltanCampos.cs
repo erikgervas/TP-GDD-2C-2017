@@ -20,8 +20,20 @@ namespace PagoAgil.Aplicacion.View.Empresas
         {
             InitializeComponent();
             this.CenterToScreen();
+
             this.empresasAlta = empresasAlta;
+
             this.excepcion = excepcion;
+
+            this.camposLabel.Text = "";
+            foreach (String campo in excepcion.errores) this.camposLabel.Text += campo + "\n";
+        }
+
+        private void volverButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+            this.empresasAlta.Show();
         }
     }
 }

@@ -19,6 +19,13 @@ namespace PagoAgil.Aplicacion.View.Empresas
         public EmpresasAltaConfirmacion()
         {
             InitializeComponent();
+
+            this.nombreAsignadoLabel.Text = this.empresa.nombre;
+            this.cuitAsignadoLabel.Text = this.empresa.cuit;
+            this.direccionAsignadaLabel.Text = this.empresa.direccion;
+            this.rubroAsignadoLabel.Text = this.empresa.rubro;
+            this.diaAsignadoLabel.Text = this.empresa.diaRendicion.ToString();
+            this.habilitadaCheckBox.Checked = this.empresa.habilitado;
         }
 
         public EmpresasAltaConfirmacion(EmpresasAlta empresasAlta, Empresa empresa)

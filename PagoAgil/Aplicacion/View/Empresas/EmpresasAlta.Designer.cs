@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tituloLabel = new System.Windows.Forms.Label();
             this.altaPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.direccionText = new System.Windows.Forms.TextBox();
             this.cuitText = new System.Windows.Forms.TextBox();
+            this.direccionText = new System.Windows.Forms.TextBox();
             this.nombreLabel = new System.Windows.Forms.Label();
             this.cuitLabel = new System.Windows.Forms.Label();
             this.direccionLabel = new System.Windows.Forms.Label();
@@ -45,9 +46,13 @@
             this.limpiarButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.altaButton = new System.Windows.Forms.Button();
+            this.sQL_BOYS_Data_Set = new PagoAgil.DataSet.SQL_BOYS_Data_Set();
+            this.sQLBOYSDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.altaPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.diaNumericUpDown)).BeginInit();
             this.altaGroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sQL_BOYS_Data_Set)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sQLBOYSDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tituloLabel
@@ -68,8 +73,8 @@
             this.altaPanel.ColumnCount = 2;
             this.altaPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.altaPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.altaPanel.Controls.Add(this.direccionText, 1, 2);
             this.altaPanel.Controls.Add(this.cuitText, 1, 1);
+            this.altaPanel.Controls.Add(this.direccionText, 1, 2);
             this.altaPanel.Controls.Add(this.nombreLabel, 0, 0);
             this.altaPanel.Controls.Add(this.cuitLabel, 0, 1);
             this.altaPanel.Controls.Add(this.direccionLabel, 0, 2);
@@ -90,21 +95,23 @@
             this.altaPanel.Size = new System.Drawing.Size(296, 199);
             this.altaPanel.TabIndex = 2;
             // 
+            // cuitText
+            // 
+            this.cuitText.Location = new System.Drawing.Point(151, 42);
+            this.cuitText.MaxLength = 10;
+            this.cuitText.Name = "cuitText";
+            this.cuitText.Size = new System.Drawing.Size(142, 20);
+            this.cuitText.TabIndex = 7;
+            this.cuitText.TextChanged += new System.EventHandler(this.cuitText_TextChanged);
+            this.cuitText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cuitText_KeyPress);
+            // 
             // direccionText
             // 
             this.direccionText.Location = new System.Drawing.Point(151, 81);
             this.direccionText.Name = "direccionText";
             this.direccionText.Size = new System.Drawing.Size(142, 20);
             this.direccionText.TabIndex = 7;
-            this.direccionText.TextChanged += new System.EventHandler(this.direccionText_TextChanged);
-            // 
-            // cuitText
-            // 
-            this.cuitText.Location = new System.Drawing.Point(151, 42);
-            this.cuitText.Name = "cuitText";
-            this.cuitText.Size = new System.Drawing.Size(142, 20);
-            this.cuitText.TabIndex = 6;
-            this.cuitText.TextChanged += new System.EventHandler(this.cuitText_TextChanged);
+            this.direccionText.TextChanged += new System.EventHandler(this.direccionText_TextChanged_1);
             // 
             // nombreLabel
             // 
@@ -246,6 +253,16 @@
             this.altaButton.UseVisualStyleBackColor = true;
             this.altaButton.Click += new System.EventHandler(this.altaButton_Click);
             // 
+            // sQL_BOYS_Data_Set
+            // 
+            this.sQL_BOYS_Data_Set.DataSetName = "SQL_BOYS_Data_Set";
+            this.sQL_BOYS_Data_Set.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // sQLBOYSDataSetBindingSource
+            // 
+            this.sQLBOYSDataSetBindingSource.DataSource = this.sQL_BOYS_Data_Set;
+            this.sQLBOYSDataSetBindingSource.Position = 0;
+            // 
             // EmpresasAlta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -262,6 +279,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.diaNumericUpDown)).EndInit();
             this.altaGroup.ResumeLayout(false);
             this.altaGroup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sQL_BOYS_Data_Set)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sQLBOYSDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -272,7 +291,6 @@
         private System.Windows.Forms.Label tituloLabel;
         private System.Windows.Forms.TableLayoutPanel altaPanel;
         private System.Windows.Forms.TextBox direccionText;
-        private System.Windows.Forms.TextBox cuitText;
         private System.Windows.Forms.Label nombreLabel;
         private System.Windows.Forms.Label cuitLabel;
         private System.Windows.Forms.Label direccionLabel;
@@ -286,5 +304,8 @@
         private System.Windows.Forms.Button limpiarButton;
         private System.Windows.Forms.Button altaButton;
         private System.Windows.Forms.CheckBox habilitadaCheckBox;
+        private System.Windows.Forms.TextBox cuitText;
+        private DataSet.SQL_BOYS_Data_Set sQL_BOYS_Data_Set;
+        private System.Windows.Forms.BindingSource sQLBOYSDataSetBindingSource;
     }
 }

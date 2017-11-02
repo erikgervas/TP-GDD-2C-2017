@@ -31,7 +31,7 @@
             this.advertenciaTitulo = new System.Windows.Forms.Label();
             this.volverButton = new System.Windows.Forms.Button();
             this.advertenciaText = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.camposLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // advertenciaTitulo
@@ -52,6 +52,7 @@
             this.volverButton.TabIndex = 4;
             this.volverButton.Text = "Volver atrás";
             this.volverButton.UseVisualStyleBackColor = true;
+            this.volverButton.Click += new System.EventHandler(this.volverButton_Click);
             // 
             // advertenciaText
             // 
@@ -63,21 +64,21 @@
             this.advertenciaText.TabIndex = 3;
             this.advertenciaText.Text = "Faltan completar los siguientes campos:";
             // 
-            // label1
+            // camposLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(160, 103);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "<Campos>";
+            this.camposLabel.AutoSize = true;
+            this.camposLabel.Location = new System.Drawing.Point(160, 103);
+            this.camposLabel.Name = "camposLabel";
+            this.camposLabel.Size = new System.Drawing.Size(57, 13);
+            this.camposLabel.TabIndex = 6;
+            this.camposLabel.Text = "<Campos>";
             // 
             // EmpresasAdvertenciaFaltanCampos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 261);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.camposLabel);
             this.Controls.Add(this.advertenciaTitulo);
             this.Controls.Add(this.volverButton);
             this.Controls.Add(this.advertenciaText);
@@ -93,6 +94,6 @@
         private System.Windows.Forms.Label advertenciaTitulo;
         private System.Windows.Forms.Button volverButton;
         private System.Windows.Forms.Label advertenciaText;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label camposLabel;
     }
 }

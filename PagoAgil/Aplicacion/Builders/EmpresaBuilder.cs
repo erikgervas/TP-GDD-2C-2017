@@ -25,18 +25,23 @@ namespace PagoAgil.Aplicacion.Builders
         {
             this.validar();
 
-            return new Empresa(id, nombre, estado, cuit, direccion, rubro, diaRendicion);
+            return new Empresa(id, nombre, estado, this.generarCuit(), direccion, rubro, diaRendicion);
         }
 
-        public List<String> revisarCampos()
+        private string generarCuit()
+        {
+            return cuit.ElementAt(0) + "-" + cuit.Substring(1, cuit.Count() - 1) + "-" + cuit.Reverse().ElementAt(0);
+        }
+
+        private List<String> revisarLlenado()
         {
             List<String> errores = new List<String>();
 
-            if (nombre == null) errores.Add("Nombre");
-            if (cuit == null) errores.Add("Cuit");
-            if (direccion == null) errores.Add("Dirección");
-            if (rubro == null) errores.Add("Rubro");
-            if (diaRendicion < 1 && diaRendicion > 31) errores.Add("Día imposible");
+            if (this.nombre == null) errores.Add("Nombre");
+            if (this.cuit == null) { errores.Add("Cuit"); } else if (this.cuit.Count() > 0 && this.cuit.Count() < 10) errores.Add("Cuit incompleto");
+            if (this.direccion == null) errores.Add("Dirección");
+            if (this.rubro == null) errores.Add("Rubro");
+            if (this.diaRendicion < 1 && diaRendicion > 31) errores.Add("Día imposible");
 
             return errores;
         }
@@ -46,11 +51,11 @@ namespace PagoAgil.Aplicacion.Builders
             return false; // Implementar
         }
 
-        public void validar()
+        private void validar()
         {
             if (existeOtroIgual()) throw new YaExisteObjetoConEsaClave();
 
-            List<String> errores = revisarCampos();
+            List<String> errores = revisarLlenado();
 
             if (errores.Count != 0) throw new NoSePuedeCrearException(errores);
         }
