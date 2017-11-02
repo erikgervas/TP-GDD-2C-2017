@@ -28,25 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tituloLabel = new System.Windows.Forms.Label();
             this.altaPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.altaGroup = new System.Windows.Forms.GroupBox();
+            this.cuitText = new System.Windows.Forms.TextBox();
+            this.direccionText = new System.Windows.Forms.TextBox();
             this.nombreLabel = new System.Windows.Forms.Label();
             this.cuitLabel = new System.Windows.Forms.Label();
             this.direccionLabel = new System.Windows.Forms.Label();
             this.rubroLabel = new System.Windows.Forms.Label();
             this.diaLabel = new System.Windows.Forms.Label();
             this.nombreText = new System.Windows.Forms.TextBox();
-            this.cuitText = new System.Windows.Forms.TextBox();
-            this.direccionText = new System.Windows.Forms.TextBox();
             this.rubroComboBox = new System.Windows.Forms.ComboBox();
             this.diaNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.altaGroup = new System.Windows.Forms.GroupBox();
+            this.habilitadaCheckBox = new System.Windows.Forms.CheckBox();
+            this.limpiarButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.altaButton = new System.Windows.Forms.Button();
-            this.limpiarButton = new System.Windows.Forms.Button();
+            this.sQL_BOYS_Data_Set = new PagoAgil.DataSet.SQL_BOYS_Data_Set();
+            this.sQLBOYSDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.altaPanel.SuspendLayout();
-            this.altaGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.diaNumericUpDown)).BeginInit();
+            this.altaGroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sQL_BOYS_Data_Set)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sQLBOYSDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tituloLabel
@@ -67,8 +73,8 @@
             this.altaPanel.ColumnCount = 2;
             this.altaPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.altaPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.altaPanel.Controls.Add(this.direccionText, 1, 2);
             this.altaPanel.Controls.Add(this.cuitText, 1, 1);
+            this.altaPanel.Controls.Add(this.direccionText, 1, 2);
             this.altaPanel.Controls.Add(this.nombreLabel, 0, 0);
             this.altaPanel.Controls.Add(this.cuitLabel, 0, 1);
             this.altaPanel.Controls.Add(this.direccionLabel, 0, 2);
@@ -89,16 +95,23 @@
             this.altaPanel.Size = new System.Drawing.Size(296, 199);
             this.altaPanel.TabIndex = 2;
             // 
-            // altaGroup
+            // cuitText
             // 
-            this.altaGroup.Controls.Add(this.limpiarButton);
-            this.altaGroup.Controls.Add(this.altaPanel);
-            this.altaGroup.Location = new System.Drawing.Point(131, 76);
-            this.altaGroup.Name = "altaGroup";
-            this.altaGroup.Size = new System.Drawing.Size(358, 286);
-            this.altaGroup.TabIndex = 3;
-            this.altaGroup.TabStop = false;
-            this.altaGroup.Text = "Datos de la nueva empresa";
+            this.cuitText.Location = new System.Drawing.Point(151, 42);
+            this.cuitText.MaxLength = 10;
+            this.cuitText.Name = "cuitText";
+            this.cuitText.Size = new System.Drawing.Size(142, 20);
+            this.cuitText.TabIndex = 7;
+            this.cuitText.TextChanged += new System.EventHandler(this.cuitText_TextChanged);
+            this.cuitText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cuitText_KeyPress);
+            // 
+            // direccionText
+            // 
+            this.direccionText.Location = new System.Drawing.Point(151, 81);
+            this.direccionText.Name = "direccionText";
+            this.direccionText.Size = new System.Drawing.Size(142, 20);
+            this.direccionText.TabIndex = 7;
+            this.direccionText.TextChanged += new System.EventHandler(this.direccionText_TextChanged_1);
             // 
             // nombreLabel
             // 
@@ -151,20 +164,7 @@
             this.nombreText.Name = "nombreText";
             this.nombreText.Size = new System.Drawing.Size(142, 20);
             this.nombreText.TabIndex = 5;
-            // 
-            // cuitText
-            // 
-            this.cuitText.Location = new System.Drawing.Point(151, 42);
-            this.cuitText.Name = "cuitText";
-            this.cuitText.Size = new System.Drawing.Size(142, 20);
-            this.cuitText.TabIndex = 6;
-            // 
-            // direccionText
-            // 
-            this.direccionText.Location = new System.Drawing.Point(151, 81);
-            this.direccionText.Name = "direccionText";
-            this.direccionText.Size = new System.Drawing.Size(142, 20);
-            this.direccionText.TabIndex = 7;
+            this.nombreText.TextChanged += new System.EventHandler(this.nombreText_TextChanged);
             // 
             // rubroComboBox
             // 
@@ -173,6 +173,7 @@
             this.rubroComboBox.Name = "rubroComboBox";
             this.rubroComboBox.Size = new System.Drawing.Size(142, 21);
             this.rubroComboBox.TabIndex = 8;
+            this.rubroComboBox.SelectedIndexChanged += new System.EventHandler(this.rubroComboBox_SelectedIndexChanged);
             // 
             // diaNumericUpDown
             // 
@@ -195,6 +196,42 @@
             0,
             0,
             0});
+            this.diaNumericUpDown.ValueChanged += new System.EventHandler(this.diaNumericUpDown_ValueChanged);
+            // 
+            // altaGroup
+            // 
+            this.altaGroup.Controls.Add(this.habilitadaCheckBox);
+            this.altaGroup.Controls.Add(this.limpiarButton);
+            this.altaGroup.Controls.Add(this.altaPanel);
+            this.altaGroup.Location = new System.Drawing.Point(131, 76);
+            this.altaGroup.Name = "altaGroup";
+            this.altaGroup.Size = new System.Drawing.Size(358, 286);
+            this.altaGroup.TabIndex = 3;
+            this.altaGroup.TabStop = false;
+            this.altaGroup.Text = "Datos de la nueva empresa";
+            // 
+            // habilitadaCheckBox
+            // 
+            this.habilitadaCheckBox.AutoSize = true;
+            this.habilitadaCheckBox.Checked = true;
+            this.habilitadaCheckBox.CheckState = System.Windows.Forms.CheckState.Indeterminate;
+            this.habilitadaCheckBox.Location = new System.Drawing.Point(30, 249);
+            this.habilitadaCheckBox.Name = "habilitadaCheckBox";
+            this.habilitadaCheckBox.Size = new System.Drawing.Size(73, 17);
+            this.habilitadaCheckBox.TabIndex = 4;
+            this.habilitadaCheckBox.Text = "Habilitada";
+            this.habilitadaCheckBox.UseVisualStyleBackColor = true;
+            this.habilitadaCheckBox.CheckedChanged += new System.EventHandler(this.habilitadaCheckBox_CheckedChanged);
+            // 
+            // limpiarButton
+            // 
+            this.limpiarButton.Location = new System.Drawing.Point(251, 244);
+            this.limpiarButton.Name = "limpiarButton";
+            this.limpiarButton.Size = new System.Drawing.Size(75, 23);
+            this.limpiarButton.TabIndex = 3;
+            this.limpiarButton.Text = "Limpiar";
+            this.limpiarButton.UseVisualStyleBackColor = true;
+            this.limpiarButton.Click += new System.EventHandler(this.limpiarButton_Click);
             // 
             // button2
             // 
@@ -204,24 +241,27 @@
             this.button2.TabIndex = 5;
             this.button2.Text = "<<";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // altaButton
             // 
-            this.altaButton.Location = new System.Drawing.Point(235, 384);
+            this.altaButton.Location = new System.Drawing.Point(235, 379);
             this.altaButton.Name = "altaButton";
             this.altaButton.Size = new System.Drawing.Size(150, 30);
             this.altaButton.TabIndex = 6;
             this.altaButton.Text = "Dar de alta";
             this.altaButton.UseVisualStyleBackColor = true;
+            this.altaButton.Click += new System.EventHandler(this.altaButton_Click);
             // 
-            // limpiarButton
+            // sQL_BOYS_Data_Set
             // 
-            this.limpiarButton.Location = new System.Drawing.Point(30, 244);
-            this.limpiarButton.Name = "limpiarButton";
-            this.limpiarButton.Size = new System.Drawing.Size(75, 23);
-            this.limpiarButton.TabIndex = 3;
-            this.limpiarButton.Text = "Limpiar";
-            this.limpiarButton.UseVisualStyleBackColor = true;
+            this.sQL_BOYS_Data_Set.DataSetName = "SQL_BOYS_Data_Set";
+            this.sQL_BOYS_Data_Set.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // sQLBOYSDataSetBindingSource
+            // 
+            this.sQLBOYSDataSetBindingSource.DataSource = this.sQL_BOYS_Data_Set;
+            this.sQLBOYSDataSetBindingSource.Position = 0;
             // 
             // EmpresasAlta
             // 
@@ -236,8 +276,11 @@
             this.Text = "Alta de empresas";
             this.altaPanel.ResumeLayout(false);
             this.altaPanel.PerformLayout();
-            this.altaGroup.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.diaNumericUpDown)).EndInit();
+            this.altaGroup.ResumeLayout(false);
+            this.altaGroup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sQL_BOYS_Data_Set)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sQLBOYSDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,7 +291,6 @@
         private System.Windows.Forms.Label tituloLabel;
         private System.Windows.Forms.TableLayoutPanel altaPanel;
         private System.Windows.Forms.TextBox direccionText;
-        private System.Windows.Forms.TextBox cuitText;
         private System.Windows.Forms.Label nombreLabel;
         private System.Windows.Forms.Label cuitLabel;
         private System.Windows.Forms.Label direccionLabel;
@@ -261,5 +303,9 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button limpiarButton;
         private System.Windows.Forms.Button altaButton;
+        private System.Windows.Forms.CheckBox habilitadaCheckBox;
+        private System.Windows.Forms.TextBox cuitText;
+        private DataSet.SQL_BOYS_Data_Set sQL_BOYS_Data_Set;
+        private System.Windows.Forms.BindingSource sQLBOYSDataSetBindingSource;
     }
 }

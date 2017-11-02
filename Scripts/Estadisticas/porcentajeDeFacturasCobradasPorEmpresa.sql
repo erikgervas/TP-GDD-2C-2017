@@ -1,17 +1,17 @@
-CREATE FUNCTION porcentajeDeFacturasCobradasPorEmpresa(@anio int, @trimestre int)
+CREATE FUNCTION SQL_BOYS.porcentajeDeFacturasCobradasPorEmpresa(@anio int, @trimestre int)
 RETURNS table
 AS
 
 	return (
 	
-		SELECT top 5 e.* from Empresa e join 
-				Factura f on e.id_empresa = f.id_empresa join 
-				Item_Pago i on f.numero_factura = i.numero_factura join 
-				Pago p on i.numero_pago = p.numero_pago
+		SELECT top 5 e.* from SQL_BOYS.Empresa e join 
+				SQL_BOYS.Factura f on e.id_empresa = f.id_empresa join 
+				SQL_BOYS.Item_Pago i on f.numero_factura = i.numero_factura join 
+				SQL_BOYS.Pago p on i.numero_pago = p.numero_pago
 			
-			where dbo.esFechaValida(p.fecha_pago, @anio, @trimestre) = 1
+			where SQL_BOYS.esFechaValida(p.fecha_pago, @anio, @trimestre) = 1
 
-			group by e.id_empresa, e.nombre, e.cuit, e.domicilio, e.id_rubro, e.dia_rendicion, e.habilitada
+			group by e.id_empresa, e.nombre, e.cuit, e.domicilio, e.id_rubro, e.dia_rendicion, e.habilitadx
 
 			order by (
 			

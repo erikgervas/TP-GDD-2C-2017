@@ -12,9 +12,21 @@ namespace PagoAgil.Aplicacion.View.Empresas
 {
     public partial class EmpresasBuscador : Form
     {
-        public EmpresasBuscador()
+        private EmpresasSeleccionABM empresasSeleccionABM;
+
+        public EmpresasBuscador(EmpresasSeleccionABM empresasSeleccionABM)
         {
             InitializeComponent();
+            this.empresasSeleccionABM = empresasSeleccionABM;
+        }
+
+        private void volverAInicioButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+            this.empresasSeleccionABM.Show();
+
+            this.empresasSeleccionABM.Activate();
         }
     }
 }

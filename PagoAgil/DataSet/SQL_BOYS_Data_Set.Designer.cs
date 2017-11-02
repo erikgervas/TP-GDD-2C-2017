@@ -13782,7 +13782,7 @@ namespace PagoAgil.DataSet {
                         return ((string)(this[this.tableView_Pago_Medio_De_Pago.view_medio_de_pagoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'view_medio_de_pago\' in table \'View_Pago_Medio_De_Pago\' is D" +
+                        throw new global::System.Data.StrongTypingException("The value for column \'view_medio_de_pago\' in table \'View_Pago_Medio_De_Pago\' is DTO" +
                                 "BNull.", e);
                     }
                 }
@@ -13920,7 +13920,7 @@ namespace PagoAgil.DataSet {
                         return ((decimal)(this[this.tableView_Tabla_Maestra_Conflictiva._Cliente_DniColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cliente-Dni\' in table \'View_Tabla_Maestra_Conflictiva\' is D" +
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cliente-Dni\' in table \'View_Tabla_Maestra_Conflictiva\' is DTO" +
                                 "BNull.", e);
                     }
                 }
@@ -14039,7 +14039,7 @@ namespace PagoAgil.DataSet {
                         return ((decimal)(this[this.tableView_Tabla_Maestra_Conflictiva.Nro_FacturaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Nro_Factura\' in table \'View_Tabla_Maestra_Conflictiva\' is D" +
+                        throw new global::System.Data.StrongTypingException("The value for column \'Nro_Factura\' in table \'View_Tabla_Maestra_Conflictiva\' is DTO" +
                                 "BNull.", e);
                     }
                 }
@@ -15868,7 +15868,7 @@ SELECT dni_cliente, nombre, apellido, nacimiento, mail, domicilio, codigo_postal
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT dni_cliente, nombre, apellido, nacimiento, mail, domicilio, codigo_postal," +
-                " telefono, habilitadx FROM dbo.Cliente";
+                " telefono, habilitadx FROM SQL_BOYS.Cliente";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -16342,7 +16342,7 @@ SELECT id_devolucion, fecha_devolucion, motivo, numero_factura FROM Devolucion W
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_devolucion, fecha_devolucion, motivo, numero_factura FROM dbo.Devolucio" +
+            this._commandCollection[0].CommandText = "SELECT id_devolucion, fecha_devolucion, motivo, numero_factura FROM SQL_BOYS.Devolucio" +
                 "n";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
@@ -16717,7 +16717,7 @@ SELECT id_empresa, nombre, cuit, domicilio, dia_rendicion, habilitadx, id_rubro 
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT id_empresa, nombre, cuit, domicilio, dia_rendicion, habilitadx, id_rubro F" +
-                "ROM dbo.Empresa";
+                "ROM SQL_BOYS.Empresa";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -17122,7 +17122,7 @@ SELECT numero_factura, factura_monto_total, factura_fecha_alta, factura_fecha_ve
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT numero_factura, factura_monto_total, factura_fecha_alta, factura_fecha_ven" +
-                "cimiento, dni_cliente, id_empresa, numero_rendicion FROM dbo.Factura";
+                "cimiento, dni_cliente, id_empresa, numero_rendicion FROM SQL_BOYS.Factura";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -17466,7 +17466,7 @@ SELECT numero_factura, factura_monto_total, factura_fecha_alta, factura_fecha_ve
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_funcionalidad, nombre FROM dbo.Funcionalidad";
+            this._commandCollection[0].CommandText = "SELECT id_funcionalidad, nombre FROM SQL_BOYS.Funcionalidad";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -17785,7 +17785,7 @@ SELECT id_funcionalidad, id_rol FROM Funcionalidad_Por_Rol WHERE (id_funcionalid
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_funcionalidad, id_rol FROM dbo.Funcionalidad_Por_Rol";
+            this._commandCollection[0].CommandText = "SELECT id_funcionalidad, id_rol FROM SQL_BOYS.Funcionalidad_Por_Rol";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -18100,7 +18100,7 @@ SELECT id_item, nombre, monto, cantidad, numero_factura FROM Item WHERE (id_item
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_item, nombre, monto, cantidad, numero_factura FROM dbo.Item";
+            this._commandCollection[0].CommandText = "SELECT id_item, nombre, monto, cantidad, numero_factura FROM SQL_BOYS.Item";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -18436,7 +18436,7 @@ SELECT id_item, numero_factura, numero_pago FROM Item_Pago WHERE (id_item = @id_
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_item, numero_factura, numero_pago FROM dbo.Item_Pago";
+            this._commandCollection[0].CommandText = "SELECT id_item, numero_factura, numero_pago FROM SQL_BOYS.Item_Pago";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -18740,7 +18740,7 @@ SELECT id_item, numero_rendicion FROM Item_Rendicion WHERE (id_item = @id_item) 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_item, numero_rendicion FROM dbo.Item_Rendicion";
+            this._commandCollection[0].CommandText = "SELECT id_item, numero_rendicion FROM SQL_BOYS.Item_Rendicion";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -19529,7 +19529,7 @@ SELECT id_medio_de_pago, descripcion FROM Medio_De_Pago WHERE (id_medio_de_pago 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_medio_de_pago, descripcion FROM dbo.Medio_De_Pago";
+            this._commandCollection[0].CommandText = "SELECT id_medio_de_pago, descripcion FROM SQL_BOYS.Medio_De_Pago";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -19866,7 +19866,7 @@ SELECT numero_pago, monto_total, fecha_pago, id_medio_de_pago, dni_cliente, cp_s
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT numero_pago, monto_total, fecha_pago, id_medio_de_pago, dni_cliente, cp_su" +
-                "cursal FROM dbo.Pago";
+                "cursal FROM SQL_BOYS.Pago";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -20186,7 +20186,7 @@ SELECT numero_rendicion, importe_comision, fecha_rendicion FROM Rendicion WHERE 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT numero_rendicion, importe_comision, fecha_rendicion FROM dbo.Rendicion";
+            this._commandCollection[0].CommandText = "SELECT numero_rendicion, importe_comision, fecha_rendicion FROM SQL_BOYS.Rendicion";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -20494,7 +20494,7 @@ SELECT numero_rendicion, importe_comision, fecha_rendicion FROM Rendicion WHERE 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_rol, nombre, habilitadx FROM dbo.Rol";
+            this._commandCollection[0].CommandText = "SELECT id_rol, nombre, habilitadx FROM SQL_BOYS.Rol";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -20822,7 +20822,7 @@ SELECT id_rol, id_usuario, cp_sucursal FROM Rol_De_Usuario_Por_Sucursal WHERE (c
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_rol, id_usuario, cp_sucursal FROM dbo.Rol_De_Usuario_Por_Sucursal";
+            this._commandCollection[0].CommandText = "SELECT id_rol, id_usuario, cp_sucursal FROM SQL_BOYS.Rol_De_Usuario_Por_Sucursal";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -21125,7 +21125,7 @@ SELECT id_rol, id_usuario, cp_sucursal FROM Rol_De_Usuario_Por_Sucursal WHERE (c
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_rubro, descripcion FROM dbo.Rubro";
+            this._commandCollection[0].CommandText = "SELECT id_rubro, descripcion FROM SQL_BOYS.Rubro";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -21455,7 +21455,7 @@ SELECT cp_sucursal, nombre, domicilio, habilitadx FROM Sucursal WHERE (cp_sucurs
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT cp_sucursal, nombre, domicilio, habilitadx FROM dbo.Sucursal";
+            this._commandCollection[0].CommandText = "SELECT cp_sucursal, nombre, domicilio, habilitadx FROM SQL_BOYS.Sucursal";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -21813,7 +21813,7 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_usuario, username, contraseña, habilitadx FROM dbo.Usuario";
+            this._commandCollection[0].CommandText = "SELECT id_usuario, username, contraseña, habilitadx FROM SQL_BOYS.Usuario";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -22142,7 +22142,7 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT view_dni_cliente, view_apellido, view_nombre, view_nacimiento, view_mail, " +
-                "view_domicilio, view_codigo_postal FROM dbo.View_Cliente";
+                "view_domicilio, view_codigo_postal FROM SQL_BOYS.View_Cliente";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -22316,7 +22316,7 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT view_dni_cliente, view_apellido, view_nombre, view_nacimiento, view_mail, " +
-                "view_domicilio, view_codigo_postal FROM dbo.View_Cliente_Conflictivo";
+                "view_domicilio, view_codigo_postal FROM SQL_BOYS.View_Cliente_Conflictivo";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -22488,7 +22488,7 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT view_nombre, view_cuit, view_domicilio, view_id_rubro, view_descripcion FR" +
-                "OM dbo.View_Empresa_Rubro";
+                "OM SQL_BOYS.View_Empresa_Rubro";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -22663,7 +22663,7 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT view_numero_factura, view_factura_monto_total, view_factura_fecha_alta, vi" +
                 "ew_factura_fecha_vencimiento, view_dni_cliente, view_cuit_empresa, view_numero_r" +
-                "endicion FROM dbo.View_Factura";
+                "endicion FROM SQL_BOYS.View_Factura";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -22838,7 +22838,7 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT view_numero_factura, view_factura_monto_total, view_factura_fecha_alta, vi" +
                 "ew_factura_fecha_vencimiento, view_dni_cliente, view_cuit_empresa, view_numero_r" +
-                "endicion FROM dbo.View_Factura_Con_Rendicion";
+                "endicion FROM SQL_BOYS.View_Factura_Con_Rendicion";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -23010,7 +23010,7 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT view_monto, view_cantidad, view_numero_factura, view_numero_pago, view_num" +
-                "ero_rendicion FROM dbo.View_Item";
+                "ero_rendicion FROM SQL_BOYS.View_Item";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -23183,7 +23183,7 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT view_numero_pago, view_monto_total, view_fecha_pago, view_medio_de_pago, v" +
-                "iew_dni_cliente, view_cp_sucursal FROM dbo.View_Pago_Medio_De_Pago";
+                "iew_dni_cliente, view_cp_sucursal FROM SQL_BOYS.View_Pago_Medio_De_Pago";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -23379,7 +23379,7 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT [Cliente-Dni], [Cliente-Apellido], [Cliente-Nombre], [Cliente-Fecha_Nac], Cliente_Mail, Cliente_Direccion, Cliente_Codigo_Postal, Nro_Factura, Factura_Fecha, Factura_Total, Factura_Fecha_Vencimiento, ItemFactura_Monto, ItemFactura_Cantidad, Empresa_Nombre, Empresa_Cuit, Empresa_Direccion, Empresa_Rubro, Rubro_Descripcion, Pago_nro, Pago_Fecha, ItemPago_nro, Total, FormaPagoDescripcion, Sucursal_Nombre, Sucursal_Dirección, Sucursal_Codigo_Postal, Rendicion_Nro, Rendicion_Fecha, ItemRendicion_nro, ItemRendicion_Importe FROM dbo.View_Tabla_Maestra_Conflictiva";
+            this._commandCollection[0].CommandText = @"SELECT [Cliente-Dni], [Cliente-Apellido], [Cliente-Nombre], [Cliente-Fecha_Nac], Cliente_Mail, Cliente_Direccion, Cliente_Codigo_Postal, Nro_Factura, Factura_Fecha, Factura_Total, Factura_Fecha_Vencimiento, ItemFactura_Monto, ItemFactura_Cantidad, Empresa_Nombre, Empresa_Cuit, Empresa_Direccion, Empresa_Rubro, Rubro_Descripcion, Pago_nro, Pago_Fecha, ItemPago_nro, Total, FormaPagoDescripcion, Sucursal_Nombre, Sucursal_Dirección, Sucursal_Codigo_Postal, Rendicion_Nro, Rendicion_Fecha, ItemRendicion_nro, ItemRendicion_Importe FROM SQL_BOYS.View_Tabla_Maestra_Conflictiva";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

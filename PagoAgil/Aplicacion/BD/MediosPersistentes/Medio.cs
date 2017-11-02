@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PagoAgil.Aplicacion.BD.MediosPersistentes
 {
-    public interface Medio<E> where E : Entidad
+    public interface Medio<E>
     {
         List<E> darTodos();
 

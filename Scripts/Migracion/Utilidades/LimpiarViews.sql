@@ -1,1 +1,0 @@
-DROP VIEW View_Cliente, View_Empresa_Rubro, View_Factura, View_Item, View_Rendicion

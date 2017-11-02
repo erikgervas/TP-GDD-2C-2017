@@ -22,7 +22,7 @@ namespace PagoAgil.Aplicacion.Orquestradores
         public SucursalDB[] obtenerSucursales(UsuarioDB usuarioActual)
         {
 
-            String query = "select * from dbo.obtenerSucursales(" + usuarioActual.getId() + ")";
+            String query = "select * from SQL_BOYS.obtenerSucursales(" + usuarioActual.getId() + ")";
 
             TablaDTO tabla = LectorDeTablas.getInstance().obtener(query);
 

@@ -68,6 +68,7 @@
             this.ingresarButton.TabIndex = 3;
             this.ingresarButton.Text = "Dar de alta";
             this.ingresarButton.UseVisualStyleBackColor = true;
+            this.ingresarButton.Click += new System.EventHandler(this.ingresarButton_Click);
             // 
             // consultarButton
             // 
@@ -77,6 +78,7 @@
             this.consultarButton.TabIndex = 2;
             this.consultarButton.Text = "Consultar";
             this.consultarButton.UseVisualStyleBackColor = true;
+            this.consultarButton.Click += new System.EventHandler(this.consultarButton_Click);
             // 
             // button1
             // 
@@ -86,6 +88,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "<<";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // EmpresasSeleccionABM
             // 

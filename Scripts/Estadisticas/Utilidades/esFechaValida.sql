@@ -1,4 +1,4 @@
-CREATE FUNCTION esFechaValida(@fecha datetime, @anio int, @trimestre int)
+CREATE FUNCTION SQL_BOYS.esFechaValida(@fecha datetime, @anio int, @trimestre int)
 RETURNS bit
 AS
 BEGIN
