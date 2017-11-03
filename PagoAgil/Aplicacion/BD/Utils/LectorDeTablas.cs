@@ -40,12 +40,14 @@ namespace PagoAgil.Aplicacion.BD
 
         }
 
-        public DataTable obtenerCiertasColumnasOrdenadas(String query, string[] columnasAMostrar)
+        public DataTable obtenerCiertasColumnasOrdenadas(String query, string[] columnasAMostrar, Boolean ascendente)
         {
 
             DataTable dt = this.obtenerCiertasColumnas(query, columnasAMostrar);
 
-            dt.DefaultView.Sort = columnasAMostrar[0] + " desc";
+            string tipoDeOrden = ascendente ? "asc" : "desc";
+
+            dt.DefaultView.Sort = columnasAMostrar[0] + " " + tipoDeOrden;
 
             return dt;
 
