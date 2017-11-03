@@ -55,11 +55,12 @@ namespace PagoAgil.Aplicacion.View
         {
            Sucursal sucursalNueva = sucursalBuilder.crearSucursal();
 
-            RepositorioSucursales.getInstancia().alta(sucursalNueva);
+            Insertador.getInstance().insertarSucursal(sucursalNueva);
+            //RepositorioSucursales.getInstancia().alta(sucursalNueva);
 
-            FormAltaSucursalOk formAlta = new FormAltaSucursalOk(sucursalNueva);
+            //FormAltaSucursalOk formAlta = new FormAltaSucursalOk(sucursalNueva);
 
-            formAlta.Show();
+            //formAlta.Show();
 
         }
 

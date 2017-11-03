@@ -8,10 +8,10 @@ namespace PagoAgil.Aplicacion.Modelo.ClienteSQL
 {
     public class SucursalDB
     {
-        int codigoPostal { get; set; }
-        string nombre { get; set; }
-        string domicilio { get; set; }
-        bool habilitado { get; set; }
+        public int codigoPostal { get; set; }
+        public string nombre { get; set; }
+        public string domicilio { get; set; }
+        public bool habilitado { get; set; }
 
         public SucursalDB(FilaDTO fila)
         {
@@ -22,6 +22,14 @@ namespace PagoAgil.Aplicacion.Modelo.ClienteSQL
             this.domicilio = elementos.ElementAt(2);
             this.habilitado = elementos.ElementAt(3).Equals("True") ? true : false;
 
+        }
+
+        public SucursalDB(int unCodigoPostal, string unNombre, string unDomicilio, bool unEstado)
+        {
+            this.codigoPostal = unCodigoPostal;
+            this.nombre = unNombre;
+            this.domicilio = unDomicilio;
+            this.habilitado = unEstado;
         }
 
         internal int getId()
