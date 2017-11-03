@@ -35,7 +35,7 @@ namespace PagoAgil.Aplicacion.View.Sucursales
             string direccionSucursal = textBoxDireccion.Text.Trim();
             int codigoPostal = (int) numericUpDownCP.Value;
 
-            List<SucursalDB> sucursalesFiltradas = new List<SucursalDB>();
+            /*List<SucursalDB> sucursalesFiltradas = new List<SucursalDB>();
 
             //sucursalesFiltradas = VM.filtrarSucursales(nombreSucursal,direccionSucursal,codigoPostal);
 
@@ -46,7 +46,7 @@ namespace PagoAgil.Aplicacion.View.Sucursales
             sucursalesFiltradas.Add(RepositorioSucursales.getInstancia().getAlmacenamiento().darTodos().ElementAt(0));
             dataGridView1.DataSource = sucursalesFiltradas;
 
-            //dataGridView1.Columns[1].HeaderText = "Codigo Postal";
+            //dataGridView1.Columns[1].HeaderText = "Codigo Postal";*/
 
         }
 

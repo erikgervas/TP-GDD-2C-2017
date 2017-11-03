@@ -16,7 +16,7 @@ namespace PagoAgil.Aplicacion.View.Sucursales
 
         public Sucursal crearSucursal()
         {
-            return new Sucursal(RepositorioSucursales.getInstancia().proximoId, this.nombre, true, this.domicilio, this.codigoPostal);
+            return new Sucursal(this.codigoPostal, this.nombre, this.domicilio, true);
         }
     }
 }

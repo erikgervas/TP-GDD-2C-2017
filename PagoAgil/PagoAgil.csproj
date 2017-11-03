@@ -53,6 +53,7 @@
     <Compile Include="Aplicacion\BD\Repositorios\RepositorioRubros.cs" />
     <Compile Include="Aplicacion\BD\Utils\Conexion.cs" />
     <Compile Include="Aplicacion\BD\Utils\DTO\FilaDTO.cs" />
+    <Compile Include="Aplicacion\BD\Utils\Insertador.cs" />
     <Compile Include="Aplicacion\BD\Utils\LectorDeTablas.cs" />
     <Compile Include="Aplicacion\BD\MediosPersistentes\Medio.cs" />
     <Compile Include="Aplicacion\BD\MediosPersistentes\Medios\MedioUsuario.cs" />
