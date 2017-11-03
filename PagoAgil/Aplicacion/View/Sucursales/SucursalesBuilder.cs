@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PagoAgil.Aplicacion.Modelo;
+using PagoAgil.Aplicacion.Modelo.ClienteSQL;
 using PagoAgil.Aplicacion.BD.Repositorios;
 
 namespace PagoAgil.Aplicacion.View.Sucursales
@@ -14,9 +14,9 @@ namespace PagoAgil.Aplicacion.View.Sucursales
         public string domicilio { get; set; }
         public int codigoPostal { get; set; }
 
-        public Sucursal crearSucursal()
+        public SucursalDB crearSucursal()
         {
-            return new Sucursal(this.codigoPostal, this.nombre, this.domicilio, true);
+            return new SucursalDB(this.codigoPostal, this.nombre, this.domicilio, true);
         }
     }
 }

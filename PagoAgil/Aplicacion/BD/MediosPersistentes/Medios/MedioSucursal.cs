@@ -75,8 +75,9 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
 
         public void aniadir(SucursalDB unaSucursal)
         {
-            //Insertador.getInstance().insertarSucursal(unaSucursal);
+            Insertador.getInstance().insertarSucursal(unaSucursal);
         }
+
         public void eliminar(SucursalDB unaEntidad)
         {
 
