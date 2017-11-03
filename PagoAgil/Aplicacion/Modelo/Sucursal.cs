@@ -7,16 +7,19 @@ using PagoAgil.Aplicacion.BD.Repositorios;
 
 namespace PagoAgil.Aplicacion.Modelo
 {
-    public class Sucursal : Habilitable
+    public class Sucursal
     {
-
-        public string domicilio { get; set; }
         public int codigoPostal { get; set; }
+        public string nombre { get; set; }
+        public string domicilio { get; set; }
+        public bool estado { get; set; }
 
-        public Sucursal(long unId, string unNombre, bool unEstado, string unDomicilio, int unCodigoPostal) : base (unId, unNombre, unEstado)
+        public Sucursal( int unCodigoPostal, string unNombre, string unDomicilio, bool unEstado)
         {
-            this.domicilio = unDomicilio;
             this.codigoPostal = unCodigoPostal;
+            this.nombre = unNombre;
+            this.domicilio = unDomicilio;
+            this.estado= unEstado;
         }
 
     }

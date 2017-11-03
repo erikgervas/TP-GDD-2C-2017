@@ -7,15 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PagoAgil.Aplicacion.Modelo;
+using PagoAgil.Aplicacion.Modelo.ClienteSQL;
 
 namespace PagoAgil.Aplicacion.View.Sucursales
 {
     public partial class FormAltaSucursalOk : Form
     {
-        Sucursal sucursal;
+        SucursalDB sucursal;
 
-        public FormAltaSucursalOk(Sucursal sucursalNueva)
+        public FormAltaSucursalOk(SucursalDB sucursalNueva)
         {
             sucursal = sucursalNueva;
 

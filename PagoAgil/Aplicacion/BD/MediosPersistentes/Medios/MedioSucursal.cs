@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PagoAgil.Aplicacion.Modelo.ClienteSQL;
+using PagoAgil.Aplicacion.Modelo;
+using PagoAgil.Aplicacion.BD.Utils;
 
 namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
 {
@@ -71,9 +73,9 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
             return 1L;
         }
 
-        public void aniadir(SucursalDB unaEntidad)
+        public void aniadir(SucursalDB unaSucursal)
         {
-
+            Insertador.getInstance().insertarSucursal(unaSucursal);
         }
 
         public void eliminar(SucursalDB unaEntidad)

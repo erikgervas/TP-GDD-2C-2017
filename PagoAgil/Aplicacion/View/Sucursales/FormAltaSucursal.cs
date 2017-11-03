@@ -3,6 +3,8 @@ using System.Windows.Forms;
 using PagoAgil.Aplicacion.View.Sucursales;
 using PagoAgil.Aplicacion.BD.Repositorios;
 using PagoAgil.Aplicacion.Modelo;
+using PagoAgil.Aplicacion.Modelo.ClienteSQL;
+using PagoAgil.Aplicacion.BD.Utils;
 
 namespace PagoAgil.Aplicacion.View
 {
@@ -52,9 +54,9 @@ namespace PagoAgil.Aplicacion.View
 
         private void buttonConfirmar_Click(object sender, EventArgs e)
         {
-           Sucursal sucursalNueva = sucursalBuilder.crearSucursal();
+            SucursalDB sucursalNueva = sucursalBuilder.crearSucursal();
 
-            //RepositorioSucursales.getInstancia().alta(sucursalNueva);
+            RepositorioSucursales.getInstancia().getAlmacenamiento().aniadir(sucursalNueva);
 
             FormAltaSucursalOk formAlta = new FormAltaSucursalOk(sucursalNueva);
 
