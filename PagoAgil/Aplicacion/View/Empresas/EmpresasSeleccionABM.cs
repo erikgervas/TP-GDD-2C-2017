@@ -12,37 +12,32 @@ namespace PagoAgil.Aplicacion.View.Empresas
 {
     public partial class EmpresasSeleccionABM : Form
     {
-        private FormHome formHome;
-
-        public EmpresasSeleccionABM(FormHome formHome)
+        public EmpresasSeleccionABM()
         {
             InitializeComponent();
             this.CenterToScreen();
-            this.formHome = formHome;
         }
 
 
         private void ingresarButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
 
-            new EmpresasAlta(this).Show();
+            new EmpresasAlta().Show();
         }
 
         private void consultarButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
 
-            new EmpresasBuscador(this).Show();
+            new EmpresasBuscador().Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
 
-            this.formHome.Show();
-
-            this.formHome.Activate();
+            new FormHome().Show();
         }
     }
 }

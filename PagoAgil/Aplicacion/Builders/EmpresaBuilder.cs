@@ -23,12 +23,16 @@ namespace PagoAgil.Aplicacion.Builders
 
         public Empresa crear()
         {
-            this.validar();
-
             return new Empresa(id, nombre, estado, this.generarCuit(), direccion, rubro, diaRendicion);
         }
 
-        private string generarCuit()
+        public void validar()
+        {
+            revisarLlenado();
+            existeOtroIgual();
+        }
+
+        public string generarCuit()
         {
             return cuit.ElementAt(0) + "-" + cuit.Substring(1, cuit.Count() - 2) + "-" + cuit.Reverse().ElementAt(0);
         }
@@ -54,12 +58,6 @@ namespace PagoAgil.Aplicacion.Builders
         private void existeOtroIgual()
         {
             // if (Existe otra empresa igual) throw new YaExisteObjetoConEsaClave();
-        }
-
-        private void validar()
-        {
-            revisarLlenado();
-            existeOtroIgual();
         }
     }
 }

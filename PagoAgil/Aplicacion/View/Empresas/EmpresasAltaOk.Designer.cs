@@ -51,6 +51,7 @@
             this.volverAInicioButton.TabIndex = 1;
             this.volverAInicioButton.Text = "Volver a inicio";
             this.volverAInicioButton.UseVisualStyleBackColor = true;
+            this.volverAInicioButton.Click += new System.EventHandler(this.volverAInicioButton_Click);
             // 
             // volverAEmpresasButton
             // 
@@ -60,6 +61,7 @@
             this.volverAEmpresasButton.TabIndex = 2;
             this.volverAEmpresasButton.Text = "Volver a Empresas";
             this.volverAEmpresasButton.UseVisualStyleBackColor = true;
+            this.volverAEmpresasButton.Click += new System.EventHandler(this.volverAEmpresasButton_Click);
             // 
             // EmpresasAltaOk
             // 

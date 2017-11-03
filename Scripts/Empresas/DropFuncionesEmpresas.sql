@@ -1,3 +1,7 @@
 DROP FUNCTION
 
 	SQL_BOYS.obtenerRubros
+
+DROP PROCEDURE
+
+	SQL_BOYS.altaDeEmpresa

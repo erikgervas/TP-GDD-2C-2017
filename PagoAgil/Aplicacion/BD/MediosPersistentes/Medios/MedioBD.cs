@@ -1,7 +1,10 @@
-﻿using PagoAgil.Aplicacion.Modelo;
+﻿using PagoAgil.Aplicacion.BD.Utils;
+using PagoAgil.Aplicacion.Modelo;
 using PagoAgil.Aplicacion.Modelo.ClienteSQL;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +27,13 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
 
         public void aniadir(DTO unaEntidad)
         {
-            throw new NotImplementedException();
+            SqlCommand comando = new SqlCommand("SQL_BOYS.altaDe" + this.nombreTabla(), Conexion.getInstance().obtenerConexion());
+
+            comando.CommandType = CommandType.StoredProcedure;
+
+            foreach (Parametro unParametro in this.listaDeParametros(unaEntidad)) comando.Parameters.Add(unParametro.nombre, unParametro.tipo).Value = unParametro.valor;
+
+            comando.ExecuteNonQuery();
         }
 
         public void eliminar(DTO unaEntidad)
@@ -35,13 +44,6 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
         public void modificar(DTO unaEntidad)
         {
             throw new NotImplementedException();
-        }
-
-        protected abstract string nombreTabla();
-
-        protected String prefijoConsulta()
-        {
-            return "SELECT * FROM SQL_BOYS.";
         }
 
         protected List<DTO> realizarConsulta(String consulta)
@@ -73,7 +75,16 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
             return this.rellenarFila(elementos);
         }
 
+        protected abstract string nombreTabla();
+
+        protected abstract List<Parametro> listaDeParametros(DTO unaEntidad);
+
         protected abstract DTO rellenarFila(List<String> elementos);
+
+        private String prefijoConsulta()
+        {
+            return "SELECT * FROM SQL_BOYS.";
+        }
 
     }
 }

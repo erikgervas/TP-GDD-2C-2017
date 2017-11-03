@@ -40,9 +40,9 @@ namespace PagoAgil.Aplicacion.View
         private void button_abm_empresas_Click(object sender, EventArgs e)
         {
 
-            this.Hide();
+            this.Close();
 
-            new EmpresasSeleccionABM(this).Show();
+            new EmpresasSeleccionABM().Show();
         
         }
 

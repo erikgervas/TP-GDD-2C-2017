@@ -15,6 +15,21 @@ namespace PagoAgil.Aplicacion.View.Empresas
         public EmpresasAltaOk()
         {
             InitializeComponent();
+            this.CenterToScreen();
+        }
+
+        private void volverAInicioButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+            new FormHome().Show();
+        }
+
+        private void volverAEmpresasButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+            new EmpresasSeleccionABM().Show();
         }
     }
 }

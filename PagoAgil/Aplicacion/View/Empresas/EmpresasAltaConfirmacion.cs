@@ -1,4 +1,6 @@
-﻿using PagoAgil.Aplicacion.Modelo;
+﻿using PagoAgil.Aplicacion.BD.Repositorios;
+using PagoAgil.Aplicacion.Builders;
+using PagoAgil.Aplicacion.Modelo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,16 +15,13 @@ namespace PagoAgil.Aplicacion.View.Empresas
 {
     public partial class EmpresasAltaConfirmacion : Form
     {
-        private EmpresasAlta empresasAlta;
-        private Empresa empresa;
+        private EmpresaBuilder empresa;
 
-        public EmpresasAltaConfirmacion(EmpresasAlta empresasAlta, Empresa empresa)
+        public EmpresasAltaConfirmacion(EmpresaBuilder empresaBuilder)
         {
             InitializeComponent();
             this.CenterToScreen();
-
-            this.empresasAlta = empresasAlta;
-            this.empresa = empresa;
+            this.empresa = empresaBuilder;
 
             this.completarCampos();
         }
@@ -30,20 +29,27 @@ namespace PagoAgil.Aplicacion.View.Empresas
         private void completarCampos()
         {
             this.nombreAsignadoLabel.Text = this.empresa.nombre;
-            this.cuitAsignadoLabel.Text = this.empresa.cuit;
+            this.cuitAsignadoLabel.Text = this.empresa.generarCuit();
             this.direccionAsignadaLabel.Text = this.empresa.direccion;
             this.rubroAsignadoLabel.Text = this.empresa.rubro;
             this.diaAsignadoLabel.Text = Convert.ToString(this.empresa.diaRendicion, 10);
-            this.habilitadaCheckBox.CheckState = (this.empresa.habilitado) ? CheckState.Checked : CheckState.Unchecked;
+            this.habilitadaCheckBox.CheckState = (this.empresa.estado) ? CheckState.Checked : CheckState.Unchecked;
         }
 
         private void seguirModificandoButton_Click(object sender, EventArgs e)
         {
             this.Close();
 
-            this.empresasAlta.Show();
+            new EmpresasAlta(this.empresa).Show();
+        }
 
-            this.empresasAlta.Activate();
+        private void altaButton_Click(object sender, EventArgs e)
+        {
+            RepositorioEmpresas.instanciar().alta(this.empresa.crear());
+
+            this.Close();
+
+            new EmpresasAltaOk().Show();
         }
     }
 }

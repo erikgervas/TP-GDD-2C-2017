@@ -66,6 +66,7 @@
             this.altaButton.TabIndex = 10;
             this.altaButton.Text = "Confirmar";
             this.altaButton.UseVisualStyleBackColor = true;
+            this.altaButton.Click += new System.EventHandler(this.altaButton_Click);
             // 
             // altaGroup
             // 

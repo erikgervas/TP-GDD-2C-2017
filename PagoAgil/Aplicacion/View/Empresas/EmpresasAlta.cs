@@ -16,15 +16,29 @@ namespace PagoAgil.Aplicacion.View.Empresas
 {
     public partial class EmpresasAlta : Form
     {
-        private EmpresasSeleccionABM empresasSeleccionABM;
         private EmpresasAltaVM viewModel = new EmpresasAltaVM();
 
-        public EmpresasAlta(EmpresasSeleccionABM empresasSeleccionABM)
+        public EmpresasAlta()
         {
             InitializeComponent();
             this.CenterToScreen();
-            this.empresasSeleccionABM = empresasSeleccionABM;
             this.iniciarCampos();
+        }
+
+        public EmpresasAlta(EmpresaBuilder empresaBuilder) : this()
+        {
+            this.viewModel.empresa = empresaBuilder;
+            this.rellenarConLoAnterior();
+        }
+
+        private void rellenarConLoAnterior()
+        {
+            this.nombreText.Text = this.viewModel.empresa.nombre;
+            this.cuitText.Text = this.viewModel.empresa.cuit;
+            this.direccionText.Text = this.viewModel.empresa.direccion;
+            this.diaNumericUpDown.Value = this.viewModel.empresa.diaRendicion;
+            this.rubroComboBox.Text = this.viewModel.empresa.rubro;
+            this.habilitadaCheckBox.Checked = this.viewModel.empresa.estado;
         }
 
         private void iniciarCampos()
@@ -37,9 +51,7 @@ namespace PagoAgil.Aplicacion.View.Empresas
         {
             this.Close();
 
-            this.empresasSeleccionABM.Show();
-
-            this.empresasSeleccionABM.Activate();
+            new EmpresasSeleccionABM().Show();
         }
 
         private void nombreText_TextChanged(object sender, EventArgs e)
@@ -95,8 +107,11 @@ namespace PagoAgil.Aplicacion.View.Empresas
         {
             try
             {
-                this.Hide();
-                new EmpresasAltaConfirmacion(this, this.viewModel.empresa.crear()).Show();
+                this.viewModel.empresa.validar();
+
+                this.Close();
+
+                new EmpresasAltaConfirmacion(this.viewModel.empresa).Show();
             }
             catch (NoSePuedeCrearException excepcion)
             {

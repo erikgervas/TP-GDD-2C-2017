@@ -1,4 +1,5 @@
-﻿using PagoAgil.Aplicacion.Modelo;
+﻿using PagoAgil.Aplicacion.BD.Utils;
+using PagoAgil.Aplicacion.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,11 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
         protected override string nombreTabla()
         {
             return "obtenerRubros()";
+        }
+
+        protected override List<Parametro> listaDeParametros(String unaEntidad)
+        {
+            throw new NotImplementedException();
         }
 
         protected override String rellenarFila(List<String> elementos)
