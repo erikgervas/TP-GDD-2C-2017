@@ -168,8 +168,10 @@
             // 
             // rubroComboBox
             // 
+            this.rubroComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.rubroComboBox.FormattingEnabled = true;
             this.rubroComboBox.Location = new System.Drawing.Point(151, 120);
+            this.rubroComboBox.MaxDropDownItems = 10;
             this.rubroComboBox.Name = "rubroComboBox";
             this.rubroComboBox.Size = new System.Drawing.Size(142, 21);
             this.rubroComboBox.TabIndex = 8;

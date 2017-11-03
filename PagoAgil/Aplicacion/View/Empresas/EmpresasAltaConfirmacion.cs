@@ -16,23 +16,34 @@ namespace PagoAgil.Aplicacion.View.Empresas
         private EmpresasAlta empresasAlta;
         private Empresa empresa;
 
-        public EmpresasAltaConfirmacion()
+        public EmpresasAltaConfirmacion(EmpresasAlta empresasAlta, Empresa empresa)
         {
             InitializeComponent();
+            this.CenterToScreen();
 
+            this.empresasAlta = empresasAlta;
+            this.empresa = empresa;
+
+            this.completarCampos();
+        }
+
+        private void completarCampos()
+        {
             this.nombreAsignadoLabel.Text = this.empresa.nombre;
             this.cuitAsignadoLabel.Text = this.empresa.cuit;
             this.direccionAsignadaLabel.Text = this.empresa.direccion;
             this.rubroAsignadoLabel.Text = this.empresa.rubro;
-            this.diaAsignadoLabel.Text = this.empresa.diaRendicion.ToString();
-            this.habilitadaCheckBox.Checked = this.empresa.habilitado;
+            this.diaAsignadoLabel.Text = Convert.ToString(this.empresa.diaRendicion, 10);
+            this.habilitadaCheckBox.CheckState = (this.empresa.habilitado) ? CheckState.Checked : CheckState.Unchecked;
         }
 
-        public EmpresasAltaConfirmacion(EmpresasAlta empresasAlta, Empresa empresa)
+        private void seguirModificandoButton_Click(object sender, EventArgs e)
         {
-            InitializeComponent();
-            this.empresasAlta = empresasAlta;
-            this.empresa = empresa;
+            this.Close();
+
+            this.empresasAlta.Show();
+
+            this.empresasAlta.Activate();
         }
     }
 }

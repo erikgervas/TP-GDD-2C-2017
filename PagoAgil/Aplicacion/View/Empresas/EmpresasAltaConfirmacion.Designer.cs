@@ -56,6 +56,7 @@
             this.seguirModificandoButton.TabIndex = 11;
             this.seguirModificandoButton.Text = "Seguir modificando";
             this.seguirModificandoButton.UseVisualStyleBackColor = true;
+            this.seguirModificandoButton.Click += new System.EventHandler(this.seguirModificandoButton_Click);
             // 
             // altaButton
             // 
@@ -79,6 +80,7 @@
             // 
             // habilitadaCheckBox
             // 
+            this.habilitadaCheckBox.AutoCheck = false;
             this.habilitadaCheckBox.AutoSize = true;
             this.habilitadaCheckBox.Checked = true;
             this.habilitadaCheckBox.CheckState = System.Windows.Forms.CheckState.Indeterminate;

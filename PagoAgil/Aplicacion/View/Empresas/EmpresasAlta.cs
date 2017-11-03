@@ -17,14 +17,19 @@ namespace PagoAgil.Aplicacion.View.Empresas
     public partial class EmpresasAlta : Form
     {
         private EmpresasSeleccionABM empresasSeleccionABM;
-        private EmpresasAltaVM viewModel;
+        private EmpresasAltaVM viewModel = new EmpresasAltaVM();
 
         public EmpresasAlta(EmpresasSeleccionABM empresasSeleccionABM)
         {
             InitializeComponent();
             this.CenterToScreen();
             this.empresasSeleccionABM = empresasSeleccionABM;
-            this.viewModel = new EmpresasAltaVM();
+            this.iniciarCampos();
+        }
+
+        private void iniciarCampos()
+        {
+            this.viewModel.empresa.diaRendicion = 1;
             foreach (String rubro in this.viewModel.rubros) this.rubroComboBox.Items.Add(rubro);
         }
 

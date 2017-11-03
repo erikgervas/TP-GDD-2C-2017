@@ -51,8 +51,8 @@ INSERT INTO SQL_BOYS.Cliente(dni_cliente, nombre, apellido, nacimiento, mail, do
 	SELECT DISTINCT
 
 		c1.view_dni_cliente AS dni_cliente,
-		c1.view_apellido AS nombre,
-		c1.view_nombre AS apellido,
+		c1.view_apellido AS apellido,
+		c1.view_nombre AS nombre,
 		c1.view_nacimiento AS nacimiento,
 		c1.view_mail AS mail,
 		c1.view_domicilio AS domicilio,
