@@ -42,8 +42,14 @@ CREATE FUNCTION SQL_BOYS.filtrarEmpresa(@nombre AS NVARCHAR(255), @cuit AS NVARC
 
 		WHERE
 
-			(@nombre IS NOT NULL AND e.nombre LIKE @nombre + '%') OR
+			NOT (LEN(@nombre) = 0 AND LEN(@cuit) = 0 AND LEN(@nombre_rubro) = 0)
+			
+			AND
 
-			(e.cuit = @cuit) OR
+			(
+				(LEN(@nombre) != 0 AND e.nombre LIKE @nombre + '%') OR
 
-			(e.descripcion = @nombre_rubro)
+				(LEN(@cuit) != 0 AND e.cuit = @cuit) OR
+
+				(LEN(@nombre_rubro) != 0 AND e.descripcion = @nombre_rubro)
+			)

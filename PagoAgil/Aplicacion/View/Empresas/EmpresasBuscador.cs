@@ -57,7 +57,6 @@ namespace PagoAgil.Aplicacion.View.Empresas
         private void EmpresasBuscador_Load(object sender, EventArgs e)
         {
             this.empresaTableAdapter.Fill(this.sQL_BOYS_Data_Set.Empresa);
-
         }
 
         private void seleccionarButton_Click(object sender, EventArgs e)
