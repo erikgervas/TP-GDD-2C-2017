@@ -28,11 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.resultadosBusquedaPanel = new System.Windows.Forms.GroupBox();
             this.empresasDataGrid = new System.Windows.Forms.DataGridView();
-            this.sQLBOYSDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sQL_BOYS_Data_Set = new PagoAgil.DataSet.SQL_BOYS_Data_Set();
             this.filtrosPanel = new System.Windows.Forms.GroupBox();
             this.buscarButton = new System.Windows.Forms.Button();
             this.limpiarButton = new System.Windows.Forms.Button();
@@ -50,83 +47,49 @@
             this.modificarButton = new System.Windows.Forms.Button();
             this.volverAInicioButton = new System.Windows.Forms.Button();
             this.bajaButton = new System.Windows.Forms.Button();
-            this.empresaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.empresaTableAdapter = new PagoAgil.DataSet.SQL_BOYS_Data_SetTableAdapters.EmpresaTableAdapter();
-            this.idempresaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cuitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.domicilioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.diarendicionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idrubroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.habilitadxDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.resultadosBusquedaPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.empresasDataGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sQLBOYSDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sQL_BOYS_Data_Set)).BeginInit();
             this.filtrosPanel.SuspendLayout();
             this.filtrosTabla.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.empresaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // resultadosBusquedaPanel
             // 
             this.resultadosBusquedaPanel.Controls.Add(this.empresasDataGrid);
-            this.resultadosBusquedaPanel.Location = new System.Drawing.Point(46, 194);
+            this.resultadosBusquedaPanel.Location = new System.Drawing.Point(46, 182);
             this.resultadosBusquedaPanel.Name = "resultadosBusquedaPanel";
-            this.resultadosBusquedaPanel.Size = new System.Drawing.Size(892, 350);
+            this.resultadosBusquedaPanel.Size = new System.Drawing.Size(892, 362);
             this.resultadosBusquedaPanel.TabIndex = 15;
             this.resultadosBusquedaPanel.TabStop = false;
             this.resultadosBusquedaPanel.Text = "Resultados de búsqueda";
             // 
             // empresasDataGrid
             // 
-            this.empresasDataGrid.AutoGenerateColumns = false;
-            this.empresasDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idempresaDataGridViewTextBoxColumn,
-            this.nombreDataGridViewTextBoxColumn,
-            this.cuitDataGridViewTextBoxColumn,
-            this.domicilioDataGridViewTextBoxColumn,
-            this.diarendicionDataGridViewTextBoxColumn,
-            this.idrubroDataGridViewTextBoxColumn,
-            this.rubro,
-            this.habilitadxDataGridViewCheckBoxColumn});
-            this.empresasDataGrid.DataSource = this.empresaBindingSource;
-            this.empresasDataGrid.Location = new System.Drawing.Point(6, 19);
+            this.empresasDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.empresasDataGrid.Location = new System.Drawing.Point(3, 16);
             this.empresasDataGrid.MultiSelect = false;
             this.empresasDataGrid.Name = "empresasDataGrid";
             this.empresasDataGrid.ReadOnly = true;
             this.empresasDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.empresasDataGrid.Size = new System.Drawing.Size(880, 325);
+            this.empresasDataGrid.Size = new System.Drawing.Size(886, 343);
             this.empresasDataGrid.TabIndex = 0;
-            // 
-            // sQLBOYSDataSetBindingSource
-            // 
-            this.sQLBOYSDataSetBindingSource.DataSource = this.sQL_BOYS_Data_Set;
-            this.sQLBOYSDataSetBindingSource.Position = 0;
-            // 
-            // sQL_BOYS_Data_Set
-            // 
-            this.sQL_BOYS_Data_Set.DataSetName = "SQL_BOYS_Data_Set";
-            this.sQL_BOYS_Data_Set.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // filtrosPanel
             // 
-            this.filtrosPanel.Controls.Add(this.buscarButton);
-            this.filtrosPanel.Controls.Add(this.limpiarButton);
             this.filtrosPanel.Controls.Add(this.filtrosTabla);
             this.filtrosPanel.Location = new System.Drawing.Point(46, 59);
             this.filtrosPanel.Name = "filtrosPanel";
-            this.filtrosPanel.Size = new System.Drawing.Size(892, 127);
+            this.filtrosPanel.Size = new System.Drawing.Size(892, 103);
             this.filtrosPanel.TabIndex = 13;
             this.filtrosPanel.TabStop = false;
             this.filtrosPanel.Text = "Filtros de búsqueda";
             // 
             // buscarButton
             // 
-            this.buscarButton.Location = new System.Drawing.Point(811, 98);
+            this.buscarButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.buscarButton.Location = new System.Drawing.Point(737, 32);
             this.buscarButton.Name = "buscarButton";
-            this.buscarButton.Size = new System.Drawing.Size(75, 23);
+            this.buscarButton.Size = new System.Drawing.Size(100, 24);
             this.buscarButton.TabIndex = 11;
             this.buscarButton.Text = "Buscar";
             this.buscarButton.UseVisualStyleBackColor = true;
@@ -134,9 +97,10 @@
             // 
             // limpiarButton
             // 
-            this.limpiarButton.Location = new System.Drawing.Point(11, 98);
+            this.limpiarButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.limpiarButton.Location = new System.Drawing.Point(737, 3);
             this.limpiarButton.Name = "limpiarButton";
-            this.limpiarButton.Size = new System.Drawing.Size(75, 23);
+            this.limpiarButton.Size = new System.Drawing.Size(100, 23);
             this.limpiarButton.TabIndex = 10;
             this.limpiarButton.Text = "Limpiar";
             this.limpiarButton.UseVisualStyleBackColor = true;
@@ -144,13 +108,16 @@
             // 
             // filtrosTabla
             // 
-            this.filtrosTabla.ColumnCount = 5;
+            this.filtrosTabla.ColumnCount = 6;
             this.filtrosTabla.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.filtrosTabla.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.filtrosTabla.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.filtrosTabla.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.filtrosTabla.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.16238F));
-            this.filtrosTabla.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.31123F));
+            this.filtrosTabla.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.filtrosTabla.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.filtrosTabla.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.filtrosTabla.Controls.Add(this.buscarButton, 5, 1);
             this.filtrosTabla.Controls.Add(this.rubroLabel, 0, 1);
+            this.filtrosTabla.Controls.Add(this.limpiarButton, 5, 0);
             this.filtrosTabla.Controls.Add(this.nombreLabel, 0, 0);
             this.filtrosTabla.Controls.Add(this.cuitLabel, 2, 0);
             this.filtrosTabla.Controls.Add(this.rubroComboBox, 1, 1);
@@ -164,7 +131,6 @@
             this.filtrosTabla.RowCount = 2;
             this.filtrosTabla.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.filtrosTabla.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.filtrosTabla.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.filtrosTabla.Size = new System.Drawing.Size(875, 59);
             this.filtrosTabla.TabIndex = 4;
             // 
@@ -189,7 +155,7 @@
             // cuitLabel
             // 
             this.cuitLabel.AutoSize = true;
-            this.cuitLabel.Location = new System.Drawing.Point(351, 0);
+            this.cuitLabel.Location = new System.Drawing.Point(265, 0);
             this.cuitLabel.Name = "cuitLabel";
             this.cuitLabel.Size = new System.Drawing.Size(32, 13);
             this.cuitLabel.TabIndex = 2;
@@ -212,7 +178,7 @@
             // 
             // cuitText
             // 
-            this.cuitText.Location = new System.Drawing.Point(438, 3);
+            this.cuitText.Location = new System.Drawing.Point(352, 3);
             this.cuitText.MaxLength = 10;
             this.cuitText.Name = "cuitText";
             this.cuitText.Size = new System.Drawing.Size(142, 20);
@@ -222,7 +188,7 @@
             // eleccionLabel
             // 
             this.eleccionLabel.AutoSize = true;
-            this.eleccionLabel.Location = new System.Drawing.Point(351, 29);
+            this.eleccionLabel.Location = new System.Drawing.Point(265, 29);
             this.eleccionLabel.Name = "eleccionLabel";
             this.eleccionLabel.Size = new System.Drawing.Size(48, 13);
             this.eleccionLabel.TabIndex = 4;
@@ -230,7 +196,7 @@
             // 
             // seleccionarButton
             // 
-            this.seleccionarButton.Location = new System.Drawing.Point(438, 32);
+            this.seleccionarButton.Location = new System.Drawing.Point(352, 32);
             this.seleccionarButton.Name = "seleccionarButton";
             this.seleccionarButton.Size = new System.Drawing.Size(142, 23);
             this.seleccionarButton.TabIndex = 13;
@@ -240,10 +206,10 @@
             // empresaElegidaText
             // 
             this.empresaElegidaText.BackColor = System.Drawing.SystemColors.Menu;
-            this.empresaElegidaText.Location = new System.Drawing.Point(613, 32);
+            this.empresaElegidaText.Location = new System.Drawing.Point(527, 32);
             this.empresaElegidaText.Name = "empresaElegidaText";
             this.empresaElegidaText.ReadOnly = true;
-            this.empresaElegidaText.Size = new System.Drawing.Size(259, 20);
+            this.empresaElegidaText.Size = new System.Drawing.Size(169, 20);
             this.empresaElegidaText.TabIndex = 14;
             // 
             // tituloLabel
@@ -287,70 +253,6 @@
             this.bajaButton.Text = "Dar de baja";
             this.bajaButton.UseVisualStyleBackColor = true;
             // 
-            // empresaBindingSource
-            // 
-            this.empresaBindingSource.DataMember = "Empresa";
-            this.empresaBindingSource.DataSource = this.sQLBOYSDataSetBindingSource;
-            // 
-            // empresaTableAdapter
-            // 
-            this.empresaTableAdapter.ClearBeforeFill = true;
-            // 
-            // idempresaDataGridViewTextBoxColumn
-            // 
-            this.idempresaDataGridViewTextBoxColumn.DataPropertyName = "id_empresa";
-            this.idempresaDataGridViewTextBoxColumn.HeaderText = "Id de empresa";
-            this.idempresaDataGridViewTextBoxColumn.Name = "idempresaDataGridViewTextBoxColumn";
-            this.idempresaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cuitDataGridViewTextBoxColumn
-            // 
-            this.cuitDataGridViewTextBoxColumn.DataPropertyName = "cuit";
-            this.cuitDataGridViewTextBoxColumn.HeaderText = "CUIT";
-            this.cuitDataGridViewTextBoxColumn.Name = "cuitDataGridViewTextBoxColumn";
-            this.cuitDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // domicilioDataGridViewTextBoxColumn
-            // 
-            this.domicilioDataGridViewTextBoxColumn.DataPropertyName = "domicilio";
-            this.domicilioDataGridViewTextBoxColumn.HeaderText = "Domicilio";
-            this.domicilioDataGridViewTextBoxColumn.Name = "domicilioDataGridViewTextBoxColumn";
-            this.domicilioDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // diarendicionDataGridViewTextBoxColumn
-            // 
-            this.diarendicionDataGridViewTextBoxColumn.DataPropertyName = "dia_rendicion";
-            this.diarendicionDataGridViewTextBoxColumn.HeaderText = "Día de rendición";
-            this.diarendicionDataGridViewTextBoxColumn.Name = "diarendicionDataGridViewTextBoxColumn";
-            this.diarendicionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // idrubroDataGridViewTextBoxColumn
-            // 
-            this.idrubroDataGridViewTextBoxColumn.DataPropertyName = "id_rubro";
-            this.idrubroDataGridViewTextBoxColumn.HeaderText = "Id de rubro";
-            this.idrubroDataGridViewTextBoxColumn.Name = "idrubroDataGridViewTextBoxColumn";
-            this.idrubroDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // rubro
-            // 
-            this.rubro.HeaderText = "Rubro";
-            this.rubro.Name = "rubro";
-            this.rubro.ReadOnly = true;
-            // 
-            // habilitadxDataGridViewCheckBoxColumn
-            // 
-            this.habilitadxDataGridViewCheckBoxColumn.DataPropertyName = "habilitadx";
-            this.habilitadxDataGridViewCheckBoxColumn.HeaderText = "Habilitadx";
-            this.habilitadxDataGridViewCheckBoxColumn.Name = "habilitadxDataGridViewCheckBoxColumn";
-            this.habilitadxDataGridViewCheckBoxColumn.ReadOnly = true;
-            // 
             // EmpresasBuscador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -367,12 +269,9 @@
             this.Load += new System.EventHandler(this.EmpresasBuscador_Load);
             this.resultadosBusquedaPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.empresasDataGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sQLBOYSDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sQL_BOYS_Data_Set)).EndInit();
             this.filtrosPanel.ResumeLayout(false);
             this.filtrosTabla.ResumeLayout(false);
             this.filtrosTabla.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.empresaBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -382,8 +281,6 @@
 
         private System.Windows.Forms.GroupBox resultadosBusquedaPanel;
         private System.Windows.Forms.DataGridView empresasDataGrid;
-        private System.Windows.Forms.BindingSource sQLBOYSDataSetBindingSource;
-        private DataSet.SQL_BOYS_Data_Set sQL_BOYS_Data_Set;
         private System.Windows.Forms.GroupBox filtrosPanel;
         private System.Windows.Forms.Button buscarButton;
         private System.Windows.Forms.Button limpiarButton;
@@ -401,15 +298,5 @@
         private System.Windows.Forms.Button modificarButton;
         private System.Windows.Forms.Button volverAInicioButton;
         private System.Windows.Forms.Button bajaButton;
-        private System.Windows.Forms.BindingSource empresaBindingSource;
-        private DataSet.SQL_BOYS_Data_SetTableAdapters.EmpresaTableAdapter empresaTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idempresaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cuitDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn domicilioDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn diarendicionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idrubroDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rubro;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn habilitadxDataGridViewCheckBoxColumn;
     }
 }

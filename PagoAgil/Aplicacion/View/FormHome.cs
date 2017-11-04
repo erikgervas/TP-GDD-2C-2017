@@ -18,17 +18,15 @@ namespace PagoAgil.Aplicacion.View
     {
         HomeVM homeVM;
 
-        public FormHome(Usuario usuario)
+        public FormHome(Usuario usuario) : this()
         {
-            InitializeComponent();
-            this.CenterToScreen();
             homeVM = new HomeVM(usuario);
         }
 
         public FormHome()
         {
             InitializeComponent();
-            // TODO: Complete member initialization
+            this.CenterToScreen();
         }
 
         private void button_abm_cliente_Click(object sender, EventArgs e)
@@ -41,7 +39,7 @@ namespace PagoAgil.Aplicacion.View
         private void button_abm_empresas_Click(object sender, EventArgs e)
         {
 
-            this.Close();
+            this.Hide();
 
             new EmpresasSeleccionABM().Show();
         

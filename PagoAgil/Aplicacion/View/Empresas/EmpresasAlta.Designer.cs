@@ -41,6 +41,8 @@
             this.nombreText = new System.Windows.Forms.TextBox();
             this.rubroComboBox = new System.Windows.Forms.ComboBox();
             this.diaNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.porcentajeNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.porcentajeText = new System.Windows.Forms.Label();
             this.altaGroup = new System.Windows.Forms.GroupBox();
             this.habilitadaCheckBox = new System.Windows.Forms.CheckBox();
             this.limpiarButton = new System.Windows.Forms.Button();
@@ -48,14 +50,12 @@
             this.altaButton = new System.Windows.Forms.Button();
             this.sQL_BOYS_Data_Set = new PagoAgil.DataSet.SQL_BOYS_Data_Set();
             this.sQLBOYSDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.porcentajeText = new System.Windows.Forms.Label();
-            this.porcentajeNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.altaPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.diaNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.porcentajeNumericUpDown)).BeginInit();
             this.altaGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sQL_BOYS_Data_Set)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sQLBOYSDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.porcentajeNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // tituloLabel
@@ -200,6 +200,32 @@
             0,
             0});
             // 
+            // porcentajeNumericUpDown
+            // 
+            this.porcentajeNumericUpDown.Location = new System.Drawing.Point(151, 203);
+            this.porcentajeNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.porcentajeNumericUpDown.Name = "porcentajeNumericUpDown";
+            this.porcentajeNumericUpDown.Size = new System.Drawing.Size(37, 20);
+            this.porcentajeNumericUpDown.TabIndex = 11;
+            this.porcentajeNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // porcentajeText
+            // 
+            this.porcentajeText.AutoSize = true;
+            this.porcentajeText.Location = new System.Drawing.Point(3, 200);
+            this.porcentajeText.Name = "porcentajeText";
+            this.porcentajeText.Size = new System.Drawing.Size(117, 13);
+            this.porcentajeText.TabIndex = 10;
+            this.porcentajeText.Text = "Porcentaje de comisión";
+            // 
             // altaGroup
             // 
             this.altaGroup.Controls.Add(this.habilitadaCheckBox);
@@ -264,32 +290,6 @@
             this.sQLBOYSDataSetBindingSource.DataSource = this.sQL_BOYS_Data_Set;
             this.sQLBOYSDataSetBindingSource.Position = 0;
             // 
-            // porcentajeText
-            // 
-            this.porcentajeText.AutoSize = true;
-            this.porcentajeText.Location = new System.Drawing.Point(3, 200);
-            this.porcentajeText.Name = "porcentajeText";
-            this.porcentajeText.Size = new System.Drawing.Size(117, 13);
-            this.porcentajeText.TabIndex = 10;
-            this.porcentajeText.Text = "Porcentaje de comisión";
-            // 
-            // porcentajeNumericUpDown
-            // 
-            this.porcentajeNumericUpDown.Location = new System.Drawing.Point(151, 203);
-            this.porcentajeNumericUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.porcentajeNumericUpDown.Name = "porcentajeNumericUpDown";
-            this.porcentajeNumericUpDown.Size = new System.Drawing.Size(37, 20);
-            this.porcentajeNumericUpDown.TabIndex = 11;
-            this.porcentajeNumericUpDown.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
             // EmpresasAlta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -304,11 +304,11 @@
             this.altaPanel.ResumeLayout(false);
             this.altaPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.diaNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.porcentajeNumericUpDown)).EndInit();
             this.altaGroup.ResumeLayout(false);
             this.altaGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sQL_BOYS_Data_Set)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sQLBOYSDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.porcentajeNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -333,9 +333,9 @@
         private System.Windows.Forms.Button altaButton;
         private System.Windows.Forms.CheckBox habilitadaCheckBox;
         private System.Windows.Forms.TextBox cuitText;
-        private DataSet.SQL_BOYS_Data_Set sQL_BOYS_Data_Set;
-        private System.Windows.Forms.BindingSource sQLBOYSDataSetBindingSource;
         private System.Windows.Forms.NumericUpDown porcentajeNumericUpDown;
         private System.Windows.Forms.Label porcentajeText;
+        private DataSet.SQL_BOYS_Data_Set sQL_BOYS_Data_Set;
+        private System.Windows.Forms.BindingSource sQLBOYSDataSetBindingSource;
     }
 }

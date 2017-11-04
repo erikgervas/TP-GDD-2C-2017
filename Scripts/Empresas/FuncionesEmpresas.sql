@@ -1,3 +1,13 @@
+CREATE VIEW SQL_BOYS.Empresa_View_Empresa_Con_Rubro AS
+
+		SELECT e.id_empresa, e.nombre, e.cuit, e.domicilio, e.dia_rendicion, e.porcentaje_comision, e.id_rubro, r.descripcion , e.habilitadx
+		
+		FROM SQL_BOYS.Empresa e
+
+		JOIN SQL_BOYS.Rubro r ON r.id_rubro = e.id_rubro
+
+GO
+
 CREATE FUNCTION SQL_BOYS.obtenerRubros() RETURNS TABLE
 
 	RETURN SELECT r.id_rubro, r.descripcion FROM SQL_BOYS.Rubro r
@@ -26,11 +36,9 @@ CREATE FUNCTION SQL_BOYS.filtrarEmpresa(@nombre AS NVARCHAR(255), @cuit AS NVARC
 
 	RETURN
 	
-		SELECT e.id_empresa, e.nombre, e.cuit, e.domicilio, e.dia_rendicion, e.porcentaje_comision, e.id_rubro, r.descripcion , e.habilitadx
+		SELECT e.id_empresa, e.nombre, e.cuit, e.domicilio, e.dia_rendicion, e.porcentaje_comision, e.id_rubro, e.descripcion , e.habilitadx
 		
-		FROM SQL_BOYS.Empresa e
-
-		JOIN SQL_BOYS.Rubro r ON r.id_rubro = e.id_rubro
+		FROM SQL_BOYS.Empresa_View_Empresa_Con_Rubro e
 
 		WHERE
 
@@ -38,4 +46,4 @@ CREATE FUNCTION SQL_BOYS.filtrarEmpresa(@nombre AS NVARCHAR(255), @cuit AS NVARC
 
 			(e.cuit = @cuit) OR
 
-			(r.descripcion = @nombre_rubro)
+			(e.descripcion = @nombre_rubro)

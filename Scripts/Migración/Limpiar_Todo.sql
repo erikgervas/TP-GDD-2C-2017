@@ -20,11 +20,4 @@ DROP TABLE
 
 DROP VIEW
 
-	SQL_BOYS.View_Cliente,
-	SQL_BOYS.View_Cliente_Conflictivo,
-	SQL_BOYS.View_Empresa_Rubro,
-	SQL_BOYS.View_Factura,
-	SQL_BOYS.View_Factura_Con_Rendicion,
-	SQL_BOYS.View_Pago_Medio_De_Pago,
-	SQL_BOYS.View_Item,
 	SQL_BOYS.View_Tabla_Maestra_Conflictiva
