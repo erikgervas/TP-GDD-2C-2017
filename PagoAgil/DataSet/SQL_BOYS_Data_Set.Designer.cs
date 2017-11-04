@@ -1994,6 +1994,10 @@ namespace PagoAgil.DataSet {
             
             private global::System.Data.DataColumn columnid_rubro;
             
+            private global::System.Data.DataColumn columnporcentaje_comision;
+            
+            private global::System.Data.DataColumn columndescripcion;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public EmpresaDataTable() {
@@ -2085,6 +2089,22 @@ namespace PagoAgil.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn porcentaje_comisionColumn {
+                get {
+                    return this.columnporcentaje_comision;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn descripcionColumn {
+                get {
+                    return this.columndescripcion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2120,7 +2140,7 @@ namespace PagoAgil.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public EmpresaRow AddEmpresaRow(string nombre, string cuit, string domicilio, int dia_rendicion, bool habilitadx, RubroRow parentRubroRowByFK__Empresa__id_rubr__238A0A8D) {
+            public EmpresaRow AddEmpresaRow(string nombre, string cuit, string domicilio, int dia_rendicion, bool habilitadx, RubroRow parentRubroRowByFK__Empresa__id_rubr__238A0A8D, int porcentaje_comision, string descripcion) {
                 EmpresaRow rowEmpresaRow = ((EmpresaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2129,7 +2149,9 @@ namespace PagoAgil.DataSet {
                         domicilio,
                         dia_rendicion,
                         habilitadx,
-                        null};
+                        null,
+                        porcentaje_comision,
+                        descripcion};
                 if ((parentRubroRowByFK__Empresa__id_rubr__238A0A8D != null)) {
                     columnValuesArray[6] = parentRubroRowByFK__Empresa__id_rubr__238A0A8D[0];
                 }
@@ -2169,6 +2191,8 @@ namespace PagoAgil.DataSet {
                 this.columndia_rendicion = base.Columns["dia_rendicion"];
                 this.columnhabilitadx = base.Columns["habilitadx"];
                 this.columnid_rubro = base.Columns["id_rubro"];
+                this.columnporcentaje_comision = base.Columns["porcentaje_comision"];
+                this.columndescripcion = base.Columns["descripcion"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2188,6 +2212,10 @@ namespace PagoAgil.DataSet {
                 base.Columns.Add(this.columnhabilitadx);
                 this.columnid_rubro = new global::System.Data.DataColumn("id_rubro", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_rubro);
+                this.columnporcentaje_comision = new global::System.Data.DataColumn("porcentaje_comision", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnporcentaje_comision);
+                this.columndescripcion = new global::System.Data.DataColumn("descripcion", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndescripcion);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid_empresa}, true));
                 this.columnid_empresa.AutoIncrement = true;
@@ -2205,6 +2233,9 @@ namespace PagoAgil.DataSet {
                 this.columndia_rendicion.AllowDBNull = false;
                 this.columnhabilitadx.AllowDBNull = false;
                 this.columnid_rubro.AllowDBNull = false;
+                this.columnporcentaje_comision.AllowDBNull = false;
+                this.columndescripcion.AllowDBNull = false;
+                this.columndescripcion.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10545,6 +10576,28 @@ namespace PagoAgil.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int porcentaje_comision {
+                get {
+                    return ((int)(this[this.tableEmpresa.porcentaje_comisionColumn]));
+                }
+                set {
+                    this[this.tableEmpresa.porcentaje_comisionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string descripcion {
+                get {
+                    return ((string)(this[this.tableEmpresa.descripcionColumn]));
+                }
+                set {
+                    this[this.tableEmpresa.descripcionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public RubroRow RubroRow {
                 get {
                     return ((RubroRow)(this.GetParentRow(this.Table.ParentRelations["FK__Empresa__id_rubr__238A0A8D"])));
@@ -13782,7 +13835,7 @@ namespace PagoAgil.DataSet {
                         return ((string)(this[this.tableView_Pago_Medio_De_Pago.view_medio_de_pagoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'view_medio_de_pago\' in table \'View_Pago_Medio_De_Pago\' is DTO" +
+                        throw new global::System.Data.StrongTypingException("The value for column \'view_medio_de_pago\' in table \'View_Pago_Medio_De_Pago\' is D" +
                                 "BNull.", e);
                     }
                 }
@@ -13920,7 +13973,7 @@ namespace PagoAgil.DataSet {
                         return ((decimal)(this[this.tableView_Tabla_Maestra_Conflictiva._Cliente_DniColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cliente-Dni\' in table \'View_Tabla_Maestra_Conflictiva\' is DTO" +
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cliente-Dni\' in table \'View_Tabla_Maestra_Conflictiva\' is D" +
                                 "BNull.", e);
                     }
                 }
@@ -14039,7 +14092,7 @@ namespace PagoAgil.DataSet {
                         return ((decimal)(this[this.tableView_Tabla_Maestra_Conflictiva.Nro_FacturaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Nro_Factura\' in table \'View_Tabla_Maestra_Conflictiva\' is DTO" +
+                        throw new global::System.Data.StrongTypingException("The value for column \'Nro_Factura\' in table \'View_Tabla_Maestra_Conflictiva\' is D" +
                                 "BNull.", e);
                     }
                 }
@@ -15868,7 +15921,7 @@ SELECT dni_cliente, nombre, apellido, nacimiento, mail, domicilio, codigo_postal
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT dni_cliente, nombre, apellido, nacimiento, mail, domicilio, codigo_postal," +
-                " telefono, habilitadx FROM SQL_BOYS.Cliente";
+                " telefono, habilitadx FROM dbo.Cliente";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -16342,7 +16395,7 @@ SELECT id_devolucion, fecha_devolucion, motivo, numero_factura FROM Devolucion W
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_devolucion, fecha_devolucion, motivo, numero_factura FROM SQL_BOYS.Devolucio" +
+            this._commandCollection[0].CommandText = "SELECT id_devolucion, fecha_devolucion, motivo, numero_factura FROM dbo.Devolucio" +
                 "n";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
@@ -16659,48 +16712,9 @@ SELECT id_devolucion, fecha_devolucion, motivo, numero_factura FROM Devolucion W
             tableMapping.ColumnMappings.Add("dia_rendicion", "dia_rendicion");
             tableMapping.ColumnMappings.Add("habilitadx", "habilitadx");
             tableMapping.ColumnMappings.Add("id_rubro", "id_rubro");
+            tableMapping.ColumnMappings.Add("porcentaje_comision", "porcentaje_comision");
+            tableMapping.ColumnMappings.Add("descripcion", "descripcion");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Empresa] WHERE (([id_empresa] = @Original_id_empresa) AND ([nombre] = @Original_nombre) AND ([cuit] = @Original_cuit) AND ([domicilio] = @Original_domicilio) AND ([dia_rendicion] = @Original_dia_rendicion) AND ([habilitadx] = @Original_habilitadx) AND ([id_rubro] = @Original_id_rubro))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_empresa", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_empresa", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nombre", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nombre", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_cuit", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cuit", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_domicilio", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "domicilio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dia_rendicion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dia_rendicion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_habilitadx", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "habilitadx", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_rubro", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "id_rubro", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Empresa] ([nombre], [cuit], [domicilio], [dia_rendicion], [habilitadx], [id_rubro]) VALUES (@nombre, @cuit, @domicilio, @dia_rendicion, @habilitadx, @id_rubro);
-SELECT id_empresa, nombre, cuit, domicilio, dia_rendicion, habilitadx, id_rubro FROM Empresa WHERE (id_empresa = SCOPE_IDENTITY())";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cuit", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cuit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@domicilio", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "domicilio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dia_rendicion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dia_rendicion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@habilitadx", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "habilitadx", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_rubro", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "id_rubro", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Empresa] SET [nombre] = @nombre, [cuit] = @cuit, [domicilio] = @domicilio, [dia_rendicion] = @dia_rendicion, [habilitadx] = @habilitadx, [id_rubro] = @id_rubro WHERE (([id_empresa] = @Original_id_empresa) AND ([nombre] = @Original_nombre) AND ([cuit] = @Original_cuit) AND ([domicilio] = @Original_domicilio) AND ([dia_rendicion] = @Original_dia_rendicion) AND ([habilitadx] = @Original_habilitadx) AND ([id_rubro] = @Original_id_rubro));
-SELECT id_empresa, nombre, cuit, domicilio, dia_rendicion, habilitadx, id_rubro FROM Empresa WHERE (id_empresa = @id_empresa)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cuit", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cuit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@domicilio", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "domicilio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dia_rendicion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dia_rendicion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@habilitadx", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "habilitadx", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_rubro", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "id_rubro", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_empresa", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_empresa", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nombre", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nombre", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_cuit", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cuit", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_domicilio", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "domicilio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dia_rendicion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dia_rendicion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_habilitadx", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "habilitadx", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_rubro", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "id_rubro", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_empresa", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_empresa", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -16716,8 +16730,9 @@ SELECT id_empresa, nombre, cuit, domicilio, dia_rendicion, habilitadx, id_rubro 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_empresa, nombre, cuit, domicilio, dia_rendicion, habilitadx, id_rubro F" +
-                "ROM SQL_BOYS.Empresa";
+            this._commandCollection[0].CommandText = "SELECT e.id_empresa, e.nombre, e.cuit, e.domicilio, e.dia_rendicion, e.porcentaje" +
+                "_comision, e.id_rubro, r.descripcion , e.habilitadx\r\n\t\t\r\nFROM SQL_BOYS.Empresa e" +
+                "\r\n\r\nJOIN SQL_BOYS.Rubro r ON r.id_rubro = e.id_rubro";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -16743,193 +16758,6 @@ SELECT id_empresa, nombre, cuit, domicilio, dia_rendicion, habilitadx, id_rubro 
             SQL_BOYS_Data_Set.EmpresaDataTable dataTable = new SQL_BOYS_Data_Set.EmpresaDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SQL_BOYS_Data_Set.EmpresaDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SQL_BOYS_Data_Set dataSet) {
-            return this.Adapter.Update(dataSet, "Empresa");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_id_empresa, string Original_nombre, string Original_cuit, string Original_domicilio, int Original_dia_rendicion, bool Original_habilitadx, decimal Original_id_rubro) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id_empresa));
-            if ((Original_nombre == null)) {
-                throw new global::System.ArgumentNullException("Original_nombre");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_nombre));
-            }
-            if ((Original_cuit == null)) {
-                throw new global::System.ArgumentNullException("Original_cuit");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_cuit));
-            }
-            if ((Original_domicilio == null)) {
-                throw new global::System.ArgumentNullException("Original_domicilio");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_domicilio));
-            }
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_dia_rendicion));
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((bool)(Original_habilitadx));
-            this.Adapter.DeleteCommand.Parameters[6].Value = ((decimal)(Original_id_rubro));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string nombre, string cuit, string domicilio, int dia_rendicion, bool habilitadx, decimal id_rubro) {
-            if ((nombre == null)) {
-                throw new global::System.ArgumentNullException("nombre");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(nombre));
-            }
-            if ((cuit == null)) {
-                throw new global::System.ArgumentNullException("cuit");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(cuit));
-            }
-            if ((domicilio == null)) {
-                throw new global::System.ArgumentNullException("domicilio");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(domicilio));
-            }
-            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(dia_rendicion));
-            this.Adapter.InsertCommand.Parameters[4].Value = ((bool)(habilitadx));
-            this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(id_rubro));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string nombre, string cuit, string domicilio, int dia_rendicion, bool habilitadx, decimal id_rubro, int Original_id_empresa, string Original_nombre, string Original_cuit, string Original_domicilio, int Original_dia_rendicion, bool Original_habilitadx, decimal Original_id_rubro, int id_empresa) {
-            if ((nombre == null)) {
-                throw new global::System.ArgumentNullException("nombre");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(nombre));
-            }
-            if ((cuit == null)) {
-                throw new global::System.ArgumentNullException("cuit");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(cuit));
-            }
-            if ((domicilio == null)) {
-                throw new global::System.ArgumentNullException("domicilio");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(domicilio));
-            }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(dia_rendicion));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((bool)(habilitadx));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(id_rubro));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_id_empresa));
-            if ((Original_nombre == null)) {
-                throw new global::System.ArgumentNullException("Original_nombre");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_nombre));
-            }
-            if ((Original_cuit == null)) {
-                throw new global::System.ArgumentNullException("Original_cuit");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_cuit));
-            }
-            if ((Original_domicilio == null)) {
-                throw new global::System.ArgumentNullException("Original_domicilio");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_domicilio));
-            }
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_dia_rendicion));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((bool)(Original_habilitadx));
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((decimal)(Original_id_rubro));
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(id_empresa));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string nombre, string cuit, string domicilio, int dia_rendicion, bool habilitadx, decimal id_rubro, int Original_id_empresa, string Original_nombre, string Original_cuit, string Original_domicilio, int Original_dia_rendicion, bool Original_habilitadx, decimal Original_id_rubro) {
-            return this.Update(nombre, cuit, domicilio, dia_rendicion, habilitadx, id_rubro, Original_id_empresa, Original_nombre, Original_cuit, Original_domicilio, Original_dia_rendicion, Original_habilitadx, Original_id_rubro, Original_id_empresa);
         }
     }
     
@@ -17122,7 +16950,7 @@ SELECT numero_factura, factura_monto_total, factura_fecha_alta, factura_fecha_ve
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT numero_factura, factura_monto_total, factura_fecha_alta, factura_fecha_ven" +
-                "cimiento, dni_cliente, id_empresa, numero_rendicion FROM SQL_BOYS.Factura";
+                "cimiento, dni_cliente, id_empresa, numero_rendicion FROM dbo.Factura";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -17466,7 +17294,7 @@ SELECT numero_factura, factura_monto_total, factura_fecha_alta, factura_fecha_ve
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_funcionalidad, nombre FROM SQL_BOYS.Funcionalidad";
+            this._commandCollection[0].CommandText = "SELECT id_funcionalidad, nombre FROM dbo.Funcionalidad";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -17785,7 +17613,7 @@ SELECT id_funcionalidad, id_rol FROM Funcionalidad_Por_Rol WHERE (id_funcionalid
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_funcionalidad, id_rol FROM SQL_BOYS.Funcionalidad_Por_Rol";
+            this._commandCollection[0].CommandText = "SELECT id_funcionalidad, id_rol FROM dbo.Funcionalidad_Por_Rol";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -18100,7 +17928,7 @@ SELECT id_item, nombre, monto, cantidad, numero_factura FROM Item WHERE (id_item
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_item, nombre, monto, cantidad, numero_factura FROM SQL_BOYS.Item";
+            this._commandCollection[0].CommandText = "SELECT id_item, nombre, monto, cantidad, numero_factura FROM dbo.Item";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -18436,7 +18264,7 @@ SELECT id_item, numero_factura, numero_pago FROM Item_Pago WHERE (id_item = @id_
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_item, numero_factura, numero_pago FROM SQL_BOYS.Item_Pago";
+            this._commandCollection[0].CommandText = "SELECT id_item, numero_factura, numero_pago FROM dbo.Item_Pago";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -18740,7 +18568,7 @@ SELECT id_item, numero_rendicion FROM Item_Rendicion WHERE (id_item = @id_item) 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_item, numero_rendicion FROM SQL_BOYS.Item_Rendicion";
+            this._commandCollection[0].CommandText = "SELECT id_item, numero_rendicion FROM dbo.Item_Rendicion";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -19529,7 +19357,7 @@ SELECT id_medio_de_pago, descripcion FROM Medio_De_Pago WHERE (id_medio_de_pago 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_medio_de_pago, descripcion FROM SQL_BOYS.Medio_De_Pago";
+            this._commandCollection[0].CommandText = "SELECT id_medio_de_pago, descripcion FROM dbo.Medio_De_Pago";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -19866,7 +19694,7 @@ SELECT numero_pago, monto_total, fecha_pago, id_medio_de_pago, dni_cliente, cp_s
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT numero_pago, monto_total, fecha_pago, id_medio_de_pago, dni_cliente, cp_su" +
-                "cursal FROM SQL_BOYS.Pago";
+                "cursal FROM dbo.Pago";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -20186,7 +20014,7 @@ SELECT numero_rendicion, importe_comision, fecha_rendicion FROM Rendicion WHERE 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT numero_rendicion, importe_comision, fecha_rendicion FROM SQL_BOYS.Rendicion";
+            this._commandCollection[0].CommandText = "SELECT numero_rendicion, importe_comision, fecha_rendicion FROM dbo.Rendicion";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -20494,7 +20322,7 @@ SELECT numero_rendicion, importe_comision, fecha_rendicion FROM Rendicion WHERE 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_rol, nombre, habilitadx FROM SQL_BOYS.Rol";
+            this._commandCollection[0].CommandText = "SELECT id_rol, nombre, habilitadx FROM dbo.Rol";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -20822,7 +20650,7 @@ SELECT id_rol, id_usuario, cp_sucursal FROM Rol_De_Usuario_Por_Sucursal WHERE (c
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_rol, id_usuario, cp_sucursal FROM SQL_BOYS.Rol_De_Usuario_Por_Sucursal";
+            this._commandCollection[0].CommandText = "SELECT id_rol, id_usuario, cp_sucursal FROM dbo.Rol_De_Usuario_Por_Sucursal";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -21125,7 +20953,7 @@ SELECT id_rol, id_usuario, cp_sucursal FROM Rol_De_Usuario_Por_Sucursal WHERE (c
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_rubro, descripcion FROM SQL_BOYS.Rubro";
+            this._commandCollection[0].CommandText = "SELECT id_rubro, descripcion FROM dbo.Rubro";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -21455,7 +21283,7 @@ SELECT cp_sucursal, nombre, domicilio, habilitadx FROM Sucursal WHERE (cp_sucurs
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT cp_sucursal, nombre, domicilio, habilitadx FROM SQL_BOYS.Sucursal";
+            this._commandCollection[0].CommandText = "SELECT cp_sucursal, nombre, domicilio, habilitadx FROM dbo.Sucursal";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -21813,7 +21641,7 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_usuario, username, contraseña, habilitadx FROM SQL_BOYS.Usuario";
+            this._commandCollection[0].CommandText = "SELECT id_usuario, username, contraseña, habilitadx FROM dbo.Usuario";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -22142,7 +21970,7 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT view_dni_cliente, view_apellido, view_nombre, view_nacimiento, view_mail, " +
-                "view_domicilio, view_codigo_postal FROM SQL_BOYS.View_Cliente";
+                "view_domicilio, view_codigo_postal FROM dbo.View_Cliente";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -22316,7 +22144,7 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT view_dni_cliente, view_apellido, view_nombre, view_nacimiento, view_mail, " +
-                "view_domicilio, view_codigo_postal FROM SQL_BOYS.View_Cliente_Conflictivo";
+                "view_domicilio, view_codigo_postal FROM dbo.View_Cliente_Conflictivo";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -22488,7 +22316,7 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT view_nombre, view_cuit, view_domicilio, view_id_rubro, view_descripcion FR" +
-                "OM SQL_BOYS.View_Empresa_Rubro";
+                "OM dbo.View_Empresa_Rubro";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -22663,7 +22491,7 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT view_numero_factura, view_factura_monto_total, view_factura_fecha_alta, vi" +
                 "ew_factura_fecha_vencimiento, view_dni_cliente, view_cuit_empresa, view_numero_r" +
-                "endicion FROM SQL_BOYS.View_Factura";
+                "endicion FROM dbo.View_Factura";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -22838,7 +22666,7 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT view_numero_factura, view_factura_monto_total, view_factura_fecha_alta, vi" +
                 "ew_factura_fecha_vencimiento, view_dni_cliente, view_cuit_empresa, view_numero_r" +
-                "endicion FROM SQL_BOYS.View_Factura_Con_Rendicion";
+                "endicion FROM dbo.View_Factura_Con_Rendicion";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -23010,7 +22838,7 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT view_monto, view_cantidad, view_numero_factura, view_numero_pago, view_num" +
-                "ero_rendicion FROM SQL_BOYS.View_Item";
+                "ero_rendicion FROM dbo.View_Item";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -23183,7 +23011,7 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT view_numero_pago, view_monto_total, view_fecha_pago, view_medio_de_pago, v" +
-                "iew_dni_cliente, view_cp_sucursal FROM SQL_BOYS.View_Pago_Medio_De_Pago";
+                "iew_dni_cliente, view_cp_sucursal FROM dbo.View_Pago_Medio_De_Pago";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -23379,7 +23207,7 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT [Cliente-Dni], [Cliente-Apellido], [Cliente-Nombre], [Cliente-Fecha_Nac], Cliente_Mail, Cliente_Direccion, Cliente_Codigo_Postal, Nro_Factura, Factura_Fecha, Factura_Total, Factura_Fecha_Vencimiento, ItemFactura_Monto, ItemFactura_Cantidad, Empresa_Nombre, Empresa_Cuit, Empresa_Direccion, Empresa_Rubro, Rubro_Descripcion, Pago_nro, Pago_Fecha, ItemPago_nro, Total, FormaPagoDescripcion, Sucursal_Nombre, Sucursal_Dirección, Sucursal_Codigo_Postal, Rendicion_Nro, Rendicion_Fecha, ItemRendicion_nro, ItemRendicion_Importe FROM SQL_BOYS.View_Tabla_Maestra_Conflictiva";
+            this._commandCollection[0].CommandText = @"SELECT [Cliente-Dni], [Cliente-Apellido], [Cliente-Nombre], [Cliente-Fecha_Nac], Cliente_Mail, Cliente_Direccion, Cliente_Codigo_Postal, Nro_Factura, Factura_Fecha, Factura_Total, Factura_Fecha_Vencimiento, ItemFactura_Monto, ItemFactura_Cantidad, Empresa_Nombre, Empresa_Cuit, Empresa_Direccion, Empresa_Rubro, Rubro_Descripcion, Pago_nro, Pago_Fecha, ItemPago_nro, Total, FormaPagoDescripcion, Sucursal_Nombre, Sucursal_Dirección, Sucursal_Codigo_Postal, Rendicion_Nro, Rendicion_Fecha, ItemRendicion_nro, ItemRendicion_Importe FROM dbo.View_Tabla_Maestra_Conflictiva";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -23423,8 +23251,6 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
         private ClienteTableAdapter _clienteTableAdapter;
         
         private DevolucionTableAdapter _devolucionTableAdapter;
-        
-        private EmpresaTableAdapter _empresaTableAdapter;
         
         private FacturaTableAdapter _facturaTableAdapter;
         
@@ -23496,20 +23322,6 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
             }
             set {
                 this._devolucionTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public EmpresaTableAdapter EmpresaTableAdapter {
-            get {
-                return this._empresaTableAdapter;
-            }
-            set {
-                this._empresaTableAdapter = value;
             }
         }
         
@@ -23750,10 +23562,6 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
                             && (this._devolucionTableAdapter.Connection != null))) {
                     return this._devolucionTableAdapter.Connection;
                 }
-                if (((this._empresaTableAdapter != null) 
-                            && (this._empresaTableAdapter.Connection != null))) {
-                    return this._empresaTableAdapter.Connection;
-                }
                 if (((this._facturaTableAdapter != null) 
                             && (this._facturaTableAdapter.Connection != null))) {
                     return this._facturaTableAdapter.Connection;
@@ -23831,9 +23639,6 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
                     count = (count + 1);
                 }
                 if ((this._devolucionTableAdapter != null)) {
-                    count = (count + 1);
-                }
-                if ((this._empresaTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._facturaTableAdapter != null)) {
@@ -23916,15 +23721,6 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._rendicionTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._empresaTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Empresa.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._empresaTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -24085,14 +23881,6 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._rendicionTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._empresaTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Empresa.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._empresaTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -24330,14 +24118,6 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._empresaTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Empresa.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._empresaTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._rendicionTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Rendicion.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -24408,11 +24188,6 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
             }
             if (((this._devolucionTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._devolucionTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
-            if (((this._empresaTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._empresaTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -24539,15 +24314,6 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
                     if (this._devolucionTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._devolucionTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._devolucionTableAdapter.Adapter);
-                    }
-                }
-                if ((this._empresaTableAdapter != null)) {
-                    revertConnections.Add(this._empresaTableAdapter, this._empresaTableAdapter.Connection);
-                    this._empresaTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._empresaTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._empresaTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._empresaTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._empresaTableAdapter.Adapter);
                     }
                 }
                 if ((this._facturaTableAdapter != null)) {
@@ -24750,10 +24516,6 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
                 if ((this._devolucionTableAdapter != null)) {
                     this._devolucionTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._devolucionTableAdapter]));
                     this._devolucionTableAdapter.Transaction = null;
-                }
-                if ((this._empresaTableAdapter != null)) {
-                    this._empresaTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._empresaTableAdapter]));
-                    this._empresaTableAdapter.Transaction = null;
                 }
                 if ((this._facturaTableAdapter != null)) {
                     this._facturaTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._facturaTableAdapter]));

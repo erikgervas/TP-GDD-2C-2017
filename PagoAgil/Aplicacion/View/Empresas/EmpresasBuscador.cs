@@ -56,8 +56,9 @@ namespace PagoAgil.Aplicacion.View.Empresas
 
         private void EmpresasBuscador_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'sQL_BOYS.Empresa' table. You can move, or remove it, as needed.
-            this.empresaTableAdapter.Fill(this.sQL_BOYS.Empresa);
+            // TODO: This line of code loads data into the 'sQL_BOYS_Data_Set.Empresa' table. You can move, or remove it, as needed.
+            this.empresaTableAdapter.Fill(this.sQL_BOYS_Data_Set.Empresa);
+
         }
     }
 }

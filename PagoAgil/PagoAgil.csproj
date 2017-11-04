@@ -260,6 +260,7 @@
     <Compile Include="Aplicacion\View\Sucursales\SucursalesBuilder.cs" />
     <Compile Include="DataSet\SQL_BOYS_Data_Set.cs">
       <DependentUpon>SQL_BOYS_Data_Set.xsd</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -267,11 +268,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SQL_BOYS_Data_Set.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DataSet\SQL_BOYS.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SQL_BOYS.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Aplicacion\View\Cliente\FormABMCliente.resx">
       <DependentUpon>FormABMCliente.cs</DependentUpon>
@@ -381,17 +377,6 @@
     </None>
     <None Include="DataSet\SQL_BOYS_Data_Set.xss">
       <DependentUpon>SQL_BOYS_Data_Set.xsd</DependentUpon>
-    </None>
-    <None Include="DataSet\SQL_BOYS.xsc">
-      <DependentUpon>SQL_BOYS.xsd</DependentUpon>
-    </None>
-    <None Include="DataSet\SQL_BOYS.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>SQL_BOYS.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DataSet\SQL_BOYS.xss">
-      <DependentUpon>SQL_BOYS.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
