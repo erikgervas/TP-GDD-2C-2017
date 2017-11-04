@@ -158,7 +158,7 @@
             this.dataGridView1.DataSource = this.sQLBOYSDataSetBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(33, 441);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1144, 285);
+            this.dataGridView1.Size = new System.Drawing.Size(1144, 167);
             this.dataGridView1.TabIndex = 14;
             // 
             // sQLBOYSDataSetBindingSource
@@ -195,7 +195,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1210, 758);
+            this.ClientSize = new System.Drawing.Size(1210, 642);
             this.Controls.Add(this.groupColumnas);
             this.Controls.Add(this.buttonCalcular);
             this.Controls.Add(this.dataGridView1);
