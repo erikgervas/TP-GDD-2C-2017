@@ -2,6 +2,7 @@
 using PagoAgil.Aplicacion.View;
 using PagoAgil.Aplicacion.View.Empresas;
 using PagoAgil.Aplicacion.View.Estadisticas;
+using PagoAgil.Aplicacion.View.Rendicion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,11 +39,8 @@ namespace PagoAgil.Aplicacion.View
 
         private void button_abm_empresas_Click(object sender, EventArgs e)
         {
-
             this.Hide();
-
             new EmpresasSeleccionABM().Show();
-        
         }
 
         private void button_abm_sucursales_Click(object sender, EventArgs e)
@@ -62,7 +60,7 @@ namespace PagoAgil.Aplicacion.View
         private void button_rendicion_Click(object sender, EventArgs e)
         {
 
-            // new FormRendicion().Show();
+            new FormRendicion().Show();
 
         }
 

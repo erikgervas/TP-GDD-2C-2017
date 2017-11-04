@@ -14,25 +14,25 @@ namespace PagoAgil.Aplicacion.Orquestradores
                                                  
                                                 new Estadistica(
                                                     "Porcentaje de facturas cobradas por empresa", 
-                                                    "SQL_BOYS.porcentajeDeFacturasCobradasPorEmpresa", 
+                                                    "porcentajeDeFacturasCobradasPorEmpresa", 
                                                     new string[]{"id_empresa", "nombre", "cuit", "domicilio", "dia_rendicion", "porcentaje_comision", "habilitadx", "id_rubro", "porcentaje_facturas_cobradas"}
                                                     ),
 
                                                 new Estadistica(
                                                     "Empresas con mayor monto rendido", 
-                                                    "SQL_BOYS.empresasConMayorMontoRendido", 
+                                                    "empresasConMayorMontoRendido", 
                                                     new string[]{"id_empresa", "nombre", "cuit", "domicilio", "dia_rendicion", "porcentaje_comision", "habilitadx", "id_rubro", "monto_rendido"}
                                                     ),
 
                                                 new Estadistica(
                                                     "Clientes con mas pagos", 
-                                                    "SQL_BOYS.clientesConMasPagos", 
+                                                    "clientesConMasPagos", 
                                                     new string[]{"dni_cliente", "nombre", "apellido", "nacimiento", "mail", "domicilio", "codigo_postal", "telefono", "habilitadx", "cantidad_de_pagos"}
                                                     ),
 
                                                 new Estadistica(
                                                     "Clientes cumplidores",
-                                                    "SQL_BOYS.clientesCumplidores", 
+                                                    "clientesCumplidores", 
                                                     new string[]{"dni_cliente", "nombre", "apellido", "nacimiento", "mail", "domicilio", "codigo_postal", "telefono", "habilitadx", "porcentaje_facturas_pagadas"}
                                                     )
 

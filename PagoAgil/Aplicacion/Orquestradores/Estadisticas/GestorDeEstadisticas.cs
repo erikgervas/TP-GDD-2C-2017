@@ -67,13 +67,18 @@ namespace PagoAgil.Aplicacion.Orquestradores.Estadisticas
 
         }
 
-        public DataTable calcularEstadistica(string anio)
+        public DataTable calcularEstadistica(string anioCrudo)
         {
 
             if (this.esCalculable())
             {
 
-                string funcion = estadistica.getFuncionArmada(Int32.Parse(anio), trimestre);
+                int anio = Int32.Parse(anioCrudo);
+
+                if(anio < 2010 || anio > DateTime.Now.Year)
+                   throw new ArgumentException("Fecha invalida"); 
+
+                string funcion = estadistica.getFuncionArmada(anio, trimestre);
 
                 return LectorDeTablas.getInstance().obtenerCiertasColumnas(funcion, columnasElectas);
 

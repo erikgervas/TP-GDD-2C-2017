@@ -25,7 +25,7 @@ namespace PagoAgil.Aplicacion.BD
         public DataTable obtenerMejorado(String funcion)
         {
 
-            return this.prepararTabla("SELECT * FROM " + funcion);
+            return this.prepararTabla("SELECT * FROM SQL_BOYS." + funcion);
 
         }
 
@@ -57,7 +57,6 @@ namespace PagoAgil.Aplicacion.BD
             return dt;
 
         }
-
 
         public DataTable obtenerCiertasColumnasOrdenadas(string query, List<string> columnasElectas, Boolean ascendente)
         {
