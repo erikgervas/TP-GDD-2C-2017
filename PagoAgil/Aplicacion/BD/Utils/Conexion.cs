@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 
 namespace PagoAgil.Aplicacion.BD
 {
@@ -38,11 +39,7 @@ namespace PagoAgil.Aplicacion.BD
 
             SqlConnection conexionGenerada = new SqlConnection(connectionString);
 
-            conexionGenerada.Open();
-
-            Console.WriteLine("State: {0}", conexionGenerada.State);
-            Console.WriteLine("ConnectionString: {0}",
-                conexionGenerada.ConnectionString);          
+            conexionGenerada.Open();        
 
             return conexionGenerada;
         }
@@ -50,7 +47,8 @@ namespace PagoAgil.Aplicacion.BD
         private string connectionString()
         {
 
-            return @"Data Source=localhost\SQLSERVER2012;Initial Catalog=GD2C2017;Persist Security Info=True;User ID=gd;Password=gd2017";
+            string conexion = ConfigurationManager.AppSettings["conexion"];
+            return @conexion;
 
         }
         
