@@ -127,6 +127,9 @@ namespace PagoAgil.Aplicacion.View.Estadisticas
 
                 dataGridView1.DataSource = dt;
 
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dataGridView1.Columns[dataGridView1.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
             }
             catch (ArgumentException)
             {

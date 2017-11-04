@@ -53,16 +53,16 @@
             this.comboEstadistica.BackColor = System.Drawing.SystemColors.Window;
             this.comboEstadistica.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboEstadistica.FormattingEnabled = true;
-            this.comboEstadistica.Location = new System.Drawing.Point(125, 25);
+            this.comboEstadistica.Location = new System.Drawing.Point(125, 60);
             this.comboEstadistica.Name = "comboEstadistica";
-            this.comboEstadistica.Size = new System.Drawing.Size(868, 24);
+            this.comboEstadistica.Size = new System.Drawing.Size(960, 24);
             this.comboEstadistica.TabIndex = 5;
             this.comboEstadistica.SelectedIndexChanged += new System.EventHandler(this.comboEstadistica_SelectedIndexChanged);
             // 
             // textAnio
             // 
             this.textAnio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textAnio.Location = new System.Drawing.Point(125, 208);
+            this.textAnio.Location = new System.Drawing.Point(343, 239);
             this.textAnio.MaxLength = 4;
             this.textAnio.Name = "textAnio";
             this.textAnio.Size = new System.Drawing.Size(92, 22);
@@ -73,7 +73,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(30, 33);
+            this.label1.Location = new System.Drawing.Point(122, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 16);
             this.label1.TabIndex = 7;
@@ -83,7 +83,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(30, 211);
+            this.label2.Location = new System.Drawing.Point(340, 220);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 16);
             this.label2.TabIndex = 8;
@@ -93,7 +93,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(30, 252);
+            this.label3.Location = new System.Drawing.Point(122, 220);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 16);
             this.label3.TabIndex = 9;
@@ -103,7 +103,7 @@
             // 
             this.primerTrimestre.AutoSize = true;
             this.primerTrimestre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.primerTrimestre.Location = new System.Drawing.Point(59, 284);
+            this.primerTrimestre.Location = new System.Drawing.Point(151, 241);
             this.primerTrimestre.Name = "primerTrimestre";
             this.primerTrimestre.Size = new System.Drawing.Size(127, 20);
             this.primerTrimestre.TabIndex = 10;
@@ -116,7 +116,7 @@
             // 
             this.segundoTrimestre.AutoSize = true;
             this.segundoTrimestre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.segundoTrimestre.Location = new System.Drawing.Point(59, 320);
+            this.segundoTrimestre.Location = new System.Drawing.Point(151, 277);
             this.segundoTrimestre.Name = "segundoTrimestre";
             this.segundoTrimestre.Size = new System.Drawing.Size(113, 20);
             this.segundoTrimestre.TabIndex = 11;
@@ -129,7 +129,7 @@
             // 
             this.tercerTrimestre.AutoSize = true;
             this.tercerTrimestre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tercerTrimestre.Location = new System.Drawing.Point(59, 356);
+            this.tercerTrimestre.Location = new System.Drawing.Point(151, 313);
             this.tercerTrimestre.Name = "tercerTrimestre";
             this.tercerTrimestre.Size = new System.Drawing.Size(152, 20);
             this.tercerTrimestre.TabIndex = 12;
@@ -142,7 +142,7 @@
             // 
             this.cuartoTrimestre.AutoSize = true;
             this.cuartoTrimestre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cuartoTrimestre.Location = new System.Drawing.Point(59, 392);
+            this.cuartoTrimestre.Location = new System.Drawing.Point(151, 349);
             this.cuartoTrimestre.Name = "cuartoTrimestre";
             this.cuartoTrimestre.Size = new System.Drawing.Size(163, 20);
             this.cuartoTrimestre.TabIndex = 13;
@@ -156,9 +156,9 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.DataSource = this.sQLBOYSDataSetBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(241, 205);
+            this.dataGridView1.Location = new System.Drawing.Point(33, 441);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(752, 207);
+            this.dataGridView1.Size = new System.Drawing.Size(1144, 285);
             this.dataGridView1.TabIndex = 14;
             // 
             // sQLBOYSDataSetBindingSource
@@ -174,7 +174,7 @@
             // buttonCalcular
             // 
             this.buttonCalcular.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCalcular.Location = new System.Drawing.Point(33, 452);
+            this.buttonCalcular.Location = new System.Drawing.Point(125, 389);
             this.buttonCalcular.Name = "buttonCalcular";
             this.buttonCalcular.Size = new System.Drawing.Size(960, 30);
             this.buttonCalcular.TabIndex = 15;
@@ -184,7 +184,7 @@
             // 
             // groupColumnas
             // 
-            this.groupColumnas.Location = new System.Drawing.Point(33, 71);
+            this.groupColumnas.Location = new System.Drawing.Point(125, 99);
             this.groupColumnas.Name = "groupColumnas";
             this.groupColumnas.Size = new System.Drawing.Size(960, 100);
             this.groupColumnas.TabIndex = 16;
@@ -195,7 +195,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1046, 514);
+            this.ClientSize = new System.Drawing.Size(1210, 758);
             this.Controls.Add(this.groupColumnas);
             this.Controls.Add(this.buttonCalcular);
             this.Controls.Add(this.dataGridView1);
