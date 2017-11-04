@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PagoAgil.Aplicacion.ViewModel;
 using PagoAgil.Aplicacion.Modelo.ClienteSQL;
-
+using PagoAgil.Aplicacion.BD;
 using PagoAgil.Aplicacion.BD.Repositorios;
 using PagoAgil.Aplicacion.Modelo;
 
@@ -35,19 +35,21 @@ namespace PagoAgil.Aplicacion.View.Sucursales
             string direccionSucursal = textBoxDireccion.Text.Trim();
             int codigoPostal = (int) numericUpDownCP.Value;
 
-            /*List<SucursalDB> sucursalesFiltradas = new List<SucursalDB>();
+            //DataTable sucursalesFiltradas = VM.filtrarSucursales(nombreSucursal, direccionSucursal, codigoPostal);
 
-            //sucursalesFiltradas = VM.filtrarSucursales(nombreSucursal,direccionSucursal,codigoPostal);
+            DataTable sucursalesFiltradas = RepositorioSucursales.getInstancia().getAlmacenamiento().darTodosEnTabla();
 
-            List<Sucursal> sucursalesFiltradas2 = new List<Sucursal>();
-            Sucursal sucu = new Sucursal(1, "Sucu", true, "Meh", 1111);
-            sucursalesFiltradas2.Add(sucu);
-            
-            sucursalesFiltradas.Add(RepositorioSucursales.getInstancia().getAlmacenamiento().darTodos().ElementAt(0));
             dataGridView1.DataSource = sucursalesFiltradas;
 
-            //dataGridView1.Columns[1].HeaderText = "Codigo Postal";*/
+            dataGridView1.Columns[0].HeaderText = "Codigo Postal";
+            dataGridView1.Columns[1].HeaderText = "Nombre";
+            dataGridView1.Columns[2].HeaderText = "Direccion";
+            dataGridView1.Columns[3].HeaderText = "Habilitado";
+        }
 
+        private void FormListadoSucursales_Load(object sender, EventArgs e)
+        {
+            numericUpDownCP.Text = "";
         }
 
     }

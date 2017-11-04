@@ -5,15 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using PagoAgil.Aplicacion.Modelo.ClienteSQL;
 using PagoAgil.Aplicacion.BD.Repositorios;
+using System.Data;
 
 namespace PagoAgil.Aplicacion.ViewModel
 {
     class ListadoSucursalesVM
     {
-        public List<SucursalDB> filtrarSucursales(string nombre, string direccion, int codigoPostal)
+        /*public DataTable filtrarSucursales(string nombre, string direccion, int codigoPostal)
         {
-            List<SucursalDB> sucursalesFiltradas = new List<SucursalDB>();
-            List<SucursalDB> sucursalesFiltradasNombre = new List<SucursalDB>();
+            DataTable sucursalesFiltradas;
+            /*List<SucursalDB> sucursalesFiltradasNombre = new List<SucursalDB>();
             List<SucursalDB> sucursalesFiltradasDireccion = new List<SucursalDB>();
             List<SucursalDB> sucursalesFiltradasCP = new List<SucursalDB>();
 
@@ -21,11 +22,11 @@ namespace PagoAgil.Aplicacion.ViewModel
 
             if (direccion != null) sucursalesFiltradasDireccion = RepositorioSucursales.getInstancia().getAlmacenamiento().filtrarPorDireccion(direccion);
 
-            if (codigoPostal != null) sucursalesFiltradasCP = RepositorioSucursales.getInstancia().getAlmacenamiento().filtrarPorCodigoPostal(codigoPostal);
+            if (codigoPostal != 0) sucursalesFiltradasCP = RepositorioSucursales.getInstancia().getAlmacenamiento().filtrarPorCodigoPostal(codigoPostal);
 
             sucursalesFiltradas = sucursalesFiltradasNombre.Intersect(sucursalesFiltradasDireccion).Intersect(sucursalesFiltradasCP).ToList();
 
             return sucursalesFiltradas;
-        }
+        }*/
     }
 }
