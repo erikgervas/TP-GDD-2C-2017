@@ -18,7 +18,7 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
 
         protected override List<Parametro> listaDeParametros(Empresa unaEntidad)
         {
-            List<Parametro> parametros = new List<Parametro>(7);
+            List<Parametro> parametros = new List<Parametro>(8);
 
             parametros.Add(ParametroFactory.crear("nombre", SqlDbType.NVarChar, unaEntidad.nombre));
             parametros.Add(ParametroFactory.crear("cuit", SqlDbType.NVarChar, unaEntidad.cuit));
@@ -26,7 +26,6 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
             parametros.Add(ParametroFactory.crear("dia_rendicion", SqlDbType.Int, unaEntidad.diaRendicion));
             parametros.Add(ParametroFactory.crear("porcentaje_comision", SqlDbType.Int, unaEntidad.diaRendicion));
             parametros.Add(ParametroFactory.crear("habilitadx", SqlDbType.Bit, unaEntidad.habilitado));
-            parametros.Add(ParametroFactory.crear("porcentaje_comision", SqlDbType.Int, unaEntidad.porcentajeComision));
             parametros.Add(ParametroFactory.crear("nombre_rubro", SqlDbType.NVarChar, unaEntidad.rubro));
 
             return parametros;
