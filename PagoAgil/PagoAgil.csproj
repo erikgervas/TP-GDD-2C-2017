@@ -174,7 +174,7 @@
     <Compile Include="Aplicacion\View\Empresas\EmpresasBuscadorSeleccionar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Aplicacion\View\Empresas\EmpresasBuscadorSeleccionar.Designer.cs">
+    <Compile Include="Aplicacion\View\Empresas\EmpresasBuscadorSeleccionar.designer.cs">
       <DependentUpon>EmpresasBuscadorSeleccionar.cs</DependentUpon>
     </Compile>
     <Compile Include="Aplicacion\View\Empresas\EmpresasModificacion.cs">
