@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using PagoAgil.Aplicacion.Modelo.ClienteSQL;
 using PagoAgil.Aplicacion.Modelo;
 using PagoAgil.Aplicacion.BD.Utils;
+using System.Data;
 
 namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
 {
@@ -45,6 +46,13 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
 
             return obtainSucursalesFromQuery(query);
 
+        }
+
+        public DataTable darTodosEnTabla()
+        {
+            string query = "SELECT * FROM SQL_BOYS.Sucursal";
+
+            return LectorDeTablas.getInstance().obtenerMejorado(query);
         }
 
         private List<SucursalDB> obtainSucursalesFromQuery(string query)

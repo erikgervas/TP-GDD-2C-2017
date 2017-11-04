@@ -170,6 +170,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FormListadoSucursales";
             this.Text = "FormListadoSucursales";
+            this.Load += new System.EventHandler(this.FormListadoSucursales_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
