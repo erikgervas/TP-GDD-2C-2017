@@ -1,6 +1,7 @@
 ﻿using PagoAgil.Aplicacion.Modelo.Usuario;
 using PagoAgil.Aplicacion.View;
 using PagoAgil.Aplicacion.View.Empresas;
+using PagoAgil.Aplicacion.View.Estadisticas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -80,7 +81,7 @@ namespace PagoAgil.Aplicacion.View
         private void button_estadisticas_Click(object sender, EventArgs e)
         {
 
-            // new FormEstadisticas().Show();
+            new FormEstadisticas().Show();
 
         }
 

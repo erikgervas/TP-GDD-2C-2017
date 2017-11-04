@@ -9,6 +9,7 @@ namespace PagoAgil.Aplicacion.Modelo
         public string direccion { get; set; }
         public string rubro { get; set; }
         public ushort diaRendicion { get; set; }
+        public ushort porcentajeComision { get; set; }
 
         public Empresa (long unId, string unNombre, bool unEstado, string unCuit, string unaDireccion, string unRubro, ushort unDia) : base (unId, unNombre, unEstado)
         {
@@ -27,5 +28,6 @@ namespace PagoAgil.Aplicacion.Modelo
         {
             throw new NotImplementedException();
         }
+
     }
 }

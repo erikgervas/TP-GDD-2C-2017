@@ -25,6 +25,7 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
             parametros.Add(ParametroFactory.crear("domicilio", SqlDbType.NVarChar, unaEntidad.direccion));
             parametros.Add(ParametroFactory.crear("dia_rendicion", SqlDbType.Int, unaEntidad.diaRendicion));
             parametros.Add(ParametroFactory.crear("habilitadx", SqlDbType.Bit, unaEntidad.habilitado));
+            parametros.Add(ParametroFactory.crear("porcentaje_comision", SqlDbType.Int, unaEntidad.porcentajeComision));
             parametros.Add(ParametroFactory.crear("nombre_rubro", SqlDbType.NVarChar, unaEntidad.rubro));
 
             return parametros;

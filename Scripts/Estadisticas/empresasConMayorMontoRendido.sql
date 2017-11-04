@@ -4,7 +4,7 @@ AS
 
 	RETURN (
 
-		select top 5 e.* from SQL_BOYS.Empresa e
+		select top 5 e.*, sum(i.monto) as monto_rendido from SQL_BOYS.Empresa e
 			join SQL_BOYS.Factura f on e.id_empresa = f.id_empresa
 			join SQL_BOYS.Rendicion r on f.numero_rendicion = r.numero_rendicion
 			join SQL_BOYS.Item_Rendicion ir on r.numero_rendicion = ir.numero_rendicion
@@ -12,8 +12,8 @@ AS
 
 			where SQL_BOYS.esFechaValida(r.fecha_rendicion, @anio, @trimestre) = 1
 
-			group by e.id_empresa, e.nombre, e.cuit, e.domicilio, e.id_rubro, e.dia_rendicion, e.habilitadx
+			group by e.id_empresa, e.nombre, e.cuit, e.domicilio, e.porcentaje_comision, e.id_rubro, e.dia_rendicion, e.habilitadx
 
-			order by sum(i.monto) desc
+			order by monto_rendido desc
 
 	)

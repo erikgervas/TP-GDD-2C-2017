@@ -22,10 +22,10 @@ namespace PagoAgil.Aplicacion.BD
         {
         }
 
-        public DataTable obtenerMejorado(String query)
+        public DataTable obtenerMejorado(String funcion)
         {
 
-            return this.prepararTabla(query);
+            return this.prepararTabla("SELECT * FROM " + funcion);
 
         }
 
@@ -40,6 +40,11 @@ namespace PagoAgil.Aplicacion.BD
 
         }
 
+        public DataTable obtenerCiertasColumnas(string query, List<string> columnasElectas)
+        {
+            return this.obtenerCiertasColumnas(query, columnasElectas.ToArray());
+        }
+
         public DataTable obtenerCiertasColumnasOrdenadas(String query, string[] columnasAMostrar, Boolean ascendente)
         {
 
@@ -51,6 +56,12 @@ namespace PagoAgil.Aplicacion.BD
 
             return dt;
 
+        }
+
+
+        public DataTable obtenerCiertasColumnasOrdenadas(string query, List<string> columnasElectas, Boolean ascendente)
+        {
+            return this.obtenerCiertasColumnasOrdenadas(query, columnasElectas.ToArray(), ascendente);
         }
 
         private DataTable prepararTabla(String query)
