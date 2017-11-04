@@ -93,7 +93,7 @@ INSERT INTO SQL_BOYS.Rubro (id_rubro, descripcion)
 
 SET IDENTITY_INSERT SQL_BOYS.Rubro OFF
 
-INSERT INTO SQL_BOYS.Empresa (nombre, cuit, domicilio, dia_rendicion, habilitadx, id_rubro)
+INSERT INTO SQL_BOYS.Empresa (nombre, cuit, domicilio, dia_rendicion, porcentaje_comision, habilitadx, id_rubro)
 
 	SELECT DISTINCT 
 
@@ -101,6 +101,7 @@ INSERT INTO SQL_BOYS.Empresa (nombre, cuit, domicilio, dia_rendicion, habilitadx
 		view_cuit AS cuit,
 		view_domicilio AS domicilio,
 		dia_rendicion = (SELECT TOP 1 DAY (r.fecha_rendicion) FROM SQL_BOYS.Rendicion r, SQL_BOYS.View_Factura f, SQL_BOYS.View_Empresa_Rubro e WHERE r.numero_rendicion = f.view_numero_rendicion AND f.view_cuit_empresa = e.view_cuit ORDER BY r.fecha_rendicion DESC),
+		porcentaje_comision = 5,
 		habilitadx = 1,
 		view_id_rubro AS id_rubro
 

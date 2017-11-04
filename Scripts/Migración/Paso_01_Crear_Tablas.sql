@@ -60,7 +60,8 @@ CREATE TABLE SQL_BOYS.Empresa (
 	nombre NVARCHAR(255) NOT NULL,
 	cuit NVARCHAR(50) NOT NULL UNIQUE,
 	domicilio NVARCHAR(255) NOT NULL,
-	dia_rendicion INT NOT NULL CHECK (dia_rendicion BETWEEN 1 AND 31),
+	dia_rendicion INT NOT NULL CHECK (dia_rendicion BETWEEN 1 AND 28),
+	porcentaje_comision INT NOT NULL CHECK (porcentaje_comision BETWEEN 1 AND 100),
 	habilitadx BIT NOT NULL,
 	id_rubro NUMERIC(18,0) FOREIGN KEY REFERENCES SQL_BOYS.Rubro(id_rubro) NOT NULL
 )
