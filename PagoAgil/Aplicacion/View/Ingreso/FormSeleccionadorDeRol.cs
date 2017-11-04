@@ -10,7 +10,7 @@ namespace PagoAgil.Aplicacion.View
     public partial class FormSeleccionarRol : Form
     {
 
-        public SeleccionadorDeRolVM seleccionadorDeRolVM;
+        private SeleccionadorDeRolVM seleccionadorDeRolVM;
 
         public FormSeleccionarRol(UsuarioDB usuario)
         {

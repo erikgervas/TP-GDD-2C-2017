@@ -75,6 +75,7 @@
     <Compile Include="Aplicacion\Modelo\ClienteTSQL\ClienteTSQL.cs" />
     <Compile Include="Aplicacion\Modelo\Empresa.cs" />
     <Compile Include="Aplicacion\Modelo\Entidad.cs" />
+    <Compile Include="Aplicacion\Modelo\Estadistica\Estadistica.cs" />
     <Compile Include="Aplicacion\Modelo\Excepciones\LogingDemasiadosIntentosException.cs" />
     <Compile Include="Aplicacion\Modelo\Habilitable.cs" />
     <Compile Include="Aplicacion\Modelo\Identificable.cs" />
@@ -84,13 +85,17 @@
     <Compile Include="Aplicacion\Modelo\Usuario\Rol.cs" />
     <Compile Include="Aplicacion\Modelo\Usuario\Usuario.cs" />
     <Compile Include="Aplicacion\Orquestradores\Bootstrap.cs" />
+    <Compile Include="Aplicacion\Orquestradores\CreadorDeVistas.cs" />
+    <Compile Include="Aplicacion\Orquestradores\Estadisticas\GestorDeEstadisticas.cs" />
     <Compile Include="Aplicacion\Orquestradores\GestorDeClientes.cs" />
+    <Compile Include="Aplicacion\Orquestradores\Estadisticas\RepositorioDeEstadisticas.cs" />
     <Compile Include="Aplicacion\Orquestradores\GestorDeRoles.cs" />
     <Compile Include="Aplicacion\Orquestradores\GestorDeSucursales.cs" />
     <Compile Include="Aplicacion\ViewModel\AltaSucursalVM.cs" />
     <Compile Include="Aplicacion\ViewModel\BajaSucursalVM.cs" />
     <Compile Include="Aplicacion\ViewModel\EmpresasAltaVM.cs" />
     <Compile Include="Aplicacion\ViewModel\EmpresasBuscadorVM.cs" />
+    <Compile Include="Aplicacion\ViewModel\EstadisticasVM.cs" />
     <Compile Include="Aplicacion\ViewModel\HomeVM.cs" />
     <Compile Include="Aplicacion\ViewModel\ListadoSucursalesVM.cs" />
     <Compile Include="Aplicacion\ViewModel\LoginVM.cs" />
@@ -187,6 +192,12 @@
       <DependentUpon>EmpresasSeleccionABM.cs</DependentUpon>
     </Compile>
     <Compile Include="Aplicacion\Builders\Excepciones\YaExisteObjetoConEsaClave.cs" />
+    <Compile Include="Aplicacion\View\Estadisticas\FormEstadisticas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Estadisticas\FormEstadisticas.Designer.cs">
+      <DependentUpon>FormEstadisticas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Aplicacion\View\Sucursales\FormABMSucursal.cs">
       <SubType>Form</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -222,10 +233,10 @@
     <Compile Include="Aplicacion\View\FormHome.Designer.cs">
       <DependentUpon>FormHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="Aplicacion\View\FormLogin.cs">
+    <Compile Include="Aplicacion\View\Ingreso\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Aplicacion\View\FormLogin.Designer.cs">
+    <Compile Include="Aplicacion\View\Ingreso\FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Aplicacion\View\Sucursales\FormListadoSucursales.cs">
@@ -240,10 +251,10 @@
     <Compile Include="Aplicacion\View\Sucursales\FormModificacionSucursal.Designer.cs">
       <DependentUpon>FormModificacionSucursal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Aplicacion\View\FormSeleccionadorDeRol.cs">
+    <Compile Include="Aplicacion\View\Ingreso\FormSeleccionadorDeRol.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Aplicacion\View\FormSeleccionadorDeRol.Designer.cs">
+    <Compile Include="Aplicacion\View\Ingreso\FormSeleccionadorDeRol.Designer.cs">
       <DependentUpon>FormSeleccionadorDeRol.cs</DependentUpon>
     </Compile>
     <Compile Include="Aplicacion\View\Sucursales\SucursalesBuilder.cs" />
@@ -302,6 +313,9 @@
     <EmbeddedResource Include="Aplicacion\View\Empresas\EmpresasSeleccionABM.resx">
       <DependentUpon>EmpresasSeleccionABM.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Estadisticas\FormEstadisticas.resx">
+      <DependentUpon>FormEstadisticas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\Sucursales\FormABMSucursal.resx">
       <DependentUpon>FormABMSucursal.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -321,7 +335,7 @@
     <EmbeddedResource Include="Aplicacion\View\FormHome.resx">
       <DependentUpon>FormHome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Aplicacion\View\FormLogin.resx">
+    <EmbeddedResource Include="Aplicacion\View\Ingreso\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\Sucursales\FormListadoSucursales.resx">
@@ -330,7 +344,7 @@
     <EmbeddedResource Include="Aplicacion\View\Sucursales\FormModificacionSucursal.resx">
       <DependentUpon>FormModificacionSucursal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Aplicacion\View\FormSeleccionadorDeRol.resx">
+    <EmbeddedResource Include="Aplicacion\View\Ingreso\FormSeleccionadorDeRol.resx">
       <DependentUpon>FormSeleccionadorDeRol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

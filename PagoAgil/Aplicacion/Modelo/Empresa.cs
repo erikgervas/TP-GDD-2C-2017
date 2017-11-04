@@ -29,5 +29,6 @@ namespace PagoAgil.Aplicacion.Modelo
         {
             throw new NotImplementedException();
         }
+
     }
 }
