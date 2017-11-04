@@ -58,7 +58,6 @@ namespace PagoAgil.Aplicacion.BD
 
         }
 
-
         public DataTable obtenerCiertasColumnasOrdenadas(string query, List<string> columnasElectas, Boolean ascendente)
         {
             return this.obtenerCiertasColumnasOrdenadas(query, columnasElectas.ToArray(), ascendente);

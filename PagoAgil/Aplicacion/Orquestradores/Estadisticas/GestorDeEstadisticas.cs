@@ -76,7 +76,7 @@ namespace PagoAgil.Aplicacion.Orquestradores.Estadisticas
                 int anio = Int32.Parse(anioCrudo);
 
                 if(anio < 2010 || anio > DateTime.Now.Year)
-                   throw new ArgumentException("Argumentos invalidos"); 
+                   throw new ArgumentException("Fecha invalida"); 
 
                 string funcion = estadistica.getFuncionArmada(anio, trimestre);
 
