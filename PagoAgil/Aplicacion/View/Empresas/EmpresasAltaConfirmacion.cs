@@ -33,6 +33,7 @@ namespace PagoAgil.Aplicacion.View.Empresas
             this.direccionAsignadaLabel.Text = this.empresa.direccion;
             this.rubroAsignadoLabel.Text = this.empresa.rubro;
             this.diaAsignadoLabel.Text = Convert.ToString(this.empresa.diaRendicion, 10);
+            this.porcentajeAsignadoText.Text = Convert.ToString(this.empresa.porcentajeComision, 10);
             this.habilitadaCheckBox.CheckState = (this.empresa.estado) ? CheckState.Checked : CheckState.Unchecked;
         }
 

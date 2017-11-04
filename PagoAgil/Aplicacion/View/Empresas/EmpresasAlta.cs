@@ -37,6 +37,7 @@ namespace PagoAgil.Aplicacion.View.Empresas
             this.cuitText.Text = this.viewModel.empresa.cuit;
             this.direccionText.Text = this.viewModel.empresa.direccion;
             this.diaNumericUpDown.Value = this.viewModel.empresa.diaRendicion;
+            this.porcentajeNumericUpDown.Value = this.viewModel.empresa.porcentajeComision;
             this.rubroComboBox.Text = this.viewModel.empresa.rubro;
             this.habilitadaCheckBox.Checked = this.viewModel.empresa.estado;
         }
@@ -44,6 +45,7 @@ namespace PagoAgil.Aplicacion.View.Empresas
         private void iniciarCampos()
         {
             this.viewModel.empresa.diaRendicion = 1;
+            this.viewModel.empresa.porcentajeComision = 1;
             foreach (String rubro in this.viewModel.rubros) this.rubroComboBox.Items.Add(rubro);
         }
 
@@ -67,7 +69,8 @@ namespace PagoAgil.Aplicacion.View.Empresas
             this.viewModel.empresa.cuit = cuitText.Text;
             this.viewModel.empresa.direccion = direccionText.Text;
             this.viewModel.empresa.rubro = rubroComboBox.Text;
-            this.viewModel.empresa.diaRendicion = (ushort)diaNumericUpDown.Value;
+            this.viewModel.empresa.diaRendicion = (ushort) diaNumericUpDown.Value;
+            this.viewModel.empresa.porcentajeComision = (ushort) porcentajeNumericUpDown.Value;
             this.viewModel.empresa.estado = habilitadaCheckBox.Checked;
         }
 
@@ -76,8 +79,9 @@ namespace PagoAgil.Aplicacion.View.Empresas
             this.nombreText.Text = null;
             this.cuitText.Text = null;
             this.direccionText.Text = null;
-            this.diaNumericUpDown.Value = 1;
             this.rubroComboBox.Text = null;
+            this.diaNumericUpDown.Value = 1;
+            this.porcentajeNumericUpDown.Value = 1;
             this.habilitadaCheckBox.Checked = false;
 
             this.viewModel.empresa = new EmpresaBuilder();

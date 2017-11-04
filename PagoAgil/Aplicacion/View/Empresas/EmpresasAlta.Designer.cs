@@ -48,11 +48,14 @@
             this.altaButton = new System.Windows.Forms.Button();
             this.sQL_BOYS_Data_Set = new PagoAgil.DataSet.SQL_BOYS_Data_Set();
             this.sQLBOYSDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.porcentajeText = new System.Windows.Forms.Label();
+            this.porcentajeNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.altaPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.diaNumericUpDown)).BeginInit();
             this.altaGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sQL_BOYS_Data_Set)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sQLBOYSDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.porcentajeNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // tituloLabel
@@ -83,21 +86,23 @@
             this.altaPanel.Controls.Add(this.nombreText, 1, 0);
             this.altaPanel.Controls.Add(this.rubroComboBox, 1, 3);
             this.altaPanel.Controls.Add(this.diaNumericUpDown, 1, 4);
+            this.altaPanel.Controls.Add(this.porcentajeNumericUpDown, 1, 5);
+            this.altaPanel.Controls.Add(this.porcentajeText, 0, 5);
             this.altaPanel.Location = new System.Drawing.Point(30, 30);
             this.altaPanel.Name = "altaPanel";
-            this.altaPanel.RowCount = 5;
-            this.altaPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.altaPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.altaPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.altaPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.altaPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.altaPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.altaPanel.Size = new System.Drawing.Size(296, 199);
+            this.altaPanel.RowCount = 6;
+            this.altaPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.altaPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.altaPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.altaPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.altaPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.altaPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.altaPanel.Size = new System.Drawing.Size(296, 243);
             this.altaPanel.TabIndex = 2;
             // 
             // cuitText
             // 
-            this.cuitText.Location = new System.Drawing.Point(151, 42);
+            this.cuitText.Location = new System.Drawing.Point(151, 43);
             this.cuitText.MaxLength = 10;
             this.cuitText.Name = "cuitText";
             this.cuitText.Size = new System.Drawing.Size(142, 20);
@@ -106,7 +111,7 @@
             // 
             // direccionText
             // 
-            this.direccionText.Location = new System.Drawing.Point(151, 81);
+            this.direccionText.Location = new System.Drawing.Point(151, 83);
             this.direccionText.Name = "direccionText";
             this.direccionText.Size = new System.Drawing.Size(142, 20);
             this.direccionText.TabIndex = 7;
@@ -123,7 +128,7 @@
             // cuitLabel
             // 
             this.cuitLabel.AutoSize = true;
-            this.cuitLabel.Location = new System.Drawing.Point(3, 39);
+            this.cuitLabel.Location = new System.Drawing.Point(3, 40);
             this.cuitLabel.Name = "cuitLabel";
             this.cuitLabel.Size = new System.Drawing.Size(32, 13);
             this.cuitLabel.TabIndex = 1;
@@ -132,7 +137,7 @@
             // direccionLabel
             // 
             this.direccionLabel.AutoSize = true;
-            this.direccionLabel.Location = new System.Drawing.Point(3, 78);
+            this.direccionLabel.Location = new System.Drawing.Point(3, 80);
             this.direccionLabel.Name = "direccionLabel";
             this.direccionLabel.Size = new System.Drawing.Size(52, 13);
             this.direccionLabel.TabIndex = 2;
@@ -141,7 +146,7 @@
             // rubroLabel
             // 
             this.rubroLabel.AutoSize = true;
-            this.rubroLabel.Location = new System.Drawing.Point(3, 117);
+            this.rubroLabel.Location = new System.Drawing.Point(3, 120);
             this.rubroLabel.Name = "rubroLabel";
             this.rubroLabel.Size = new System.Drawing.Size(36, 13);
             this.rubroLabel.TabIndex = 3;
@@ -150,7 +155,7 @@
             // diaLabel
             // 
             this.diaLabel.AutoSize = true;
-            this.diaLabel.Location = new System.Drawing.Point(3, 156);
+            this.diaLabel.Location = new System.Drawing.Point(3, 160);
             this.diaLabel.Name = "diaLabel";
             this.diaLabel.Size = new System.Drawing.Size(86, 13);
             this.diaLabel.TabIndex = 4;
@@ -167,7 +172,7 @@
             // 
             this.rubroComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.rubroComboBox.FormattingEnabled = true;
-            this.rubroComboBox.Location = new System.Drawing.Point(151, 120);
+            this.rubroComboBox.Location = new System.Drawing.Point(151, 123);
             this.rubroComboBox.MaxDropDownItems = 10;
             this.rubroComboBox.Name = "rubroComboBox";
             this.rubroComboBox.Size = new System.Drawing.Size(142, 21);
@@ -175,9 +180,9 @@
             // 
             // diaNumericUpDown
             // 
-            this.diaNumericUpDown.Location = new System.Drawing.Point(151, 159);
+            this.diaNumericUpDown.Location = new System.Drawing.Point(151, 163);
             this.diaNumericUpDown.Maximum = new decimal(new int[] {
-            31,
+            28,
             0,
             0,
             0});
@@ -202,7 +207,7 @@
             this.altaGroup.Controls.Add(this.altaPanel);
             this.altaGroup.Location = new System.Drawing.Point(131, 76);
             this.altaGroup.Name = "altaGroup";
-            this.altaGroup.Size = new System.Drawing.Size(358, 286);
+            this.altaGroup.Size = new System.Drawing.Size(358, 339);
             this.altaGroup.TabIndex = 3;
             this.altaGroup.TabStop = false;
             this.altaGroup.Text = "Datos de la nueva empresa";
@@ -212,7 +217,7 @@
             this.habilitadaCheckBox.AutoSize = true;
             this.habilitadaCheckBox.Checked = true;
             this.habilitadaCheckBox.CheckState = System.Windows.Forms.CheckState.Indeterminate;
-            this.habilitadaCheckBox.Location = new System.Drawing.Point(30, 249);
+            this.habilitadaCheckBox.Location = new System.Drawing.Point(30, 307);
             this.habilitadaCheckBox.Name = "habilitadaCheckBox";
             this.habilitadaCheckBox.Size = new System.Drawing.Size(73, 17);
             this.habilitadaCheckBox.TabIndex = 4;
@@ -221,7 +226,7 @@
             // 
             // limpiarButton
             // 
-            this.limpiarButton.Location = new System.Drawing.Point(251, 244);
+            this.limpiarButton.Location = new System.Drawing.Point(251, 302);
             this.limpiarButton.Name = "limpiarButton";
             this.limpiarButton.Size = new System.Drawing.Size(75, 23);
             this.limpiarButton.TabIndex = 3;
@@ -241,7 +246,7 @@
             // 
             // altaButton
             // 
-            this.altaButton.Location = new System.Drawing.Point(235, 379);
+            this.altaButton.Location = new System.Drawing.Point(235, 435);
             this.altaButton.Name = "altaButton";
             this.altaButton.Size = new System.Drawing.Size(150, 30);
             this.altaButton.TabIndex = 6;
@@ -259,11 +264,37 @@
             this.sQLBOYSDataSetBindingSource.DataSource = this.sQL_BOYS_Data_Set;
             this.sQLBOYSDataSetBindingSource.Position = 0;
             // 
+            // porcentajeText
+            // 
+            this.porcentajeText.AutoSize = true;
+            this.porcentajeText.Location = new System.Drawing.Point(3, 200);
+            this.porcentajeText.Name = "porcentajeText";
+            this.porcentajeText.Size = new System.Drawing.Size(117, 13);
+            this.porcentajeText.TabIndex = 10;
+            this.porcentajeText.Text = "Porcentaje de comisión";
+            // 
+            // porcentajeNumericUpDown
+            // 
+            this.porcentajeNumericUpDown.Location = new System.Drawing.Point(151, 203);
+            this.porcentajeNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.porcentajeNumericUpDown.Name = "porcentajeNumericUpDown";
+            this.porcentajeNumericUpDown.Size = new System.Drawing.Size(37, 20);
+            this.porcentajeNumericUpDown.TabIndex = 11;
+            this.porcentajeNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // EmpresasAlta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 441);
+            this.ClientSize = new System.Drawing.Size(624, 481);
             this.Controls.Add(this.altaButton);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.altaGroup);
@@ -277,6 +308,7 @@
             this.altaGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sQL_BOYS_Data_Set)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sQLBOYSDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.porcentajeNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -303,5 +335,7 @@
         private System.Windows.Forms.TextBox cuitText;
         private DataSet.SQL_BOYS_Data_Set sQL_BOYS_Data_Set;
         private System.Windows.Forms.BindingSource sQLBOYSDataSetBindingSource;
+        private System.Windows.Forms.NumericUpDown porcentajeNumericUpDown;
+        private System.Windows.Forms.Label porcentajeText;
     }
 }

@@ -4,7 +4,7 @@ CREATE FUNCTION SQL_BOYS.obtenerRubros() RETURNS TABLE
 
 GO
 
-CREATE PROCEDURE SQL_BOYS.altaDeEmpresa(@nombre AS NVARCHAR(255), @cuit AS NVARCHAR(50), @domicilio AS NVARCHAR(255), @dia_rendicion AS INT, @habilitadx AS BIT, @nombre_rubro AS NVARCHAR(50)) AS
+CREATE PROCEDURE SQL_BOYS.altaDeEmpresa(@nombre AS NVARCHAR(255), @cuit AS NVARCHAR(50), @domicilio AS NVARCHAR(255), @dia_rendicion AS INT, @porcentaje_comision AS INT, @habilitadx AS BIT, @nombre_rubro AS NVARCHAR(50)) AS
 	
 	BEGIN
 		
@@ -12,9 +12,9 @@ CREATE PROCEDURE SQL_BOYS.altaDeEmpresa(@nombre AS NVARCHAR(255), @cuit AS NVARC
 
 			DECLARE @id_rubro NUMERIC(18,0) = (SELECT r.id_rubro FROM SQL_BOYS.Rubro r WHERE @nombre_rubro = r.descripcion)
 
-			INSERT INTO SQL_BOYS.Empresa (nombre, cuit, domicilio, dia_rendicion, habilitadx, id_rubro)
+			INSERT INTO SQL_BOYS.Empresa (nombre, cuit, domicilio, dia_rendicion, porcentaje_comision, habilitadx, id_rubro)
 
-			VALUES (@nombre, @cuit, @domicilio, @dia_rendicion, @habilitadx, @id_rubro)
+			VALUES (@nombre, @cuit, @domicilio, @dia_rendicion, @porcentaje_comision, @habilitadx, @id_rubro)
 
 		COMMIT
 
@@ -26,7 +26,7 @@ CREATE FUNCTION SQL_BOYS.filtrarEmpresa(@nombre AS NVARCHAR(255), @cuit AS NVARC
 
 	RETURN
 	
-		SELECT e.id_empresa, e.nombre, e.cuit, e.domicilio, e.dia_rendicion, r.descripcion , e.habilitadx
+		SELECT e.id_empresa, e.nombre, e.cuit, e.domicilio, e.dia_rendicion, e.porcentaje_comision, e.id_rubro, r.descripcion , e.habilitadx
 		
 		FROM SQL_BOYS.Empresa e
 

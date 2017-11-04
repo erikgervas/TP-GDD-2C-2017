@@ -18,12 +18,13 @@ namespace PagoAgil.Aplicacion.Builders
         public string direccion { get; set; }
         public string rubro { get; set; }
         public ushort diaRendicion { get; set; }
+        public ushort porcentajeComision { get; set; }
 
         public EmpresaBuilder() { }
 
         public Empresa crear()
         {
-            return new Empresa(id, nombre, estado, this.generarCuit(), direccion, rubro, diaRendicion);
+            return new Empresa(id, nombre, estado, this.generarCuit(), direccion, rubro, diaRendicion, porcentajeComision);
         }
 
         public void validar()

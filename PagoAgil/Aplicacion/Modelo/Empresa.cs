@@ -9,13 +9,15 @@ namespace PagoAgil.Aplicacion.Modelo
         public string direccion { get; set; }
         public string rubro { get; set; }
         public ushort diaRendicion { get; set; }
+        public ushort porcentajeComision { get; set; }
 
-        public Empresa (long unId, string unNombre, bool unEstado, string unCuit, string unaDireccion, string unRubro, ushort unDia) : base (unId, unNombre, unEstado)
+        public Empresa (long unId, string unNombre, bool unEstado, string unCuit, string unaDireccion, string unRubro, ushort unDia, ushort unPorcentajeComision) : base (unId, unNombre, unEstado)
         {
             this.cuit = unCuit;
             this.direccion = unaDireccion;
             this.rubro = unRubro;
             this.diaRendicion = unDia;
+            this.porcentajeComision = unPorcentajeComision;
         }
 
         private bool facturasRendidas()

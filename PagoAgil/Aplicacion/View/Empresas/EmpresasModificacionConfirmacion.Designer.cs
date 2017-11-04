@@ -44,13 +44,15 @@
             this.diaLabel = new System.Windows.Forms.Label();
             this.nombreAsignadoLabel = new System.Windows.Forms.Label();
             this.tituloLabel = new System.Windows.Forms.Label();
+            this.porcentajeText = new System.Windows.Forms.Label();
+            this.porcentajeAsignadoText = new System.Windows.Forms.Label();
             this.altaGroup.SuspendLayout();
             this.altaPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // seguirModificandoButton
             // 
-            this.seguirModificandoButton.Location = new System.Drawing.Point(131, 379);
+            this.seguirModificandoButton.Location = new System.Drawing.Point(131, 435);
             this.seguirModificandoButton.Name = "seguirModificandoButton";
             this.seguirModificandoButton.Size = new System.Drawing.Size(150, 30);
             this.seguirModificandoButton.TabIndex = 19;
@@ -59,7 +61,7 @@
             // 
             // altaButton
             // 
-            this.altaButton.Location = new System.Drawing.Point(339, 379);
+            this.altaButton.Location = new System.Drawing.Point(339, 435);
             this.altaButton.Name = "altaButton";
             this.altaButton.Size = new System.Drawing.Size(150, 30);
             this.altaButton.TabIndex = 18;
@@ -72,7 +74,7 @@
             this.altaGroup.Controls.Add(this.altaPanel);
             this.altaGroup.Location = new System.Drawing.Point(131, 76);
             this.altaGroup.Name = "altaGroup";
-            this.altaGroup.Size = new System.Drawing.Size(358, 286);
+            this.altaGroup.Size = new System.Drawing.Size(358, 341);
             this.altaGroup.TabIndex = 17;
             this.altaGroup.TabStop = false;
             this.altaGroup.Text = "Datos de la empresa modificada";
@@ -82,7 +84,8 @@
             this.habilitadaCheckBox.AutoSize = true;
             this.habilitadaCheckBox.Checked = true;
             this.habilitadaCheckBox.CheckState = System.Windows.Forms.CheckState.Indeterminate;
-            this.habilitadaCheckBox.Location = new System.Drawing.Point(30, 250);
+            this.habilitadaCheckBox.Enabled = false;
+            this.habilitadaCheckBox.Location = new System.Drawing.Point(30, 307);
             this.habilitadaCheckBox.Name = "habilitadaCheckBox";
             this.habilitadaCheckBox.Size = new System.Drawing.Size(73, 17);
             this.habilitadaCheckBox.TabIndex = 12;
@@ -94,6 +97,7 @@
             this.altaPanel.ColumnCount = 2;
             this.altaPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.altaPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.altaPanel.Controls.Add(this.porcentajeText, 0, 5);
             this.altaPanel.Controls.Add(this.diaAsignadoLabel, 1, 4);
             this.altaPanel.Controls.Add(this.rubroAsignadoLabel, 1, 3);
             this.altaPanel.Controls.Add(this.direccionAsignadaLabel, 1, 2);
@@ -104,22 +108,23 @@
             this.altaPanel.Controls.Add(this.rubroLabel, 0, 3);
             this.altaPanel.Controls.Add(this.diaLabel, 0, 4);
             this.altaPanel.Controls.Add(this.nombreAsignadoLabel, 1, 0);
+            this.altaPanel.Controls.Add(this.porcentajeAsignadoText, 1, 5);
             this.altaPanel.Location = new System.Drawing.Point(30, 30);
             this.altaPanel.Name = "altaPanel";
-            this.altaPanel.RowCount = 5;
-            this.altaPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.altaPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.altaPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.altaPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.altaPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.altaPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.altaPanel.Size = new System.Drawing.Size(296, 199);
+            this.altaPanel.RowCount = 6;
+            this.altaPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.altaPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.altaPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.altaPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.altaPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.altaPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.altaPanel.Size = new System.Drawing.Size(296, 243);
             this.altaPanel.TabIndex = 2;
             // 
             // diaAsignadoLabel
             // 
             this.diaAsignadoLabel.AutoSize = true;
-            this.diaAsignadoLabel.Location = new System.Drawing.Point(151, 156);
+            this.diaAsignadoLabel.Location = new System.Drawing.Point(151, 160);
             this.diaAsignadoLabel.Name = "diaAsignadoLabel";
             this.diaAsignadoLabel.Size = new System.Drawing.Size(37, 13);
             this.diaAsignadoLabel.TabIndex = 9;
@@ -128,7 +133,7 @@
             // rubroAsignadoLabel
             // 
             this.rubroAsignadoLabel.AutoSize = true;
-            this.rubroAsignadoLabel.Location = new System.Drawing.Point(151, 117);
+            this.rubroAsignadoLabel.Location = new System.Drawing.Point(151, 120);
             this.rubroAsignadoLabel.Name = "rubroAsignadoLabel";
             this.rubroAsignadoLabel.Size = new System.Drawing.Size(48, 13);
             this.rubroAsignadoLabel.TabIndex = 8;
@@ -137,7 +142,7 @@
             // direccionAsignadaLabel
             // 
             this.direccionAsignadaLabel.AutoSize = true;
-            this.direccionAsignadaLabel.Location = new System.Drawing.Point(151, 78);
+            this.direccionAsignadaLabel.Location = new System.Drawing.Point(151, 80);
             this.direccionAsignadaLabel.Name = "direccionAsignadaLabel";
             this.direccionAsignadaLabel.Size = new System.Drawing.Size(64, 13);
             this.direccionAsignadaLabel.TabIndex = 7;
@@ -146,7 +151,7 @@
             // cuitAsignadoLabel
             // 
             this.cuitAsignadoLabel.AutoSize = true;
-            this.cuitAsignadoLabel.Location = new System.Drawing.Point(151, 39);
+            this.cuitAsignadoLabel.Location = new System.Drawing.Point(151, 40);
             this.cuitAsignadoLabel.Name = "cuitAsignadoLabel";
             this.cuitAsignadoLabel.Size = new System.Drawing.Size(44, 13);
             this.cuitAsignadoLabel.TabIndex = 6;
@@ -164,7 +169,7 @@
             // cuitLabel
             // 
             this.cuitLabel.AutoSize = true;
-            this.cuitLabel.Location = new System.Drawing.Point(3, 39);
+            this.cuitLabel.Location = new System.Drawing.Point(3, 40);
             this.cuitLabel.Name = "cuitLabel";
             this.cuitLabel.Size = new System.Drawing.Size(32, 13);
             this.cuitLabel.TabIndex = 1;
@@ -173,7 +178,7 @@
             // direccionLabel
             // 
             this.direccionLabel.AutoSize = true;
-            this.direccionLabel.Location = new System.Drawing.Point(3, 78);
+            this.direccionLabel.Location = new System.Drawing.Point(3, 80);
             this.direccionLabel.Name = "direccionLabel";
             this.direccionLabel.Size = new System.Drawing.Size(52, 13);
             this.direccionLabel.TabIndex = 2;
@@ -182,7 +187,7 @@
             // rubroLabel
             // 
             this.rubroLabel.AutoSize = true;
-            this.rubroLabel.Location = new System.Drawing.Point(3, 117);
+            this.rubroLabel.Location = new System.Drawing.Point(3, 120);
             this.rubroLabel.Name = "rubroLabel";
             this.rubroLabel.Size = new System.Drawing.Size(36, 13);
             this.rubroLabel.TabIndex = 3;
@@ -191,7 +196,7 @@
             // diaLabel
             // 
             this.diaLabel.AutoSize = true;
-            this.diaLabel.Location = new System.Drawing.Point(3, 156);
+            this.diaLabel.Location = new System.Drawing.Point(3, 160);
             this.diaLabel.Name = "diaLabel";
             this.diaLabel.Size = new System.Drawing.Size(86, 13);
             this.diaLabel.TabIndex = 4;
@@ -219,11 +224,29 @@
             this.tituloLabel.Text = "Empresa actualizada";
             this.tituloLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // porcentajeText
+            // 
+            this.porcentajeText.AutoSize = true;
+            this.porcentajeText.Location = new System.Drawing.Point(3, 200);
+            this.porcentajeText.Name = "porcentajeText";
+            this.porcentajeText.Size = new System.Drawing.Size(117, 13);
+            this.porcentajeText.TabIndex = 13;
+            this.porcentajeText.Text = "Porcentaje de comisión";
+            // 
+            // porcentajeAsignadoText
+            // 
+            this.porcentajeAsignadoText.AutoSize = true;
+            this.porcentajeAsignadoText.Location = new System.Drawing.Point(151, 200);
+            this.porcentajeAsignadoText.Name = "porcentajeAsignadoText";
+            this.porcentajeAsignadoText.Size = new System.Drawing.Size(70, 13);
+            this.porcentajeAsignadoText.TabIndex = 14;
+            this.porcentajeAsignadoText.Text = "<Porcentaje>";
+            // 
             // EmpresasModificacionConfirmacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 441);
+            this.ClientSize = new System.Drawing.Size(624, 481);
             this.Controls.Add(this.seguirModificandoButton);
             this.Controls.Add(this.altaButton);
             this.Controls.Add(this.altaGroup);
@@ -257,5 +280,7 @@
         private System.Windows.Forms.Label diaLabel;
         private System.Windows.Forms.Label nombreAsignadoLabel;
         private System.Windows.Forms.Label tituloLabel;
+        private System.Windows.Forms.Label porcentajeText;
+        private System.Windows.Forms.Label porcentajeAsignadoText;
     }
 }

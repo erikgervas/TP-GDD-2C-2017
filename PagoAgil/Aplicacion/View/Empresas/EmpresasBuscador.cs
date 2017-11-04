@@ -53,5 +53,12 @@ namespace PagoAgil.Aplicacion.View.Empresas
 
             else e.Handled = e.KeyChar != (char)Keys.Back;
         }
+
+        private void EmpresasBuscador_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'sQL_BOYS_Data_Set.Empresa' table. You can move, or remove it, as needed.
+            this.empresaTableAdapter.Fill(this.sQL_BOYS_Data_Set.Empresa);
+
+        }
     }
 }

@@ -50,11 +50,14 @@
             this.modificarButton = new System.Windows.Forms.Button();
             this.volverAInicioButton = new System.Windows.Forms.Button();
             this.bajaButton = new System.Windows.Forms.Button();
+            this.empresaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.empresaTableAdapter = new PagoAgil.DataSet.SQL_BOYS_Data_SetTableAdapters.EmpresaTableAdapter();
             this.idempresaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cuitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.domicilioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.diarendicionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idrubroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.habilitadxDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.resultadosBusquedaPanel.SuspendLayout();
@@ -63,6 +66,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.sQL_BOYS_Data_Set)).BeginInit();
             this.filtrosPanel.SuspendLayout();
             this.filtrosTabla.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.empresaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // resultadosBusquedaPanel
@@ -84,10 +88,10 @@
             this.cuitDataGridViewTextBoxColumn,
             this.domicilioDataGridViewTextBoxColumn,
             this.diarendicionDataGridViewTextBoxColumn,
+            this.idrubroDataGridViewTextBoxColumn,
             this.rubro,
             this.habilitadxDataGridViewCheckBoxColumn});
-            this.empresasDataGrid.DataMember = "Empresa";
-            this.empresasDataGrid.DataSource = this.sQLBOYSDataSetBindingSource;
+            this.empresasDataGrid.DataSource = this.empresaBindingSource;
             this.empresasDataGrid.Location = new System.Drawing.Point(6, 19);
             this.empresasDataGrid.MultiSelect = false;
             this.empresasDataGrid.Name = "empresasDataGrid";
@@ -283,10 +287,19 @@
             this.bajaButton.Text = "Dar de baja";
             this.bajaButton.UseVisualStyleBackColor = true;
             // 
+            // empresaBindingSource
+            // 
+            this.empresaBindingSource.DataMember = "Empresa";
+            this.empresaBindingSource.DataSource = this.sQLBOYSDataSetBindingSource;
+            // 
+            // empresaTableAdapter
+            // 
+            this.empresaTableAdapter.ClearBeforeFill = true;
+            // 
             // idempresaDataGridViewTextBoxColumn
             // 
             this.idempresaDataGridViewTextBoxColumn.DataPropertyName = "id_empresa";
-            this.idempresaDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idempresaDataGridViewTextBoxColumn.HeaderText = "Id de empresa";
             this.idempresaDataGridViewTextBoxColumn.Name = "idempresaDataGridViewTextBoxColumn";
             this.idempresaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -318,6 +331,13 @@
             this.diarendicionDataGridViewTextBoxColumn.Name = "diarendicionDataGridViewTextBoxColumn";
             this.diarendicionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // idrubroDataGridViewTextBoxColumn
+            // 
+            this.idrubroDataGridViewTextBoxColumn.DataPropertyName = "id_rubro";
+            this.idrubroDataGridViewTextBoxColumn.HeaderText = "Id de rubro";
+            this.idrubroDataGridViewTextBoxColumn.Name = "idrubroDataGridViewTextBoxColumn";
+            this.idrubroDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // rubro
             // 
             this.rubro.HeaderText = "Rubro";
@@ -344,6 +364,7 @@
             this.Controls.Add(this.tituloLabel);
             this.Name = "EmpresasBuscador";
             this.Text = "Consulta de empresas";
+            this.Load += new System.EventHandler(this.EmpresasBuscador_Load);
             this.resultadosBusquedaPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.empresasDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sQLBOYSDataSetBindingSource)).EndInit();
@@ -351,6 +372,7 @@
             this.filtrosPanel.ResumeLayout(false);
             this.filtrosTabla.ResumeLayout(false);
             this.filtrosTabla.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.empresaBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -377,14 +399,17 @@
         private System.Windows.Forms.TextBox empresaElegidaText;
         private System.Windows.Forms.Label tituloLabel;
         private System.Windows.Forms.Button modificarButton;
+        private System.Windows.Forms.Button volverAInicioButton;
+        private System.Windows.Forms.Button bajaButton;
+        private System.Windows.Forms.BindingSource empresaBindingSource;
+        private DataSet.SQL_BOYS_Data_SetTableAdapters.EmpresaTableAdapter empresaTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idempresaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cuitDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn domicilioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn diarendicionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idrubroDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rubro;
         private System.Windows.Forms.DataGridViewCheckBoxColumn habilitadxDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.Button volverAInicioButton;
-        private System.Windows.Forms.Button bajaButton;
     }
 }
