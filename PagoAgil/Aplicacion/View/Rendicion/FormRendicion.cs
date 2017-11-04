@@ -53,9 +53,7 @@ namespace PagoAgil.Aplicacion.View.Rendicion
                 MessageBox.Show("No elegiste ninguna empresa");
             }
 
-        }
-
-        
+        }      
 
     }
 }

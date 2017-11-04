@@ -44,12 +44,14 @@
             this.dataGridRendicion.AllowUserToAddRows = false;
             this.dataGridRendicion.AllowUserToDeleteRows = false;
             this.dataGridRendicion.AllowUserToOrderColumns = true;
+            this.dataGridRendicion.AllowUserToResizeRows = false;
             this.dataGridRendicion.AutoGenerateColumns = false;
             this.dataGridRendicion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridRendicion.DataSource = this.sQLBOYSDataSetBindingSource;
             this.dataGridRendicion.Location = new System.Drawing.Point(24, 50);
             this.dataGridRendicion.Name = "dataGridRendicion";
             this.dataGridRendicion.ReadOnly = true;
+            this.dataGridRendicion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridRendicion.Size = new System.Drawing.Size(680, 302);
             this.dataGridRendicion.TabIndex = 0;
             // 

@@ -69,7 +69,6 @@
     <Compile Include="Aplicacion\BD\Utils\ParametroFactory.cs" />
     <Compile Include="Aplicacion\Builders\EmpresaBuilder.cs" />
     <Compile Include="Aplicacion\Builders\Excepciones\NoSePuedeCrearException.cs" />
-    <Compile Include="Aplicacion\config.cs" />
     <Compile Include="Aplicacion\Modelo\Cliente.cs" />
     <Compile Include="Aplicacion\Modelo\ClienteSQL\ClienteDB.cs" />
     <Compile Include="Aplicacion\Modelo\ClienteSQL\RolDB.cs" />
@@ -111,11 +110,6 @@
     <Compile Include="Aplicacion\ViewModel\ClientesVM.cs" />
     <Compile Include="Aplicacion\View\Cliente\FormABMCliente.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Aplicacion\config.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>config.settings</DependentUpon>
     </Compile>
     <Compile Include="Aplicacion\View\Empresas\EmpresasAdvertenciaFaltanCampos.cs">
       <SubType>Form</SubType>
@@ -377,10 +371,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="Aplicacion\config.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>config.Designer.cs</LastGenOutput>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

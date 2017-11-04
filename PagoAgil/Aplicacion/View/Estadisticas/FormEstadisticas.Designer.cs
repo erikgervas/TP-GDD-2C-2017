@@ -163,6 +163,7 @@
             this.dataGridView1.DataSource = this.sQLBOYSDataSetBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(33, 441);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(1144, 167);
             this.dataGridView1.TabIndex = 14;
             // 
