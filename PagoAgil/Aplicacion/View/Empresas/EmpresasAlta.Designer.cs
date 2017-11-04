@@ -102,7 +102,6 @@
             this.cuitText.Name = "cuitText";
             this.cuitText.Size = new System.Drawing.Size(142, 20);
             this.cuitText.TabIndex = 7;
-            this.cuitText.TextChanged += new System.EventHandler(this.cuitText_TextChanged);
             this.cuitText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cuitText_KeyPress);
             // 
             // direccionText
@@ -111,7 +110,6 @@
             this.direccionText.Name = "direccionText";
             this.direccionText.Size = new System.Drawing.Size(142, 20);
             this.direccionText.TabIndex = 7;
-            this.direccionText.TextChanged += new System.EventHandler(this.direccionText_TextChanged_1);
             // 
             // nombreLabel
             // 
@@ -164,7 +162,6 @@
             this.nombreText.Name = "nombreText";
             this.nombreText.Size = new System.Drawing.Size(142, 20);
             this.nombreText.TabIndex = 5;
-            this.nombreText.TextChanged += new System.EventHandler(this.nombreText_TextChanged);
             // 
             // rubroComboBox
             // 
@@ -175,7 +172,6 @@
             this.rubroComboBox.Name = "rubroComboBox";
             this.rubroComboBox.Size = new System.Drawing.Size(142, 21);
             this.rubroComboBox.TabIndex = 8;
-            this.rubroComboBox.SelectedIndexChanged += new System.EventHandler(this.rubroComboBox_SelectedIndexChanged);
             // 
             // diaNumericUpDown
             // 
@@ -198,7 +194,6 @@
             0,
             0,
             0});
-            this.diaNumericUpDown.ValueChanged += new System.EventHandler(this.diaNumericUpDown_ValueChanged);
             // 
             // altaGroup
             // 
@@ -223,7 +218,6 @@
             this.habilitadaCheckBox.TabIndex = 4;
             this.habilitadaCheckBox.Text = "Habilitada";
             this.habilitadaCheckBox.UseVisualStyleBackColor = true;
-            this.habilitadaCheckBox.CheckedChanged += new System.EventHandler(this.habilitadaCheckBox_CheckedChanged);
             // 
             // limpiarButton
             // 

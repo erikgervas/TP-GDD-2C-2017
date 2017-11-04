@@ -20,10 +20,5 @@ namespace PagoAgil.Aplicacion.BD.Repositorios
 
             return instancia;
         }
-
-        public MedioRubro extenderAlmacenamiento()
-        {
-            return new MedioRubro();
-        }
     }
 }

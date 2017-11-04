@@ -13,5 +13,21 @@ namespace PagoAgil.Aplicacion.BD.Utils
         {
             return new Parametro(unNombre, unTipo, unValor);
         }
+
+        public static string generarTextoParametros(List<Parametro> parametros)
+        {
+            String listaParametros = "(";
+
+            int i = 0;
+
+            foreach (Parametro parametro in parametros)
+            {
+                listaParametros += parametro.nombre + ((i < parametros.Count() - 1) ? ", " : ")");
+
+                i++;
+            }
+
+            return listaParametros;
+        }
     }
 }

@@ -2,6 +2,7 @@
 using PagoAgil.Aplicacion.Modelo;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,7 +18,11 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
 
         protected override List<Parametro> listaDeParametros(String unaEntidad)
         {
-            throw new NotImplementedException();
+            List<Parametro> parametros = new List<Parametro>(1);
+
+            parametros.Add(ParametroFactory.crear("nombre", SqlDbType.NVarChar, unaEntidad));
+
+            return parametros;
         }
 
         protected override String rellenarFila(List<String> elementos)

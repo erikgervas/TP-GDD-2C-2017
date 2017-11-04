@@ -54,11 +54,6 @@ namespace PagoAgil.Aplicacion.View.Empresas
             new EmpresasSeleccionABM().Show();
         }
 
-        private void nombreText_TextChanged(object sender, EventArgs e)
-        {
-            this.viewModel.empresa.nombre = nombreText.Text;
-        }
-
         private void cuitText_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsNumber(e.KeyChar) || e.KeyChar == '.' || e.KeyChar == 8) return;
@@ -66,28 +61,13 @@ namespace PagoAgil.Aplicacion.View.Empresas
             else e.Handled = e.KeyChar != (char)Keys.Back;
         }
 
-        private void cuitText_TextChanged(object sender, EventArgs e)
+        private void rellenarCampos()
         {
+            this.viewModel.empresa.nombre = nombreText.Text;
             this.viewModel.empresa.cuit = cuitText.Text;
-        }
-
-        private void direccionText_TextChanged_1(object sender, EventArgs e)
-        {
             this.viewModel.empresa.direccion = direccionText.Text;
-        }
-
-        private void rubroComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
             this.viewModel.empresa.rubro = rubroComboBox.Text;
-        }
-
-        private void diaNumericUpDown_ValueChanged(object sender, EventArgs e)
-        {
-            this.viewModel.empresa.diaRendicion = (ushort) diaNumericUpDown.Value;
-        }
-
-        private void habilitadaCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
+            this.viewModel.empresa.diaRendicion = (ushort)diaNumericUpDown.Value;
             this.viewModel.empresa.estado = habilitadaCheckBox.Checked;
         }
 
@@ -107,6 +87,8 @@ namespace PagoAgil.Aplicacion.View.Empresas
         {
             try
             {
+                this.rellenarCampos();
+
                 this.viewModel.empresa.validar();
 
                 this.Close();

@@ -87,5 +87,23 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
         {
 
         }
+
+
+        public System.Data.DataTable darFiltrados(string[] filtros)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public System.Data.DataTable darTabla()
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public System.Data.DataTable darTablaFiltrados(List<Parametro> parametros)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,7 +1,9 @@
 ﻿using PagoAgil.Aplicacion.BD.MediosPersistentes;
+using PagoAgil.Aplicacion.BD.Utils;
 using PagoAgil.Aplicacion.Modelo;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +18,16 @@ namespace PagoAgil.Aplicacion.BD
         public List<E> listarElementos()
         {
            return this.almacenamiento.darTodos();
+        }
+
+        public DataTable obtenerTabla()
+        {
+            return this.almacenamiento.darTabla();
+        }
+
+        public DataTable obtenerTablaFiltrados(List<Parametro> parametros)
+        {
+            return this.almacenamiento.darTablaFiltrados(parametros);
         }
 
         public void alta(E unaEntidad)

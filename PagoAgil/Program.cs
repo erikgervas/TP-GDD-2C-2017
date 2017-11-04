@@ -4,6 +4,7 @@ using PagoAgil.Aplicacion.View;
 using System;
 using System.Windows.Forms;
 using PagoAgil.Aplicacion.View.Sucursales;
+using PagoAgil.Aplicacion.View.Empresas;
 
 namespace PagoAgil
 {

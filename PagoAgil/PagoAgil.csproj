@@ -90,6 +90,7 @@
     <Compile Include="Aplicacion\ViewModel\AltaSucursalVM.cs" />
     <Compile Include="Aplicacion\ViewModel\BajaSucursalVM.cs" />
     <Compile Include="Aplicacion\ViewModel\EmpresasAltaVM.cs" />
+    <Compile Include="Aplicacion\ViewModel\EmpresasBuscadorVM.cs" />
     <Compile Include="Aplicacion\ViewModel\HomeVM.cs" />
     <Compile Include="Aplicacion\ViewModel\ListadoSucursalesVM.cs" />
     <Compile Include="Aplicacion\ViewModel\LoginVM.cs" />
