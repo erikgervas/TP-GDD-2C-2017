@@ -28,93 +28,94 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownNroF = new System.Windows.Forms.NumericUpDown();
+            this.comboBoxEmpresa = new System.Windows.Forms.ComboBox();
+            this.dataGridViewFacturas = new System.Windows.Forms.DataGridView();
+            this.dateTimePickerFechaV = new System.Windows.Forms.DateTimePicker();
+            this.buttonBuscarFactura = new System.Windows.Forms.Button();
+            this.buttonConfirmarFactura = new System.Windows.Forms.Button();
+            this.buttonFinalizarPago = new System.Windows.Forms.Button();
+            this.numericUpDownImporteTotal = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNroF)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFacturas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownImporteTotal)).BeginInit();
             this.SuspendLayout();
             // 
-            // numericUpDown1
+            // numericUpDownNroF
             // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.Location = new System.Drawing.Point(12, 61);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(341, 24);
-            this.numericUpDown1.TabIndex = 2;
+            this.numericUpDownNroF.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDownNroF.Location = new System.Drawing.Point(12, 61);
+            this.numericUpDownNroF.Name = "numericUpDownNroF";
+            this.numericUpDownNroF.Size = new System.Drawing.Size(341, 24);
+            this.numericUpDownNroF.TabIndex = 2;
             // 
-            // comboBox1
+            // comboBoxEmpresa
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(389, 61);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(372, 21);
-            this.comboBox1.TabIndex = 3;
+            this.comboBoxEmpresa.FormattingEnabled = true;
+            this.comboBoxEmpresa.Location = new System.Drawing.Point(389, 61);
+            this.comboBoxEmpresa.Name = "comboBoxEmpresa";
+            this.comboBoxEmpresa.Size = new System.Drawing.Size(372, 21);
+            this.comboBoxEmpresa.TabIndex = 3;
             // 
-            // dataGridView1
+            // dataGridViewFacturas
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 148);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1121, 111);
-            this.dataGridView1.TabIndex = 4;
+            this.dataGridViewFacturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewFacturas.Location = new System.Drawing.Point(12, 148);
+            this.dataGridViewFacturas.Name = "dataGridViewFacturas";
+            this.dataGridViewFacturas.Size = new System.Drawing.Size(1121, 111);
+            this.dataGridViewFacturas.TabIndex = 4;
             // 
-            // dateTimePicker1
+            // dateTimePickerFechaV
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(786, 55);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(347, 24);
-            this.dateTimePicker1.TabIndex = 5;
+            this.dateTimePickerFechaV.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerFechaV.Location = new System.Drawing.Point(786, 55);
+            this.dateTimePickerFechaV.Name = "dateTimePickerFechaV";
+            this.dateTimePickerFechaV.Size = new System.Drawing.Size(347, 24);
+            this.dateTimePickerFechaV.TabIndex = 5;
             // 
-            // button1
+            // buttonBuscarFactura
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(389, 91);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(372, 40);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Buscar factura";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonBuscarFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBuscarFactura.Location = new System.Drawing.Point(389, 91);
+            this.buttonBuscarFactura.Name = "buttonBuscarFactura";
+            this.buttonBuscarFactura.Size = new System.Drawing.Size(372, 40);
+            this.buttonBuscarFactura.TabIndex = 15;
+            this.buttonBuscarFactura.Text = "Buscar factura";
+            this.buttonBuscarFactura.UseVisualStyleBackColor = true;
+            this.buttonBuscarFactura.Click += new System.EventHandler(this.buttonBuscarFactura_Click);
             // 
-            // button2
+            // buttonConfirmarFactura
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(184, 343);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(349, 40);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Confirmar pago de factura";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonConfirmarFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonConfirmarFactura.Location = new System.Drawing.Point(184, 343);
+            this.buttonConfirmarFactura.Name = "buttonConfirmarFactura";
+            this.buttonConfirmarFactura.Size = new System.Drawing.Size(349, 40);
+            this.buttonConfirmarFactura.TabIndex = 16;
+            this.buttonConfirmarFactura.Text = "Confirmar pago de factura";
+            this.buttonConfirmarFactura.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // buttonFinalizarPago
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(623, 343);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(399, 40);
-            this.button3.TabIndex = 17;
-            this.button3.Text = "Finalizar el ingreso de facturas para finalizar el pago";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonFinalizarPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFinalizarPago.Location = new System.Drawing.Point(623, 343);
+            this.buttonFinalizarPago.Name = "buttonFinalizarPago";
+            this.buttonFinalizarPago.Size = new System.Drawing.Size(399, 40);
+            this.buttonFinalizarPago.TabIndex = 17;
+            this.buttonFinalizarPago.Text = "Finalizar el ingreso de facturas para finalizar el pago";
+            this.buttonFinalizarPago.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown2
+            // numericUpDownImporteTotal
             // 
-            this.numericUpDown2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown2.Location = new System.Drawing.Point(389, 292);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(372, 24);
-            this.numericUpDown2.TabIndex = 18;
+            this.numericUpDownImporteTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDownImporteTotal.Location = new System.Drawing.Point(389, 292);
+            this.numericUpDownImporteTotal.Name = "numericUpDownImporteTotal";
+            this.numericUpDownImporteTotal.Size = new System.Drawing.Size(372, 24);
+            this.numericUpDownImporteTotal.TabIndex = 18;
             // 
             // label2
             // 
@@ -142,9 +143,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(905, 34);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 18);
+            this.label3.Size = new System.Drawing.Size(154, 18);
             this.label3.TabIndex = 21;
-            this.label3.Text = "Importe final";
+            this.label3.Text = "Fecha de Vencimiento";
             // 
             // label4
             // 
@@ -152,9 +153,9 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(529, 40);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 18);
+            this.label4.Size = new System.Drawing.Size(68, 18);
             this.label4.TabIndex = 22;
-            this.label4.Text = "Importe final";
+            this.label4.Text = "Empresa";
             // 
             // label5
             // 
@@ -176,19 +177,19 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.numericUpDown2);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.numericUpDownImporteTotal);
+            this.Controls.Add(this.buttonFinalizarPago);
+            this.Controls.Add(this.buttonConfirmarFactura);
+            this.Controls.Add(this.buttonBuscarFactura);
+            this.Controls.Add(this.dateTimePickerFechaV);
+            this.Controls.Add(this.dataGridViewFacturas);
+            this.Controls.Add(this.comboBoxEmpresa);
+            this.Controls.Add(this.numericUpDownNroF);
             this.Name = "FormSeleccionFacturas";
             this.Text = "FormSeleccionFacturas";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNroF)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFacturas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownImporteTotal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,14 +197,14 @@
 
         #endregion
 
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown numericUpDownNroF;
+        private System.Windows.Forms.ComboBox comboBoxEmpresa;
+        private System.Windows.Forms.DataGridView dataGridViewFacturas;
+        private System.Windows.Forms.DateTimePicker dateTimePickerFechaV;
+        private System.Windows.Forms.Button buttonBuscarFactura;
+        private System.Windows.Forms.Button buttonConfirmarFactura;
+        private System.Windows.Forms.Button buttonFinalizarPago;
+        private System.Windows.Forms.NumericUpDown numericUpDownImporteTotal;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
