@@ -14,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PagoAgil.Aplicacion.View.Facturas;
 
 namespace PagoAgil.Aplicacion.View
 {
@@ -38,7 +39,6 @@ namespace PagoAgil.Aplicacion.View
 
         private void button_abm_empresas_Click(object sender, EventArgs e)
         {
-            this.Hide();
             new EmpresasSeleccionABM().Show();
         }
 
@@ -52,7 +52,7 @@ namespace PagoAgil.Aplicacion.View
         private void button_abm_facturas_Click(object sender, EventArgs e)
         {
 
-            // new FormABMFactura().Show();
+            new FacturaSeleccionadorABM().Show();
 
         }
 

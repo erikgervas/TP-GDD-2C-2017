@@ -77,6 +77,7 @@ CREATE TABLE SQL_BOYS.Factura (
 	factura_monto_total NUMERIC(18, 2) NOT NULL,
 	factura_fecha_alta DATETIME NOT NULL,
 	factura_fecha_vencimiento DATETIME NOT NULL,
+	habilitadx BIT NOT NULL,
 	dni_cliente NUMERIC(18, 0) FOREIGN KEY REFERENCES SQL_BOYS.Cliente(dni_cliente) NOT NULL,
 	id_empresa INT FOREIGN KEY REFERENCES SQL_BOYS.Empresa(id_empresa) NOT NULL,
 	numero_rendicion NUMERIC(18, 0) FOREIGN KEY REFERENCES SQL_BOYS.Rendicion(numero_rendicion)
@@ -425,7 +426,7 @@ INSERT INTO SQL_BOYS.Empresa (nombre, cuit, domicilio, dia_rendicion, porcentaje
 
 	FROM SQL_BOYS.View_Empresa_Rubro;
 
-INSERT INTO SQL_BOYS.Factura (numero_factura, factura_monto_total, factura_fecha_alta, factura_fecha_vencimiento, dni_cliente, id_empresa, numero_rendicion)
+INSERT INTO SQL_BOYS.Factura (numero_factura, factura_monto_total, factura_fecha_alta, factura_fecha_vencimiento, habilitadx, dni_cliente, id_empresa, numero_rendicion)
 
 	SELECT
 		
@@ -433,6 +434,7 @@ INSERT INTO SQL_BOYS.Factura (numero_factura, factura_monto_total, factura_fecha
 		f.view_factura_monto_total AS factura_monto_total,
 		f.view_factura_fecha_alta AS factura_fecha_alta,
 		f.view_factura_fecha_vencimiento AS factura_fecha_vencimiento,
+		habilitadx = 1,
 		f.view_dni_cliente AS dni_cliente,
 		e.id_empresa AS id_empresa,
 		f.view_numero_rendicion AS numero_rendicion

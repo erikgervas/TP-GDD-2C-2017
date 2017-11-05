@@ -49,8 +49,10 @@
     <Compile Include="Aplicacion\BD\MediosPersistentes\Medios\MedioBD.cs" />
     <Compile Include="Aplicacion\BD\MediosPersistentes\Medios\MedioCliente.cs" />
     <Compile Include="Aplicacion\BD\MediosPersistentes\Medios\MedioEmpresa.cs" />
+    <Compile Include="Aplicacion\BD\MediosPersistentes\Medios\MedioFactura.cs" />
     <Compile Include="Aplicacion\BD\MediosPersistentes\Medios\MedioRubro.cs" />
     <Compile Include="Aplicacion\BD\MediosPersistentes\Medios\MedioSucursal.cs" />
+    <Compile Include="Aplicacion\BD\Repositorios\RepositorioFacturas.cs" />
     <Compile Include="Aplicacion\BD\Utils\EjecutadorDeProcedures.cs" />
     <Compile Include="Aplicacion\BD\Utils\Parametro.cs" />
     <Compile Include="Aplicacion\BD\Repositorios\RepositorioClientes.cs" />
@@ -69,6 +71,7 @@
     <Compile Include="Aplicacion\BD\Utils\ParametroFactory.cs" />
     <Compile Include="Aplicacion\Builders\EmpresaBuilder.cs" />
     <Compile Include="Aplicacion\Builders\Excepciones\NoSePuedeCrearException.cs" />
+    <Compile Include="Aplicacion\Builders\FacturaBuilder.cs" />
     <Compile Include="Aplicacion\Configuracion.cs" />
     <Compile Include="Aplicacion\Modelo\Cliente.cs" />
     <Compile Include="Aplicacion\Modelo\ClienteSQL\ClienteDB.cs" />
@@ -83,9 +86,11 @@
     <Compile Include="Aplicacion\Modelo\Excepciones\LogingDemasiadosIntentosException.cs" />
     <Compile Include="Aplicacion\Modelo\Habilitable.cs" />
     <Compile Include="Aplicacion\Modelo\Identificable.cs" />
+    <Compile Include="Aplicacion\Modelo\Item.cs" />
     <Compile Include="Aplicacion\Modelo\MedioDePago.cs" />
     <Compile Include="Aplicacion\Modelo\Serializador\EncriptadorSHA.cs" />
     <Compile Include="Aplicacion\Modelo\Sucursal.cs" />
+    <Compile Include="Aplicacion\Modelo\Factura.cs" />
     <Compile Include="Aplicacion\Modelo\Usuario\Funcionalidad.cs" />
     <Compile Include="Aplicacion\Modelo\Usuario\Rol.cs" />
     <Compile Include="Aplicacion\Modelo\Usuario\Usuario.cs" />
@@ -93,6 +98,7 @@
     <Compile Include="Aplicacion\Orquestradores\CreadorDeVistas.cs" />
     <Compile Include="Aplicacion\Orquestradores\Estadisticas\GestorDeEstadisticas.cs" />
     <Compile Include="Aplicacion\Orquestradores\TiposDeABM\ABMs\EmpresaABM.cs" />
+    <Compile Include="Aplicacion\Orquestradores\TiposDeABM\ABMs\FacturaABM.cs" />
     <Compile Include="Aplicacion\Orquestradores\TiposDeABM\Alta.cs" />
     <Compile Include="Aplicacion\Orquestradores\TiposDeABM\Baja.cs" />
     <Compile Include="Aplicacion\Orquestradores\TiposDeABM\TipoDeABM.cs" />
@@ -110,6 +116,7 @@
     <Compile Include="Aplicacion\ViewModel\EmpresasCompletadoVM.cs" />
     <Compile Include="Aplicacion\ViewModel\EmpresasBuscadorVM.cs" />
     <Compile Include="Aplicacion\ViewModel\EstadisticasVM.cs" />
+    <Compile Include="Aplicacion\ViewModel\FacturaCompletadoVM.cs" />
     <Compile Include="Aplicacion\ViewModel\FormDevolucionVM.cs" />
     <Compile Include="Aplicacion\ViewModel\HomeVM.cs" />
     <Compile Include="Aplicacion\ViewModel\ListadoSucursalesVM.cs" />
@@ -191,6 +198,36 @@
     </Compile>
     <Compile Include="Aplicacion\View\Estadisticas\FormEstadisticas.Designer.cs">
       <DependentUpon>FormEstadisticas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicacion\View\Facturas\FacturaBuscador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Facturas\FacturaBuscador.Designer.cs">
+      <DependentUpon>FacturaBuscador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicacion\View\Facturas\FacturaCompletado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Facturas\FacturaCompletado.Designer.cs">
+      <DependentUpon>FacturaCompletado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicacion\View\Facturas\FacturaConfirmado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Facturas\FacturaConfirmado.Designer.cs">
+      <DependentUpon>FacturaConfirmado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicacion\View\Facturas\FacturaOk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Facturas\FacturaOk.Designer.cs">
+      <DependentUpon>FacturaOk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicacion\View\Facturas\FacturaSeleccionadorABM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Facturas\FacturaSeleccionadorABM.Designer.cs">
+      <DependentUpon>FacturaSeleccionadorABM.cs</DependentUpon>
     </Compile>
     <Compile Include="Aplicacion\View\Pago\Excepciones\ClienteDeshabilitadoException.cs" />
     <Compile Include="Aplicacion\View\Pago\Excepciones\MedioDePagoNoIngresadoException.cs" />
@@ -320,6 +357,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\Estadisticas\FormEstadisticas.resx">
       <DependentUpon>FormEstadisticas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Facturas\FacturaBuscador.resx">
+      <DependentUpon>FacturaBuscador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Facturas\FacturaCompletado.resx">
+      <DependentUpon>FacturaCompletado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Facturas\FacturaConfirmado.resx">
+      <DependentUpon>FacturaConfirmado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Facturas\FacturaOk.resx">
+      <DependentUpon>FacturaOk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Facturas\FacturaSeleccionadorABM.resx">
+      <DependentUpon>FacturaSeleccionadorABM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\Pago\FormPago.resx">
       <DependentUpon>FormPago.cs</DependentUpon>

@@ -6,8 +6,24 @@ using System.Threading.Tasks;
 
 namespace PagoAgil.Aplicacion.Modelo
 {
-    class Factura
+    public class Factura : Habilitable
     {
+        public float monto_total { get; set; }
+        public DateTime fecha_alta { get; set; }
+        public DateTime fecha_vencimiento { get; set; }
+        public long dni_cliente { get; set; }
+        public long id_empresa { get; set; }
+        public List<Item> items { get; set; }
 
+        public Factura(long unId, string unNombre, bool unEstado, float unMonto, DateTime alta, DateTime vencimiento, long unCliente, long unaEmpresa, List<Item> unosItems)
+            : base(unId, unNombre, unEstado)
+        {
+            this.monto_total = unMonto;
+            this.fecha_alta = alta;
+            this.fecha_vencimiento = vencimiento;
+            this.dni_cliente = unCliente;
+            this.id_empresa = unaEmpresa;
+            this.items = unosItems;
+        }
     }
 }

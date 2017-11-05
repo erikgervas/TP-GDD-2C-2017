@@ -11,11 +11,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PagoAgil.Aplicacion.View.Empresas
+namespace PagoAgil.Aplicacion.View.Facturas
 {
-    public partial class EmpresasSeleccionABM : Form
+    public partial class FacturaSeleccionadorABM : Form
     {
-        public EmpresasSeleccionABM()
+        public FacturaSeleccionadorABM()
         {
             InitializeComponent();
             this.CenterToScreen();
@@ -26,16 +26,16 @@ namespace PagoAgil.Aplicacion.View.Empresas
         {
             this.Close();
 
-            EmpresaABM.instanciar().abm = new Alta<Empresa>();
+            FacturaABM.instanciar().abm = new Alta<Factura>();
 
-            new EmpresasCompletado().Show();
+            new FacturaCompletado().Show();
         }
 
         private void consultarButton_Click(object sender, EventArgs e)
         {
             this.Close();
 
-            new EmpresasBuscador().Show();
+            new FacturaBuscador().Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
