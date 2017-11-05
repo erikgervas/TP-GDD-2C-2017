@@ -5,15 +5,24 @@ using System.Text;
 using System.Threading.Tasks;
 using PagoAgil.Aplicacion.Modelo;
 using System.Data;
+using PagoAgil.Aplicacion.BD.Repositorios;
+using PagoAgil.Aplicacion.BD;
 
 namespace PagoAgil.Aplicacion.ViewModel
 {
     class SeleccionFacturaVM
     {
 
-        public DataTable buscarFactura(int numeroFactura,long idEmpresa, DateTime fechaVencimiento)
+        public void buscarFactura(int numeroFactura,long idEmpresa, DateTime fechaVencimiento)
         {
-            return RepositorioFacturas.getInstancia().getAlmacenamiento().obtenerFacturaPorNroEmpresaYFechaVenc(numeroFactura,idEmpresa,fechaVencimiento);
+            DataTable factura;
+            //return RepositorioFacturas.getInstancia().getAlmacenamiento().obtenerFacturaPorNroEmpresaYFechaVenc(numeroFactura,idEmpresa,fechaVencimiento);
+            //return factura;
+        }
+
+        public Empresa[] obtenerEmpresas() 
+        {
+            return RepositorioEmpresas.instanciar().listarElementos().ToArray();
         }
 
     }

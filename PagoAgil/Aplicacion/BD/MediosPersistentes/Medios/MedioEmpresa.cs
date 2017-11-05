@@ -34,7 +34,16 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
 
         protected override Empresa rellenarFila(List<string> elementos)
         {
-            throw new NotImplementedException();
+            long id = long.Parse(elementos.ElementAt(0));
+            string nombre = elementos.ElementAt(1);
+            string cuit = elementos.ElementAt(2);
+            string domicilio = elementos.ElementAt(3);
+            ushort diaRendicion = ushort.Parse(elementos.ElementAt(4));
+            ushort porcentaje_comision = ushort.Parse(elementos.ElementAt(5));
+            bool estado = bool.Parse(elementos.ElementAt(6));
+            string rubro = elementos.ElementAt(7);
+
+            return new Empresa(id, nombre, estado, cuit, domicilio, rubro, diaRendicion, porcentaje_comision);
         }
     }
 }

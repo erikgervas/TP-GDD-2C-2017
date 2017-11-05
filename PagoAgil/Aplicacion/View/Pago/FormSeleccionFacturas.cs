@@ -22,9 +22,14 @@ namespace PagoAgil.Aplicacion.View.Pago
             InitializeComponent();
             this.CenterToScreen();
 
+            VM = new SeleccionFacturaVM();
             miPagoBuilder = pagoBuilder;
 
             numericUpDownNroF.Text = "";
+
+            Empresa[] empresas = VM.obtenerEmpresas();
+
+            comboBoxEmpresa.Items.AddRange(empresas);
         }
 
         private void buttonBuscarFactura_Click(object sender, EventArgs e)
@@ -33,18 +38,20 @@ namespace PagoAgil.Aplicacion.View.Pago
             Empresa empresaSeleccionada = comboBoxEmpresa.SelectedItem as Empresa;
             DateTime fechaVencimiento = dateTimePickerFechaV.Value;
 
-            DataTable factura = VM.buscarFactura(numeroFactura,empresaSeleccionada.id,fechaVencimiento);
+            //DataTable factura = VM.buscarFactura(numeroFactura,empresaSeleccionada.id,fechaVencimiento);
 
-            dataGridView1.DataSource = sucursalesFiltradas;
+            //dataGridViewFacturas.DataSource = factura;
 
-            dataGridView1.Columns[0].HeaderText = "Codigo Postal";
-            dataGridView1.Columns[1].HeaderText = "Nombre";
-            dataGridView1.Columns[2].HeaderText = "Direccion";
-            dataGridView1.Columns[3].HeaderText = "Habilitado";
+            dataGridViewFacturas.Columns[0].HeaderText = "Numero Factura";
+            dataGridViewFacturas.Columns[1].HeaderText = "Monto Total";
+            dataGridViewFacturas.Columns[2].HeaderText = "Fecha de Alta";
+            dataGridViewFacturas.Columns[3].HeaderText = "Fecha de Vencimiento";
+            dataGridViewFacturas.Columns[4].HeaderText = "Dni del Cliente";
+            dataGridViewFacturas.Columns[5].HeaderText = "Id de Empresa";
+            dataGridViewFacturas.Columns[6].HeaderText = "Numero de Rendicion";
 
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridView1.Columns[dataGridView1.ColumnCount - 2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridView1.Columns[dataGridView1.ColumnCount - 3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewFacturas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridViewFacturas.Columns[dataGridViewFacturas.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
     }
 }

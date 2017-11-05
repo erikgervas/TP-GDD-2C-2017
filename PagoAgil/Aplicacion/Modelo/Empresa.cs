@@ -1,5 +1,6 @@
 ﻿using PagoAgil.Aplicacion.Modelo;
 using System;
+using PagoAgil.Aplicacion.BD;
 
 namespace PagoAgil.Aplicacion.Modelo
 {
@@ -28,6 +29,11 @@ namespace PagoAgil.Aplicacion.Modelo
         private void rendir()
         {
             throw new NotImplementedException();
+        }
+
+        public override string ToString()
+        {
+            return this.nombre;
         }
 
     }
