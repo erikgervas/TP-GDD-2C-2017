@@ -1,9 +1,4 @@
-CREATE FUNCTION SQL_BOYS.obtenerSucursalPorDireccion(@domicilio nvarchar(50))
-RETURNS table
+CREATE FUNCTION SQL_BOYS.obtenerSucursalPorDireccion(@direccion NVARCHAR(50))
+RETURNS table as 
 
-	return (
-	
-		select * from SQL_BOYS.Sucursal s
-			where s.cp_sucursal = @domicilio
-
-	)
+	return(SELECT * FROM SQL_BOYS.Sucursal s WHERE (@direccion IS NULL) OR (s.domicilio LIKE concat(@direccion,'%')))

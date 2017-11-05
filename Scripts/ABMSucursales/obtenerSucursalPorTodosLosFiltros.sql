@@ -1,4 +1,4 @@
-CREATE FUNCTION SQL_BOYS.obtenerSucursalPorFiltrado(@CP NUMERIC(18,0),@nombre NVARCHAR(50),@domicilio NVARCHAR(50),@habilitado BIT)
+CREATE FUNCTION SQL_BOYS.obtenerSucursalPorFiltrado(@CP NUMERIC(18,0),@nombre NVARCHAR(50),@domicilio NVARCHAR(50))
 RETURNS table
 
 return (

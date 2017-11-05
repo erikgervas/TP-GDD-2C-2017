@@ -1,8 +1,10 @@
 ﻿using PagoAgil.Aplicacion.Modelo.Usuario;
 using PagoAgil.Aplicacion.View;
+using PagoAgil.Aplicacion.View.Devolucion;
 using PagoAgil.Aplicacion.View.Empresas;
 using PagoAgil.Aplicacion.View.Estadisticas;
 using PagoAgil.Aplicacion.View.Rendicion;
+using PagoAgil.Aplicacion.View.Pago;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,17 +19,14 @@ namespace PagoAgil.Aplicacion.View
 {
     public partial class FormHome : Form
     {
-        HomeVM homeVM;
 
-        public FormHome(Usuario usuario) : this()
-        {
-            homeVM = new HomeVM(usuario);
-        }
+        HomeVM homeVM;
 
         public FormHome()
         {
             InitializeComponent();
             this.CenterToScreen();
+            homeVM = new HomeVM();
         }
 
         private void button_abm_cliente_Click(object sender, EventArgs e)
@@ -66,12 +65,12 @@ namespace PagoAgil.Aplicacion.View
 
         private void button_devolucion_Click(object sender, EventArgs e)
         {
-            // new FormDevolucion().Show();
+            new FormDevolucion().Show();
         }
 
         private void button_registro_pago_Click(object sender, EventArgs e)
         {
-            // new FormRegistroPago().Show();
+            new FormPago().Show();
         }
 
         private void button_estadisticas_Click(object sender, EventArgs e)

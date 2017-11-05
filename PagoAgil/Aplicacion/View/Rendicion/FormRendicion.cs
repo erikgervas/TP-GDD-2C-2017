@@ -19,6 +19,7 @@ namespace PagoAgil.Aplicacion.View.Rendicion
         public FormRendicion()
         {
             InitializeComponent();
+            this.CenterToScreen();
 
             rendicionVM = new RendicionVM();
         }

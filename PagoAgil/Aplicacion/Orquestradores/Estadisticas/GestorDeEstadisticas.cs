@@ -2,6 +2,7 @@
 using PagoAgil.Aplicacion.Modelo.Estadistica;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -31,7 +32,7 @@ namespace PagoAgil.Aplicacion.Orquestradores.Estadisticas
         public Boolean esCalculable()
         {
 
-            return this.estadistica != null && this.trimestre != 0;
+            return this.estadistica != null && this.trimestre != 0  ;
 
         }
 
@@ -66,7 +67,7 @@ namespace PagoAgil.Aplicacion.Orquestradores.Estadisticas
 
                 int anio = Int32.Parse(anioCrudo);
 
-                if(anio < 2010 || anio > DateTime.Now.Year)
+                if(anio < 2010 || anio > Configuracion.fecha().Year)
                    throw new ArgumentException("Fecha invalida"); 
 
                 string funcion = estadistica.getFuncionArmada(anio, trimestre);

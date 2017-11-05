@@ -17,11 +17,13 @@ namespace PagoAgil.Aplicacion.View.Sucursales
 {
     public partial class FormListadoSucursales : Form
     {
-        ListadoSucursalesVM VM = new ListadoSucursalesVM();
+        ListadoSucursalesVM VM;
 
         public FormListadoSucursales(String accion)
         {
             InitializeComponent();
+            this.CenterToScreen();
+            VM = new ListadoSucursalesVM();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -35,9 +37,7 @@ namespace PagoAgil.Aplicacion.View.Sucursales
             string direccionSucursal = textBoxDireccion.Text.Trim();
             int codigoPostal = (int) numericUpDownCP.Value;
 
-            //DataTable sucursalesFiltradas = VM.filtrarSucursales(nombreSucursal, direccionSucursal, codigoPostal);
-
-            DataTable sucursalesFiltradas = RepositorioSucursales.getInstancia().getAlmacenamiento().darTodosEnTabla();
+            DataTable sucursalesFiltradas = VM.filtrarSucursales(nombreSucursal, direccionSucursal, codigoPostal);
 
             dataGridView1.DataSource = sucursalesFiltradas;
 
@@ -45,11 +45,24 @@ namespace PagoAgil.Aplicacion.View.Sucursales
             dataGridView1.Columns[1].HeaderText = "Nombre";
             dataGridView1.Columns[2].HeaderText = "Direccion";
             dataGridView1.Columns[3].HeaderText = "Habilitado";
+
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView1.Columns[dataGridView1.ColumnCount - 2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridView1.Columns[dataGridView1.ColumnCount - 3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         private void FormListadoSucursales_Load(object sender, EventArgs e)
         {
             numericUpDownCP.Text = "";
+        }
+
+        private void Limpiar_Click(object sender, EventArgs e)
+        {
+            textBoxNombre.Clear();
+            textBoxDireccion.Clear();
+            numericUpDownCP.Value = 0;
+            numericUpDownCP.Text = "";
+            dataGridView1.ClearSelection();
         }
 
     }

@@ -69,8 +69,10 @@
     <Compile Include="Aplicacion\BD\Utils\ParametroFactory.cs" />
     <Compile Include="Aplicacion\Builders\EmpresaBuilder.cs" />
     <Compile Include="Aplicacion\Builders\Excepciones\NoSePuedeCrearException.cs" />
+    <Compile Include="Aplicacion\Configuracion.cs" />
     <Compile Include="Aplicacion\Modelo\Cliente.cs" />
     <Compile Include="Aplicacion\Modelo\ClienteSQL\ClienteDB.cs" />
+    <Compile Include="Aplicacion\Modelo\ClienteSQL\PagoDB.cs" />
     <Compile Include="Aplicacion\Modelo\ClienteSQL\RolDB.cs" />
     <Compile Include="Aplicacion\Modelo\ClienteSQL\SucursalDB.cs" />
     <Compile Include="Aplicacion\Modelo\ClienteSQL\UsuarioDB.cs" />
@@ -81,6 +83,7 @@
     <Compile Include="Aplicacion\Modelo\Excepciones\LogingDemasiadosIntentosException.cs" />
     <Compile Include="Aplicacion\Modelo\Habilitable.cs" />
     <Compile Include="Aplicacion\Modelo\Identificable.cs" />
+    <Compile Include="Aplicacion\Modelo\MedioDePago.cs" />
     <Compile Include="Aplicacion\Modelo\Serializador\EncriptadorSHA.cs" />
     <Compile Include="Aplicacion\Modelo\Sucursal.cs" />
     <Compile Include="Aplicacion\Modelo\Usuario\Funcionalidad.cs" />
@@ -97,18 +100,22 @@
     <Compile Include="Aplicacion\Orquestradores\TiposDeABM\Modificacion.cs" />
     <Compile Include="Aplicacion\Orquestradores\GestorDeClientes.cs" />
     <Compile Include="Aplicacion\Orquestradores\Estadisticas\RepositorioDeEstadisticas.cs" />
+    <Compile Include="Aplicacion\Orquestradores\GestorDeDevoluciones.cs" />
     <Compile Include="Aplicacion\Orquestradores\GestorDeRendiciones.cs" />
     <Compile Include="Aplicacion\Orquestradores\GestorDeRoles.cs" />
     <Compile Include="Aplicacion\Orquestradores\GestorDeSucursales.cs" />
+    <Compile Include="Aplicacion\Sesion.cs" />
     <Compile Include="Aplicacion\ViewModel\AltaSucursalVM.cs" />
     <Compile Include="Aplicacion\ViewModel\BajaSucursalVM.cs" />
     <Compile Include="Aplicacion\ViewModel\EmpresasCompletadoVM.cs" />
     <Compile Include="Aplicacion\ViewModel\EmpresasBuscadorVM.cs" />
     <Compile Include="Aplicacion\ViewModel\EstadisticasVM.cs" />
+    <Compile Include="Aplicacion\ViewModel\FormDevolucionVM.cs" />
     <Compile Include="Aplicacion\ViewModel\HomeVM.cs" />
     <Compile Include="Aplicacion\ViewModel\ListadoSucursalesVM.cs" />
     <Compile Include="Aplicacion\ViewModel\LoginVM.cs" />
     <Compile Include="Aplicacion\ViewModel\ModificacionSucursalVM.cs" />
+    <Compile Include="Aplicacion\ViewModel\PagoVM.cs" />
     <Compile Include="Aplicacion\ViewModel\RendicionVM.cs" />
     <Compile Include="Aplicacion\ViewModel\SeleccionadorDeRolVM.cs" />
     <Compile Include="Aplicacion\Orquestradores\GestorDeUsuarios.cs" />
@@ -116,6 +123,12 @@
     <Compile Include="Aplicacion\ViewModel\ClientesVM.cs" />
     <Compile Include="Aplicacion\View\Cliente\FormABMCliente.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Devolucion\FormDevolucion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Devolucion\FormDevolucion.Designer.cs">
+      <DependentUpon>FormDevolucion.cs</DependentUpon>
     </Compile>
     <Compile Include="Aplicacion\View\Empresas\EmpresasAdvertenciaFaltanCampos.cs">
       <SubType>Form</SubType>
@@ -178,6 +191,22 @@
     <Compile Include="Aplicacion\View\Estadisticas\FormEstadisticas.Designer.cs">
       <DependentUpon>FormEstadisticas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Aplicacion\View\Pago\Excepciones\ClienteDeshabilitadoException.cs" />
+    <Compile Include="Aplicacion\View\Pago\Excepciones\MedioDePagoNoIngresadoException.cs" />
+    <Compile Include="Aplicacion\View\Pago\Excepciones\NoExisteClienteException.cs" />
+    <Compile Include="Aplicacion\View\Pago\FormPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Pago\FormPago.Designer.cs">
+      <DependentUpon>FormPago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicacion\View\Pago\FormSeleccionFacturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Pago\FormSeleccionFacturas.Designer.cs">
+      <DependentUpon>FormSeleccionFacturas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicacion\View\Pago\PagoBuilder.cs" />
     <Compile Include="Aplicacion\View\Rendicion\FormRendicion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -258,6 +287,9 @@
     <EmbeddedResource Include="Aplicacion\View\Cliente\FormABMCliente.resx">
       <DependentUpon>FormABMCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Devolucion\FormDevolucion.resx">
+      <DependentUpon>FormDevolucion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\Empresas\EmpresasAdvertenciaFaltanCampos.resx">
       <DependentUpon>EmpresasAdvertenciaFaltanCampos.cs</DependentUpon>
     </EmbeddedResource>
@@ -287,6 +319,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\Estadisticas\FormEstadisticas.resx">
       <DependentUpon>FormEstadisticas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Pago\FormPago.resx">
+      <DependentUpon>FormPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Pago\FormSeleccionFacturas.resx">
+      <DependentUpon>FormSeleccionFacturas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\Rendicion\FormRendicion.resx">
       <DependentUpon>FormRendicion.cs</DependentUpon>

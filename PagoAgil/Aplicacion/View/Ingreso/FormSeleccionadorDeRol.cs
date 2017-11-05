@@ -15,6 +15,7 @@ namespace PagoAgil.Aplicacion.View
         public FormSeleccionarRol(UsuarioDB usuario)
         {
             InitializeComponent();
+            this.CenterToScreen();
 
             seleccionadorDeRolVM = new SeleccionadorDeRolVM(usuario);
         }
@@ -36,6 +37,8 @@ namespace PagoAgil.Aplicacion.View
 
             RolDB[] roles = seleccionadorDeRolVM.obtenerRoles(sucursalSeleccionada);
 
+            Sesion.sucursal = sucursalSeleccionada;
+
             comboRol.Items.AddRange(roles);
 
             comboRol.Enabled = true;
@@ -55,11 +58,11 @@ namespace PagoAgil.Aplicacion.View
 
             Usuario usuario = seleccionadorDeRolVM.armarUsuario(rolSeleccionado);
 
-            FormHome miHome = new FormHome(usuario);
+            Sesion.usuario = usuario;
 
             this.Hide();
 
-            miHome.Show();
+            new FormHome().Show();
 
         }
 

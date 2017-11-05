@@ -24,9 +24,11 @@ namespace PagoAgil.Aplicacion.BD.Utils
         public int ejecutar(string procedure)
         {
 
-            string query = "SELECT * FROM SQL_BOYS." + procedure;
+            string query = "EXEC SQL_BOYS." + procedure;
 
             SqlCommand comando = new SqlCommand(query, Conexion.getInstance().obtenerConexion());
+
+            comando.CommandTimeout = 0;
 
             return comando.ExecuteNonQuery();
 

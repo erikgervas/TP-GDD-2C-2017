@@ -1,9 +1,4 @@
-CREATE FUNCTION SQL_BOYS.obtenerSucursalPorNombre(@nombre nvarchar(50))
-RETURNS table
+CREATE FUNCTION SQL_BOYS.obtenerSucursalPorNombre(@nombre NVARCHAR(50))
+RETURNS table as 
 
-	return (
-	
-		select * from SQL_BOYS.Sucursal s
-			where s.cp_sucursal = @nombre
-
-	)
+	return(SELECT * FROM SQL_BOYS.Sucursal s WHERE (@nombre IS NULL) OR (s.nombre LIKE concat(@nombre,'%')))
