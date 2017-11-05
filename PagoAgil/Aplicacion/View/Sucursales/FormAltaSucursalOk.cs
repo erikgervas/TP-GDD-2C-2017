@@ -20,6 +20,7 @@ namespace PagoAgil.Aplicacion.View.Sucursales
             sucursal = sucursalNueva;
 
             InitializeComponent();
+            this.CenterToScreen();
         }
 
     }

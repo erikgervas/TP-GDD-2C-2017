@@ -22,6 +22,7 @@ namespace PagoAgil.Aplicacion.View.Sucursales
         public FormListadoSucursales(String accion)
         {
             InitializeComponent();
+            this.CenterToScreen();
             VM = new ListadoSucursalesVM();
         }
 
@@ -44,6 +45,10 @@ namespace PagoAgil.Aplicacion.View.Sucursales
             dataGridView1.Columns[1].HeaderText = "Nombre";
             dataGridView1.Columns[2].HeaderText = "Direccion";
             dataGridView1.Columns[3].HeaderText = "Habilitado";
+
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView1.Columns[dataGridView1.ColumnCount - 2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridView1.Columns[dataGridView1.ColumnCount - 3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         private void FormListadoSucursales_Load(object sender, EventArgs e)

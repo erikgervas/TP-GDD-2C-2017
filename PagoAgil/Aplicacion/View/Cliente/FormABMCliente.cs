@@ -160,6 +160,7 @@ namespace PagoAgil.Aplicacion.View
         public FormABMCliente()
         {
             InitializeComponent();
+            this.CenterToScreen();
         }
 
         private void nuevoClienteButton_Click(object sender, EventArgs e)

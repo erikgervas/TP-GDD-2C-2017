@@ -14,6 +14,7 @@ namespace PagoAgil.Aplicacion.View
         public FormLogin()
         {
             InitializeComponent();
+            this.CenterToScreen();
         }
 
         private void button1_Click(object sender, EventArgs e)
