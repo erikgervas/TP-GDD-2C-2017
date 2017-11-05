@@ -81,6 +81,7 @@
     <Compile Include="Aplicacion\Modelo\Excepciones\LogingDemasiadosIntentosException.cs" />
     <Compile Include="Aplicacion\Modelo\Habilitable.cs" />
     <Compile Include="Aplicacion\Modelo\Identificable.cs" />
+    <Compile Include="Aplicacion\Modelo\MedioDePago.cs" />
     <Compile Include="Aplicacion\Modelo\Serializador\EncriptadorSHA.cs" />
     <Compile Include="Aplicacion\Modelo\Sucursal.cs" />
     <Compile Include="Aplicacion\Modelo\Usuario\Funcionalidad.cs" />
@@ -103,6 +104,7 @@
     <Compile Include="Aplicacion\ViewModel\ListadoSucursalesVM.cs" />
     <Compile Include="Aplicacion\ViewModel\LoginVM.cs" />
     <Compile Include="Aplicacion\ViewModel\ModificacionSucursalVM.cs" />
+    <Compile Include="Aplicacion\ViewModel\PagoVM.cs" />
     <Compile Include="Aplicacion\ViewModel\RendicionVM.cs" />
     <Compile Include="Aplicacion\ViewModel\SeleccionadorDeRolVM.cs" />
     <Compile Include="Aplicacion\Orquestradores\GestorDeUsuarios.cs" />
