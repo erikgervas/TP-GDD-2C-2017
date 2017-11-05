@@ -3,6 +3,7 @@ using PagoAgil.Aplicacion.View;
 using PagoAgil.Aplicacion.View.Empresas;
 using PagoAgil.Aplicacion.View.Estadisticas;
 using PagoAgil.Aplicacion.View.Rendicion;
+using PagoAgil.Aplicacion.View.Pago;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -71,7 +72,7 @@ namespace PagoAgil.Aplicacion.View
 
         private void button_registro_pago_Click(object sender, EventArgs e)
         {
-            // new FormRegistroPago().Show();
+            new FormPago().Show();
         }
 
         private void button_estadisticas_Click(object sender, EventArgs e)
