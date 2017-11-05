@@ -17,11 +17,12 @@ namespace PagoAgil.Aplicacion.View.Sucursales
 {
     public partial class FormListadoSucursales : Form
     {
-        ListadoSucursalesVM VM = new ListadoSucursalesVM();
+        ListadoSucursalesVM VM;
 
         public FormListadoSucursales(String accion)
         {
             InitializeComponent();
+            VM = new ListadoSucursalesVM();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -35,9 +36,7 @@ namespace PagoAgil.Aplicacion.View.Sucursales
             string direccionSucursal = textBoxDireccion.Text.Trim();
             int codigoPostal = (int) numericUpDownCP.Value;
 
-            //DataTable sucursalesFiltradas = VM.filtrarSucursales(nombreSucursal, direccionSucursal, codigoPostal);
-
-            DataTable sucursalesFiltradas = RepositorioSucursales.getInstancia().getAlmacenamiento().darTodosEnTabla();
+            DataTable sucursalesFiltradas = VM.filtrarSucursales(nombreSucursal, direccionSucursal, codigoPostal);
 
             dataGridView1.DataSource = sucursalesFiltradas;
 
@@ -50,6 +49,15 @@ namespace PagoAgil.Aplicacion.View.Sucursales
         private void FormListadoSucursales_Load(object sender, EventArgs e)
         {
             numericUpDownCP.Text = "";
+        }
+
+        private void Limpiar_Click(object sender, EventArgs e)
+        {
+            textBoxNombre.Clear();
+            textBoxDireccion.Clear();
+            numericUpDownCP.Value = 0;
+            numericUpDownCP.Text = "";
+            dataGridView1.ClearSelection();
         }
 
     }
