@@ -12,10 +12,14 @@ namespace PagoAgil.Aplicacion.View.Pago
 {
     public partial class FormSeleccionFacturas : Form
     {
-        public FormSeleccionFacturas()
+        PagoBuilder miPagoBuilder;
+
+        public FormSeleccionFacturas(PagoBuilder pagoBuilder)
         {
             InitializeComponent();
             this.CenterToScreen();
+
+            miPagoBuilder = pagoBuilder;
         }
     }
 }
