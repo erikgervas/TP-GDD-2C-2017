@@ -15,6 +15,7 @@ namespace PagoAgil.Aplicacion.View
         public FormSeleccionarRol(UsuarioDB usuario)
         {
             InitializeComponent();
+            this.CenterToScreen();
 
             seleccionadorDeRolVM = new SeleccionadorDeRolVM(usuario);
         }

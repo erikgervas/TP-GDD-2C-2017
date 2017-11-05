@@ -7,21 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PagoAgil.Aplicacion.Modelo.ClienteSQL;
 
-namespace PagoAgil.Aplicacion.View.Sucursales
+namespace PagoAgil.Aplicacion.View.Pago
 {
-    public partial class FormAltaSucursalOk : Form
+    public partial class FormPago : Form
     {
-        SucursalDB sucursal;
-
-        public FormAltaSucursalOk(SucursalDB sucursalNueva)
+        public FormPago()
         {
-            sucursal = sucursalNueva;
-
             InitializeComponent();
             this.CenterToScreen();
         }
-
     }
 }

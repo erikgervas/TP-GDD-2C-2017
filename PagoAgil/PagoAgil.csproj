@@ -212,6 +212,19 @@
     <Compile Include="Aplicacion\View\Estadisticas\FormEstadisticas.Designer.cs">
       <DependentUpon>FormEstadisticas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Aplicacion\View\Pago\FormPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Pago\FormPago.Designer.cs">
+      <DependentUpon>FormPago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicacion\View\Pago\FormSeleccionFacturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Pago\FormSeleccionFacturas.Designer.cs">
+      <DependentUpon>FormSeleccionFacturas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicacion\View\Pago\PagoBuilder.cs" />
     <Compile Include="Aplicacion\View\Rendicion\FormRendicion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -339,6 +352,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\Estadisticas\FormEstadisticas.resx">
       <DependentUpon>FormEstadisticas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Pago\FormPago.resx">
+      <DependentUpon>FormPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Pago\FormSeleccionFacturas.resx">
+      <DependentUpon>FormSeleccionFacturas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\Rendicion\FormRendicion.resx">
       <DependentUpon>FormRendicion.cs</DependentUpon>

@@ -8,6 +8,7 @@ namespace PagoAgil.Aplicacion.View
         public FormModificacionSucursal()
         {
             InitializeComponent();
+            this.CenterToScreen();
         }
     }
 }

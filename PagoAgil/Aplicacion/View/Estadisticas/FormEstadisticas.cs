@@ -20,6 +20,7 @@ namespace PagoAgil.Aplicacion.View.Estadisticas
         public FormEstadisticas()
         {
             InitializeComponent();
+            this.CenterToScreen();
 
             estadisticasVM = new EstadisticasVM();
         }

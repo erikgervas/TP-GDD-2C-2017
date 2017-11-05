@@ -11,6 +11,7 @@ namespace PagoAgil.Aplicacion.View
         public FormBajaSucursal()
         {
             InitializeComponent();
+            this.CenterToScreen();
 
             bajaSucursalVM = new BajaSucursalVM();
         }

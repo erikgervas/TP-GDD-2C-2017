@@ -223,5 +223,11 @@ namespace PagoAgil.Aplicacion.View
             this.PerformLayout();
 
         }
+
+        public FormAltaCliente()
+        {
+            InitializeComponent();
+            this.CenterToScreen();
+        }
     }
 }
