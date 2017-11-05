@@ -52,6 +52,7 @@
             this.textNumeroFactura.Name = "textNumeroFactura";
             this.textNumeroFactura.Size = new System.Drawing.Size(200, 22);
             this.textNumeroFactura.TabIndex = 1;
+            this.textNumeroFactura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textNumeroFactura_KeyPress);
             // 
             // textMotivo
             // 

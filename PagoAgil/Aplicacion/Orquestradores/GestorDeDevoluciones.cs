@@ -30,6 +30,9 @@ namespace PagoAgil.Aplicacion.Orquestradores
 
             int numeroFactura = Int32.Parse(numeroFacturaRaw);
 
+            if(motivo.Equals(""))
+                throw new ArgumentException("El motivo no tiene motivo");
+
             DataTable dt = LectorDeTablas.getInstance().obtenerMejorado("facturasDevolvibles()");
 
             string query = "devolverFacturaPaga " + numeroFactura + ", '" + motivo + "', '" + Configuracion.fechaCruda() + "'";

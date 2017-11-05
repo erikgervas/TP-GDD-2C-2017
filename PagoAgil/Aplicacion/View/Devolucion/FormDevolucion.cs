@@ -24,14 +24,42 @@ namespace PagoAgil.Aplicacion.View.Devolucion
             formDevolucionVM = new FormDevolucionVM();
         }
 
-        private void buttonDevolverFactura_Click(object sender, EventArgs e)
+        private void textNumeroFactura_KeyPress(object sender, KeyPressEventArgs e)
         {
 
+            // Para obligar a que sólo se introduzcan números 
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+                if (Char.IsControl(e.KeyChar)) // Permitir teclas de control como retroceso 
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    // El resto de teclas pulsadas se desactivan 
+                    e.Handled = true;
+                }
+
+        }
+
+        private void buttonDevolverFactura_Click(object sender, EventArgs e)
+        {
 
             try
             {
                 formDevolucionVM.devolver(this.textNumeroFactura.Text, this.textMotivo.Text);
                 MessageBox.Show("Se ha devuelto correctamente");
+            }
+            catch (ArgumentException)
+            {
+                MessageBox.Show("Los argumentos ingresados son invalidos");
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Los argumentos ingresados son invalidos");
             }
             catch (SqlException)
             {
