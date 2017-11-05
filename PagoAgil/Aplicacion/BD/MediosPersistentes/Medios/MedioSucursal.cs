@@ -21,34 +21,6 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
 
         }
 
-        /*
-        public List<SucursalDB> filtrarPorNombre(string nombre)
-        {
-
-            string query = "SELECT * from SQL_BOYS.obtenerSucursalPorNombre('" + nombre + "')";
-
-            return obtainSucursalesFromQuery(query);
-
-        }
-
-        public List<SucursalDB> filtrarPorDireccion(string direccion)
-        {
-
-            string query = "SELECT * from SQL_BOYS.obtenerSucursalPorDireccion('" + direccion + "')";
-
-            return obtainSucursalesFromQuery(query);
-
-        }
-
-        public List<SucursalDB> filtrarPorCodigoPostal(int cp)
-        {
-        
-            string query = "SELECT * from SQL_BOYS.obtenerSucursalPorCodigoPostal('" + cp.ToString() + "')";
-
-            return obtainSucursalesFromQuery(query);
-
-        }*/
-
         public DataTable darTodosEnTabla()
         {
             string query = "Sucursal";
