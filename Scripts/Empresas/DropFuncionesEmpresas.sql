@@ -9,4 +9,6 @@ DROP FUNCTION
 
 DROP PROCEDURE
 
-	SQL_BOYS.altaDeEmpresa
+	SQL_BOYS.altaDeEmpresa,
+	SQL_BOYS.bajaDeEmpresa,
+	SQL_BOYS.modificacionDeEmpresa

@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace PagoAgil.Aplicacion.ViewModel
 {
-    public class EmpresasAltaVM
+    public class EmpresasCompletadoVM
     {
         public EmpresaBuilder empresa { get; set; }
         public List<String> rubros { get; set; }
 
-        public EmpresasAltaVM()
+        public EmpresasCompletadoVM()
         {
             this.empresa = new EmpresaBuilder();
             this.rubros = RepositorioRubros.instanciar().listarElementos();

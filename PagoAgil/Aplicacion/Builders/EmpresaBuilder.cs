@@ -24,18 +24,13 @@ namespace PagoAgil.Aplicacion.Builders
 
         public Empresa crear()
         {
-            return new Empresa(id, nombre, estado, this.generarCuit(), direccion, rubro, diaRendicion, porcentajeComision);
+            return new Empresa(id, nombre, estado, cuit, direccion, rubro, diaRendicion, porcentajeComision);
         }
 
         public void validar()
         {
             revisarLlenado();
             existeOtroIgual();
-        }
-
-        public string generarCuit()
-        {
-            return cuit.ElementAt(0) + "-" + cuit.Substring(1, cuit.Count() - 2) + "-" + cuit.Reverse().ElementAt(0);
         }
 
         private bool estaVacio(String campo)
@@ -48,7 +43,7 @@ namespace PagoAgil.Aplicacion.Builders
             List<String> errores = new List<String>();
 
             if (this.estaVacio(this.nombre)) errores.Add("Nombre");
-            if (this.estaVacio(this.cuit)) { errores.Add("Cuit"); } else if (this.cuit.Count() > 0 && this.cuit.Count() < 10) errores.Add("Cuit incompleto");
+            if (this.estaVacio(this.cuit)) { errores.Add("Cuit"); } else if (this.cuit.Count() > 0 && this.cuit.Count() < 12) errores.Add("Cuit incompleto");
             if (this.estaVacio(this.direccion)) errores.Add("Dirección");
             if (this.estaVacio(this.rubro)) errores.Add("Rubro");
             if (this.diaRendicion < 1 && diaRendicion > 31) errores.Add("Día imposible");

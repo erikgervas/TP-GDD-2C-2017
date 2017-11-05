@@ -19,6 +19,5 @@ namespace PagoAgil.Aplicacion.BD.Repositorios
 
             return instancia;
         }
-
     }
 }

@@ -1,4 +1,8 @@
-﻿using PagoAgil.Aplicacion.ViewModel;
+﻿using PagoAgil.Aplicacion.Builders;
+using PagoAgil.Aplicacion.Modelo;
+using PagoAgil.Aplicacion.Orquestradores.TiposDeABM;
+using PagoAgil.Aplicacion.Orquestradores.TiposDeABM.ABMs;
+using PagoAgil.Aplicacion.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,12 +18,14 @@ namespace PagoAgil.Aplicacion.View.Empresas
     public partial class EmpresasBuscador : Form
     {
         public EmpresasBuscadorVM viewModel = new EmpresasBuscadorVM();
+        public DataGridViewRow filaElegida = null;
 
         public EmpresasBuscador()
         {
             InitializeComponent();
             this.CenterToScreen();
             foreach (String rubro in this.viewModel.rubros) this.rubroComboBox.Items.Add(rubro);
+            this.viewModel.empresa = new EmpresaBuilder();
             this.empresasDataGrid.DataSource = null;
         }
 
@@ -40,11 +46,7 @@ namespace PagoAgil.Aplicacion.View.Empresas
 
         private void buscarButton_Click(object sender, EventArgs e)
         {
-            String cuit = cuitText.Text;
-
-            if (cuit.Count() > 2) cuit = cuit.ElementAt(0) + "-" + cuit.Substring(1, cuit.Count() - 2) + "-" + cuit.Reverse().ElementAt(0);
-
-            this.empresasDataGrid.DataSource = this.viewModel.buscar(this.nombreText.Text, cuit, this.rubroComboBox.Text);
+            this.empresasDataGrid.DataSource = this.viewModel.buscar(this.nombreText.Text, this.cuitText.Text, this.rubroComboBox.Text);
         }
 
         private void cuitText_KeyPress(object sender, KeyPressEventArgs e)
@@ -52,6 +54,15 @@ namespace PagoAgil.Aplicacion.View.Empresas
             if (char.IsNumber(e.KeyChar) || e.KeyChar == '.' || e.KeyChar == 8) return;
 
             else e.Handled = e.KeyChar != (char)Keys.Back;
+        }
+
+        private void empresasDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow[] filas = empresasDataGrid.Rows.Cast<DataGridViewRow>().ToArray();
+
+            filaElegida = filas[e.RowIndex];
+
+            this.generarEmpresa();
         }
 
         private void EmpresasBuscador_Load(object sender, EventArgs e)
@@ -64,6 +75,44 @@ namespace PagoAgil.Aplicacion.View.Empresas
             this.Hide();
 
             new EmpresasBuscadorSeleccionar(this).Show();
+        }
+
+        private void generarEmpresa()
+        {
+            this.viewModel.empresa.id = long.Parse(valorCelda(0));
+            this.viewModel.empresa.nombre = valorCelda(1);
+            this.viewModel.empresa.cuit = valorCelda(2);
+            this.viewModel.empresa.direccion = valorCelda(3);
+            this.viewModel.empresa.porcentajeComision = ushort.Parse(this.valorCelda(4));
+            this.viewModel.empresa.diaRendicion = ushort.Parse(this.valorCelda(5));
+            this.viewModel.empresa.rubro = valorCelda(7);
+
+            DataGridViewCheckBoxCell coso = filaElegida.Cells[8].Value as DataGridViewCheckBoxCell;
+
+            this.viewModel.empresa.estado = Convert.ToBoolean(coso);
+        }
+
+        private string valorCelda(int celda)
+        {
+            return filaElegida.Cells[celda].Value.ToString();
+        }
+
+        private void modificarButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+            EmpresaABM.instanciar().abm = new Modificacion<Empresa>();
+
+            new EmpresasCompletado(this.viewModel.empresa).Show();
+        }
+
+        private void bajaButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+            EmpresaABM.instanciar().abm = new Baja<Empresa>();
+
+            new EmpresasConfirmacion(this.viewModel.empresa).Show();
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using PagoAgil.Aplicacion.BD.Repositorios;
 using PagoAgil.Aplicacion.Builders;
 using PagoAgil.Aplicacion.Modelo;
+using PagoAgil.Aplicacion.Orquestradores.TiposDeABM;
+using PagoAgil.Aplicacion.Orquestradores.TiposDeABM.ABMs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,23 +15,32 @@ using System.Windows.Forms;
 
 namespace PagoAgil.Aplicacion.View.Empresas
 {
-    public partial class EmpresasAltaConfirmacion : Form
+    public partial class EmpresasConfirmacion : Form
     {
         private EmpresaBuilder empresa;
 
-        public EmpresasAltaConfirmacion(EmpresaBuilder empresaBuilder)
+        public EmpresasConfirmacion(EmpresaBuilder empresaBuilder)
         {
             InitializeComponent();
             this.CenterToScreen();
             this.empresa = empresaBuilder;
-
+            this.iniciarTitulos();
             this.completarCampos();
+            EmpresaABM.instanciar().determinarBotones(this);
+        }
+
+        private void iniciarTitulos()
+        {
+            this.Text = EmpresaABM.instanciar().titulosConfirmado()[0];
+            this.tituloLabel.Text = EmpresaABM.instanciar().titulosConfirmado()[1];
+            this.altaGroup.Text = EmpresaABM.instanciar().titulosConfirmado()[2];
+            this.altaButton.Text = EmpresaABM.instanciar().titulosConfirmado()[3];
         }
 
         private void completarCampos()
         {
             this.nombreAsignadoLabel.Text = this.empresa.nombre;
-            this.cuitAsignadoLabel.Text = this.empresa.generarCuit();
+            this.cuitAsignadoLabel.Text = this.empresa.cuit;
             this.direccionAsignadaLabel.Text = this.empresa.direccion;
             this.rubroAsignadoLabel.Text = this.empresa.rubro;
             this.diaAsignadoLabel.Text = Convert.ToString(this.empresa.diaRendicion, 10);
@@ -41,16 +52,16 @@ namespace PagoAgil.Aplicacion.View.Empresas
         {
             this.Close();
 
-            new EmpresasAlta(this.empresa).Show();
+            new EmpresasCompletado(this.empresa).Show();
         }
 
         private void altaButton_Click(object sender, EventArgs e)
         {
-            RepositorioEmpresas.instanciar().alta(this.empresa.crear());
+            EmpresaABM.instanciar().realizarABM(RepositorioEmpresas.instanciar(), this.empresa.crear());
 
             this.Close();
 
-            new EmpresasAltaOk().Show();
+            new EmpresasOk().Show();
         }
     }
 }

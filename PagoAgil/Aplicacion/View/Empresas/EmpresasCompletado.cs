@@ -1,5 +1,7 @@
 ﻿using PagoAgil.Aplicacion.Builders;
 using PagoAgil.Aplicacion.Builders.Excepciones;
+using PagoAgil.Aplicacion.Orquestradores.TiposDeABM;
+using PagoAgil.Aplicacion.Orquestradores.TiposDeABM.ABMs;
 using PagoAgil.Aplicacion.View.Excepciones;
 using PagoAgil.Aplicacion.ViewModel;
 using System;
@@ -14,21 +16,30 @@ using System.Windows.Forms;
 
 namespace PagoAgil.Aplicacion.View.Empresas
 {
-    public partial class EmpresasAlta : Form
+    public partial class EmpresasCompletado : Form
     {
-        private EmpresasAltaVM viewModel = new EmpresasAltaVM();
+        private EmpresasCompletadoVM viewModel = new EmpresasCompletadoVM();
 
-        public EmpresasAlta()
+        public EmpresasCompletado()
         {
             InitializeComponent();
             this.CenterToScreen();
+            this.iniciarTitulos();
             this.iniciarCampos();
         }
 
-        public EmpresasAlta(EmpresaBuilder empresaBuilder) : this()
+        public EmpresasCompletado(EmpresaBuilder empresaBuilder) : this()
         {
             this.viewModel.empresa = empresaBuilder;
             this.rellenarConLoAnterior();
+        }
+
+        private void iniciarTitulos()
+        {
+            this.Text = EmpresaABM.instanciar().titulosCompletado()[0];
+            this.tituloLabel.Text = EmpresaABM.instanciar().titulosCompletado()[1];
+            this.altaGroup.Text = EmpresaABM.instanciar().titulosCompletado()[2];
+            this.altaButton.Text = EmpresaABM.instanciar().titulosCompletado()[3];
         }
 
         private void rellenarConLoAnterior()
@@ -97,7 +108,7 @@ namespace PagoAgil.Aplicacion.View.Empresas
 
                 this.Close();
 
-                new EmpresasAltaConfirmacion(this.viewModel.empresa).Show();
+                new EmpresasConfirmacion(this.viewModel.empresa).Show();
             }
             catch (NoSePuedeCrearException excepcion)
             {

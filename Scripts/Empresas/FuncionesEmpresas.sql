@@ -8,13 +8,13 @@ CREATE VIEW SQL_BOYS.Empresa_View_Empresa_Con_Rubro AS
 
 GO
 
-CREATE FUNCTION SQL_BOYS.obtenerRubros() RETURNS TABLE
+CREATE FUNCTION SQL_BOYS.obtenerRubros () RETURNS TABLE
 
 	RETURN SELECT r.id_rubro, r.descripcion FROM SQL_BOYS.Rubro r
 
 GO
 
-CREATE PROCEDURE SQL_BOYS.altaDeEmpresa(@nombre AS NVARCHAR(255), @cuit AS NVARCHAR(50), @domicilio AS NVARCHAR(255), @dia_rendicion AS INT, @porcentaje_comision AS INT, @habilitadx AS BIT, @nombre_rubro AS NVARCHAR(50)) AS
+CREATE PROCEDURE SQL_BOYS.altaDeEmpresa (@id_empresa AS INT, @nombre AS NVARCHAR(255), @cuit AS NVARCHAR(50), @domicilio AS NVARCHAR(255), @dia_rendicion AS INT, @porcentaje_comision AS INT, @habilitadx AS BIT, @nombre_rubro AS NVARCHAR(50)) AS
 	
 	BEGIN
 		
@@ -32,7 +32,50 @@ CREATE PROCEDURE SQL_BOYS.altaDeEmpresa(@nombre AS NVARCHAR(255), @cuit AS NVARC
 
 GO
 
-CREATE FUNCTION SQL_BOYS.filtrarEmpresa(@nombre AS NVARCHAR(255), @cuit AS NVARCHAR(50), @nombre_rubro AS NVARCHAR(50)) RETURNS TABLE
+CREATE PROCEDURE SQL_BOYS.bajaDeEmpresa (@id_empresa AS INT, @nombre AS NVARCHAR(255), @cuit AS NVARCHAR(50), @domicilio AS NVARCHAR(255), @dia_rendicion AS INT, @porcentaje_comision AS INT, @habilitadx AS BIT, @nombre_rubro AS NVARCHAR(50)) AS
+
+	BEGIN
+
+		BEGIN TRANSACTION
+
+			UPDATE SQL_BOYS.Empresa
+
+			SET habilitadx = 0
+
+			WHERE id_empresa = @id_empresa
+
+		COMMIT
+
+	END
+
+GO
+
+CREATE PROCEDURE SQL_BOYS.modificacionDeEmpresa (@id_empresa AS INT, @nombre AS NVARCHAR(255), @cuit AS NVARCHAR(50), @domicilio AS NVARCHAR(255), @dia_rendicion AS INT, @porcentaje_comision AS INT, @habilitadx AS BIT, @nombre_rubro AS NVARCHAR(50)) AS
+
+	BEGIN
+
+		BEGIN TRANSACTION
+
+			UPDATE SQL_BOYS.Empresa
+
+			SET
+			
+				nombre = @nombre,
+				cuit = @cuit,
+				domicilio = @domicilio,
+				dia_rendicion = @dia_rendicion,
+				porcentaje_comision = @porcentaje_comision,
+				id_rubro = (SELECT id_rubro FROM SQL_BOYS.Rubro WHERE descripcion = @nombre_rubro)
+
+			WHERE id_empresa = @id_empresa
+
+		COMMIT
+
+	END
+
+GO
+
+CREATE FUNCTION SQL_BOYS.filtrarEmpresa (@nombre AS NVARCHAR(255), @cuit AS NVARCHAR(50), @nombre_rubro AS NVARCHAR(50)) RETURNS TABLE
 
 	RETURN
 	

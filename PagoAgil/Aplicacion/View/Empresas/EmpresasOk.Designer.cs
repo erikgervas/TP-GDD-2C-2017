@@ -1,6 +1,6 @@
 ﻿namespace PagoAgil.Aplicacion.View.Empresas
 {
-    partial class EmpresasAltaOk
+    partial class EmpresasOk
     {
         /// <summary>
         /// Required designer variable.
@@ -37,11 +37,11 @@
             // 
             this.confirmacionText.AutoSize = true;
             this.confirmacionText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmacionText.Location = new System.Drawing.Point(23, 31);
+            this.confirmacionText.Location = new System.Drawing.Point(23, 29);
             this.confirmacionText.Name = "confirmacionText";
-            this.confirmacionText.Size = new System.Drawing.Size(340, 20);
+            this.confirmacionText.Size = new System.Drawing.Size(146, 20);
             this.confirmacionText.TabIndex = 0;
-            this.confirmacionText.Text = "¡Se dio de alta la nueva empresa en el sistema!";
+            this.confirmacionText.Text = "<Mensaje de éxito>";
             // 
             // volverAInicioButton
             // 
@@ -63,7 +63,7 @@
             this.volverAEmpresasButton.UseVisualStyleBackColor = true;
             this.volverAEmpresasButton.Click += new System.EventHandler(this.volverAEmpresasButton_Click);
             // 
-            // EmpresasAltaOk
+            // EmpresasOk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -71,8 +71,8 @@
             this.Controls.Add(this.volverAEmpresasButton);
             this.Controls.Add(this.volverAInicioButton);
             this.Controls.Add(this.confirmacionText);
-            this.Name = "EmpresasAltaOk";
-            this.Text = "Alta confirmada";
+            this.Name = "EmpresasOk";
+            this.Text = "<Éxito>";
             this.ResumeLayout(false);
             this.PerformLayout();
 

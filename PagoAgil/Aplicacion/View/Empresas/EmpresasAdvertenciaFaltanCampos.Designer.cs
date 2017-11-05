@@ -72,6 +72,7 @@
             this.camposLabel.Size = new System.Drawing.Size(57, 13);
             this.camposLabel.TabIndex = 6;
             this.camposLabel.Text = "<Campos>";
+            this.camposLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // EmpresasAdvertenciaFaltanCampos
             // 

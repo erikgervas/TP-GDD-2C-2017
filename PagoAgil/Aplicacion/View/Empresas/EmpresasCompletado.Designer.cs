@@ -1,6 +1,6 @@
 ﻿namespace PagoAgil.Aplicacion.View.Empresas
 {
-    partial class EmpresasAlta
+    partial class EmpresasCompletado
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.tituloLabel = new System.Windows.Forms.Label();
             this.altaPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.cuitText = new System.Windows.Forms.TextBox();
             this.direccionText = new System.Windows.Forms.TextBox();
             this.nombreLabel = new System.Windows.Forms.Label();
             this.cuitLabel = new System.Windows.Forms.Label();
@@ -50,6 +49,7 @@
             this.altaButton = new System.Windows.Forms.Button();
             this.sQL_BOYS_Data_Set = new PagoAgil.DataSet.SQL_BOYS_Data_Set();
             this.sQLBOYSDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cuitText = new System.Windows.Forms.MaskedTextBox();
             this.altaPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.diaNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.porcentajeNumericUpDown)).BeginInit();
@@ -64,11 +64,11 @@
             this.tituloLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.tituloLabel.AutoSize = true;
             this.tituloLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tituloLabel.Location = new System.Drawing.Point(248, 34);
+            this.tituloLabel.Location = new System.Drawing.Point(127, 38);
             this.tituloLabel.Name = "tituloLabel";
-            this.tituloLabel.Size = new System.Drawing.Size(125, 20);
+            this.tituloLabel.Size = new System.Drawing.Size(65, 20);
             this.tituloLabel.TabIndex = 1;
-            this.tituloLabel.Text = "Alta de empresa";
+            this.tituloLabel.Text = "<Título>";
             this.tituloLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // altaPanel
@@ -76,7 +76,6 @@
             this.altaPanel.ColumnCount = 2;
             this.altaPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.altaPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.altaPanel.Controls.Add(this.cuitText, 1, 1);
             this.altaPanel.Controls.Add(this.direccionText, 1, 2);
             this.altaPanel.Controls.Add(this.nombreLabel, 0, 0);
             this.altaPanel.Controls.Add(this.cuitLabel, 0, 1);
@@ -88,6 +87,7 @@
             this.altaPanel.Controls.Add(this.diaNumericUpDown, 1, 4);
             this.altaPanel.Controls.Add(this.porcentajeNumericUpDown, 1, 5);
             this.altaPanel.Controls.Add(this.porcentajeText, 0, 5);
+            this.altaPanel.Controls.Add(this.cuitText, 1, 1);
             this.altaPanel.Location = new System.Drawing.Point(30, 30);
             this.altaPanel.Name = "altaPanel";
             this.altaPanel.RowCount = 6;
@@ -100,79 +100,78 @@
             this.altaPanel.Size = new System.Drawing.Size(296, 243);
             this.altaPanel.TabIndex = 2;
             // 
-            // cuitText
-            // 
-            this.cuitText.Location = new System.Drawing.Point(151, 43);
-            this.cuitText.MaxLength = 10;
-            this.cuitText.Name = "cuitText";
-            this.cuitText.Size = new System.Drawing.Size(142, 20);
-            this.cuitText.TabIndex = 7;
-            this.cuitText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cuitText_KeyPress);
-            // 
             // direccionText
             // 
-            this.direccionText.Location = new System.Drawing.Point(151, 83);
+            this.direccionText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.direccionText.Location = new System.Drawing.Point(151, 90);
             this.direccionText.Name = "direccionText";
             this.direccionText.Size = new System.Drawing.Size(142, 20);
             this.direccionText.TabIndex = 7;
             // 
             // nombreLabel
             // 
+            this.nombreLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.nombreLabel.AutoSize = true;
-            this.nombreLabel.Location = new System.Drawing.Point(3, 0);
+            this.nombreLabel.Location = new System.Drawing.Point(3, 13);
             this.nombreLabel.Name = "nombreLabel";
-            this.nombreLabel.Size = new System.Drawing.Size(44, 13);
+            this.nombreLabel.Size = new System.Drawing.Size(142, 13);
             this.nombreLabel.TabIndex = 0;
             this.nombreLabel.Text = "Nombre";
             // 
             // cuitLabel
             // 
+            this.cuitLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cuitLabel.AutoSize = true;
-            this.cuitLabel.Location = new System.Drawing.Point(3, 40);
+            this.cuitLabel.Location = new System.Drawing.Point(3, 53);
             this.cuitLabel.Name = "cuitLabel";
-            this.cuitLabel.Size = new System.Drawing.Size(32, 13);
+            this.cuitLabel.Size = new System.Drawing.Size(142, 13);
             this.cuitLabel.TabIndex = 1;
             this.cuitLabel.Text = "CUIT";
             // 
             // direccionLabel
             // 
+            this.direccionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.direccionLabel.AutoSize = true;
-            this.direccionLabel.Location = new System.Drawing.Point(3, 80);
+            this.direccionLabel.Location = new System.Drawing.Point(3, 93);
             this.direccionLabel.Name = "direccionLabel";
-            this.direccionLabel.Size = new System.Drawing.Size(52, 13);
+            this.direccionLabel.Size = new System.Drawing.Size(142, 13);
             this.direccionLabel.TabIndex = 2;
             this.direccionLabel.Text = "Dirección";
             // 
             // rubroLabel
             // 
+            this.rubroLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.rubroLabel.AutoSize = true;
-            this.rubroLabel.Location = new System.Drawing.Point(3, 120);
+            this.rubroLabel.Location = new System.Drawing.Point(3, 133);
             this.rubroLabel.Name = "rubroLabel";
-            this.rubroLabel.Size = new System.Drawing.Size(36, 13);
+            this.rubroLabel.Size = new System.Drawing.Size(142, 13);
             this.rubroLabel.TabIndex = 3;
             this.rubroLabel.Text = "Rubro";
             // 
             // diaLabel
             // 
+            this.diaLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.diaLabel.AutoSize = true;
-            this.diaLabel.Location = new System.Drawing.Point(3, 160);
+            this.diaLabel.Location = new System.Drawing.Point(3, 173);
             this.diaLabel.Name = "diaLabel";
-            this.diaLabel.Size = new System.Drawing.Size(86, 13);
+            this.diaLabel.Size = new System.Drawing.Size(142, 13);
             this.diaLabel.TabIndex = 4;
             this.diaLabel.Text = "Día de rendición";
             // 
             // nombreText
             // 
-            this.nombreText.Location = new System.Drawing.Point(151, 3);
+            this.nombreText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.nombreText.Location = new System.Drawing.Point(151, 10);
             this.nombreText.Name = "nombreText";
             this.nombreText.Size = new System.Drawing.Size(142, 20);
             this.nombreText.TabIndex = 5;
             // 
             // rubroComboBox
             // 
+            this.rubroComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.rubroComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.rubroComboBox.FormattingEnabled = true;
-            this.rubroComboBox.Location = new System.Drawing.Point(151, 123);
+            this.rubroComboBox.Location = new System.Drawing.Point(151, 129);
             this.rubroComboBox.MaxDropDownItems = 10;
             this.rubroComboBox.Name = "rubroComboBox";
             this.rubroComboBox.Size = new System.Drawing.Size(142, 21);
@@ -180,7 +179,8 @@
             // 
             // diaNumericUpDown
             // 
-            this.diaNumericUpDown.Location = new System.Drawing.Point(151, 163);
+            this.diaNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.diaNumericUpDown.Location = new System.Drawing.Point(151, 170);
             this.diaNumericUpDown.Maximum = new decimal(new int[] {
             28,
             0,
@@ -192,7 +192,7 @@
             0,
             0});
             this.diaNumericUpDown.Name = "diaNumericUpDown";
-            this.diaNumericUpDown.Size = new System.Drawing.Size(37, 20);
+            this.diaNumericUpDown.Size = new System.Drawing.Size(40, 20);
             this.diaNumericUpDown.TabIndex = 9;
             this.diaNumericUpDown.Value = new decimal(new int[] {
             1,
@@ -202,14 +202,15 @@
             // 
             // porcentajeNumericUpDown
             // 
-            this.porcentajeNumericUpDown.Location = new System.Drawing.Point(151, 203);
+            this.porcentajeNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.porcentajeNumericUpDown.Location = new System.Drawing.Point(151, 211);
             this.porcentajeNumericUpDown.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.porcentajeNumericUpDown.Name = "porcentajeNumericUpDown";
-            this.porcentajeNumericUpDown.Size = new System.Drawing.Size(37, 20);
+            this.porcentajeNumericUpDown.Size = new System.Drawing.Size(40, 20);
             this.porcentajeNumericUpDown.TabIndex = 11;
             this.porcentajeNumericUpDown.Value = new decimal(new int[] {
             1,
@@ -219,10 +220,11 @@
             // 
             // porcentajeText
             // 
+            this.porcentajeText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.porcentajeText.AutoSize = true;
-            this.porcentajeText.Location = new System.Drawing.Point(3, 200);
+            this.porcentajeText.Location = new System.Drawing.Point(3, 215);
             this.porcentajeText.Name = "porcentajeText";
-            this.porcentajeText.Size = new System.Drawing.Size(117, 13);
+            this.porcentajeText.Size = new System.Drawing.Size(142, 13);
             this.porcentajeText.TabIndex = 10;
             this.porcentajeText.Text = "Porcentaje de comisión";
             // 
@@ -236,7 +238,7 @@
             this.altaGroup.Size = new System.Drawing.Size(358, 339);
             this.altaGroup.TabIndex = 3;
             this.altaGroup.TabStop = false;
-            this.altaGroup.Text = "Datos de la nueva empresa";
+            this.altaGroup.Text = "<Datos>";
             // 
             // habilitadaCheckBox
             // 
@@ -276,7 +278,7 @@
             this.altaButton.Name = "altaButton";
             this.altaButton.Size = new System.Drawing.Size(150, 30);
             this.altaButton.TabIndex = 6;
-            this.altaButton.Text = "Dar de alta";
+            this.altaButton.Text = "<ABM>";
             this.altaButton.UseVisualStyleBackColor = true;
             this.altaButton.Click += new System.EventHandler(this.altaButton_Click);
             // 
@@ -290,7 +292,16 @@
             this.sQLBOYSDataSetBindingSource.DataSource = this.sQL_BOYS_Data_Set;
             this.sQLBOYSDataSetBindingSource.Position = 0;
             // 
-            // EmpresasAlta
+            // cuitText
+            // 
+            this.cuitText.Location = new System.Drawing.Point(151, 43);
+            this.cuitText.Mask = "9-99999999-9";
+            this.cuitText.Name = "cuitText";
+            this.cuitText.Size = new System.Drawing.Size(142, 20);
+            this.cuitText.TabIndex = 12;
+            this.cuitText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cuitText_KeyPress);
+            // 
+            // EmpresasCompletado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -299,8 +310,8 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.altaGroup);
             this.Controls.Add(this.tituloLabel);
-            this.Name = "EmpresasAlta";
-            this.Text = "Alta de empresas";
+            this.Name = "EmpresasCompletado";
+            this.Text = "<Completado>";
             this.altaPanel.ResumeLayout(false);
             this.altaPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.diaNumericUpDown)).EndInit();
@@ -325,17 +336,17 @@
         private System.Windows.Forms.Label rubroLabel;
         private System.Windows.Forms.Label diaLabel;
         private System.Windows.Forms.TextBox nombreText;
-        private System.Windows.Forms.ComboBox rubroComboBox;
         private System.Windows.Forms.NumericUpDown diaNumericUpDown;
         private System.Windows.Forms.GroupBox altaGroup;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button limpiarButton;
         private System.Windows.Forms.Button altaButton;
-        private System.Windows.Forms.CheckBox habilitadaCheckBox;
-        private System.Windows.Forms.TextBox cuitText;
         private System.Windows.Forms.NumericUpDown porcentajeNumericUpDown;
         private System.Windows.Forms.Label porcentajeText;
         private DataSet.SQL_BOYS_Data_Set sQL_BOYS_Data_Set;
         private System.Windows.Forms.BindingSource sQLBOYSDataSetBindingSource;
+        public System.Windows.Forms.CheckBox habilitadaCheckBox;
+        private System.Windows.Forms.MaskedTextBox cuitText;
+        public System.Windows.Forms.ComboBox rubroComboBox;
     }
 }

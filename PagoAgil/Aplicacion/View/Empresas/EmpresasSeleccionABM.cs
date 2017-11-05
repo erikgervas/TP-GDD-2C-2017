@@ -1,4 +1,7 @@
-﻿using System;
+﻿using PagoAgil.Aplicacion.Modelo;
+using PagoAgil.Aplicacion.Orquestradores.TiposDeABM;
+using PagoAgil.Aplicacion.Orquestradores.TiposDeABM.ABMs;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,7 +26,9 @@ namespace PagoAgil.Aplicacion.View.Empresas
         {
             this.Close();
 
-            new EmpresasAlta().Show();
+            EmpresaABM.instanciar().abm = new Alta<Empresa>();
+
+            new EmpresasCompletado().Show();
         }
 
         private void consultarButton_Click(object sender, EventArgs e)

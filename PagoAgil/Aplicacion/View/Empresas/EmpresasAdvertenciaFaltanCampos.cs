@@ -13,15 +13,15 @@ namespace PagoAgil.Aplicacion.View.Empresas
 {
     public partial class EmpresasAdvertenciaFaltanCampos : Form
     {
-        private EmpresasAlta empresasAlta;
+        private Form empresasAlta;
         private NoSePuedeCrearException excepcion;
 
-        public EmpresasAdvertenciaFaltanCampos(EmpresasAlta empresasAlta, NoSePuedeCrearException excepcion)
+        public EmpresasAdvertenciaFaltanCampos(Form unForm, NoSePuedeCrearException excepcion)
         {
             InitializeComponent();
             this.CenterToScreen();
 
-            this.empresasAlta = empresasAlta;
+            this.empresasAlta = unForm;
 
             this.excepcion = excepcion;
 

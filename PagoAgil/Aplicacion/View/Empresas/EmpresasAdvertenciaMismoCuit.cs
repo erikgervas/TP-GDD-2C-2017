@@ -13,14 +13,14 @@ namespace PagoAgil.Aplicacion.View.Empresas
 {
     public partial class EmpresasAdvertenciaMismoCuit : Form
     {
-        private EmpresasAlta empresasAlta;
+        private Form formulario;
         private YaExisteObjetoConEsaClave excepcion;
 
-        public EmpresasAdvertenciaMismoCuit(EmpresasAlta empresasAlta, YaExisteObjetoConEsaClave excepcion)
+        public EmpresasAdvertenciaMismoCuit(Form unForm, YaExisteObjetoConEsaClave excepcion)
         {
             InitializeComponent();
             this.CenterToScreen();
-            this.empresasAlta = empresasAlta;
+            this.formulario = unForm;
             this.excepcion = excepcion;
         }
     }
