@@ -5,6 +5,7 @@ using System;
 using System.Windows.Forms;
 using PagoAgil.Aplicacion.View.Sucursales;
 using PagoAgil.Aplicacion.View.Empresas;
+using PagoAgil.Aplicacion;
 
 namespace PagoAgil
 {
@@ -18,9 +19,12 @@ namespace PagoAgil
         {
             Bootstrap.iniciarComponentes();
 
+            if (!Configuracion.esConsistente())
+                throw new ArgumentException("La configuración no es correcta");
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormHome());
+            Application.Run(new FormLogin());
 
         }
     }
