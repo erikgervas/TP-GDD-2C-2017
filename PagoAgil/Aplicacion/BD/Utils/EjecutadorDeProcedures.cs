@@ -28,6 +28,8 @@ namespace PagoAgil.Aplicacion.BD.Utils
 
             SqlCommand comando = new SqlCommand(query, Conexion.getInstance().obtenerConexion());
 
+            comando.CommandTimeout = 0;
+
             return comando.ExecuteNonQuery();
 
         }
