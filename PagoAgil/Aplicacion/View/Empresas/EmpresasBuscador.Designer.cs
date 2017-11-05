@@ -31,6 +31,17 @@
             this.components = new System.ComponentModel.Container();
             this.resultadosBusquedaPanel = new System.Windows.Forms.GroupBox();
             this.empresasDataGrid = new System.Windows.Forms.DataGridView();
+            this.idempresaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cuitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.domicilioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.porcentajecomisionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.diarendicionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idrubroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.habilitadxDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.empresaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sQL_BOYS_Data_Set = new PagoAgil.DataSet.SQL_BOYS_Data_Set();
             this.filtrosPanel = new System.Windows.Forms.GroupBox();
             this.filtrosTabla = new System.Windows.Forms.TableLayoutPanel();
             this.buscarButton = new System.Windows.Forms.Button();
@@ -48,24 +59,13 @@
             this.modificarButton = new System.Windows.Forms.Button();
             this.volverAInicioButton = new System.Windows.Forms.Button();
             this.bajaButton = new System.Windows.Forms.Button();
-            this.sQL_BOYS_Data_Set = new PagoAgil.DataSet.SQL_BOYS_Data_Set();
             this.empresaTableAdapter = new PagoAgil.DataSet.SQL_BOYS_Data_SetTableAdapters.EmpresaTableAdapter();
-            this.empresaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idempresaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cuitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.domicilioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.porcentajecomisionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.diarendicionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idrubroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.habilitadxDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.resultadosBusquedaPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.empresasDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empresaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sQL_BOYS_Data_Set)).BeginInit();
             this.filtrosPanel.SuspendLayout();
             this.filtrosTabla.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sQL_BOYS_Data_Set)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.empresaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // resultadosBusquedaPanel
@@ -100,6 +100,97 @@
             this.empresasDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.empresasDataGrid.Size = new System.Drawing.Size(886, 343);
             this.empresasDataGrid.TabIndex = 0;
+            // 
+            // idempresaDataGridViewTextBoxColumn
+            // 
+            this.idempresaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
+            this.idempresaDataGridViewTextBoxColumn.DataPropertyName = "id_empresa";
+            this.idempresaDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idempresaDataGridViewTextBoxColumn.Name = "idempresaDataGridViewTextBoxColumn";
+            this.idempresaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idempresaDataGridViewTextBoxColumn.Width = 21;
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nombreDataGridViewTextBoxColumn.Width = 69;
+            // 
+            // cuitDataGridViewTextBoxColumn
+            // 
+            this.cuitDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.cuitDataGridViewTextBoxColumn.DataPropertyName = "cuit";
+            this.cuitDataGridViewTextBoxColumn.HeaderText = "CUIT";
+            this.cuitDataGridViewTextBoxColumn.Name = "cuitDataGridViewTextBoxColumn";
+            this.cuitDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cuitDataGridViewTextBoxColumn.Width = 57;
+            // 
+            // domicilioDataGridViewTextBoxColumn
+            // 
+            this.domicilioDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.domicilioDataGridViewTextBoxColumn.DataPropertyName = "domicilio";
+            this.domicilioDataGridViewTextBoxColumn.HeaderText = "Domicilio";
+            this.domicilioDataGridViewTextBoxColumn.Name = "domicilioDataGridViewTextBoxColumn";
+            this.domicilioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.domicilioDataGridViewTextBoxColumn.Width = 74;
+            // 
+            // porcentajecomisionDataGridViewTextBoxColumn
+            // 
+            this.porcentajecomisionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.porcentajecomisionDataGridViewTextBoxColumn.DataPropertyName = "porcentaje_comision";
+            this.porcentajecomisionDataGridViewTextBoxColumn.HeaderText = "Porcentaje de comisión";
+            this.porcentajecomisionDataGridViewTextBoxColumn.Name = "porcentajecomisionDataGridViewTextBoxColumn";
+            this.porcentajecomisionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.porcentajecomisionDataGridViewTextBoxColumn.Width = 142;
+            // 
+            // diarendicionDataGridViewTextBoxColumn
+            // 
+            this.diarendicionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.diarendicionDataGridViewTextBoxColumn.DataPropertyName = "dia_rendicion";
+            this.diarendicionDataGridViewTextBoxColumn.HeaderText = "Día de rendición";
+            this.diarendicionDataGridViewTextBoxColumn.Name = "diarendicionDataGridViewTextBoxColumn";
+            this.diarendicionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.diarendicionDataGridViewTextBoxColumn.Width = 111;
+            // 
+            // idrubroDataGridViewTextBoxColumn
+            // 
+            this.idrubroDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.idrubroDataGridViewTextBoxColumn.DataPropertyName = "id_rubro";
+            this.idrubroDataGridViewTextBoxColumn.HeaderText = "Id de rubro";
+            this.idrubroDataGridViewTextBoxColumn.Name = "idrubroDataGridViewTextBoxColumn";
+            this.idrubroDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idrubroDataGridViewTextBoxColumn.Width = 83;
+            // 
+            // descripcionDataGridViewTextBoxColumn
+            // 
+            this.descripcionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "descripcion";
+            this.descripcionDataGridViewTextBoxColumn.HeaderText = "Rubro";
+            this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
+            this.descripcionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descripcionDataGridViewTextBoxColumn.Width = 61;
+            // 
+            // habilitadxDataGridViewCheckBoxColumn
+            // 
+            this.habilitadxDataGridViewCheckBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.habilitadxDataGridViewCheckBoxColumn.DataPropertyName = "habilitadx";
+            this.habilitadxDataGridViewCheckBoxColumn.HeaderText = "Hablitadx";
+            this.habilitadxDataGridViewCheckBoxColumn.Name = "habilitadxDataGridViewCheckBoxColumn";
+            this.habilitadxDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.habilitadxDataGridViewCheckBoxColumn.Width = 57;
+            // 
+            // empresaBindingSource
+            // 
+            this.empresaBindingSource.DataMember = "Empresa";
+            this.empresaBindingSource.DataSource = this.sQL_BOYS_Data_Set;
+            // 
+            // sQL_BOYS_Data_Set
+            // 
+            this.sQL_BOYS_Data_Set.DataSetName = "SQL_BOYS_Data_Set";
+            this.sQL_BOYS_Data_Set.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // filtrosPanel
             // 
@@ -229,6 +320,7 @@
             this.seleccionarButton.TabIndex = 13;
             this.seleccionarButton.Text = "Seleccionar";
             this.seleccionarButton.UseVisualStyleBackColor = true;
+            this.seleccionarButton.Click += new System.EventHandler(this.seleccionarButton_Click);
             // 
             // empresaElegidaText
             // 
@@ -280,100 +372,9 @@
             this.bajaButton.Text = "Dar de baja";
             this.bajaButton.UseVisualStyleBackColor = true;
             // 
-            // sQL_BOYS_Data_Set
-            // 
-            this.sQL_BOYS_Data_Set.DataSetName = "SQL_BOYS_Data_Set";
-            this.sQL_BOYS_Data_Set.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // empresaTableAdapter
             // 
             this.empresaTableAdapter.ClearBeforeFill = true;
-            // 
-            // empresaBindingSource
-            // 
-            this.empresaBindingSource.DataMember = "Empresa";
-            this.empresaBindingSource.DataSource = this.sQL_BOYS_Data_Set;
-            // 
-            // idempresaDataGridViewTextBoxColumn
-            // 
-            this.idempresaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
-            this.idempresaDataGridViewTextBoxColumn.DataPropertyName = "id_empresa";
-            this.idempresaDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idempresaDataGridViewTextBoxColumn.Name = "idempresaDataGridViewTextBoxColumn";
-            this.idempresaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idempresaDataGridViewTextBoxColumn.Width = 21;
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreDataGridViewTextBoxColumn.Width = 69;
-            // 
-            // cuitDataGridViewTextBoxColumn
-            // 
-            this.cuitDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.cuitDataGridViewTextBoxColumn.DataPropertyName = "cuit";
-            this.cuitDataGridViewTextBoxColumn.HeaderText = "CUIT";
-            this.cuitDataGridViewTextBoxColumn.Name = "cuitDataGridViewTextBoxColumn";
-            this.cuitDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cuitDataGridViewTextBoxColumn.Width = 57;
-            // 
-            // domicilioDataGridViewTextBoxColumn
-            // 
-            this.domicilioDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.domicilioDataGridViewTextBoxColumn.DataPropertyName = "domicilio";
-            this.domicilioDataGridViewTextBoxColumn.HeaderText = "Domicilio";
-            this.domicilioDataGridViewTextBoxColumn.Name = "domicilioDataGridViewTextBoxColumn";
-            this.domicilioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.domicilioDataGridViewTextBoxColumn.Width = 74;
-            // 
-            // porcentajecomisionDataGridViewTextBoxColumn
-            // 
-            this.porcentajecomisionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.porcentajecomisionDataGridViewTextBoxColumn.DataPropertyName = "porcentaje_comision";
-            this.porcentajecomisionDataGridViewTextBoxColumn.HeaderText = "Porcentaje de comisión";
-            this.porcentajecomisionDataGridViewTextBoxColumn.Name = "porcentajecomisionDataGridViewTextBoxColumn";
-            this.porcentajecomisionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.porcentajecomisionDataGridViewTextBoxColumn.Width = 142;
-            // 
-            // diarendicionDataGridViewTextBoxColumn
-            // 
-            this.diarendicionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.diarendicionDataGridViewTextBoxColumn.DataPropertyName = "dia_rendicion";
-            this.diarendicionDataGridViewTextBoxColumn.HeaderText = "Día de rendición";
-            this.diarendicionDataGridViewTextBoxColumn.Name = "diarendicionDataGridViewTextBoxColumn";
-            this.diarendicionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.diarendicionDataGridViewTextBoxColumn.Width = 111;
-            // 
-            // idrubroDataGridViewTextBoxColumn
-            // 
-            this.idrubroDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.idrubroDataGridViewTextBoxColumn.DataPropertyName = "id_rubro";
-            this.idrubroDataGridViewTextBoxColumn.HeaderText = "Id de rubro";
-            this.idrubroDataGridViewTextBoxColumn.Name = "idrubroDataGridViewTextBoxColumn";
-            this.idrubroDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idrubroDataGridViewTextBoxColumn.Width = 83;
-            // 
-            // descripcionDataGridViewTextBoxColumn
-            // 
-            this.descripcionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "descripcion";
-            this.descripcionDataGridViewTextBoxColumn.HeaderText = "Rubro";
-            this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
-            this.descripcionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.descripcionDataGridViewTextBoxColumn.Width = 61;
-            // 
-            // habilitadxDataGridViewCheckBoxColumn
-            // 
-            this.habilitadxDataGridViewCheckBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.habilitadxDataGridViewCheckBoxColumn.DataPropertyName = "habilitadx";
-            this.habilitadxDataGridViewCheckBoxColumn.HeaderText = "Hablitadx";
-            this.habilitadxDataGridViewCheckBoxColumn.Name = "habilitadxDataGridViewCheckBoxColumn";
-            this.habilitadxDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.habilitadxDataGridViewCheckBoxColumn.Width = 57;
             // 
             // EmpresasBuscador
             // 
@@ -391,11 +392,11 @@
             this.Load += new System.EventHandler(this.EmpresasBuscador_Load);
             this.resultadosBusquedaPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.empresasDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empresaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sQL_BOYS_Data_Set)).EndInit();
             this.filtrosPanel.ResumeLayout(false);
             this.filtrosTabla.ResumeLayout(false);
             this.filtrosTabla.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sQL_BOYS_Data_Set)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.empresaBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

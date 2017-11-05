@@ -12,15 +12,6 @@ namespace PagoAgil.Aplicacion.Orquestradores.Estadisticas
     public class GestorDeEstadisticas
     {
 
-        private static GestorDeEstadisticas instance = new GestorDeEstadisticas();
-
-        private GestorDeEstadisticas(){}
-
-        public static GestorDeEstadisticas getInstance()
-        {
-            return instance;
-        }
-
         Estadistica estadistica;
         List<string> columnasElectas = new List<string>();
         int trimestre = 0;

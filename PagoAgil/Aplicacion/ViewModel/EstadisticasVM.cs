@@ -12,42 +12,44 @@ namespace PagoAgil.Aplicacion.ViewModel
     public class EstadisticasVM
     {
 
+        GestorDeEstadisticas gestorDeEstadisticas = new GestorDeEstadisticas();
+
         public Estadistica[] obtenerEstadisticas()
         {
 
-            return GestorDeEstadisticas.getInstance().obtenerEstadisticas();
+            return gestorDeEstadisticas.obtenerEstadisticas();
 
         }
 
         public void trimestre(int trimestre)
         {
 
-            GestorDeEstadisticas.getInstance().asignarTrimestre(trimestre);
+            gestorDeEstadisticas.asignarTrimestre(trimestre);
 
         }
 
         public Boolean esCalculable()
         {
 
-            return GestorDeEstadisticas.getInstance().esCalculable();
+            return gestorDeEstadisticas.esCalculable();
 
         }
 
 
         public void agregarColumna(string p)
         {
-            GestorDeEstadisticas.getInstance().agregarColumna(p);
+            gestorDeEstadisticas.agregarColumna(p);
         }
 
         public void quitarColumna(string p)
         {
-            GestorDeEstadisticas.getInstance().quitarColumna(p);
+            gestorDeEstadisticas.quitarColumna(p);
         }
 
         public List<System.Windows.Forms.CheckBox> obtenerCheckboxes(Estadistica estadisticaElegida)
         {
 
-            GestorDeEstadisticas.getInstance().elegir(estadisticaElegida);
+            gestorDeEstadisticas.elegir(estadisticaElegida);
 
             return CreadorDeVistas.getInstance().crearCheckboxes(estadisticaElegida);
             
@@ -56,7 +58,7 @@ namespace PagoAgil.Aplicacion.ViewModel
         internal System.Data.DataTable calcularEstadistica(string anio)
         {
 
-            return GestorDeEstadisticas.getInstance().calcularEstadistica(anio);
+            return gestorDeEstadisticas.calcularEstadistica(anio);
 
         }
     }

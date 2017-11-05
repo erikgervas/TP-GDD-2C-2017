@@ -1,5 +1,6 @@
 ﻿using PagoAgil.Aplicacion.BD.Repositorios;
 using PagoAgil.Aplicacion.BD.Utils;
+using PagoAgil.Aplicacion.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,6 +13,7 @@ namespace PagoAgil.Aplicacion.ViewModel
     public class EmpresasBuscadorVM
     {
         public List<String> rubros { get { return RepositorioRubros.instanciar().listarElementos(); } }
+        public Empresa empresaElegida { get; set; }
 
         public EmpresasBuscadorVM() { }
 

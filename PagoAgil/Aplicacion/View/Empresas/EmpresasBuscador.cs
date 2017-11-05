@@ -13,14 +13,14 @@ namespace PagoAgil.Aplicacion.View.Empresas
 {
     public partial class EmpresasBuscador : Form
     {
-        private EmpresasBuscadorVM viewModel = new EmpresasBuscadorVM();
+        public EmpresasBuscadorVM viewModel = new EmpresasBuscadorVM();
 
         public EmpresasBuscador()
         {
             InitializeComponent();
             this.CenterToScreen();
-
             foreach (String rubro in this.viewModel.rubros) this.rubroComboBox.Items.Add(rubro);
+            this.empresasDataGrid.DataSource = null;
         }
 
         private void volverAInicioButton_Click(object sender, EventArgs e)
@@ -56,9 +56,14 @@ namespace PagoAgil.Aplicacion.View.Empresas
 
         private void EmpresasBuscador_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'sQL_BOYS_Data_Set.Empresa' table. You can move, or remove it, as needed.
             this.empresaTableAdapter.Fill(this.sQL_BOYS_Data_Set.Empresa);
+        }
 
+        private void seleccionarButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            new EmpresasBuscadorSeleccionar(this).Show();
         }
     }
 }
