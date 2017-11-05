@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PagoAgil.Aplicacion.Modelo.ClienteSQL
 {
-    class PagoDB
+    public class PagoDB
     {
         public long numeroPago { get; set; }
         public double montoTotal { get; set; }

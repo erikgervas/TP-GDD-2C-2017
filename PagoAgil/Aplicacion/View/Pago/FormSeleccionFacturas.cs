@@ -12,7 +12,7 @@ namespace PagoAgil.Aplicacion.View.Pago
 {
     public partial class FormSeleccionFacturas : Form
     {
-        PagoBuilder miPagoBuilder;
+        private PagoBuilder miPagoBuilder;
 
         public FormSeleccionFacturas(PagoBuilder pagoBuilder)
         {

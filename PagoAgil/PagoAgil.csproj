@@ -72,6 +72,7 @@
     <Compile Include="Aplicacion\Configuracion.cs" />
     <Compile Include="Aplicacion\Modelo\Cliente.cs" />
     <Compile Include="Aplicacion\Modelo\ClienteSQL\ClienteDB.cs" />
+    <Compile Include="Aplicacion\Modelo\ClienteSQL\PagoDB.cs" />
     <Compile Include="Aplicacion\Modelo\ClienteSQL\RolDB.cs" />
     <Compile Include="Aplicacion\Modelo\ClienteSQL\SucursalDB.cs" />
     <Compile Include="Aplicacion\Modelo\ClienteSQL\UsuarioDB.cs" />
@@ -83,7 +84,6 @@
     <Compile Include="Aplicacion\Modelo\Habilitable.cs" />
     <Compile Include="Aplicacion\Modelo\Identificable.cs" />
     <Compile Include="Aplicacion\Modelo\MedioDePago.cs" />
-    <Compile Include="Aplicacion\Modelo\Pago.cs" />
     <Compile Include="Aplicacion\Modelo\Serializador\EncriptadorSHA.cs" />
     <Compile Include="Aplicacion\Modelo\Sucursal.cs" />
     <Compile Include="Aplicacion\Modelo\Usuario\Funcionalidad.cs" />

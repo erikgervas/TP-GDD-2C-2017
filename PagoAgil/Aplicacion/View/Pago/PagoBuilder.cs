@@ -8,7 +8,7 @@ using PagoAgil.Aplicacion.Modelo.ClienteSQL;
 
 namespace PagoAgil.Aplicacion.View.Pago
 {
-    class PagoBuilder
+    public class PagoBuilder
     {
         public long numeroPago { get; set; }
         public double montoTotal { get; set; }
