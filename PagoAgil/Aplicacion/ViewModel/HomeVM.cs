@@ -10,13 +10,9 @@ namespace PagoAgil.Aplicacion.View
     class HomeVM
     {
 
-        Usuario usuarioLoggeado;
-
-        public HomeVM(Usuario usuario)
+        public HomeVM()
         {
-            this.usuarioLoggeado = usuario;
         }
-
 
     }
 }

@@ -26,7 +26,7 @@ namespace PagoAgil.Aplicacion.Orquestradores
         public DataTable obtenerEmpresasARendir()
         {
 
-            return LectorDeTablas.getInstance().obtenerMejorado("empresasARendir()");
+            return LectorDeTablas.getInstance().obtenerMejorado("empresasARendir('" + Configuracion.fechaCruda() + "')");
         
         }
 
@@ -44,7 +44,7 @@ namespace PagoAgil.Aplicacion.Orquestradores
                 int idEmpresa = (int) empresa.Cells["id_empresa"].Value;
                 string nombreEmpresa = (string) empresa.Cells["nombre"].Value;
 
-                int filasAfectadas = EjecutadorDeProcedures.getInstance().ejecutar("rendirFacturas(" + idEmpresa + ")");
+                int filasAfectadas = EjecutadorDeProcedures.getInstance().ejecutar("rendirFacturas " + idEmpresa + ", '" + Configuracion.fechaCruda() + "'");
 
                 filasAfectadasPorEmpresa[nombreEmpresa] = idEmpresa;
 

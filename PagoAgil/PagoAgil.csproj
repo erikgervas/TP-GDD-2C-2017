@@ -69,6 +69,7 @@
     <Compile Include="Aplicacion\BD\Utils\ParametroFactory.cs" />
     <Compile Include="Aplicacion\Builders\EmpresaBuilder.cs" />
     <Compile Include="Aplicacion\Builders\Excepciones\NoSePuedeCrearException.cs" />
+    <Compile Include="Aplicacion\Configuracion.cs" />
     <Compile Include="Aplicacion\Modelo\Cliente.cs" />
     <Compile Include="Aplicacion\Modelo\ClienteSQL\ClienteDB.cs" />
     <Compile Include="Aplicacion\Modelo\ClienteSQL\RolDB.cs" />
@@ -92,14 +93,17 @@
     <Compile Include="Aplicacion\Orquestradores\Estadisticas\GestorDeEstadisticas.cs" />
     <Compile Include="Aplicacion\Orquestradores\GestorDeClientes.cs" />
     <Compile Include="Aplicacion\Orquestradores\Estadisticas\RepositorioDeEstadisticas.cs" />
+    <Compile Include="Aplicacion\Orquestradores\GestorDeDevoluciones.cs" />
     <Compile Include="Aplicacion\Orquestradores\GestorDeRendiciones.cs" />
     <Compile Include="Aplicacion\Orquestradores\GestorDeRoles.cs" />
     <Compile Include="Aplicacion\Orquestradores\GestorDeSucursales.cs" />
+    <Compile Include="Aplicacion\Sesion.cs" />
     <Compile Include="Aplicacion\ViewModel\AltaSucursalVM.cs" />
     <Compile Include="Aplicacion\ViewModel\BajaSucursalVM.cs" />
     <Compile Include="Aplicacion\ViewModel\EmpresasAltaVM.cs" />
     <Compile Include="Aplicacion\ViewModel\EmpresasBuscadorVM.cs" />
     <Compile Include="Aplicacion\ViewModel\EstadisticasVM.cs" />
+    <Compile Include="Aplicacion\ViewModel\FormDevolucionVM.cs" />
     <Compile Include="Aplicacion\ViewModel\HomeVM.cs" />
     <Compile Include="Aplicacion\ViewModel\ListadoSucursalesVM.cs" />
     <Compile Include="Aplicacion\ViewModel\LoginVM.cs" />
@@ -112,6 +116,12 @@
     <Compile Include="Aplicacion\ViewModel\ClientesVM.cs" />
     <Compile Include="Aplicacion\View\Cliente\FormABMCliente.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Devolucion\FormDevolucion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Devolucion\FormDevolucion.Designer.cs">
+      <DependentUpon>FormDevolucion.cs</DependentUpon>
     </Compile>
     <Compile Include="Aplicacion\View\Empresas\EmpresasAdvertenciaFaltanCampos.cs">
       <SubType>Form</SubType>
@@ -296,6 +306,9 @@
     </Compile>
     <EmbeddedResource Include="Aplicacion\View\Cliente\FormABMCliente.resx">
       <DependentUpon>FormABMCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Devolucion\FormDevolucion.resx">
+      <DependentUpon>FormDevolucion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\Empresas\EmpresasAdvertenciaFaltanCampos.resx">
       <DependentUpon>EmpresasAdvertenciaFaltanCampos.cs</DependentUpon>

@@ -28,14 +28,6 @@ namespace PagoAgil.Aplicacion.ViewModel
 
         }
 
-        public Boolean esCalculable()
-        {
-
-            return gestorDeEstadisticas.esCalculable();
-
-        }
-
-
         public void agregarColumna(string p)
         {
             gestorDeEstadisticas.agregarColumna(p);
