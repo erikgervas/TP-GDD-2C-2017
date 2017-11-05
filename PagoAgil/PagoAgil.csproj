@@ -121,6 +121,7 @@
     <Compile Include="Aplicacion\Orquestradores\GestorDeUsuarios.cs" />
     <Compile Include="Aplicacion\Orquestradores\ValidadorDeInputs.cs" />
     <Compile Include="Aplicacion\ViewModel\ClientesVM.cs" />
+    <Compile Include="Aplicacion\ViewModel\SeleccionFacturaVM.cs" />
     <Compile Include="Aplicacion\View\Cliente\FormABMCliente.cs">
       <SubType>Form</SubType>
     </Compile>

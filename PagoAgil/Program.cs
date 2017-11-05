@@ -1,13 +1,12 @@
-﻿using PagoAgil.Aplicacion.BD;
+﻿using PagoAgil.Aplicacion;
+using PagoAgil.Aplicacion.BD;
 using PagoAgil.Aplicacion.Orquestradores;
 using PagoAgil.Aplicacion.View;
+using PagoAgil.Aplicacion.View.Empresas;
+using PagoAgil.Aplicacion.View.Pago;
+using PagoAgil.Aplicacion.View.Sucursales;
 using System;
 using System.Windows.Forms;
-using PagoAgil.Aplicacion.View.Sucursales;
-using PagoAgil.Aplicacion.View.Empresas;
-using PagoAgil.Aplicacion;
-using PagoAgil.Aplicacion;
-using PagoAgil.Aplicacion.View.Pago;
 
 
 namespace PagoAgil
