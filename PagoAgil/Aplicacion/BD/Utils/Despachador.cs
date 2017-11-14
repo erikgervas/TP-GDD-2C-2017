@@ -22,10 +22,11 @@ namespace PagoAgil.Aplicacion.BD.Utils
 
         public void darDeBajaSucursal(SucursalDB s) 
         {
-            SqlCommand cmd = new SqlCommand("UPDATE SQL_BOYS.Sucursal SET habilitadx = 0 WHERE cp_sucursal = " +
-                         s.codigoPostal, Conexion.getInstance().obtenerConexion());
+            SqlCommand cmd = new SqlCommand("SQL_BOYS.darDeBajaSucursal", Conexion.getInstance().obtenerConexion());
 
-            cmd.CommandType = CommandType.Text;
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@CP", DbType.Int32).Value = s.codigoPostal;
 
             cmd.ExecuteNonQuery();
         }

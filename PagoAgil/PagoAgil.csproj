@@ -252,6 +252,7 @@
     <Compile Include="Aplicacion\View\Rendicion\FormRendicion.Designer.cs">
       <DependentUpon>FormRendicion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Aplicacion\View\Sucursales\Excepciones\SucursalYaDeshabilitadaException.cs" />
     <Compile Include="Aplicacion\View\Sucursales\FormABMSucursal.cs">
       <SubType>Form</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

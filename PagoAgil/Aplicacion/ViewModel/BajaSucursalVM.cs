@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using PagoAgil.Aplicacion.Modelo.ClienteSQL;
 using PagoAgil.Aplicacion.BD.Repositorios;
 using System.Data;
+using PagoAgil.Aplicacion.View.Sucursales.Excepciones;
 
 namespace PagoAgil.Aplicacion.View
 
@@ -22,6 +23,9 @@ namespace PagoAgil.Aplicacion.View
         {
 
             SucursalDB sucursalADespachar = RepositorioSucursales.getInstancia().getAlmacenamiento().obtenerSucursalPorCP(cp);
+
+            if (sucursalADespachar.habilitado == false) throw new SucursalYaDeshabilitadaException("Sucursal ya deshabilitada");
+ 
             RepositorioSucursales.getInstancia().getAlmacenamiento().eliminar(sucursalADespachar);
   
         }

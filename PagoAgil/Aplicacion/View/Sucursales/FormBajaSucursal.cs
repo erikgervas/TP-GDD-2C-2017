@@ -6,6 +6,7 @@ using PagoAgil.Aplicacion.Modelo.ClienteSQL;
 using PagoAgil.Aplicacion.BD;
 using PagoAgil.Aplicacion.BD.Repositorios;
 using PagoAgil.Aplicacion.Modelo;
+using PagoAgil.Aplicacion.View.Sucursales.Excepciones;
 
 namespace PagoAgil.Aplicacion.View
 {
@@ -43,7 +44,16 @@ namespace PagoAgil.Aplicacion.View
 
         private void button1_Click(object sender, EventArgs e)
         {
-            bajaSucursalVM.darDeBaja(cp);
+            try
+            {
+                bajaSucursalVM.darDeBaja(cp);
+            }
+            catch (SucursalYaDeshabilitadaException)
+            {
+                MessageBox.Show("La sucursal seleccionada ya se encuentra deshabilitada");
+                return;
+            }
+
             this.Hide();
         }
 
