@@ -58,7 +58,13 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
             return sucursales;
 
         }
-        
+
+        public SucursalDB obtenerSucursalPorCP(int cp) 
+        {
+            string query = "SELECT * FROM SQL_BOYS.obtenerSucursalPorCodigoPostal("+ cp + ")";
+
+            return obtainSucursalesFromQuery(query).ElementAt(0);
+        }
 
         public long asignarId()
         {
@@ -70,9 +76,9 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
             Insertador.getInstance().insertarSucursal(unaSucursal);
         }
 
-        public void eliminar(SucursalDB unaEntidad)
+        public void eliminar(SucursalDB unaSucursal)
         {
-
+            Despachador.getInstance().darDeBajaSucursal(unaSucursal);
         }
 
         public void modificar(SucursalDB unaEntidad)

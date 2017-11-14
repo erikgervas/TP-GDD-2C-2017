@@ -18,19 +18,20 @@ namespace PagoAgil.Aplicacion.View.Sucursales
     public partial class FormListadoSucursales : Form
     {
         ListadoSucursalesVM VM;
-        SucursalDB sucursalElegida;
+        string accion;
 
-        public FormListadoSucursales(String accion)
+        public FormListadoSucursales(string miAccion)
         {
             InitializeComponent();
             this.CenterToScreen();
             VM = new ListadoSucursalesVM();
+            accion = miAccion;
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            sucursalElegida = (SucursalDB)dataGridView1.CurrentRow.DataBoundItem;
-            buttonSeleccionarSucursal.Enabled = true;
+ 
         }
 
         private void buttonFiltrar_Click(object sender, EventArgs e)
@@ -51,6 +52,9 @@ namespace PagoAgil.Aplicacion.View.Sucursales
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridView1.Columns[dataGridView1.ColumnCount - 2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridView1.Columns[dataGridView1.ColumnCount - 3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            buttonSeleccionarSucursal.Enabled = true;
+
         }
 
         private void FormListadoSucursales_Load(object sender, EventArgs e)
@@ -69,6 +73,23 @@ namespace PagoAgil.Aplicacion.View.Sucursales
 
         private void buttonSeleccionarSucursal_Click(object sender, EventArgs e)
         {
+            int currentRow = dataGridView1.CurrentCell.RowIndex;
+            string codigoPostalElegido = dataGridView1.Rows[currentRow].Cells[0].Value.ToString();
+            int cp = int.Parse(codigoPostalElegido);
+
+            if(accion.Equals("modificacion"))
+            {
+                FormModificacionSucursal modificacion = new FormModificacionSucursal(cp);
+                this.Hide();
+                modificacion.Show();
+            }
+            else
+            {
+                FormBajaSucursal baja = new FormBajaSucursal(cp);
+                this.Hide();
+                baja.Show();
+            }
+
 
         }
 

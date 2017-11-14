@@ -53,6 +53,7 @@
     <Compile Include="Aplicacion\BD\MediosPersistentes\Medios\MedioRubro.cs" />
     <Compile Include="Aplicacion\BD\MediosPersistentes\Medios\MedioSucursal.cs" />
     <Compile Include="Aplicacion\BD\Repositorios\RepositorioFacturas.cs" />
+    <Compile Include="Aplicacion\BD\Utils\Despachador.cs" />
     <Compile Include="Aplicacion\BD\Utils\EjecutadorDeProcedures.cs" />
     <Compile Include="Aplicacion\BD\Utils\Parametro.cs" />
     <Compile Include="Aplicacion\BD\Repositorios\RepositorioClientes.cs" />
