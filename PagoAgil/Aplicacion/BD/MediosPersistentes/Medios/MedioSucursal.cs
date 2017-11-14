@@ -81,9 +81,9 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
             Despachador.getInstance().darDeBajaSucursal(unaSucursal);
         }
 
-        public void modificar(SucursalDB unaEntidad)
+        public void modificar(SucursalDB unaSucursal)
         {
-
+            Actualizador.getInstance().actualizarSucursal(unaSucursal);
         }
 
 

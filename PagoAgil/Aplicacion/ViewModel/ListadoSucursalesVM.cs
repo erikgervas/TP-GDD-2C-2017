@@ -16,5 +16,10 @@ namespace PagoAgil.Aplicacion.ViewModel
             return RepositorioSucursales.getInstancia().getAlmacenamiento().darTodosLosQueCumplanLosFiltros(nombre,direccion,codigoPostal);
 
         }
+
+        public SucursalDB traerSucursal(int cp) 
+        {
+            return RepositorioSucursales.getInstancia().getAlmacenamiento().obtenerSucursalPorCP(cp);
+        }
     }
 }

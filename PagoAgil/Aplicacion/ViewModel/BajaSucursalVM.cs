@@ -19,11 +19,8 @@ namespace PagoAgil.Aplicacion.View
             return RepositorioSucursales.getInstancia().getAlmacenamiento().darTodosLosQueCumplanLosFiltros("", "", cp);
         }
 
-        public void darDeBaja(int cp)
+        public void darDeBaja(SucursalDB sucursalADespachar)
         {
-
-            SucursalDB sucursalADespachar = RepositorioSucursales.getInstancia().getAlmacenamiento().obtenerSucursalPorCP(cp);
-
             if (sucursalADespachar.habilitado == false) throw new SucursalYaDeshabilitadaException("Sucursal ya deshabilitada");
  
             RepositorioSucursales.getInstancia().getAlmacenamiento().eliminar(sucursalADespachar);

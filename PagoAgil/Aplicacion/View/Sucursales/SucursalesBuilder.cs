@@ -13,10 +13,16 @@ namespace PagoAgil.Aplicacion.View.Sucursales
         public string nombre { get; set; }
         public string domicilio { get; set; }
         public int codigoPostal { get; set; }
+        public bool habilitado { get; set; }
 
         public SucursalDB crearSucursal()
         {
             return new SucursalDB(this.codigoPostal, this.nombre, this.domicilio, true);
+        }
+
+        public SucursalDB crearSucursalModificada() 
+        {
+            return new SucursalDB(this.codigoPostal, this.nombre, this.domicilio, this.habilitado);
         }
     }
 }

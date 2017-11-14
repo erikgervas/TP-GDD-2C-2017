@@ -13,13 +13,13 @@ namespace PagoAgil.Aplicacion.View
     public partial class FormBajaSucursal : Form
     {
         BajaSucursalVM bajaSucursalVM;
-        int cp;
+        SucursalDB sucursal;
 
-        public FormBajaSucursal(int codigoPostalElegido)
+        public FormBajaSucursal(SucursalDB sucursalElegida)
         {
             InitializeComponent();
             this.CenterToScreen();
-            cp = codigoPostalElegido;
+            sucursal = sucursalElegida;
 
             bajaSucursalVM = new BajaSucursalVM();
             cargarSucursalElegida();
@@ -28,7 +28,7 @@ namespace PagoAgil.Aplicacion.View
         public void cargarSucursalElegida()
         {
 
-            DataTable sucursalesFiltradas = bajaSucursalVM.traerSucursalElegida(cp);
+            DataTable sucursalesFiltradas = bajaSucursalVM.traerSucursalElegida(sucursal.codigoPostal);
 
             dataGridView1.DataSource = sucursalesFiltradas;
 
@@ -46,7 +46,7 @@ namespace PagoAgil.Aplicacion.View
         {
             try
             {
-                bajaSucursalVM.darDeBaja(cp);
+                bajaSucursalVM.darDeBaja(sucursal);
             }
             catch (SucursalYaDeshabilitadaException)
             {

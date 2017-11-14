@@ -76,16 +76,17 @@ namespace PagoAgil.Aplicacion.View.Sucursales
             int currentRow = dataGridView1.CurrentCell.RowIndex;
             string codigoPostalElegido = dataGridView1.Rows[currentRow].Cells[0].Value.ToString();
             int cp = int.Parse(codigoPostalElegido);
+            SucursalDB sucursalElegida = VM.traerSucursal(cp);
 
             if(accion.Equals("modificacion"))
             {
-                FormModificacionSucursal modificacion = new FormModificacionSucursal(cp);
+                FormModificacionSucursal modificacion = new FormModificacionSucursal(sucursalElegida);
                 this.Hide();
                 modificacion.Show();
             }
             else
             {
-                FormBajaSucursal baja = new FormBajaSucursal(cp);
+                FormBajaSucursal baja = new FormBajaSucursal(sucursalElegida);
                 this.Hide();
                 baja.Show();
             }
