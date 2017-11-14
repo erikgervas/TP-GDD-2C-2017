@@ -39,6 +39,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.numericUpDownCP = new System.Windows.Forms.NumericUpDown();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.buttonSeleccionarSucursal = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -151,15 +152,31 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(15, 185);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(888, 240);
             this.dataGridView1.TabIndex = 12;
+            // 
+            // buttonSeleccionarSucursal
+            // 
+            this.buttonSeleccionarSucursal.Enabled = false;
+            this.buttonSeleccionarSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSeleccionarSucursal.Location = new System.Drawing.Point(333, 437);
+            this.buttonSeleccionarSucursal.Name = "buttonSeleccionarSucursal";
+            this.buttonSeleccionarSucursal.Size = new System.Drawing.Size(237, 32);
+            this.buttonSeleccionarSucursal.TabIndex = 13;
+            this.buttonSeleccionarSucursal.Text = "Seleccionar sucursal";
+            this.buttonSeleccionarSucursal.UseVisualStyleBackColor = true;
+            this.buttonSeleccionarSucursal.Click += new System.EventHandler(this.buttonSeleccionarSucursal_Click);
             // 
             // FormListadoSucursales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(933, 437);
+            this.ClientSize = new System.Drawing.Size(933, 481);
+            this.Controls.Add(this.buttonSeleccionarSucursal);
             this.Controls.Add(this.Limpiar);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.numericUpDownCP);
@@ -194,5 +211,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown numericUpDownCP;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button buttonSeleccionarSucursal;
     }
 }

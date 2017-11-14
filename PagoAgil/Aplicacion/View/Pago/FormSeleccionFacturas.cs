@@ -27,9 +27,11 @@ namespace PagoAgil.Aplicacion.View.Pago
 
             numericUpDownNroF.Text = "";
 
-            Empresa[] empresas = VM.obtenerEmpresas();
+            VM.obtenerEmpresas();
+           //Empresa[] empresas = VM.obtenerEmpresas();
 
-            comboBoxEmpresa.Items.AddRange(empresas);
+            foreach (String nombre in this.VM.empresas) this.comboBoxEmpresa.Items.Add(nombre);
+            //comboBoxEmpresa.Items.AddRange(empresas);
         }
 
         private void buttonBuscarFactura_Click(object sender, EventArgs e)

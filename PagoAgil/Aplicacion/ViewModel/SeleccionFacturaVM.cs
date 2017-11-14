@@ -12,6 +12,7 @@ namespace PagoAgil.Aplicacion.ViewModel
 {
     class SeleccionFacturaVM
     {
+        public List<string> empresas { get; set; }
 
         public void buscarFactura(int numeroFactura,long idEmpresa, DateTime fechaVencimiento)
         {
@@ -20,9 +21,9 @@ namespace PagoAgil.Aplicacion.ViewModel
             //return factura;
         }
 
-        public Empresa[] obtenerEmpresas() 
+        public void obtenerEmpresas() 
         {
-            return RepositorioEmpresas.instanciar().listarElementos().ToArray();
+           empresas = (List<string>) RepositorioEmpresas.instanciar().listarElementos().Select(e => e.ToString());
         }
 
     }

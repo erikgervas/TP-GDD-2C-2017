@@ -33,7 +33,7 @@ namespace PagoAgil.Aplicacion.Modelo
 
         public override string ToString()
         {
-            return this.nombre;
+            return nombre;
         }
 
     }

@@ -97,16 +97,21 @@
             // 
             this.numericUpDownCP.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDownCP.Location = new System.Drawing.Point(56, 197);
+            this.numericUpDownCP.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.numericUpDownCP.Name = "numericUpDownCP";
             this.numericUpDownCP.Size = new System.Drawing.Size(356, 24);
             this.numericUpDownCP.TabIndex = 6;
             this.numericUpDownCP.ValueChanged += new System.EventHandler(this.numericUpDownCP_ValueChanged);
             // 
-            // button1
+            // buttonConfirmar
             // 
             this.buttonConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonConfirmar.Location = new System.Drawing.Point(251, 246);
-            this.buttonConfirmar.Name = "button1";
+            this.buttonConfirmar.Name = "buttonConfirmar";
             this.buttonConfirmar.Size = new System.Drawing.Size(161, 28);
             this.buttonConfirmar.TabIndex = 7;
             this.buttonConfirmar.Text = "Confirmar";
@@ -125,11 +130,11 @@
             this.label4.Text = "*Recuerde que el mismo debe ser único";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // button2
+            // buttonLimpiar
             // 
             this.buttonLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLimpiar.Location = new System.Drawing.Point(56, 246);
-            this.buttonLimpiar.Name = "button2";
+            this.buttonLimpiar.Name = "buttonLimpiar";
             this.buttonLimpiar.Size = new System.Drawing.Size(161, 28);
             this.buttonLimpiar.TabIndex = 9;
             this.buttonLimpiar.Text = "Limpiar";

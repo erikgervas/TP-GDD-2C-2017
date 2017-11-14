@@ -51,6 +51,12 @@ namespace PagoAgil.Aplicacion.View
         private void buttonLimpiar_Click(object sender, EventArgs e)
         {
             sucursalBuilder = new SucursalesBuilder();
+
+            textBoxNombre.Clear();
+            textBoxDireccion.Clear();
+            numericUpDownCP.Value = 0;
+            numericUpDownCP.Text = "";
+
         }
 
         private void buttonConfirmar_Click(object sender, EventArgs e)

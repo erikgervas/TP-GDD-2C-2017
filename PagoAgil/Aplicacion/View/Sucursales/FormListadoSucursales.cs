@@ -18,6 +18,7 @@ namespace PagoAgil.Aplicacion.View.Sucursales
     public partial class FormListadoSucursales : Form
     {
         ListadoSucursalesVM VM;
+        SucursalDB sucursalElegida;
 
         public FormListadoSucursales(String accion)
         {
@@ -28,7 +29,8 @@ namespace PagoAgil.Aplicacion.View.Sucursales
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            sucursalElegida = (SucursalDB)dataGridView1.CurrentRow.DataBoundItem;
+            buttonSeleccionarSucursal.Enabled = true;
         }
 
         private void buttonFiltrar_Click(object sender, EventArgs e)
@@ -63,6 +65,11 @@ namespace PagoAgil.Aplicacion.View.Sucursales
             numericUpDownCP.Value = 0;
             numericUpDownCP.Text = "";
             dataGridView1.ClearSelection();
+        }
+
+        private void buttonSeleccionarSucursal_Click(object sender, EventArgs e)
+        {
+
         }
 
     }
