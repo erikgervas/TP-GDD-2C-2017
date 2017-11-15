@@ -110,7 +110,7 @@
             this.empresaLabel.Name = "empresaLabel";
             this.empresaLabel.Size = new System.Drawing.Size(189, 13);
             this.empresaLabel.TabIndex = 4;
-            this.empresaLabel.Text = "Nombre de empresa";
+            this.empresaLabel.Text = "Cuit de empresa";
             // 
             // numeroLabel
             // 

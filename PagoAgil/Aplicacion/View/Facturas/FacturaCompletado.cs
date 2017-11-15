@@ -50,7 +50,7 @@ namespace PagoAgil.Aplicacion.View.Facturas
             this.altaTimePicker.Value = this.viewModel.factura.fecha_alta;
             this.vencimientoTimePicker.Value = this.viewModel.factura.fecha_vencimiento;
             this.dniClienteTextBox.Text = this.viewModel.factura.dni_cliente.ToString();
-            this.empresasNombreComboBox.Text = this.viewModel.factura.nombre_empresa;
+            this.empresasNombreComboBox.Text = this.viewModel.factura.cuit_empresa;
             this.habilitadaCheckBox.Checked = this.viewModel.factura.estado;
             foreach (Item i in this.viewModel.factura.items) this.itemDataGrid.Rows.Add(i.nombre, i.cantidad.ToString(), i.monto.ToString());
             this.montoValor.Text = this.viewModel.factura.items.Sum(i => i.montoTotal()).ToString();
@@ -64,17 +64,11 @@ namespace PagoAgil.Aplicacion.View.Facturas
             this.vencimientoTimePicker.Value = DateTime.Now.AddDays(1);
             this.viewModel.factura.fecha_vencimiento = this.vencimientoTimePicker.Value;
             foreach (Empresa unaEmpresa in this.viewModel.empresas) this.empresasNombreComboBox.Items.Add(unaEmpresa);
-            this.empresasNombreComboBox.DisplayMember = "nombre";
+            this.empresasNombreComboBox.DisplayMember = "cuit";
             this.empresasNombreComboBox.SelectedIndex = 0;
             this.habilitadaCheckBox.CheckState = CheckState.Indeterminate;
             this.limpiarItems();
             this.montoValor.Text = "";
-        }
-
-        private void FacturaCompletado_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'sQL_BOYS_Data_Set.Item' table. You can move, or remove it, as needed.
-            // this.itemTableAdapter.Fill(this.sQL_BOYS_Data_Set.Item);
         }
 
         private void limpiarBase()
@@ -118,7 +112,7 @@ namespace PagoAgil.Aplicacion.View.Facturas
             this.viewModel.factura.fecha_alta = this.altaTimePicker.Value;
             this.viewModel.factura.fecha_vencimiento = this.vencimientoTimePicker.Value;
             if (this.dniClienteTextBox.Text != "") this.viewModel.factura.dni_cliente = long.Parse(this.dniClienteTextBox.Text);
-            this.viewModel.factura.nombre_empresa = this.empresasNombreComboBox.Text;
+            this.viewModel.factura.cuit_empresa = this.empresasNombreComboBox.Text;
             this.viewModel.factura.estado = this.habilitadaCheckBox.Checked;
 
             for (int i = 0; i < itemDataGrid.Rows.Count - 1; i++)
@@ -195,5 +189,11 @@ namespace PagoAgil.Aplicacion.View.Facturas
                 new EmpresasAdvertenciaMismoCuit(this, excepcion).Show();
             }
         }
+
+        private void FacturaCompletado_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
