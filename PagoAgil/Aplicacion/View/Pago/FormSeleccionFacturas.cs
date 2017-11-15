@@ -91,6 +91,7 @@ namespace PagoAgil.Aplicacion.View.Pago
             numericUpDownNroF.Text = "";
             dateTimePickerFechaV.Value = DateTime.Now;
             comboBoxEmpresa.SelectedIndex = -1;
+            dataGridViewFacturas.ClearSelection();
 
             buttonFinalizarPago.Enabled = true;
             buttonBuscarFactura.Enabled = true;
@@ -103,7 +104,7 @@ namespace PagoAgil.Aplicacion.View.Pago
             miPagoBuilder.fechaPago = DateTime.Now;
             miPagoBuilder.montoTotal = importeTotal;
 
-            Insertador.getInstance().insertarPago(miPagoBuilder.crearPago());
+            VM.crearPago(miPagoBuilder.crearPago(), this.facturasPagadas);
 
             this.Hide();
         }
