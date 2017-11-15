@@ -97,6 +97,7 @@
             // 
             // buttonConfirmarFactura
             // 
+            this.buttonConfirmarFactura.Enabled = false;
             this.buttonConfirmarFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonConfirmarFactura.Location = new System.Drawing.Point(188, 303);
             this.buttonConfirmarFactura.Name = "buttonConfirmarFactura";
@@ -104,9 +105,11 @@
             this.buttonConfirmarFactura.TabIndex = 16;
             this.buttonConfirmarFactura.Text = "Confirmar pago de factura";
             this.buttonConfirmarFactura.UseVisualStyleBackColor = true;
+            this.buttonConfirmarFactura.Click += new System.EventHandler(this.buttonConfirmarFactura_Click);
             // 
             // buttonFinalizarPago
             // 
+            this.buttonFinalizarPago.Enabled = false;
             this.buttonFinalizarPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonFinalizarPago.Location = new System.Drawing.Point(616, 303);
             this.buttonFinalizarPago.Name = "buttonFinalizarPago";
@@ -114,6 +117,7 @@
             this.buttonFinalizarPago.TabIndex = 17;
             this.buttonFinalizarPago.Text = "Finalizar el ingreso de facturas para finalizar el pago";
             this.buttonFinalizarPago.UseVisualStyleBackColor = true;
+            this.buttonFinalizarPago.Click += new System.EventHandler(this.buttonFinalizarPago_Click);
             // 
             // label2
             // 

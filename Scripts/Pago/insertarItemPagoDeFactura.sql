@@ -4,6 +4,6 @@ BEGIN
 
 INSERT INTO SQL_BOYS.Item_Pago(id_item, numero_factura, numero_pago)
 
-SELECT it.id_item, @nroFactura, @nroPago FROM SQL_BOYS.Item it WHERE it.numero_factura = @nroFactura GROUP BY it.id_item
+SELECT it.id_item, @nroFactura, @nroPago FROM SQL_BOYS.Item it WHERE it.numero_factura = @nroFactura
 
 END

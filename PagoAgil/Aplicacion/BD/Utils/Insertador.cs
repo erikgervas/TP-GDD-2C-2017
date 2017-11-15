@@ -40,5 +40,27 @@ namespace PagoAgil.Aplicacion.BD.Utils
                 cmd.ExecuteNonQuery();
         }
 
+        public void insertarPago(PagoDB p)
+        {
+            SqlCommand cmd = new SqlCommand("INSERT INTO SQL_BOYS.Pago (monto_total,fecha_pago,id_medio_de_pago,dni_cliente,cp_sucursal) " +
+                        " VALUES (@montoTotal, @fechaPago, @idMedioPago, @dniCliente, @cpSucursal)", Conexion.getInstance().obtenerConexion());
+
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@montoTotal", DbType.Decimal);
+            cmd.Parameters.AddWithValue("@fechaPago", DbType.DateTime);
+            cmd.Parameters.AddWithValue("@idMedioPago", DbType.Int32);
+            cmd.Parameters.AddWithValue("@dniCliente", DbType.Int32);
+            cmd.Parameters.AddWithValue("@cpSucursal", DbType.Int32);
+
+            cmd.Parameters[0].Value = p.montoTotal;
+            cmd.Parameters[1].Value = p.fechaPago;
+            cmd.Parameters[2].Value = p.idMedioPago;
+            cmd.Parameters[3].Value = p.dniCliente;
+            cmd.Parameters[4].Value = p.cpSucursal;
+
+            cmd.ExecuteNonQuery();
+
+        }
+
     }
 }

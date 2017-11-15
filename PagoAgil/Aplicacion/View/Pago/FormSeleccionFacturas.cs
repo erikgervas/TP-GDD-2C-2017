@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PagoAgil.Aplicacion.ViewModel;
 using PagoAgil.Aplicacion.Modelo.ClienteSQL;
+using PagoAgil.Aplicacion.BD.Utils;
 
 namespace PagoAgil.Aplicacion.View.Pago
 {
@@ -17,6 +18,8 @@ namespace PagoAgil.Aplicacion.View.Pago
         private PagoBuilder miPagoBuilder;
         private SeleccionFacturaVM VM;
         private decimal importeTotal;
+        private int numeroFactura;
+        private List<int> facturasPagadas = new List<int>();
 
         public FormSeleccionFacturas(PagoBuilder pagoBuilder)
         {
@@ -35,7 +38,7 @@ namespace PagoAgil.Aplicacion.View.Pago
 
         private void buttonBuscarFactura_Click(object sender, EventArgs e)
         {
-            int numeroFactura = (int)numericUpDownNroF.Value;
+            numeroFactura = (int)numericUpDownNroF.Value;
             EmpresaDB empresaSeleccionada = comboBoxEmpresa.SelectedItem as EmpresaDB;
             DateTime fechaVencimiento = dateTimePickerFechaV.Value;
 
@@ -64,7 +67,35 @@ namespace PagoAgil.Aplicacion.View.Pago
 
             importeTotal += factura.Rows[0].Field<decimal>(1);
             labelImporteTotal.Text = importeTotal.ToString("N2");
+
+            buttonConfirmarFactura.Enabled = true;
+            buttonFinalizarPago.Enabled = false;
+            buttonBuscarFactura.Enabled = false;
             
+        }
+
+        private void buttonConfirmarFactura_Click(object sender, EventArgs e)
+        {
+            facturasPagadas.Add(numeroFactura);
+
+            numericUpDownNroF.Text = "";
+            dateTimePickerFechaV.Value = DateTime.Now;
+            comboBoxEmpresa.SelectedIndex = -1;
+
+            buttonFinalizarPago.Enabled = true;
+            buttonBuscarFactura.Enabled = true;
+            buttonConfirmarFactura.Enabled = false;
+
+        }
+
+        private void buttonFinalizarPago_Click(object sender, EventArgs e)
+        {
+            miPagoBuilder.fechaPago = DateTime.Now;
+            miPagoBuilder.montoTotal = importeTotal;
+
+            Insertador.getInstance().insertarPago(miPagoBuilder.crearPago());
+
+            this.Hide();
         }
     }
 }
