@@ -22,6 +22,7 @@ namespace PagoAgil.Aplicacion.View
         public void darDeBaja(SucursalDB sucursalADespachar)
         {
             if (sucursalADespachar.habilitado == false) throw new SucursalYaDeshabilitadaException("Sucursal ya deshabilitada");
+            if (sucursalADespachar.codigoPostal.Equals(Sesion.sucursal.codigoPostal)) throw new DeshabilitarSucursalActualException("No se puede deshabilitar la sucursal actual");
  
             RepositorioSucursales.getInstancia().getAlmacenamiento().eliminar(sucursalADespachar);
   
