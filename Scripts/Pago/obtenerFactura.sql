@@ -5,4 +5,4 @@ RETURNS table AS
 	
 	YEAR(f.factura_fecha_vencimiento) = @anioV AND MONTH(f.factura_fecha_vencimiento) = @mesV AND DAY(f.factura_fecha_vencimiento) = @diaV AND @nroFactura
 	
-	NOT IN (SELECT it.numero_factura FROM Item_Pago it) )
+	NOT IN (SELECT it.numero_factura FROM SQL_BOYS.Item_Pago it) )

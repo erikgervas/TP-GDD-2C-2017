@@ -233,6 +233,7 @@
       <DependentUpon>FacturaSeleccionadorABM.cs</DependentUpon>
     </Compile>
     <Compile Include="Aplicacion\View\Pago\Excepciones\ClienteDeshabilitadoException.cs" />
+    <Compile Include="Aplicacion\View\Pago\Excepciones\FacturaInvalidaException.cs" />
     <Compile Include="Aplicacion\View\Pago\Excepciones\MedioDePagoNoIngresadoException.cs" />
     <Compile Include="Aplicacion\View\Pago\Excepciones\NoExisteClienteException.cs" />
     <Compile Include="Aplicacion\View\Pago\FormPago.cs">

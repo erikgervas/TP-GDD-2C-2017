@@ -8,6 +8,7 @@ using System.Data;
 using PagoAgil.Aplicacion.BD.Repositorios;
 using PagoAgil.Aplicacion.BD;
 using PagoAgil.Aplicacion.Modelo.ClienteSQL;
+using PagoAgil.Aplicacion.View.Pago.Excepciones;
 
 namespace PagoAgil.Aplicacion.ViewModel
 {
@@ -17,7 +18,11 @@ namespace PagoAgil.Aplicacion.ViewModel
 
         public DataTable buscarFactura(int numeroFactura,long idEmpresa, DateTime fechaVencimiento)
         {
-            return obtenerFacturaPorNroEmpresaYFechaVenc(numeroFactura, idEmpresa, fechaVencimiento);
+            DataTable factura = obtenerFacturaPorNroEmpresaYFechaVenc(numeroFactura, idEmpresa, fechaVencimiento);
+
+            if (factura.Rows.Count == 0) throw new FacturaInvalidaException("Factura invalida");
+
+            return factura;
         }
 
         public EmpresaDB[] obtenerEmpresas() 
