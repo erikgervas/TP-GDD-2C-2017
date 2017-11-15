@@ -42,14 +42,13 @@
             this.diaNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.porcentajeNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.porcentajeText = new System.Windows.Forms.Label();
+            this.cuitText = new System.Windows.Forms.MaskedTextBox();
             this.altaGroup = new System.Windows.Forms.GroupBox();
             this.habilitadaCheckBox = new System.Windows.Forms.CheckBox();
             this.limpiarButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.altaButton = new System.Windows.Forms.Button();
             this.sQL_BOYS_Data_Set = new PagoAgil.DataSet.SQL_BOYS_Data_Set();
             this.sQLBOYSDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cuitText = new System.Windows.Forms.MaskedTextBox();
             this.altaPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.diaNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.porcentajeNumericUpDown)).BeginInit();
@@ -228,6 +227,15 @@
             this.porcentajeText.TabIndex = 10;
             this.porcentajeText.Text = "Porcentaje de comisión";
             // 
+            // cuitText
+            // 
+            this.cuitText.Location = new System.Drawing.Point(151, 43);
+            this.cuitText.Mask = "9-99999999-9";
+            this.cuitText.Name = "cuitText";
+            this.cuitText.Size = new System.Drawing.Size(142, 20);
+            this.cuitText.TabIndex = 12;
+            this.cuitText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cuitText_KeyPress);
+            // 
             // altaGroup
             // 
             this.altaGroup.Controls.Add(this.habilitadaCheckBox);
@@ -262,16 +270,6 @@
             this.limpiarButton.UseVisualStyleBackColor = true;
             this.limpiarButton.Click += new System.EventHandler(this.limpiarButton_Click);
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(12, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(28, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "<<";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // altaButton
             // 
             this.altaButton.Location = new System.Drawing.Point(235, 435);
@@ -292,22 +290,12 @@
             this.sQLBOYSDataSetBindingSource.DataSource = this.sQL_BOYS_Data_Set;
             this.sQLBOYSDataSetBindingSource.Position = 0;
             // 
-            // cuitText
-            // 
-            this.cuitText.Location = new System.Drawing.Point(151, 43);
-            this.cuitText.Mask = "9-99999999-9";
-            this.cuitText.Name = "cuitText";
-            this.cuitText.Size = new System.Drawing.Size(142, 20);
-            this.cuitText.TabIndex = 12;
-            this.cuitText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cuitText_KeyPress);
-            // 
             // EmpresasCompletado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 481);
             this.Controls.Add(this.altaButton);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.altaGroup);
             this.Controls.Add(this.tituloLabel);
             this.Name = "EmpresasCompletado";
@@ -338,7 +326,6 @@
         private System.Windows.Forms.TextBox nombreText;
         private System.Windows.Forms.NumericUpDown diaNumericUpDown;
         private System.Windows.Forms.GroupBox altaGroup;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button limpiarButton;
         private System.Windows.Forms.Button altaButton;
         private System.Windows.Forms.NumericUpDown porcentajeNumericUpDown;

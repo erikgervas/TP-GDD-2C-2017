@@ -23,7 +23,7 @@ namespace PagoAgil.Aplicacion.Orquestradores.TiposDeABM
 
         public string[] ok(string abm)
         {
-            return new string[] { "Baja de " + abm, "La empresa se ha dado de baja con éxito." };
+            return new string[] { "Baja de " + abm, "La " + abm + " se ha dado de baja con éxito." };
         }
 
         public void botones(EmpresasConfirmacion empresasConfirmacion)

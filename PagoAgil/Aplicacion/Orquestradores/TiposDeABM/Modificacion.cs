@@ -17,7 +17,7 @@ namespace PagoAgil.Aplicacion.Orquestradores.TiposDeABM
 
         public string[] ok(string abm)
         {
-            return new string[] { "Modificación de " + abm, "La empresa se ha modificado con éxito." };
+            return new string[] { "Modificación de " + abm, "La " + abm + " se ha modificado con éxito." };
         }
 
         public void botones(EmpresasConfirmacion empresasConfirmacion)

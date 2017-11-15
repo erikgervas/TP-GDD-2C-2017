@@ -19,6 +19,7 @@ namespace PagoAgil.Aplicacion.Orquestradores
         {
             RepositorioRubros.instanciar().almacenamiento = new MedioRubro();
             RepositorioEmpresas.instanciar().almacenamiento = new MedioEmpresa();
+            RepositorioFacturas.instanciar().almacenamiento = new MedioFactura();
         }
     }
 }

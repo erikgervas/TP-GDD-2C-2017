@@ -1,11 +1,16 @@
 ﻿using PagoAgil.Aplicacion.Builders;
+using PagoAgil.Aplicacion.Builders.Excepciones;
+using PagoAgil.Aplicacion.Modelo;
 using PagoAgil.Aplicacion.Orquestradores.TiposDeABM.ABMs;
+using PagoAgil.Aplicacion.View.Empresas;
+using PagoAgil.Aplicacion.View.Excepciones;
 using PagoAgil.Aplicacion.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,27 +46,127 @@ namespace PagoAgil.Aplicacion.View.Facturas
 
         private void rellenarConLoAnterior()
         {
-            /*this.nombreText.Text = this.viewModel.factura.nombre;
-            this.cuitText.Text = this.viewModel.factura.cuit;
-            this.direccionText.Text = this.viewModel.factura.direccion;
-            this.diaNumericUpDown.Value = this.viewModel.factura.diaRendicion;
-            this.porcentajeNumericUpDown.Value = this.viewModel.factura.porcentajeComision;
-            this.rubroComboBox.Text = this.viewModel.factura.rubro;
-            this.habilitadaCheckBox.Checked = this.viewModel.factura.estado;*/
+            this.numeroTextBox.Text = this.viewModel.factura.numero.ToString();
+            this.altaTimePicker.Value = this.viewModel.factura.fecha_alta;
+            this.vencimientoTimePicker.Value = this.viewModel.factura.fecha_vencimiento;
+            this.dniClienteTextBox.Text = this.viewModel.factura.dni_cliente.ToString();
+            this.empresasNombreComboBox.Text = this.viewModel.factura.nombre_empresa;
+            this.habilitadaCheckBox.Checked = this.viewModel.factura.estado;
+            // Items!!
+
+            this.viewModel.factura = new FacturaBuilder();
         }
 
         private void iniciarCampos()
         {
-            /*this.viewModel.factura.diaRendicion = 1;
-            this.viewModel.factura.porcentajeComision = 1;
-            foreach (String rubro in this.viewModel.rubros) this.rubroComboBox.Items.Add(rubro);*/
+            this.altaTimePicker.Value = DateTime.Now;
+            this.vencimientoTimePicker.Value = DateTime.Now.AddDays(1);
+            foreach (Empresa unaEmpresa in this.viewModel.empresas) this.empresasNombreComboBox.Items.Add(unaEmpresa);
+            this.empresasNombreComboBox.DisplayMember = "nombre";
+            this.empresasNombreComboBox.SelectedIndex = 0;
+            this.montoValor.Text = "0";
         }
 
         private void FacturaCompletado_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'sQL_BOYS_Data_Set.Item' table. You can move, or remove it, as needed.
-            this.itemTableAdapter.Fill(this.sQL_BOYS_Data_Set.Item);
+            // this.itemTableAdapter.Fill(this.sQL_BOYS_Data_Set.Item);
 
+        }
+
+        private void limpiarBase()
+        {
+            this.numeroTextBox.Text = null;
+            this.altaTimePicker.Value = DateTime.Now;
+            this.vencimientoTimePicker.Value = DateTime.Now.AddDays(1);
+            this.dniClienteTextBox.Text = null;
+            this.empresasNombreComboBox.Text = null;
+            this.habilitadaCheckBox.Checked = false;
+
+            this.viewModel.factura = new FacturaBuilder();
+        }
+
+        private void limpiarItems()
+        {
+            // Borrar items!!
+        }
+
+        private void limpiarButton_Click(object sender, EventArgs e)
+        {
+            this.limpiarBase();
+        }
+
+        private void limpiarItemsButton_Click(object sender, EventArgs e)
+        {
+            this.limpiarItems();
+        }
+
+        private void limpiarTodoButton_Click(object sender, EventArgs e)
+        {
+            this.limpiarBase();
+            this.limpiarItems();
+        }
+
+        private void rellenarCampos()
+        {
+            this.viewModel.factura.numero = long.Parse(this.numeroTextBox.Text);
+            this.viewModel.factura.fecha_alta = this.altaTimePicker.Value;
+            this.viewModel.factura.fecha_vencimiento = this.vencimientoTimePicker.Value;
+            this.viewModel.factura.dni_cliente = long.Parse(this.dniClienteTextBox.Text);
+            this.viewModel.factura.nombre_empresa = this.empresasNombreComboBox.Text;
+        }
+
+        private void rellenarItem(DataGridViewRow dataGridViewRow)
+        {
+            ItemBuilder builder = new ItemBuilder();
+
+            builder.nombre = dataGridViewRow.Cells[0].Value.ToString();
+            builder.cantidad = int.Parse(dataGridViewRow.Cells[1].Value.ToString());
+            builder.monto = float.Parse(dataGridViewRow.Cells[2].Value.ToString(), CultureInfo.InvariantCulture.NumberFormat);
+
+            builder.validar();
+
+            this.viewModel.factura.items.Add(builder.crear());
+        }
+
+        private void completarButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.rellenarCampos();
+
+                this.viewModel.factura.validar();
+
+                this.Close();
+
+                new FacturaConfirmado(this.viewModel.factura).Show();
+            }
+            catch (NoSePuedeCrearException excepcion)
+            {
+                new EmpresasAdvertenciaFaltanCampos(this, excepcion).Show();
+            }
+            catch (YaExisteObjetoConEsaClave excepcion)
+            {
+                new EmpresasAdvertenciaMismoCuit(this, excepcion).Show();
+            }
+        }
+
+        private void itemDataGrid_RowLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            float montoActual = 0;
+
+            for (int i = 0; i < itemDataGrid.Rows.Count; i++)
+            {
+                if (itemDataGrid.Rows[i].Cells[1].Value != null && itemDataGrid.Rows[i].Cells[2].Value != null)
+                {
+                    int cantidad = int.Parse(itemDataGrid.Rows[i].Cells[1].Value.ToString());
+                    float monto = float.Parse(itemDataGrid.Rows[i].Cells[2].Value.ToString());
+
+                    montoActual += cantidad * monto;
+                }
+            }
+
+            this.montoValor.Text = montoActual.ToString();
         }
     }
 }

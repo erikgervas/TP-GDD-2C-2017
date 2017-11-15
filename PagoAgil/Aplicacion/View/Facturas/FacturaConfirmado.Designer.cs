@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.button2 = new System.Windows.Forms.Button();
             this.facturaLayout = new System.Windows.Forms.TableLayoutPanel();
             this.numeroFacturaAsignado = new System.Windows.Forms.Label();
             this.empresaLabel = new System.Windows.Forms.Label();
@@ -48,31 +47,22 @@
             this.montoLabel = new System.Windows.Forms.Label();
             this.itemsBox = new System.Windows.Forms.GroupBox();
             this.itemDataGrid = new System.Windows.Forms.DataGridView();
-            this.seguirModificandoButton = new System.Windows.Forms.Button();
-            this.completarButton = new System.Windows.Forms.Button();
-            this.sQL_BOYS_Data_Set = new PagoAgil.DataSet.SQL_BOYS_Data_Set();
-            this.itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.itemTableAdapter = new PagoAgil.DataSet.SQL_BOYS_Data_SetTableAdapters.ItemTableAdapter();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.montoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sQL_BOYS_Data_Set = new PagoAgil.DataSet.SQL_BOYS_Data_Set();
+            this.seguirModificandoButton = new System.Windows.Forms.Button();
+            this.completarButton = new System.Windows.Forms.Button();
+            this.itemTableAdapter = new PagoAgil.DataSet.SQL_BOYS_Data_SetTableAdapters.ItemTableAdapter();
             this.facturaLayout.SuspendLayout();
             this.altaGroup.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.itemsBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemDataGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sQL_BOYS_Data_Set)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sQL_BOYS_Data_Set)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(12, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(28, 23);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "<<";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // facturaLayout
             // 
@@ -284,38 +274,6 @@
             this.itemDataGrid.Size = new System.Drawing.Size(489, 165);
             this.itemDataGrid.TabIndex = 0;
             // 
-            // seguirModificandoButton
-            // 
-            this.seguirModificandoButton.Location = new System.Drawing.Point(89, 689);
-            this.seguirModificandoButton.Name = "seguirModificandoButton";
-            this.seguirModificandoButton.Size = new System.Drawing.Size(150, 25);
-            this.seguirModificandoButton.TabIndex = 16;
-            this.seguirModificandoButton.Text = "Seguir Modificando";
-            this.seguirModificandoButton.UseVisualStyleBackColor = true;
-            // 
-            // completarButton
-            // 
-            this.completarButton.Location = new System.Drawing.Point(465, 689);
-            this.completarButton.Name = "completarButton";
-            this.completarButton.Size = new System.Drawing.Size(150, 25);
-            this.completarButton.TabIndex = 17;
-            this.completarButton.Text = "<Confirmar>";
-            this.completarButton.UseVisualStyleBackColor = true;
-            // 
-            // sQL_BOYS_Data_Set
-            // 
-            this.sQL_BOYS_Data_Set.DataSetName = "SQL_BOYS_Data_Set";
-            this.sQL_BOYS_Data_Set.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // itemBindingSource
-            // 
-            this.itemBindingSource.DataMember = "Item";
-            this.itemBindingSource.DataSource = this.sQL_BOYS_Data_Set;
-            // 
-            // itemTableAdapter
-            // 
-            this.itemTableAdapter.ClearBeforeFill = true;
-            // 
             // nombreDataGridViewTextBoxColumn
             // 
             this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -338,12 +296,43 @@
             this.montoDataGridViewTextBoxColumn.HeaderText = "Monto";
             this.montoDataGridViewTextBoxColumn.Name = "montoDataGridViewTextBoxColumn";
             // 
+            // itemBindingSource
+            // 
+            this.itemBindingSource.DataMember = "Item";
+            this.itemBindingSource.DataSource = this.sQL_BOYS_Data_Set;
+            // 
+            // sQL_BOYS_Data_Set
+            // 
+            this.sQL_BOYS_Data_Set.DataSetName = "SQL_BOYS_Data_Set";
+            this.sQL_BOYS_Data_Set.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // seguirModificandoButton
+            // 
+            this.seguirModificandoButton.Location = new System.Drawing.Point(89, 689);
+            this.seguirModificandoButton.Name = "seguirModificandoButton";
+            this.seguirModificandoButton.Size = new System.Drawing.Size(150, 25);
+            this.seguirModificandoButton.TabIndex = 16;
+            this.seguirModificandoButton.Text = "Seguir Modificando";
+            this.seguirModificandoButton.UseVisualStyleBackColor = true;
+            // 
+            // completarButton
+            // 
+            this.completarButton.Location = new System.Drawing.Point(465, 689);
+            this.completarButton.Name = "completarButton";
+            this.completarButton.Size = new System.Drawing.Size(150, 25);
+            this.completarButton.TabIndex = 17;
+            this.completarButton.Text = "<Confirmar>";
+            this.completarButton.UseVisualStyleBackColor = true;
+            // 
+            // itemTableAdapter
+            // 
+            this.itemTableAdapter.ClearBeforeFill = true;
+            // 
             // FacturaConfirmado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 741);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.tituloLabel);
             this.Controls.Add(this.altaGroup);
             this.Controls.Add(this.itemsBox);
@@ -359,8 +348,8 @@
             this.tableLayoutPanel1.PerformLayout();
             this.itemsBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.itemDataGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sQL_BOYS_Data_Set)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sQL_BOYS_Data_Set)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -368,7 +357,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TableLayoutPanel facturaLayout;
         private System.Windows.Forms.Label empresaLabel;
         private System.Windows.Forms.Label numeroLabel;

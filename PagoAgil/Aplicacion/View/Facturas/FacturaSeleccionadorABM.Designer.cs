@@ -28,23 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
             this.seleccionABMPanel = new System.Windows.Forms.GroupBox();
             this.ingresarButton = new System.Windows.Forms.Button();
             this.consultarButton = new System.Windows.Forms.Button();
             this.tituloLabel = new System.Windows.Forms.Label();
             this.seleccionABMPanel.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(12, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(28, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "<<";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // seleccionABMPanel
             // 
@@ -66,6 +55,7 @@
             this.ingresarButton.TabIndex = 3;
             this.ingresarButton.Text = "Dar de alta";
             this.ingresarButton.UseVisualStyleBackColor = true;
+            this.ingresarButton.Click += new System.EventHandler(this.ingresarButton_Click_1);
             // 
             // consultarButton
             // 
@@ -75,6 +65,7 @@
             this.consultarButton.TabIndex = 2;
             this.consultarButton.Text = "Consultar";
             this.consultarButton.UseVisualStyleBackColor = true;
+            this.consultarButton.Click += new System.EventHandler(this.consultarButton_Click_1);
             // 
             // tituloLabel
             // 
@@ -88,15 +79,14 @@
             this.tituloLabel.Text = "Facturas";
             this.tituloLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // FacturasSeleccionadorABM
+            // FacturaSeleccionadorABM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.seleccionABMPanel);
             this.Controls.Add(this.tituloLabel);
-            this.Name = "FacturasSeleccionadorABM";
+            this.Name = "FacturaSeleccionadorABM";
             this.Text = "FacturasSeleccionadorABM";
             this.seleccionABMPanel.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -106,7 +96,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox seleccionABMPanel;
         private System.Windows.Forms.Button ingresarButton;
         private System.Windows.Forms.Button consultarButton;

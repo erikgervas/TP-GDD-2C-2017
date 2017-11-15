@@ -19,8 +19,6 @@ namespace PagoAgil.Aplicacion.View.Facturas
 
         private void FacturaBuscador_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'sQL_BOYS_Data_Set.Factura' table. You can move, or remove it, as needed.
-            this.facturaTableAdapter.Fill(this.sQL_BOYS_Data_Set.Factura);
 
         }
     }

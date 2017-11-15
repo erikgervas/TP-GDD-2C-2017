@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.button2 = new System.Windows.Forms.Button();
             this.altaGroup = new System.Windows.Forms.GroupBox();
+            this.habilitadaCheckBox = new System.Windows.Forms.CheckBox();
             this.facturaLayout = new System.Windows.Forms.TableLayoutPanel();
             this.empresaLabel = new System.Windows.Forms.Label();
             this.numeroLabel = new System.Windows.Forms.Label();
@@ -38,8 +38,8 @@
             this.altaLabel = new System.Windows.Forms.Label();
             this.vencimientoLabel = new System.Windows.Forms.Label();
             this.numeroTextBox = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dniClienteTextBox = new System.Windows.Forms.TextBox();
+            this.empresasNombreComboBox = new System.Windows.Forms.ComboBox();
             this.buscadorCliente = new System.Windows.Forms.Button();
             this.altaTimePicker = new System.Windows.Forms.DateTimePicker();
             this.vencimientoTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -49,16 +49,16 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.montoValor = new System.Windows.Forms.Label();
             this.montoLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.limpiarItemsButton = new System.Windows.Forms.Button();
             this.itemDataGrid = new System.Windows.Forms.DataGridView();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sQL_BOYS_Data_Set = new PagoAgil.DataSet.SQL_BOYS_Data_Set();
             this.itemTableAdapter = new PagoAgil.DataSet.SQL_BOYS_Data_SetTableAdapters.ItemTableAdapter();
             this.limpiarTodoButton = new System.Windows.Forms.Button();
             this.completarButton = new System.Windows.Forms.Button();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.montoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.altaGroup.SuspendLayout();
             this.facturaLayout.SuspendLayout();
             this.itemsBox.SuspendLayout();
@@ -68,17 +68,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.sQL_BOYS_Data_Set)).BeginInit();
             this.SuspendLayout();
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(12, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(28, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "<<";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // altaGroup
             // 
+            this.altaGroup.Controls.Add(this.habilitadaCheckBox);
             this.altaGroup.Controls.Add(this.facturaLayout);
             this.altaGroup.Controls.Add(this.limpiarButton);
             this.altaGroup.Location = new System.Drawing.Point(89, 76);
@@ -87,6 +79,16 @@
             this.altaGroup.TabIndex = 7;
             this.altaGroup.TabStop = false;
             this.altaGroup.Text = "<Datos>";
+            // 
+            // habilitadaCheckBox
+            // 
+            this.habilitadaCheckBox.AutoSize = true;
+            this.habilitadaCheckBox.Location = new System.Drawing.Point(435, 249);
+            this.habilitadaCheckBox.Name = "habilitadaCheckBox";
+            this.habilitadaCheckBox.Size = new System.Drawing.Size(73, 17);
+            this.habilitadaCheckBox.TabIndex = 5;
+            this.habilitadaCheckBox.Text = "Habilitada";
+            this.habilitadaCheckBox.UseVisualStyleBackColor = true;
             // 
             // facturaLayout
             // 
@@ -100,8 +102,8 @@
             this.facturaLayout.Controls.Add(this.altaLabel, 0, 1);
             this.facturaLayout.Controls.Add(this.vencimientoLabel, 0, 2);
             this.facturaLayout.Controls.Add(this.numeroTextBox, 1, 0);
-            this.facturaLayout.Controls.Add(this.textBox1, 1, 3);
-            this.facturaLayout.Controls.Add(this.comboBox1, 1, 4);
+            this.facturaLayout.Controls.Add(this.dniClienteTextBox, 1, 3);
+            this.facturaLayout.Controls.Add(this.empresasNombreComboBox, 1, 4);
             this.facturaLayout.Controls.Add(this.buscadorCliente, 2, 3);
             this.facturaLayout.Controls.Add(this.altaTimePicker, 1, 1);
             this.facturaLayout.Controls.Add(this.vencimientoTimePicker, 1, 2);
@@ -174,22 +176,25 @@
             this.numeroTextBox.Size = new System.Drawing.Size(189, 20);
             this.numeroTextBox.TabIndex = 5;
             // 
-            // textBox1
+            // dniClienteTextBox
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(198, 130);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(189, 20);
-            this.textBox1.TabIndex = 6;
+            this.dniClienteTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dniClienteTextBox.Location = new System.Drawing.Point(198, 130);
+            this.dniClienteTextBox.Name = "dniClienteTextBox";
+            this.dniClienteTextBox.Size = new System.Drawing.Size(189, 20);
+            this.dniClienteTextBox.TabIndex = 6;
             // 
-            // comboBox1
+            // empresasNombreComboBox
             // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(198, 169);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(189, 21);
-            this.comboBox1.TabIndex = 9;
+            this.empresasNombreComboBox.AllowDrop = true;
+            this.empresasNombreComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.empresasNombreComboBox.DisplayMember = "nombre";
+            this.empresasNombreComboBox.FormattingEnabled = true;
+            this.empresasNombreComboBox.Location = new System.Drawing.Point(198, 169);
+            this.empresasNombreComboBox.Name = "empresasNombreComboBox";
+            this.empresasNombreComboBox.Size = new System.Drawing.Size(189, 21);
+            this.empresasNombreComboBox.TabIndex = 9;
+            this.empresasNombreComboBox.ValueMember = "nombre";
             // 
             // buscadorCliente
             // 
@@ -204,6 +209,7 @@
             // altaTimePicker
             // 
             this.altaTimePicker.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.altaTimePicker.Enabled = false;
             this.altaTimePicker.Location = new System.Drawing.Point(198, 50);
             this.altaTimePicker.Name = "altaTimePicker";
             this.altaTimePicker.Size = new System.Drawing.Size(189, 20);
@@ -225,6 +231,7 @@
             this.limpiarButton.TabIndex = 3;
             this.limpiarButton.Text = "Limpiar";
             this.limpiarButton.UseVisualStyleBackColor = true;
+            this.limpiarButton.Click += new System.EventHandler(this.limpiarButton_Click);
             // 
             // tituloLabel
             // 
@@ -242,11 +249,11 @@
             // itemsBox
             // 
             this.itemsBox.Controls.Add(this.tableLayoutPanel1);
-            this.itemsBox.Controls.Add(this.button1);
+            this.itemsBox.Controls.Add(this.limpiarItemsButton);
             this.itemsBox.Controls.Add(this.itemDataGrid);
-            this.itemsBox.Location = new System.Drawing.Point(89, 379);
+            this.itemsBox.Location = new System.Drawing.Point(89, 367);
             this.itemsBox.Name = "itemsBox";
-            this.itemsBox.Size = new System.Drawing.Size(526, 285);
+            this.itemsBox.Size = new System.Drawing.Size(526, 228);
             this.itemsBox.TabIndex = 9;
             this.itemsBox.TabStop = false;
             this.itemsBox.Text = "Items";
@@ -254,11 +261,11 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 189F));
             this.tableLayoutPanel1.Controls.Add(this.montoValor, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.montoLabel, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(19, 195);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(19, 148);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -281,33 +288,49 @@
             this.montoLabel.AutoSize = true;
             this.montoLabel.Location = new System.Drawing.Point(3, 12);
             this.montoLabel.Name = "montoLabel";
-            this.montoLabel.Size = new System.Drawing.Size(385, 13);
+            this.montoLabel.Size = new System.Drawing.Size(294, 13);
             this.montoLabel.TabIndex = 0;
             this.montoLabel.Text = "Monto total de factura";
             // 
-            // button1
+            // limpiarItemsButton
             // 
-            this.button1.Location = new System.Drawing.Point(19, 246);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Limpiar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.limpiarItemsButton.Location = new System.Drawing.Point(19, 194);
+            this.limpiarItemsButton.Name = "limpiarItemsButton";
+            this.limpiarItemsButton.Size = new System.Drawing.Size(75, 23);
+            this.limpiarItemsButton.TabIndex = 5;
+            this.limpiarItemsButton.Text = "Limpiar";
+            this.limpiarItemsButton.UseVisualStyleBackColor = true;
+            this.limpiarItemsButton.Click += new System.EventHandler(this.limpiarItemsButton_Click);
             // 
             // itemDataGrid
             // 
             this.itemDataGrid.AllowUserToOrderColumns = true;
-            this.itemDataGrid.AutoGenerateColumns = false;
             this.itemDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.itemDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nombreDataGridViewTextBoxColumn,
-            this.cantidadDataGridViewTextBoxColumn,
-            this.montoDataGridViewTextBoxColumn});
-            this.itemDataGrid.DataSource = this.itemBindingSource;
-            this.itemDataGrid.Location = new System.Drawing.Point(19, 19);
+            this.nombre,
+            this.cantidad,
+            this.monto});
+            this.itemDataGrid.Location = new System.Drawing.Point(19, 20);
             this.itemDataGrid.Name = "itemDataGrid";
-            this.itemDataGrid.Size = new System.Drawing.Size(489, 165);
+            this.itemDataGrid.Size = new System.Drawing.Size(489, 115);
             this.itemDataGrid.TabIndex = 0;
+            this.itemDataGrid.RowLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.itemDataGrid_RowLeave);
+            // 
+            // nombre
+            // 
+            this.nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            // 
+            // cantidad
+            // 
+            this.cantidad.HeaderText = "Cantidad";
+            this.cantidad.Name = "cantidad";
+            // 
+            // monto
+            // 
+            this.monto.HeaderText = "Monto";
+            this.monto.Name = "monto";
             // 
             // itemBindingSource
             // 
@@ -325,60 +348,39 @@
             // 
             // limpiarTodoButton
             // 
-            this.limpiarTodoButton.Location = new System.Drawing.Point(89, 689);
+            this.limpiarTodoButton.Location = new System.Drawing.Point(89, 607);
             this.limpiarTodoButton.Name = "limpiarTodoButton";
             this.limpiarTodoButton.Size = new System.Drawing.Size(150, 25);
             this.limpiarTodoButton.TabIndex = 10;
             this.limpiarTodoButton.Text = "Limpiar todo";
             this.limpiarTodoButton.UseVisualStyleBackColor = true;
+            this.limpiarTodoButton.Click += new System.EventHandler(this.limpiarTodoButton_Click);
             // 
             // completarButton
             // 
-            this.completarButton.Location = new System.Drawing.Point(465, 689);
+            this.completarButton.Location = new System.Drawing.Point(465, 607);
             this.completarButton.Name = "completarButton";
             this.completarButton.Size = new System.Drawing.Size(150, 25);
             this.completarButton.TabIndex = 11;
             this.completarButton.Text = "<Completar>";
             this.completarButton.UseVisualStyleBackColor = true;
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            // 
-            // cantidadDataGridViewTextBoxColumn
-            // 
-            this.cantidadDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.cantidadDataGridViewTextBoxColumn.DataPropertyName = "cantidad";
-            this.cantidadDataGridViewTextBoxColumn.HeaderText = "Cantidad";
-            this.cantidadDataGridViewTextBoxColumn.Name = "cantidadDataGridViewTextBoxColumn";
-            this.cantidadDataGridViewTextBoxColumn.Width = 74;
-            // 
-            // montoDataGridViewTextBoxColumn
-            // 
-            this.montoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.montoDataGridViewTextBoxColumn.DataPropertyName = "monto";
-            this.montoDataGridViewTextBoxColumn.FillWeight = 200F;
-            this.montoDataGridViewTextBoxColumn.HeaderText = "Monto";
-            this.montoDataGridViewTextBoxColumn.Name = "montoDataGridViewTextBoxColumn";
+            this.completarButton.Click += new System.EventHandler(this.completarButton_Click);
             // 
             // FacturaCompletado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(704, 741);
+            this.ClientSize = new System.Drawing.Size(704, 661);
             this.Controls.Add(this.completarButton);
             this.Controls.Add(this.limpiarTodoButton);
             this.Controls.Add(this.itemsBox);
             this.Controls.Add(this.tituloLabel);
             this.Controls.Add(this.altaGroup);
-            this.Controls.Add(this.button2);
             this.Name = "FacturaCompletado";
             this.Text = "<Completado>";
             this.Load += new System.EventHandler(this.FacturaCompletado_Load);
             this.altaGroup.ResumeLayout(false);
+            this.altaGroup.PerformLayout();
             this.facturaLayout.ResumeLayout(false);
             this.facturaLayout.PerformLayout();
             this.itemsBox.ResumeLayout(false);
@@ -394,7 +396,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox altaGroup;
         private System.Windows.Forms.Button limpiarButton;
         private System.Windows.Forms.Label numeroLabel;
@@ -405,13 +406,13 @@
         private System.Windows.Forms.Label tituloLabel;
         private System.Windows.Forms.TableLayoutPanel facturaLayout;
         private System.Windows.Forms.TextBox numeroTextBox;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox dniClienteTextBox;
+        private System.Windows.Forms.ComboBox empresasNombreComboBox;
         private System.Windows.Forms.Button buscadorCliente;
         private System.Windows.Forms.DateTimePicker altaTimePicker;
         private System.Windows.Forms.DateTimePicker vencimientoTimePicker;
         private System.Windows.Forms.GroupBox itemsBox;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button limpiarItemsButton;
         private System.Windows.Forms.DataGridView itemDataGrid;
         private DataSet.SQL_BOYS_Data_Set sQL_BOYS_Data_Set;
         private System.Windows.Forms.BindingSource itemBindingSource;
@@ -421,8 +422,9 @@
         private System.Windows.Forms.Label montoValor;
         private System.Windows.Forms.Button limpiarTodoButton;
         private System.Windows.Forms.Button completarButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn montoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.CheckBox habilitadaCheckBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn monto;
     }
 }

@@ -21,25 +21,24 @@ namespace PagoAgil.Aplicacion.View.Facturas
             this.CenterToScreen();
         }
 
-
-        private void ingresarButton_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
 
+        private void ingresarButton_Click_1(object sender, EventArgs e)
+        {
             FacturaABM.instanciar().abm = new Alta<Factura>();
 
             new FacturaCompletado().Show();
-        }
 
-        private void consultarButton_Click(object sender, EventArgs e)
-        {
             this.Close();
-
-            new FacturaBuscador().Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void consultarButton_Click_1(object sender, EventArgs e)
         {
+            new FacturaBuscador().Show();
+
             this.Close();
         }
     }

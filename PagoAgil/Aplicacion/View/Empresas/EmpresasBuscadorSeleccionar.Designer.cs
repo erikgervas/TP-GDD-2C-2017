@@ -32,11 +32,8 @@
             this.sQL_BOYS_Data_Set = new PagoAgil.DataSet.SQL_BOYS_Data_Set();
             this.tituloLabel = new System.Windows.Forms.Label();
             this.bajaButton = new System.Windows.Forms.Button();
-            this.volverAInicioButton = new System.Windows.Forms.Button();
             this.resultadosBusquedaPanel = new System.Windows.Forms.GroupBox();
             this.empresasDataGrid = new System.Windows.Forms.DataGridView();
-            this.empresaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.empresaTableAdapter = new PagoAgil.DataSet.SQL_BOYS_Data_SetTableAdapters.EmpresaTableAdapter();
             this.idempresaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cuitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +43,8 @@
             this.idrubroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.habilitadxDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.empresaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.empresaTableAdapter = new PagoAgil.DataSet.SQL_BOYS_Data_SetTableAdapters.EmpresaTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.sQL_BOYS_Data_Set)).BeginInit();
             this.resultadosBusquedaPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.empresasDataGrid)).BeginInit();
@@ -79,16 +78,6 @@
             this.bajaButton.Text = "Seleccionar";
             this.bajaButton.UseVisualStyleBackColor = true;
             // 
-            // volverAInicioButton
-            // 
-            this.volverAInicioButton.Location = new System.Drawing.Point(12, 12);
-            this.volverAInicioButton.Name = "volverAInicioButton";
-            this.volverAInicioButton.Size = new System.Drawing.Size(28, 23);
-            this.volverAInicioButton.TabIndex = 19;
-            this.volverAInicioButton.Text = "<<";
-            this.volverAInicioButton.UseVisualStyleBackColor = true;
-            this.volverAInicioButton.Click += new System.EventHandler(this.volverAInicioButton_Click);
-            // 
             // resultadosBusquedaPanel
             // 
             this.resultadosBusquedaPanel.Controls.Add(this.empresasDataGrid);
@@ -121,15 +110,6 @@
             this.empresasDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.empresasDataGrid.Size = new System.Drawing.Size(920, 310);
             this.empresasDataGrid.TabIndex = 1;
-            // 
-            // empresaBindingSource
-            // 
-            this.empresaBindingSource.DataMember = "Empresa";
-            this.empresaBindingSource.DataSource = this.sQL_BOYS_Data_Set;
-            // 
-            // empresaTableAdapter
-            // 
-            this.empresaTableAdapter.ClearBeforeFill = true;
             // 
             // idempresaDataGridViewTextBoxColumn
             // 
@@ -212,12 +192,20 @@
             this.habilitadxDataGridViewCheckBoxColumn.ReadOnly = true;
             this.habilitadxDataGridViewCheckBoxColumn.Width = 59;
             // 
+            // empresaBindingSource
+            // 
+            this.empresaBindingSource.DataMember = "Empresa";
+            this.empresaBindingSource.DataSource = this.sQL_BOYS_Data_Set;
+            // 
+            // empresaTableAdapter
+            // 
+            this.empresaTableAdapter.ClearBeforeFill = true;
+            // 
             // EmpresasBuscadorSeleccionar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 461);
-            this.Controls.Add(this.volverAInicioButton);
             this.Controls.Add(this.bajaButton);
             this.Controls.Add(this.tituloLabel);
             this.Controls.Add(this.resultadosBusquedaPanel);
@@ -238,7 +226,6 @@
         private System.Windows.Forms.Label tituloLabel;
         private System.Windows.Forms.Button bajaButton;
         private DataSet.SQL_BOYS_Data_Set sQL_BOYS_Data_Set;
-        private System.Windows.Forms.Button volverAInicioButton;
         private System.Windows.Forms.GroupBox resultadosBusquedaPanel;
         private System.Windows.Forms.DataGridView empresasDataGrid;
         private System.Windows.Forms.BindingSource empresaBindingSource;

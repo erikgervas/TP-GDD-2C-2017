@@ -14,17 +14,17 @@ namespace PagoAgil.Aplicacion.Orquestradores.TiposDeABM
     {
         public string[] completado(string abm)
         {
-            return new string[] { "Alta de " + abm, "Alta de " + abm + " nueva", "Datos de la nueva" + abm, "Confirmar" };
+            return new string[] { "Alta de " + abm, "Alta de " + abm + " nueva", "Datos de la nueva " + abm, "Confirmar" };
         }
 
         public string[] confirmado(string abm)
         {
-            return new string[] { "Alta de " + abm, "Confirmación de alta", "Datos de la nueva empresa", "Dar de alta" };
+            return new string[] { "Alta de " + abm, "Confirmación de alta", "Datos de la nueva " + abm, "Dar de alta" };
         }
 
         public string[] ok(string abm)
         {
-            return new string[] { "Alta de " + abm, "¡¡La empresa se ha dado de alta con éxito!!" };
+            return new string[] { "Alta de " + abm, "¡¡La " + abm + " se ha dado de alta con éxito!!" };
         }
 
         public void botones(EmpresasConfirmacion empresasConfirmacion) { }

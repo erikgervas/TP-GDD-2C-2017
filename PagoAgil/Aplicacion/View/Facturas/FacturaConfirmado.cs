@@ -12,9 +12,17 @@ namespace PagoAgil.Aplicacion.View.Facturas
 {
     public partial class FacturaConfirmado : Form
     {
+        private Builders.FacturaBuilder facturaBuilder;
+
         public FacturaConfirmado()
         {
             InitializeComponent();
+        }
+
+        public FacturaConfirmado(Builders.FacturaBuilder facturaBuilder)
+        {
+            // TODO: Complete member initialization
+            this.facturaBuilder = facturaBuilder;
         }
 
         private void FacturaConfirmado_Load(object sender, EventArgs e)
