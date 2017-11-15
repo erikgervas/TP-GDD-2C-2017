@@ -1,5 +1,6 @@
 ﻿using PagoAgil.Aplicacion.BD.Repositorios;
 using PagoAgil.Aplicacion.Builders;
+using PagoAgil.Aplicacion.Modelo;
 using PagoAgil.Aplicacion.Orquestradores.TiposDeABM.ABMs;
 using System;
 using System.Collections.Generic;
@@ -33,9 +34,10 @@ namespace PagoAgil.Aplicacion.View.Facturas
             this.altaAsignada.Text = this.factura.fecha_alta.ToString();
             this.vencimientoAsignado.Text = this.factura.fecha_vencimiento.ToString();
             this.dniAsignado.Text = this.factura.dni_cliente.ToString();
-            this.empresaLabel.Text = this.factura.nombre_empresa;
+            this.empresaAsignada.Text = this.factura.nombre_empresa;
             this.habilitadoAsignado.Checked = this.factura.estado;
-            //this.montoValor.Text = this.factura.items.Sum(i => i.montoTotal()).ToString();
+            foreach (Item i in this.factura.items) this.itemDataGrid.Rows.Add(i.nombre, i.cantidad.ToString(), i.monto.ToString());
+            this.montoValor.Text = this.factura.items.Sum(i => i.montoTotal()).ToString();
         }
 
         private void iniciarTitulos()

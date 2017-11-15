@@ -311,11 +311,11 @@
             this.nombre,
             this.cantidad,
             this.monto});
-            this.itemDataGrid.Location = new System.Drawing.Point(19, 20);
+            this.itemDataGrid.Location = new System.Drawing.Point(19, 24);
             this.itemDataGrid.Name = "itemDataGrid";
             this.itemDataGrid.Size = new System.Drawing.Size(489, 115);
             this.itemDataGrid.TabIndex = 0;
-            this.itemDataGrid.RowLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.itemDataGrid_RowLeave);
+            this.itemDataGrid.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.itemDataGrid_RowLeave);
             // 
             // nombre
             // 

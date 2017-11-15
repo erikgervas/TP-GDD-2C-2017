@@ -39,23 +39,23 @@
             this.altaAsignada = new System.Windows.Forms.Label();
             this.vencimientoAsignado = new System.Windows.Forms.Label();
             this.dniAsignado = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.empresaAsignada = new System.Windows.Forms.Label();
             this.tituloLabel = new System.Windows.Forms.Label();
             this.altaGroup = new System.Windows.Forms.GroupBox();
+            this.habilitadoAsignado = new System.Windows.Forms.CheckBox();
             this.montoValor = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.montoLabel = new System.Windows.Forms.Label();
             this.itemsBox = new System.Windows.Forms.GroupBox();
             this.itemDataGrid = new System.Windows.Forms.DataGridView();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.montoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sQL_BOYS_Data_Set = new PagoAgil.DataSet.SQL_BOYS_Data_Set();
             this.seguirModificandoButton = new System.Windows.Forms.Button();
             this.completarButton = new System.Windows.Forms.Button();
             this.itemTableAdapter = new PagoAgil.DataSet.SQL_BOYS_Data_SetTableAdapters.ItemTableAdapter();
-            this.habilitadoAsignado = new System.Windows.Forms.CheckBox();
             this.facturaLayout.SuspendLayout();
             this.altaGroup.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -80,7 +80,7 @@
             this.facturaLayout.Controls.Add(this.altaAsignada, 1, 1);
             this.facturaLayout.Controls.Add(this.vencimientoAsignado, 1, 2);
             this.facturaLayout.Controls.Add(this.dniAsignado, 1, 3);
-            this.facturaLayout.Controls.Add(this.label5, 1, 4);
+            this.facturaLayout.Controls.Add(this.empresaAsignada, 1, 4);
             this.facturaLayout.Location = new System.Drawing.Point(19, 29);
             this.facturaLayout.Name = "facturaLayout";
             this.facturaLayout.RowCount = 5;
@@ -182,15 +182,15 @@
             this.dniAsignado.TabIndex = 8;
             this.dniAsignado.Text = "<Dni de cliente>";
             // 
-            // label5
+            // empresaAsignada
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(198, 173);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(189, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "<Nombre de empresa>";
+            this.empresaAsignada.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.empresaAsignada.AutoSize = true;
+            this.empresaAsignada.Location = new System.Drawing.Point(198, 173);
+            this.empresaAsignada.Name = "empresaAsignada";
+            this.empresaAsignada.Size = new System.Drawing.Size(189, 13);
+            this.empresaAsignada.TabIndex = 9;
+            this.empresaAsignada.Text = "<Nombre de empresa>";
             // 
             // tituloLabel
             // 
@@ -215,6 +215,17 @@
             this.altaGroup.TabIndex = 13;
             this.altaGroup.TabStop = false;
             this.altaGroup.Text = "<Datos>";
+            // 
+            // habilitadoAsignado
+            // 
+            this.habilitadoAsignado.AutoSize = true;
+            this.habilitadoAsignado.Enabled = false;
+            this.habilitadoAsignado.Location = new System.Drawing.Point(435, 240);
+            this.habilitadoAsignado.Name = "habilitadoAsignado";
+            this.habilitadoAsignado.Size = new System.Drawing.Size(73, 17);
+            this.habilitadoAsignado.TabIndex = 5;
+            this.habilitadoAsignado.Text = "Habilitada";
+            this.habilitadoAsignado.UseVisualStyleBackColor = true;
             // 
             // montoValor
             // 
@@ -263,40 +274,37 @@
             // 
             // itemDataGrid
             // 
-            this.itemDataGrid.AllowUserToOrderColumns = true;
-            this.itemDataGrid.AutoGenerateColumns = false;
+            this.itemDataGrid.AllowUserToAddRows = false;
+            this.itemDataGrid.AllowUserToDeleteRows = false;
             this.itemDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.itemDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nombreDataGridViewTextBoxColumn,
-            this.cantidadDataGridViewTextBoxColumn,
-            this.montoDataGridViewTextBoxColumn});
-            this.itemDataGrid.DataSource = this.itemBindingSource;
+            this.nombre,
+            this.cantidad,
+            this.monto});
             this.itemDataGrid.Location = new System.Drawing.Point(19, 19);
             this.itemDataGrid.Name = "itemDataGrid";
+            this.itemDataGrid.ReadOnly = true;
             this.itemDataGrid.Size = new System.Drawing.Size(489, 165);
             this.itemDataGrid.TabIndex = 0;
             // 
-            // nombreDataGridViewTextBoxColumn
+            // nombre
             // 
-            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
             // 
-            // cantidadDataGridViewTextBoxColumn
+            // cantidad
             // 
-            this.cantidadDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.cantidadDataGridViewTextBoxColumn.DataPropertyName = "cantidad";
-            this.cantidadDataGridViewTextBoxColumn.HeaderText = "Cantidad";
-            this.cantidadDataGridViewTextBoxColumn.Name = "cantidadDataGridViewTextBoxColumn";
-            this.cantidadDataGridViewTextBoxColumn.Width = 74;
+            this.cantidad.HeaderText = "Cantidad";
+            this.cantidad.Name = "cantidad";
+            this.cantidad.ReadOnly = true;
             // 
-            // montoDataGridViewTextBoxColumn
+            // monto
             // 
-            this.montoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.montoDataGridViewTextBoxColumn.DataPropertyName = "monto";
-            this.montoDataGridViewTextBoxColumn.HeaderText = "Monto";
-            this.montoDataGridViewTextBoxColumn.Name = "montoDataGridViewTextBoxColumn";
+            this.monto.HeaderText = "Monto";
+            this.monto.Name = "monto";
+            this.monto.ReadOnly = true;
             // 
             // itemBindingSource
             // 
@@ -331,17 +339,6 @@
             // itemTableAdapter
             // 
             this.itemTableAdapter.ClearBeforeFill = true;
-            // 
-            // habilitadoAsignado
-            // 
-            this.habilitadoAsignado.AutoSize = true;
-            this.habilitadoAsignado.Enabled = false;
-            this.habilitadoAsignado.Location = new System.Drawing.Point(435, 240);
-            this.habilitadoAsignado.Name = "habilitadoAsignado";
-            this.habilitadoAsignado.Size = new System.Drawing.Size(73, 17);
-            this.habilitadoAsignado.TabIndex = 5;
-            this.habilitadoAsignado.Text = "Habilitada";
-            this.habilitadoAsignado.UseVisualStyleBackColor = true;
             // 
             // FacturaConfirmado
             // 
@@ -392,14 +389,14 @@
         private System.Windows.Forms.Label altaAsignada;
         private System.Windows.Forms.Label vencimientoAsignado;
         private System.Windows.Forms.Label dniAsignado;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label empresaAsignada;
         private DataSet.SQL_BOYS_Data_Set sQL_BOYS_Data_Set;
         private System.Windows.Forms.BindingSource itemBindingSource;
         private DataSet.SQL_BOYS_Data_SetTableAdapters.ItemTableAdapter itemTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn montoDataGridViewTextBoxColumn;
         private System.Windows.Forms.CheckBox habilitadoAsignado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn monto;
 
     }
 }

@@ -52,9 +52,9 @@ namespace PagoAgil.Aplicacion.View.Facturas
             this.dniClienteTextBox.Text = this.viewModel.factura.dni_cliente.ToString();
             this.empresasNombreComboBox.Text = this.viewModel.factura.nombre_empresa;
             this.habilitadaCheckBox.Checked = this.viewModel.factura.estado;
-            // Items!!
-
-            this.viewModel.factura = new FacturaBuilder();
+            foreach (Item i in this.viewModel.factura.items) this.itemDataGrid.Rows.Add(i.nombre, i.cantidad.ToString(), i.monto.ToString());
+            this.montoValor.Text = this.viewModel.factura.items.Sum(i => i.montoTotal()).ToString();
+            this.viewModel.factura.items = new List<Item>();
         }
 
         private void iniciarCampos()
@@ -66,14 +66,15 @@ namespace PagoAgil.Aplicacion.View.Facturas
             foreach (Empresa unaEmpresa in this.viewModel.empresas) this.empresasNombreComboBox.Items.Add(unaEmpresa);
             this.empresasNombreComboBox.DisplayMember = "nombre";
             this.empresasNombreComboBox.SelectedIndex = 0;
-            this.montoValor.Text = "0";
+            this.habilitadaCheckBox.CheckState = CheckState.Indeterminate;
+            this.limpiarItems();
+            this.montoValor.Text = "";
         }
 
         private void FacturaCompletado_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'sQL_BOYS_Data_Set.Item' table. You can move, or remove it, as needed.
             // this.itemTableAdapter.Fill(this.sQL_BOYS_Data_Set.Item);
-
         }
 
         private void limpiarBase()
@@ -113,11 +114,12 @@ namespace PagoAgil.Aplicacion.View.Facturas
 
         private void rellenarCampos()
         {
-            this.viewModel.factura.numero = long.Parse(this.numeroTextBox.Text);
+            if (this.numeroTextBox.Text != "") this.viewModel.factura.numero = long.Parse(this.numeroTextBox.Text);
             this.viewModel.factura.fecha_alta = this.altaTimePicker.Value;
             this.viewModel.factura.fecha_vencimiento = this.vencimientoTimePicker.Value;
-            this.viewModel.factura.dni_cliente = long.Parse(this.dniClienteTextBox.Text);
+            if (this.dniClienteTextBox.Text != "") this.viewModel.factura.dni_cliente = long.Parse(this.dniClienteTextBox.Text);
             this.viewModel.factura.nombre_empresa = this.empresasNombreComboBox.Text;
+            this.viewModel.factura.estado = this.habilitadaCheckBox.Checked;
 
             for (int i = 0; i < itemDataGrid.Rows.Count - 1; i++)
             {
@@ -127,36 +129,21 @@ namespace PagoAgil.Aplicacion.View.Facturas
 
         private void rellenarItem(DataGridViewRow dataGridViewRow)
         {
-            ItemBuilder builder = new ItemBuilder();
-
-            builder.nombre = dataGridViewRow.Cells[0].Value.ToString();
-            builder.cantidad = int.Parse(dataGridViewRow.Cells[1].Value.ToString());
-            builder.monto = float.Parse(dataGridViewRow.Cells[2].Value.ToString(), CultureInfo.InvariantCulture.NumberFormat);
-
-            builder.validar();
-
-            this.viewModel.factura.items.Add(builder.crear());
-        }
-
-        private void completarButton_Click(object sender, EventArgs e)
-        {
             try
             {
-                this.rellenarCampos();
+                ItemBuilder builder = new ItemBuilder();
 
-                this.viewModel.factura.validar();
+                builder.nombre = dataGridViewRow.Cells[0].Value.ToString();
+                builder.cantidad = int.Parse(dataGridViewRow.Cells[1].Value.ToString());
+                builder.monto = float.Parse(dataGridViewRow.Cells[2].Value.ToString(), CultureInfo.InvariantCulture.NumberFormat);
 
-                this.Close();
+                builder.validar();
 
-                new FacturaConfirmado(this.viewModel.factura).Show();
+                this.viewModel.factura.items.Add(builder.crear());
             }
-            catch (NoSePuedeCrearException excepcion)
+            catch (Exception)
             {
-                new EmpresasAdvertenciaFaltanCampos(this, excepcion).Show();
-            }
-            catch (YaExisteObjetoConEsaClave excepcion)
-            {
-                new EmpresasAdvertenciaMismoCuit(this, excepcion).Show();
+
             }
         }
 
@@ -180,9 +167,33 @@ namespace PagoAgil.Aplicacion.View.Facturas
 
         private void buscadorCliente_Click(object sender, EventArgs e)
         {
+            this.rellenarCampos();
+
             this.Close();
 
             new FacturaBuscarDNI(this.viewModel.factura).Show();
+        }
+
+        private void completarButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.rellenarCampos();
+
+                this.viewModel.factura.validar();
+
+                this.Close();
+
+                new FacturaConfirmado(this.viewModel.factura).Show();
+            }
+            catch (NoSePuedeCrearException excepcion)
+            {
+                new EmpresasAdvertenciaFaltanCampos(this, excepcion).Show();
+            }
+            catch (YaExisteObjetoConEsaClave excepcion)
+            {
+                new EmpresasAdvertenciaMismoCuit(this, excepcion).Show();
+            }
         }
     }
 }
