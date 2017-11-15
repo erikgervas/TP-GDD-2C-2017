@@ -11,7 +11,7 @@ namespace PagoAgil.Aplicacion.View.Pago
     public class PagoBuilder
     {
         public long numeroPago { get; set; }
-        public double montoTotal { get; set; }
+        public decimal montoTotal { get; set; }
         public DateTime fechaPago{ get; set; }
         public int idMedioPago { get; set; }
         public int dniCliente { get; set; }

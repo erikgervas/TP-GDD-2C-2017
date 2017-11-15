@@ -7,6 +7,8 @@ using PagoAgil.Aplicacion.Modelo;
 using System.Data;
 using PagoAgil.Aplicacion.BD.Repositorios;
 using PagoAgil.Aplicacion.BD;
+using PagoAgil.Aplicacion.Modelo.ClienteSQL;
+using PagoAgil.Aplicacion.View.Pago.Excepciones;
 
 namespace PagoAgil.Aplicacion.ViewModel
 {
@@ -14,16 +16,42 @@ namespace PagoAgil.Aplicacion.ViewModel
     {
         public List<string> empresas { get; set; }
 
-        public void buscarFactura(int numeroFactura,long idEmpresa, DateTime fechaVencimiento)
+        public DataTable buscarFactura(int numeroFactura,long idEmpresa, DateTime fechaVencimiento)
         {
-            DataTable factura;
-            //return RepositorioFacturas.getInstancia().getAlmacenamiento().obtenerFacturaPorNroEmpresaYFechaVenc(numeroFactura,idEmpresa,fechaVencimiento);
-            //return factura;
+            DataTable factura = obtenerFacturaPorNroEmpresaYFechaVenc(numeroFactura, idEmpresa, fechaVencimiento);
+
+            if (factura.Rows.Count == 0) throw new FacturaInvalidaException("Factura invalida");
+
+            return factura;
         }
 
-        public void obtenerEmpresas() 
+        public EmpresaDB[] obtenerEmpresas() 
         {
-           empresas = (List<string>) RepositorioEmpresas.instanciar().listarElementos().Select(e => e.ToString());
+            List<EmpresaDB> empresas = new List<EmpresaDB>();
+
+            TablaDTO tabla = LectorDeTablas.getInstance().obtener("SELECT * FROM SQL_BOYS.Empresa");
+            FilaDTO fila;
+
+            for (int i = 0; i < tabla.cantidadDeFilas(); i++)
+            {
+                fila = tabla.obtener(i);
+                empresas.Add(new EmpresaDB(fila));
+            }
+
+            return empresas.ToArray();
+        }
+
+        public DataTable obtenerFacturaPorNroEmpresaYFechaVenc(int numeroFactura, long idEmpresa, DateTime fechaVencimiento)
+        {
+            DateTime datevalue = (Convert.ToDateTime(fechaVencimiento.ToString()));
+
+            String dia = datevalue.Day.ToString();
+            String mes = datevalue.Month.ToString();
+            String anio = datevalue.Year.ToString();
+
+            string query = "obtenerFactura(" + numeroFactura + "," + idEmpresa + "," + dia + "," + mes + "," + anio + ")";
+
+            return LectorDeTablas.getInstance().obtenerMejorado(query);
         }
 
     }

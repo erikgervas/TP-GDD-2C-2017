@@ -60,7 +60,9 @@ namespace PagoAgil.Aplicacion.View.Facturas
         private void iniciarCampos()
         {
             this.altaTimePicker.Value = DateTime.Now;
+            this.viewModel.factura.fecha_alta = this.altaTimePicker.Value;
             this.vencimientoTimePicker.Value = DateTime.Now.AddDays(1);
+            this.viewModel.factura.fecha_vencimiento = this.vencimientoTimePicker.Value;
             foreach (Empresa unaEmpresa in this.viewModel.empresas) this.empresasNombreComboBox.Items.Add(unaEmpresa);
             this.empresasNombreComboBox.DisplayMember = "nombre";
             this.empresasNombreComboBox.SelectedIndex = 0;
@@ -114,6 +116,11 @@ namespace PagoAgil.Aplicacion.View.Facturas
             this.viewModel.factura.fecha_vencimiento = this.vencimientoTimePicker.Value;
             this.viewModel.factura.dni_cliente = long.Parse(this.dniClienteTextBox.Text);
             this.viewModel.factura.nombre_empresa = this.empresasNombreComboBox.Text;
+
+            for (int i = 0; i < itemDataGrid.Rows.Count - 1; i++)
+            {
+                rellenarItem(itemDataGrid.Rows[i]);
+            }
         }
 
         private void rellenarItem(DataGridViewRow dataGridViewRow)
@@ -155,7 +162,7 @@ namespace PagoAgil.Aplicacion.View.Facturas
         {
             float montoActual = 0;
 
-            for (int i = 0; i < itemDataGrid.Rows.Count; i++)
+            for (int i = 0; i < itemDataGrid.Rows.Count - 1; i++)
             {
                 if (itemDataGrid.Rows[i].Cells[1].Value != null && itemDataGrid.Rows[i].Cells[2].Value != null)
                 {
@@ -167,6 +174,13 @@ namespace PagoAgil.Aplicacion.View.Facturas
             }
 
             this.montoValor.Text = montoActual.ToString();
+        }
+
+        private void buscadorCliente_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+            new FacturaBuscarDNI(this.viewModel.factura).Show();
         }
     }
 }

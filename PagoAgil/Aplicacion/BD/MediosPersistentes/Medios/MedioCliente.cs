@@ -100,7 +100,7 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
 
         public System.Data.DataTable darTabla()
         {
-            throw new NotImplementedException();
+            return LectorDeTablas.getInstance().obtenerMejorado("Cliente");
         }
 
 

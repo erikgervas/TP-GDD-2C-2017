@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
 {
@@ -24,5 +25,6 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
         {
             throw new NotImplementedException();
         }
+        }
     }
-}
+

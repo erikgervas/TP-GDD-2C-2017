@@ -205,6 +205,7 @@
             this.buscadorCliente.TabIndex = 9;
             this.buscadorCliente.Text = "Buscar";
             this.buscadorCliente.UseVisualStyleBackColor = true;
+            this.buscadorCliente.Click += new System.EventHandler(this.buscadorCliente_Click);
             // 
             // altaTimePicker
             // 

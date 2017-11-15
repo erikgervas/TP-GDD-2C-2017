@@ -17,6 +17,7 @@ namespace PagoAgil.Aplicacion.Orquestradores
 
         public static void iniciarRepositorios()
         {
+            RepositorioClientes.getInstance().almacenamiento = new MedioCliente();
             RepositorioRubros.instanciar().almacenamiento = new MedioRubro();
             RepositorioEmpresas.instanciar().almacenamiento = new MedioEmpresa();
             RepositorioFacturas.instanciar().almacenamiento = new MedioFactura();
