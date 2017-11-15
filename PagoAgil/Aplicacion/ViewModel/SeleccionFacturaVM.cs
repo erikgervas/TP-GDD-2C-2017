@@ -58,11 +58,11 @@ namespace PagoAgil.Aplicacion.ViewModel
 
         public void crearPago(PagoDB pago, List<int> facturasPagadas)
         {
-            Insertador.getInstance().insertarPago(pago);
-
             int numeroPago;
             SqlCommand cmd = new SqlCommand("SELECT SQL_BOYS.obtenerProximoNroPago()", Conexion.getInstance().obtenerConexion());
             numeroPago = int.Parse(cmd.ExecuteScalar().ToString());
+
+            Insertador.getInstance().insertarPago(pago);
 
             for (int i = 0; i < facturasPagadas.Count ;i++)
             {

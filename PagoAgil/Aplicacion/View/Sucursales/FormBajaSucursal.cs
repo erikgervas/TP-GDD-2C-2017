@@ -53,6 +53,11 @@ namespace PagoAgil.Aplicacion.View
                 MessageBox.Show("La sucursal seleccionada ya se encuentra deshabilitada");
                 return;
             }
+            catch (DeshabilitarSucursalActualException)
+            {
+                MessageBox.Show("No puede deshabilitar la sucursal en la que se encuentre loggeado en este momento");
+                return;
+            }
 
             this.Hide();
         }
