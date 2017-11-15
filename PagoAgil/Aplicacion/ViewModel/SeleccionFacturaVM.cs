@@ -9,6 +9,8 @@ using PagoAgil.Aplicacion.BD.Repositorios;
 using PagoAgil.Aplicacion.BD;
 using PagoAgil.Aplicacion.Modelo.ClienteSQL;
 using PagoAgil.Aplicacion.View.Pago.Excepciones;
+using PagoAgil.Aplicacion.BD.Utils;
+using System.Data.SqlClient;
 
 namespace PagoAgil.Aplicacion.ViewModel
 {
@@ -52,6 +54,27 @@ namespace PagoAgil.Aplicacion.ViewModel
             string query = "obtenerFactura(" + numeroFactura + "," + idEmpresa + "," + dia + "," + mes + "," + anio + ")";
 
             return LectorDeTablas.getInstance().obtenerMejorado(query);
+        }
+
+        public void crearPago(PagoDB pago, List<int> facturasPagadas)
+        {
+            Insertador.getInstance().insertarPago(pago);
+
+            int numeroPago;
+            SqlCommand cmd = new SqlCommand("SELECT SQL_BOYS.obtenerProximoNroPago()", Conexion.getInstance().obtenerConexion());
+            numeroPago = int.Parse(cmd.ExecuteScalar().ToString());
+
+            for (int i = 0; i < facturasPagadas.Count ;i++)
+            {
+                SqlCommand cmd2 = new SqlCommand("SQL_BOYS.insertarItemPagoDeFactura", Conexion.getInstance().obtenerConexion());
+
+                cmd2.CommandType = CommandType.StoredProcedure;
+
+                cmd2.Parameters.AddWithValue("@nroPago", DbType.Int32).Value = numeroPago;
+                cmd2.Parameters.AddWithValue("@nroFactura", DbType.Int32).Value = facturasPagadas.ElementAt(i);
+
+                cmd2.ExecuteNonQuery();
+            }
         }
 
     }
