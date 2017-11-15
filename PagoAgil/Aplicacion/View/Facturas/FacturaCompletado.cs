@@ -90,7 +90,9 @@ namespace PagoAgil.Aplicacion.View.Facturas
 
         private void limpiarItems()
         {
-            // Borrar items!!
+            this.viewModel.factura.items = new List<Item>();
+
+            this.itemDataGrid.Rows.Clear();
         }
 
         private void limpiarButton_Click(object sender, EventArgs e)

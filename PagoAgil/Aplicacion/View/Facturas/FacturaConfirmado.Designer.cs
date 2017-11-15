@@ -55,6 +55,7 @@
             this.seguirModificandoButton = new System.Windows.Forms.Button();
             this.completarButton = new System.Windows.Forms.Button();
             this.itemTableAdapter = new PagoAgil.DataSet.SQL_BOYS_Data_SetTableAdapters.ItemTableAdapter();
+            this.habilitadoAsignado = new System.Windows.Forms.CheckBox();
             this.facturaLayout.SuspendLayout();
             this.altaGroup.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -206,10 +207,11 @@
             // 
             // altaGroup
             // 
+            this.altaGroup.Controls.Add(this.habilitadoAsignado);
             this.altaGroup.Controls.Add(this.facturaLayout);
             this.altaGroup.Location = new System.Drawing.Point(89, 76);
             this.altaGroup.Name = "altaGroup";
-            this.altaGroup.Size = new System.Drawing.Size(526, 285);
+            this.altaGroup.Size = new System.Drawing.Size(526, 267);
             this.altaGroup.TabIndex = 13;
             this.altaGroup.TabStop = false;
             this.altaGroup.Text = "<Datos>";
@@ -252,9 +254,9 @@
             // 
             this.itemsBox.Controls.Add(this.tableLayoutPanel1);
             this.itemsBox.Controls.Add(this.itemDataGrid);
-            this.itemsBox.Location = new System.Drawing.Point(89, 379);
+            this.itemsBox.Location = new System.Drawing.Point(89, 349);
             this.itemsBox.Name = "itemsBox";
-            this.itemsBox.Size = new System.Drawing.Size(526, 285);
+            this.itemsBox.Size = new System.Drawing.Size(526, 247);
             this.itemsBox.TabIndex = 15;
             this.itemsBox.TabStop = false;
             this.itemsBox.Text = "Items";
@@ -308,31 +310,44 @@
             // 
             // seguirModificandoButton
             // 
-            this.seguirModificandoButton.Location = new System.Drawing.Point(89, 689);
+            this.seguirModificandoButton.Location = new System.Drawing.Point(89, 615);
             this.seguirModificandoButton.Name = "seguirModificandoButton";
             this.seguirModificandoButton.Size = new System.Drawing.Size(150, 25);
             this.seguirModificandoButton.TabIndex = 16;
             this.seguirModificandoButton.Text = "Seguir Modificando";
             this.seguirModificandoButton.UseVisualStyleBackColor = true;
+            this.seguirModificandoButton.Click += new System.EventHandler(this.seguirModificandoButton_Click);
             // 
             // completarButton
             // 
-            this.completarButton.Location = new System.Drawing.Point(465, 689);
+            this.completarButton.Location = new System.Drawing.Point(465, 615);
             this.completarButton.Name = "completarButton";
             this.completarButton.Size = new System.Drawing.Size(150, 25);
             this.completarButton.TabIndex = 17;
             this.completarButton.Text = "<Confirmar>";
             this.completarButton.UseVisualStyleBackColor = true;
+            this.completarButton.Click += new System.EventHandler(this.completarButton_Click);
             // 
             // itemTableAdapter
             // 
             this.itemTableAdapter.ClearBeforeFill = true;
             // 
+            // habilitadoAsignado
+            // 
+            this.habilitadoAsignado.AutoSize = true;
+            this.habilitadoAsignado.Enabled = false;
+            this.habilitadoAsignado.Location = new System.Drawing.Point(435, 240);
+            this.habilitadoAsignado.Name = "habilitadoAsignado";
+            this.habilitadoAsignado.Size = new System.Drawing.Size(73, 17);
+            this.habilitadoAsignado.TabIndex = 5;
+            this.habilitadoAsignado.Text = "Habilitada";
+            this.habilitadoAsignado.UseVisualStyleBackColor = true;
+            // 
             // FacturaConfirmado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(704, 741);
+            this.ClientSize = new System.Drawing.Size(704, 661);
             this.Controls.Add(this.tituloLabel);
             this.Controls.Add(this.altaGroup);
             this.Controls.Add(this.itemsBox);
@@ -344,6 +359,7 @@
             this.facturaLayout.ResumeLayout(false);
             this.facturaLayout.PerformLayout();
             this.altaGroup.ResumeLayout(false);
+            this.altaGroup.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.itemsBox.ResumeLayout(false);
@@ -383,6 +399,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidadDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn montoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.CheckBox habilitadoAsignado;
 
     }
 }

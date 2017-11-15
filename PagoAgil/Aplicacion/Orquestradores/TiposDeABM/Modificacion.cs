@@ -1,5 +1,6 @@
 ﻿using PagoAgil.Aplicacion.BD;
 using PagoAgil.Aplicacion.View.Empresas;
+using PagoAgil.Aplicacion.View.Facturas;
 
 namespace PagoAgil.Aplicacion.Orquestradores.TiposDeABM
 {
@@ -28,6 +29,11 @@ namespace PagoAgil.Aplicacion.Orquestradores.TiposDeABM
         public void botones(EmpresasCompletado empresasCompletado)
         {
             empresasCompletado.habilitadaCheckBox.Visible = false;
+        }
+
+        public void botones(FacturaConfirmado facturaConfirmado)
+        {
+            
         }
 
         public void realizate(Repositorio<E> repositorio, E entidad)

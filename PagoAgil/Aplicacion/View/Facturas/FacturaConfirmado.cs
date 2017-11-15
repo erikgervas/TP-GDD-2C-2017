@@ -1,4 +1,7 @@
-﻿using System;
+﻿using PagoAgil.Aplicacion.BD.Repositorios;
+using PagoAgil.Aplicacion.Builders;
+using PagoAgil.Aplicacion.Orquestradores.TiposDeABM.ABMs;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,24 +15,56 @@ namespace PagoAgil.Aplicacion.View.Facturas
 {
     public partial class FacturaConfirmado : Form
     {
-        private Builders.FacturaBuilder facturaBuilder;
+        private FacturaBuilder factura;
 
-        public FacturaConfirmado()
+        public FacturaConfirmado(FacturaBuilder facturaBuilder)
         {
             InitializeComponent();
+            this.CenterToScreen();
+            this.factura = facturaBuilder;
+            this.iniciarTitulos();
+            this.completarCampos();
+            FacturaABM.instanciar().determinarBotones(this);
         }
 
-        public FacturaConfirmado(Builders.FacturaBuilder facturaBuilder)
+        private void completarCampos()
         {
-            // TODO: Complete member initialization
-            this.facturaBuilder = facturaBuilder;
+            this.numeroFacturaAsignado.Text = this.factura.numero.ToString();
+            this.altaAsignada.Text = this.factura.fecha_alta.ToString();
+            this.vencimientoAsignado.Text = this.factura.fecha_vencimiento.ToString();
+            this.dniAsignado.Text = this.factura.dni_cliente.ToString();
+            this.empresaLabel.Text = this.factura.nombre_empresa;
+            this.habilitadoAsignado.Checked = this.factura.estado;
+            //this.montoValor.Text = this.factura.items.Sum(i => i.montoTotal()).ToString();
+        }
+
+        private void iniciarTitulos()
+        {
+            this.Text = FacturaABM.instanciar().titulosConfirmado()[0];
+            this.tituloLabel.Text = FacturaABM.instanciar().titulosConfirmado()[1];
+            this.altaGroup.Text = FacturaABM.instanciar().titulosConfirmado()[2];
+            this.completarButton.Text = FacturaABM.instanciar().titulosConfirmado()[3];
         }
 
         private void FacturaConfirmado_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'sQL_BOYS_Data_Set.Item' table. You can move, or remove it, as needed.
-            this.itemTableAdapter.Fill(this.sQL_BOYS_Data_Set.Item);
 
+        }
+
+        private void seguirModificandoButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+            new FacturaCompletado(this.factura).Show();
+        }
+
+        private void completarButton_Click(object sender, EventArgs e)
+        {
+            FacturaABM.instanciar().realizarABM(RepositorioFacturas.instanciar(), this.factura.crear());
+
+            this.Close();
+
+            new FacturaOk().Show();
         }
     }
 }

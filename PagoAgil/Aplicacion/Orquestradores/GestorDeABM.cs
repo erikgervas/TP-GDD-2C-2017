@@ -3,6 +3,7 @@ using PagoAgil.Aplicacion.Builders;
 using PagoAgil.Aplicacion.Modelo;
 using PagoAgil.Aplicacion.Orquestradores.TiposDeABM;
 using PagoAgil.Aplicacion.View.Empresas;
+using PagoAgil.Aplicacion.View.Facturas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +39,11 @@ namespace PagoAgil.Aplicacion.Orquestradores
         }
 
         public void determinarBotones(EmpresasConfirmacion formConfirmacion)
+        {
+            this.abm.botones(formConfirmacion);
+        }
+
+        public void determinarBotones(FacturaConfirmado formConfirmacion)
         {
             this.abm.botones(formConfirmacion);
         }

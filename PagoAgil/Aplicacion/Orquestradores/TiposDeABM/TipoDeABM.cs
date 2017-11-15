@@ -2,6 +2,7 @@
 using PagoAgil.Aplicacion.Builders;
 using PagoAgil.Aplicacion.Modelo;
 using PagoAgil.Aplicacion.View.Empresas;
+using PagoAgil.Aplicacion.View.Facturas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,8 @@ namespace PagoAgil.Aplicacion.Orquestradores.TiposDeABM
 
         void botones(EmpresasCompletado empresasCompletado);
 
-       void realizate(Repositorio<E> repositorio, E entidad);
+        void botones(FacturaConfirmado facturaConfirmado);
+
+        void realizate(Repositorio<E> repositorio, E entidad);
     }
 }
