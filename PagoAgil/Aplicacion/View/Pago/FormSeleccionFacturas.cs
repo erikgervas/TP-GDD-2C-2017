@@ -106,6 +106,8 @@ namespace PagoAgil.Aplicacion.View.Pago
 
             VM.crearPago(miPagoBuilder.crearPago(), this.facturasPagadas);
 
+            MessageBox.Show("Pago creado correctamente");
+
             this.Hide();
         }
     }
