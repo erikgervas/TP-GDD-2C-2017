@@ -77,6 +77,7 @@
     <Compile Include="Aplicacion\Configuracion.cs" />
     <Compile Include="Aplicacion\Modelo\Cliente.cs" />
     <Compile Include="Aplicacion\Modelo\ClienteSQL\ClienteDB.cs" />
+    <Compile Include="Aplicacion\Modelo\ClienteSQL\EmpresaDB.cs" />
     <Compile Include="Aplicacion\Modelo\ClienteSQL\PagoDB.cs" />
     <Compile Include="Aplicacion\Modelo\ClienteSQL\RolDB.cs" />
     <Compile Include="Aplicacion\Modelo\ClienteSQL\SucursalDB.cs" />
