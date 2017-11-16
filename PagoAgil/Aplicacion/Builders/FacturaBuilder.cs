@@ -15,7 +15,7 @@ namespace PagoAgil.Aplicacion.Builders
         public DateTime fecha_alta { get; set; }
         public DateTime fecha_vencimiento { get; set; }
         public long dni_cliente { get; set; }
-        public string nombre_empresa { get; set; }
+        public string cuit_empresa { get; set; }
         public List<Item> items { get; set; }
 
         public FacturaBuilder()
@@ -25,7 +25,7 @@ namespace PagoAgil.Aplicacion.Builders
 
         public Factura crear()
         {
-            return new Factura(numero, "", estado, this.items.Sum(i => i.montoTotal()), fecha_alta, fecha_vencimiento, dni_cliente, nombre_empresa, items);
+            return new Factura(numero, "", estado, this.items.Sum(i => i.montoTotal()), fecha_alta, fecha_vencimiento, dni_cliente, cuit_empresa, items);
         }
 
         public void validar()
@@ -42,7 +42,7 @@ namespace PagoAgil.Aplicacion.Builders
             if (this.fecha_alta == null) errores.Add("Fecha de alta");
             if (this.fecha_vencimiento == null) errores.Add("Fecha de vencimiento");
             if (this.dni_cliente == null) errores.Add("DNI de cliente");
-            if (this.nombre_empresa == null || this.nombre_empresa.Count() == 0) errores.Add("Id de empresa");
+            if (this.cuit_empresa == null || this.cuit_empresa.Count() == 0) errores.Add("Empresa");
             if (this.items.Count() == 0) errores.Add("Items");
 
             if (errores.Count != 0) throw new NoSePuedeCrearException(errores);

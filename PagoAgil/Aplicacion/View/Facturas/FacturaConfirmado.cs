@@ -34,7 +34,7 @@ namespace PagoAgil.Aplicacion.View.Facturas
             this.altaAsignada.Text = this.factura.fecha_alta.ToString();
             this.vencimientoAsignado.Text = this.factura.fecha_vencimiento.ToString();
             this.dniAsignado.Text = this.factura.dni_cliente.ToString();
-            this.empresaAsignada.Text = this.factura.nombre_empresa;
+            this.empresaAsignada.Text = this.factura.cuit_empresa;
             this.habilitadoAsignado.Checked = this.factura.estado;
             foreach (Item i in this.factura.items) this.itemDataGrid.Rows.Add(i.nombre, i.cantidad.ToString(), i.monto.ToString());
             this.montoValor.Text = this.factura.items.Sum(i => i.montoTotal()).ToString();
@@ -46,11 +46,6 @@ namespace PagoAgil.Aplicacion.View.Facturas
             this.tituloLabel.Text = FacturaABM.instanciar().titulosConfirmado()[1];
             this.altaGroup.Text = FacturaABM.instanciar().titulosConfirmado()[2];
             this.completarButton.Text = FacturaABM.instanciar().titulosConfirmado()[3];
-        }
-
-        private void FacturaConfirmado_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void seguirModificandoButton_Click(object sender, EventArgs e)
@@ -67,6 +62,11 @@ namespace PagoAgil.Aplicacion.View.Facturas
             this.Close();
 
             new FacturaOk().Show();
+        }
+
+        private void FacturaConfirmado_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -262,8 +262,8 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 189F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 83.33334F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.Controls.Add(this.montoValor, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.montoLabel, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(19, 148);
@@ -289,7 +289,7 @@
             this.montoLabel.AutoSize = true;
             this.montoLabel.Location = new System.Drawing.Point(3, 12);
             this.montoLabel.Name = "montoLabel";
-            this.montoLabel.Size = new System.Drawing.Size(294, 13);
+            this.montoLabel.Size = new System.Drawing.Size(401, 13);
             this.montoLabel.TabIndex = 0;
             this.montoLabel.Text = "Monto total de factura";
             // 
