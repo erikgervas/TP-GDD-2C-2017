@@ -20,3 +20,30 @@ INSERT INTO SQL_BOYS.Usuario (username, contraseña, habilitadx) values
 	('cobrador4',		'fda9be620062a617156c1c6dbc788a6a204f85fe06e8ead0e3a43817b0e382db', 1),		-- Password: cobrador
 	('deshabilitado',	'68de79aa60784d315201bac92fedae8297eed7c10f105b1e7704bd193244e27b', 0),		-- Password: deshabilitado
 	('a',				'ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb', 1)		-- Password: a
+
+GO
+
+CREATE FUNCTION SQL_BOYS.obtenerUsuario(@nombre nvarchar(255))
+RETURNS table
+
+	return (
+	
+		select u.* from SQL_BOYS.Usuario u
+			where u.username = @nombre
+
+	)
+
+GO
+
+/*Puede ser que esto no se use - AVERIGUAR*/
+CREATE TRIGGER HashUsuariosPassword
+ON SQL_BOYS.Usuario
+INSTEAD OF INSERT
+AS
+BEGIN
+
+	INSERT SQL_BOYS.Usuario(username, contraseña, habilitadx)
+		SELECT username, HASHBYTES('SHA2_256', contraseña), habilitadx
+		FROM inserted;
+
+END

@@ -1,3 +1,38 @@
+create function SQL_BOYS.obtenerFacturasARendir(@id_empresa int, @fecha_actual nvarchar(10))
+returns table
+
+return 
+			(select f.* from SQL_BOYS.Factura f
+					where f.numero_rendicion is null and f.id_empresa = @id_empresa and f.factura_fecha_alta <= SQL_BOYS.obtenerFecha(@fecha_actual)
+						and exists	(select * from SQL_BOYS.Item_Pago ip
+										where ip.numero_factura = f.numero_factura	
+									) -- fue pagada
+						and not exists	(select * from SQL_BOYS.Devolucion d
+											where d.numero_factura = f.numero_factura
+								
+										) -- no fue devuelta
+			)
+
+GO
+
+create function SQL_BOYS.empresasARendir(@fecha_actual nvarchar(10))
+returns table
+
+	return (
+
+		select e.* from SQL_BOYS.Empresa e
+			where e.dia_rendicion = day(SQL_BOYS.obtenerFecha(@fecha_actual)) and SQL_BOYS.obtenerFecha(@fecha_actual) != (select top 1 r.fecha_rendicion from SQL_BOYS.Factura f join SQL_BOYS.Rendicion r on f.numero_rendicion = r.numero_rendicion
+																		where f.id_empresa = e.id_empresa
+																		
+																		order by r.fecha_rendicion desc	
+																	)
+
+					and exists(select * from SQL_BOYS.obtenerFacturasARendir(e.id_empresa, @fecha_actual))
+
+	)
+
+GO
+
 create procedure SQL_BOYS.rendirFacturas(@id_empresa int, @fecha_actual nvarchar(10))
 as
 begin
