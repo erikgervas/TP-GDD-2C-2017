@@ -10,12 +10,14 @@ namespace PagoAgil.Aplicacion.Modelo
     {
         public float monto { get; set; }
         public int cantidad { get; set; }
+        public long numero_factura { get; set; }
 
-        public Item(long unId, string unNombre, float unMonto, int unaCantidad)
+        public Item(long unId, string unNombre, float unMonto, int unaCantidad, long unaFactura)
             : base(unId, unNombre)
         {
             this.monto = unMonto;
             this.cantidad = unaCantidad;
+            this.numero_factura = unaFactura;
         }
 
         public float montoTotal()

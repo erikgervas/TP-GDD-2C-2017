@@ -57,7 +57,11 @@ namespace PagoAgil.Aplicacion.View.Facturas
 
         private void completarButton_Click(object sender, EventArgs e)
         {
-            FacturaABM.instanciar().realizarABM(RepositorioFacturas.instanciar(), this.factura.crear());
+            Factura nuevaFactura = this.factura.crear();
+
+            FacturaABM.instanciar().realizarABM(RepositorioFacturas.instanciar(), nuevaFactura);
+
+            foreach (Item unItem in nuevaFactura.items) ItemABM.instanciar().realizarABM(RepositorioItems.instanciar(), unItem);
 
             this.Close();
 

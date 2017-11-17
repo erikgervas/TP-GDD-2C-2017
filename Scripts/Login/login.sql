@@ -36,7 +36,7 @@ RETURNS table
 GO
 
 /*Puede ser que esto no se use - AVERIGUAR*/
-CREATE TRIGGER HashUsuariosPassword
+/*CREATE TRIGGER HashUsuariosPassword
 ON SQL_BOYS.Usuario
 INSTEAD OF INSERT
 AS
@@ -46,4 +46,4 @@ BEGIN
 		SELECT username, HASHBYTES('SHA2_256', contraseña), habilitadx
 		FROM inserted;
 
-END
+END*/

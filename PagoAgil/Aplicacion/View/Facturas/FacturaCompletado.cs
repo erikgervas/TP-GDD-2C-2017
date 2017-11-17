@@ -46,10 +46,10 @@ namespace PagoAgil.Aplicacion.View.Facturas
 
         private void rellenarConLoAnterior()
         {
-            this.numeroTextBox.Text = this.viewModel.factura.numero.ToString();
+            if(this.viewModel.factura.numero != null) this.numeroTextBox.Text = this.viewModel.factura.numero.ToString();
             this.altaTimePicker.Value = this.viewModel.factura.fecha_alta;
             this.vencimientoTimePicker.Value = this.viewModel.factura.fecha_vencimiento;
-            this.dniClienteTextBox.Text = this.viewModel.factura.dni_cliente.ToString();
+            this.dniClienteTextBox.Value = this.viewModel.factura.dni_cliente;
             this.empresasNombreComboBox.Text = this.viewModel.factura.cuit_empresa;
             this.habilitadaCheckBox.Checked = this.viewModel.factura.estado;
             foreach (Item i in this.viewModel.factura.items) this.itemDataGrid.Rows.Add(i.nombre, i.cantidad.ToString(), i.monto.ToString());
@@ -65,7 +65,6 @@ namespace PagoAgil.Aplicacion.View.Facturas
             this.viewModel.factura.fecha_vencimiento = this.vencimientoTimePicker.Value;
             foreach (Empresa unaEmpresa in this.viewModel.empresas) this.empresasNombreComboBox.Items.Add(unaEmpresa);
             this.empresasNombreComboBox.DisplayMember = "cuit";
-            this.empresasNombreComboBox.SelectedIndex = 0;
             this.habilitadaCheckBox.CheckState = CheckState.Indeterminate;
             this.limpiarItems();
             this.montoValor.Text = "";
@@ -73,10 +72,10 @@ namespace PagoAgil.Aplicacion.View.Facturas
 
         private void limpiarBase()
         {
-            this.numeroTextBox.Text = null;
+            this.numeroTextBox.Value = 1;
             this.altaTimePicker.Value = DateTime.Now;
             this.vencimientoTimePicker.Value = DateTime.Now.AddDays(1);
-            this.dniClienteTextBox.Text = null;
+            this.dniClienteTextBox.Value = 1;
             this.empresasNombreComboBox.Text = null;
             this.habilitadaCheckBox.Checked = false;
 
@@ -108,10 +107,10 @@ namespace PagoAgil.Aplicacion.View.Facturas
 
         private void rellenarCampos()
         {
-            if (this.numeroTextBox.Text != "") this.viewModel.factura.numero = long.Parse(this.numeroTextBox.Text);
+            this.viewModel.factura.numero = (long) this.numeroTextBox.Value;
             this.viewModel.factura.fecha_alta = this.altaTimePicker.Value;
             this.viewModel.factura.fecha_vencimiento = this.vencimientoTimePicker.Value;
-            if (this.dniClienteTextBox.Text != "") this.viewModel.factura.dni_cliente = long.Parse(this.dniClienteTextBox.Text);
+            this.viewModel.factura.dni_cliente = (long) this.dniClienteTextBox.Value;
             this.viewModel.factura.cuit_empresa = this.empresasNombreComboBox.Text;
             this.viewModel.factura.estado = this.habilitadaCheckBox.Checked;
 
@@ -126,10 +125,11 @@ namespace PagoAgil.Aplicacion.View.Facturas
             try
             {
                 ItemBuilder builder = new ItemBuilder();
-
+                
                 builder.nombre = dataGridViewRow.Cells[0].Value.ToString();
                 builder.cantidad = int.Parse(dataGridViewRow.Cells[1].Value.ToString());
-                builder.monto = float.Parse(dataGridViewRow.Cells[2].Value.ToString(), CultureInfo.InvariantCulture.NumberFormat);
+                builder.monto = float.Parse(dataGridViewRow.Cells[2].Value.ToString());
+                builder.numero_factura = (long) numeroTextBox.Value;
 
                 builder.validar();
 

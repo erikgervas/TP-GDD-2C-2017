@@ -41,6 +41,7 @@
             this.volverAEmpresasButton.TabIndex = 5;
             this.volverAEmpresasButton.Text = "Volver a Facturas";
             this.volverAEmpresasButton.UseVisualStyleBackColor = true;
+            this.volverAEmpresasButton.Click += new System.EventHandler(this.volverAEmpresasButton_Click);
             // 
             // volverAInicioButton
             // 
@@ -50,6 +51,7 @@
             this.volverAInicioButton.TabIndex = 4;
             this.volverAInicioButton.Text = "Volver a inicio";
             this.volverAInicioButton.UseVisualStyleBackColor = true;
+            this.volverAInicioButton.Click += new System.EventHandler(this.volverAInicioButton_Click);
             // 
             // confirmacionText
             // 

@@ -30,6 +30,8 @@ namespace PagoAgil.Aplicacion.View.Facturas
         {
             FacturaABM.instanciar().abm = new Alta<Factura>();
 
+            ItemABM.instanciar().abm = new Alta<Item>();
+
             new FacturaCompletado().Show();
 
             this.Close();

@@ -1,3 +1,7 @@
+USE GD2C2017
+
+GO
+
 CREATE FUNCTION SQL_BOYS.obtenerEmpresa(@unCuit NVARCHAR(255)) RETURNS INT AS
 	
 	BEGIN
@@ -17,6 +21,22 @@ CREATE PROCEDURE SQL_BOYS.altaDeFactura (@numero_factura NUMERIC(18, 0), @factur
 			INSERT INTO SQL_BOYS.Factura(numero_factura, factura_monto_total, factura_fecha_alta, factura_fecha_vencimiento, habilitadx, dni_cliente, id_empresa)
 
 				VALUES (@numero_factura, @factura_monto_total, @factura_fecha_alta, @factura_fecha_vencimiento, @habilitadx, @dni_cliente, SQL_BOYS.obtenerEmpresa(@cuit_empresa))
+
+		COMMIT
+
+	END
+
+GO
+
+CREATE PROCEDURE SQL_BOYS.altaDeItem (@nombre NVARCHAR(255), @monto NUMERIC(18, 2), @cantidad INT, @numero_factura NUMERIC(18, 0)) AS
+	
+	BEGIN
+
+		BEGIN TRANSACTION
+
+			INSERT INTO SQL_BOYS.Item(nombre, monto, cantidad, numero_factura)
+
+				VALUES (@nombre, @monto, @cantidad, @numero_factura)
 
 		COMMIT
 

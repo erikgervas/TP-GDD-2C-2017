@@ -37,8 +37,6 @@
             this.dniLabel = new System.Windows.Forms.Label();
             this.altaLabel = new System.Windows.Forms.Label();
             this.vencimientoLabel = new System.Windows.Forms.Label();
-            this.numeroTextBox = new System.Windows.Forms.TextBox();
-            this.dniClienteTextBox = new System.Windows.Forms.TextBox();
             this.empresasNombreComboBox = new System.Windows.Forms.ComboBox();
             this.buscadorCliente = new System.Windows.Forms.Button();
             this.altaTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -59,6 +57,8 @@
             this.itemTableAdapter = new PagoAgil.DataSet.SQL_BOYS_Data_SetTableAdapters.ItemTableAdapter();
             this.limpiarTodoButton = new System.Windows.Forms.Button();
             this.completarButton = new System.Windows.Forms.Button();
+            this.numeroTextBox = new System.Windows.Forms.NumericUpDown();
+            this.dniClienteTextBox = new System.Windows.Forms.NumericUpDown();
             this.altaGroup.SuspendLayout();
             this.facturaLayout.SuspendLayout();
             this.itemsBox.SuspendLayout();
@@ -66,6 +66,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.itemDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sQL_BOYS_Data_Set)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numeroTextBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dniClienteTextBox)).BeginInit();
             this.SuspendLayout();
             // 
             // altaGroup
@@ -96,13 +98,13 @@
             this.facturaLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.facturaLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.facturaLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.facturaLayout.Controls.Add(this.dniClienteTextBox, 1, 3);
+            this.facturaLayout.Controls.Add(this.numeroTextBox, 1, 0);
             this.facturaLayout.Controls.Add(this.empresaLabel, 0, 4);
             this.facturaLayout.Controls.Add(this.numeroLabel, 0, 0);
             this.facturaLayout.Controls.Add(this.dniLabel, 0, 3);
             this.facturaLayout.Controls.Add(this.altaLabel, 0, 1);
             this.facturaLayout.Controls.Add(this.vencimientoLabel, 0, 2);
-            this.facturaLayout.Controls.Add(this.numeroTextBox, 1, 0);
-            this.facturaLayout.Controls.Add(this.dniClienteTextBox, 1, 3);
             this.facturaLayout.Controls.Add(this.empresasNombreComboBox, 1, 4);
             this.facturaLayout.Controls.Add(this.buscadorCliente, 2, 3);
             this.facturaLayout.Controls.Add(this.altaTimePicker, 1, 1);
@@ -126,7 +128,7 @@
             this.empresaLabel.Name = "empresaLabel";
             this.empresaLabel.Size = new System.Drawing.Size(189, 13);
             this.empresaLabel.TabIndex = 4;
-            this.empresaLabel.Text = "Nombre de empresa";
+            this.empresaLabel.Text = "Cuit de empresa";
             // 
             // numeroLabel
             // 
@@ -168,27 +170,11 @@
             this.vencimientoLabel.TabIndex = 2;
             this.vencimientoLabel.Text = "Fecha de vencimiento";
             // 
-            // numeroTextBox
-            // 
-            this.numeroTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.numeroTextBox.Location = new System.Drawing.Point(198, 10);
-            this.numeroTextBox.Name = "numeroTextBox";
-            this.numeroTextBox.Size = new System.Drawing.Size(189, 20);
-            this.numeroTextBox.TabIndex = 5;
-            // 
-            // dniClienteTextBox
-            // 
-            this.dniClienteTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dniClienteTextBox.Location = new System.Drawing.Point(198, 130);
-            this.dniClienteTextBox.Name = "dniClienteTextBox";
-            this.dniClienteTextBox.Size = new System.Drawing.Size(189, 20);
-            this.dniClienteTextBox.TabIndex = 6;
-            // 
             // empresasNombreComboBox
             // 
-            this.empresasNombreComboBox.AllowDrop = true;
             this.empresasNombreComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.empresasNombreComboBox.DisplayMember = "nombre";
+            this.empresasNombreComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.empresasNombreComboBox.FormattingEnabled = true;
             this.empresasNombreComboBox.Location = new System.Drawing.Point(198, 169);
             this.empresasNombreComboBox.Name = "empresasNombreComboBox";
@@ -367,6 +353,52 @@
             this.completarButton.UseVisualStyleBackColor = true;
             this.completarButton.Click += new System.EventHandler(this.completarButton_Click);
             // 
+            // numeroTextBox
+            // 
+            this.numeroTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.numeroTextBox.Location = new System.Drawing.Point(198, 10);
+            this.numeroTextBox.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.numeroTextBox.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numeroTextBox.Name = "numeroTextBox";
+            this.numeroTextBox.Size = new System.Drawing.Size(189, 20);
+            this.numeroTextBox.TabIndex = 12;
+            this.numeroTextBox.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // dniClienteTextBox
+            // 
+            this.dniClienteTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dniClienteTextBox.Location = new System.Drawing.Point(198, 130);
+            this.dniClienteTextBox.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.dniClienteTextBox.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.dniClienteTextBox.Name = "dniClienteTextBox";
+            this.dniClienteTextBox.Size = new System.Drawing.Size(189, 20);
+            this.dniClienteTextBox.TabIndex = 12;
+            this.dniClienteTextBox.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // FacturaCompletado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -390,6 +422,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.itemDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sQL_BOYS_Data_Set)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numeroTextBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dniClienteTextBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -406,8 +440,6 @@
         private System.Windows.Forms.Label empresaLabel;
         private System.Windows.Forms.Label tituloLabel;
         private System.Windows.Forms.TableLayoutPanel facturaLayout;
-        private System.Windows.Forms.TextBox numeroTextBox;
-        private System.Windows.Forms.TextBox dniClienteTextBox;
         private System.Windows.Forms.ComboBox empresasNombreComboBox;
         private System.Windows.Forms.Button buscadorCliente;
         private System.Windows.Forms.DateTimePicker altaTimePicker;
@@ -427,5 +459,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn monto;
+        private System.Windows.Forms.NumericUpDown numeroTextBox;
+        private System.Windows.Forms.NumericUpDown dniClienteTextBox;
     }
 }

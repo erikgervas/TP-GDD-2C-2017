@@ -50,9 +50,11 @@
     <Compile Include="Aplicacion\BD\MediosPersistentes\Medios\MedioCliente.cs" />
     <Compile Include="Aplicacion\BD\MediosPersistentes\Medios\MedioEmpresa.cs" />
     <Compile Include="Aplicacion\BD\MediosPersistentes\Medios\MedioFactura.cs" />
+    <Compile Include="Aplicacion\BD\MediosPersistentes\Medios\MedioItem.cs" />
     <Compile Include="Aplicacion\BD\MediosPersistentes\Medios\MedioRubro.cs" />
     <Compile Include="Aplicacion\BD\MediosPersistentes\Medios\MedioSucursal.cs" />
     <Compile Include="Aplicacion\BD\Repositorios\RepositorioFacturas.cs" />
+    <Compile Include="Aplicacion\BD\Repositorios\RepositorioItems.cs" />
     <Compile Include="Aplicacion\BD\Utils\Actualizador.cs" />
     <Compile Include="Aplicacion\BD\Utils\Despachador.cs" />
     <Compile Include="Aplicacion\BD\Utils\EjecutadorDeProcedures.cs" />
@@ -101,6 +103,7 @@
     <Compile Include="Aplicacion\Orquestradores\Bootstrap.cs" />
     <Compile Include="Aplicacion\Orquestradores\CreadorDeVistas.cs" />
     <Compile Include="Aplicacion\Orquestradores\Estadisticas\GestorDeEstadisticas.cs" />
+    <Compile Include="Aplicacion\Orquestradores\TiposDeABM\ABMs\ItemABM.cs" />
     <Compile Include="Aplicacion\Orquestradores\TiposDeABM\ABMs\EmpresaABM.cs" />
     <Compile Include="Aplicacion\Orquestradores\TiposDeABM\ABMs\FacturaABM.cs" />
     <Compile Include="Aplicacion\Orquestradores\TiposDeABM\Alta.cs" />

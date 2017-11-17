@@ -13,12 +13,13 @@ namespace PagoAgil.Aplicacion.Builders
         public string nombre { get; set; }
         public int cantidad { get; set; }
         public float monto { get; set; }
+        public long numero_factura { get; set; }
 
         public ItemBuilder() { }
 
         public Item crear()
         {
-            return new Item(0, this.nombre, this.monto, this.cantidad);
+            return new Item(0, this.nombre, this.monto, this.cantidad, this.numero_factura);
         }
 
         public void validar()
