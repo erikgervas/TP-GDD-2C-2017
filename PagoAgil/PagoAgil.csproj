@@ -206,6 +206,12 @@
     <Compile Include="Aplicacion\View\Estadisticas\FormEstadisticas.Designer.cs">
       <DependentUpon>FormEstadisticas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Aplicacion\View\Facturas\FacturaFiltrarDNI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Facturas\FacturaFiltrarDNI.Designer.cs">
+      <DependentUpon>FacturaFiltrarDNI.cs</DependentUpon>
+    </Compile>
     <Compile Include="Aplicacion\View\Facturas\FacturaBuscador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -373,6 +379,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\Estadisticas\FormEstadisticas.resx">
       <DependentUpon>FormEstadisticas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Facturas\FacturaFiltrarDNI.resx">
+      <DependentUpon>FacturaFiltrarDNI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\Facturas\FacturaBuscador.resx">
       <DependentUpon>FacturaBuscador.cs</DependentUpon>

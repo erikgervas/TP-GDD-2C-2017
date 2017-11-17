@@ -40,33 +40,36 @@
             this.dniclienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idempresaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numerorendicionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.facturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.facturaBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.sQL_BOYS_Data_Set = new PagoAgil.DataSet.SQL_BOYS_Data_Set();
+            this.facturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.filtrosPanel = new System.Windows.Forms.GroupBox();
             this.filtrosTabla = new System.Windows.Forms.TableLayoutPanel();
             this.habilitadaCheckbox = new System.Windows.Forms.CheckBox();
-            this.habilitadaTextBox = new System.Windows.Forms.Label();
-            this.clienteTextBox = new System.Windows.Forms.TextBox();
-            this.empresaTextBox = new System.Windows.Forms.TextBox();
-            this.pagadaLabel = new System.Windows.Forms.Label();
             this.numeroFactura = new System.Windows.Forms.Label();
             this.limpiarButton = new System.Windows.Forms.Button();
             this.buscarButton = new System.Windows.Forms.Button();
             this.cuitLabel = new System.Windows.Forms.Label();
             this.clienteLabel = new System.Windows.Forms.Label();
             this.buscadorCliente = new System.Windows.Forms.Button();
-            this.rendidaLabel = new System.Windows.Forms.Label();
             this.pagadaCheckbox = new System.Windows.Forms.CheckBox();
             this.rendidaCheckbox = new System.Windows.Forms.CheckBox();
-            this.numeroTextBox = new System.Windows.Forms.TextBox();
             this.tituloLabel = new System.Windows.Forms.Label();
             this.facturaTableAdapter = new PagoAgil.DataSet.SQL_BOYS_Data_SetTableAdapters.FacturaTableAdapter();
+            this.facturaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.empresaComboBox = new System.Windows.Forms.ComboBox();
+            this.numeroNumericUpDown = new System.Windows.Forms.TextBox();
+            this.dniNumericUpDown = new System.Windows.Forms.TextBox();
+            this.estadoLabel = new System.Windows.Forms.Label();
             this.resultadosBusquedaPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.empresasDataGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.facturaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.facturaBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sQL_BOYS_Data_Set)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.facturaBindingSource)).BeginInit();
             this.filtrosPanel.SuspendLayout();
             this.filtrosTabla.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.facturaBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // modificarButton
@@ -77,6 +80,7 @@
             this.modificarButton.TabIndex = 23;
             this.modificarButton.Text = "Modificar";
             this.modificarButton.UseVisualStyleBackColor = true;
+            this.modificarButton.Click += new System.EventHandler(this.modificarButton_Click);
             // 
             // bajaButton
             // 
@@ -86,6 +90,7 @@
             this.bajaButton.TabIndex = 22;
             this.bajaButton.Text = "Dar de baja";
             this.bajaButton.UseVisualStyleBackColor = true;
+            this.bajaButton.Click += new System.EventHandler(this.bajaButton_Click);
             // 
             // resultadosBusquedaPanel
             // 
@@ -99,6 +104,7 @@
             // 
             // empresasDataGrid
             // 
+            this.empresasDataGrid.AllowUserToDeleteRows = false;
             this.empresasDataGrid.AutoGenerateColumns = false;
             this.empresasDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.numerofacturaDataGridViewTextBoxColumn,
@@ -107,8 +113,9 @@
             this.facturafechavencimientoDataGridViewTextBoxColumn,
             this.dniclienteDataGridViewTextBoxColumn,
             this.idempresaDataGridViewTextBoxColumn,
-            this.numerorendicionDataGridViewTextBoxColumn});
-            this.empresasDataGrid.DataSource = this.facturaBindingSource;
+            this.numerorendicionDataGridViewTextBoxColumn,
+            this.dataGridViewCheckBoxColumn1});
+            this.empresasDataGrid.DataSource = this.facturaBindingSource2;
             this.empresasDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.empresasDataGrid.Location = new System.Drawing.Point(3, 16);
             this.empresasDataGrid.MultiSelect = false;
@@ -117,77 +124,79 @@
             this.empresasDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.empresasDataGrid.Size = new System.Drawing.Size(886, 343);
             this.empresasDataGrid.TabIndex = 0;
+            this.empresasDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.empresasDataGrid_CellContentClick);
             // 
             // numerofacturaDataGridViewTextBoxColumn
             // 
             this.numerofacturaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.numerofacturaDataGridViewTextBoxColumn.DataPropertyName = "numero_factura";
-            this.numerofacturaDataGridViewTextBoxColumn.HeaderText = "Número";
+            this.numerofacturaDataGridViewTextBoxColumn.HeaderText = "Numero";
             this.numerofacturaDataGridViewTextBoxColumn.Name = "numerofacturaDataGridViewTextBoxColumn";
             this.numerofacturaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // facturamontototalDataGridViewTextBoxColumn
             // 
-            this.facturamontototalDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.facturamontototalDataGridViewTextBoxColumn.DataPropertyName = "factura_monto_total";
-            this.facturamontototalDataGridViewTextBoxColumn.HeaderText = "Monto total";
+            this.facturamontototalDataGridViewTextBoxColumn.HeaderText = "Monto";
             this.facturamontototalDataGridViewTextBoxColumn.Name = "facturamontototalDataGridViewTextBoxColumn";
             this.facturamontototalDataGridViewTextBoxColumn.ReadOnly = true;
-            this.facturamontototalDataGridViewTextBoxColumn.Width = 85;
             // 
             // facturafechaaltaDataGridViewTextBoxColumn
             // 
-            this.facturafechaaltaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.facturafechaaltaDataGridViewTextBoxColumn.DataPropertyName = "factura_fecha_alta";
-            this.facturafechaaltaDataGridViewTextBoxColumn.HeaderText = "Fecha de alta";
+            this.facturafechaaltaDataGridViewTextBoxColumn.HeaderText = "Fecha de Alta";
             this.facturafechaaltaDataGridViewTextBoxColumn.Name = "facturafechaaltaDataGridViewTextBoxColumn";
             this.facturafechaaltaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.facturafechaaltaDataGridViewTextBoxColumn.Width = 97;
             // 
             // facturafechavencimientoDataGridViewTextBoxColumn
             // 
-            this.facturafechavencimientoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.facturafechavencimientoDataGridViewTextBoxColumn.DataPropertyName = "factura_fecha_vencimiento";
             this.facturafechavencimientoDataGridViewTextBoxColumn.HeaderText = "Fecha de vencimiento";
             this.facturafechavencimientoDataGridViewTextBoxColumn.Name = "facturafechavencimientoDataGridViewTextBoxColumn";
             this.facturafechavencimientoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.facturafechavencimientoDataGridViewTextBoxColumn.Width = 137;
             // 
             // dniclienteDataGridViewTextBoxColumn
             // 
-            this.dniclienteDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.dniclienteDataGridViewTextBoxColumn.DataPropertyName = "dni_cliente";
-            this.dniclienteDataGridViewTextBoxColumn.HeaderText = "DNI de cliente";
+            this.dniclienteDataGridViewTextBoxColumn.HeaderText = "Dni de cliente";
             this.dniclienteDataGridViewTextBoxColumn.Name = "dniclienteDataGridViewTextBoxColumn";
             this.dniclienteDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // idempresaDataGridViewTextBoxColumn
             // 
-            this.idempresaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.idempresaDataGridViewTextBoxColumn.DataPropertyName = "id_empresa";
             this.idempresaDataGridViewTextBoxColumn.HeaderText = "Id de empresa";
             this.idempresaDataGridViewTextBoxColumn.Name = "idempresaDataGridViewTextBoxColumn";
             this.idempresaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idempresaDataGridViewTextBoxColumn.Width = 99;
             // 
             // numerorendicionDataGridViewTextBoxColumn
             // 
-            this.numerorendicionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.numerorendicionDataGridViewTextBoxColumn.DataPropertyName = "numero_rendicion";
-            this.numerorendicionDataGridViewTextBoxColumn.HeaderText = "Número de rendición";
+            this.numerorendicionDataGridViewTextBoxColumn.HeaderText = "Rendición";
             this.numerorendicionDataGridViewTextBoxColumn.Name = "numerorendicionDataGridViewTextBoxColumn";
             this.numerorendicionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.numerorendicionDataGridViewTextBoxColumn.Width = 130;
             // 
-            // facturaBindingSource
+            // dataGridViewCheckBoxColumn1
             // 
-            this.facturaBindingSource.DataMember = "Factura";
-            this.facturaBindingSource.DataSource = this.sQL_BOYS_Data_Set;
+            this.dataGridViewCheckBoxColumn1.DataPropertyName = "habilitadx";
+            this.dataGridViewCheckBoxColumn1.HeaderText = "Habilitadx";
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
+            // 
+            // facturaBindingSource2
+            // 
+            this.facturaBindingSource2.DataMember = "Factura";
+            this.facturaBindingSource2.DataSource = this.sQL_BOYS_Data_Set;
             // 
             // sQL_BOYS_Data_Set
             // 
             this.sQL_BOYS_Data_Set.DataSetName = "SQL_BOYS_Data_Set";
             this.sQL_BOYS_Data_Set.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // facturaBindingSource
+            // 
+            this.facturaBindingSource.DataMember = "Factura";
+            this.facturaBindingSource.DataSource = this.sQL_BOYS_Data_Set;
             // 
             // filtrosPanel
             // 
@@ -210,21 +219,19 @@
             this.filtrosTabla.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.filtrosTabla.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.filtrosTabla.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.filtrosTabla.Controls.Add(this.habilitadaCheckbox, 5, 1);
-            this.filtrosTabla.Controls.Add(this.habilitadaTextBox, 4, 1);
-            this.filtrosTabla.Controls.Add(this.clienteTextBox, 5, 0);
-            this.filtrosTabla.Controls.Add(this.empresaTextBox, 3, 0);
-            this.filtrosTabla.Controls.Add(this.pagadaLabel, 0, 1);
+            this.filtrosTabla.Controls.Add(this.estadoLabel, 0, 1);
+            this.filtrosTabla.Controls.Add(this.dniNumericUpDown, 5, 0);
+            this.filtrosTabla.Controls.Add(this.numeroNumericUpDown, 1, 0);
             this.filtrosTabla.Controls.Add(this.numeroFactura, 0, 0);
             this.filtrosTabla.Controls.Add(this.limpiarButton, 7, 0);
             this.filtrosTabla.Controls.Add(this.buscarButton, 7, 1);
             this.filtrosTabla.Controls.Add(this.cuitLabel, 2, 0);
             this.filtrosTabla.Controls.Add(this.clienteLabel, 4, 0);
             this.filtrosTabla.Controls.Add(this.buscadorCliente, 6, 0);
-            this.filtrosTabla.Controls.Add(this.rendidaLabel, 2, 1);
             this.filtrosTabla.Controls.Add(this.pagadaCheckbox, 1, 1);
+            this.filtrosTabla.Controls.Add(this.empresaComboBox, 3, 0);
+            this.filtrosTabla.Controls.Add(this.habilitadaCheckbox, 5, 1);
             this.filtrosTabla.Controls.Add(this.rendidaCheckbox, 3, 1);
-            this.filtrosTabla.Controls.Add(this.numeroTextBox, 1, 0);
             this.filtrosTabla.Location = new System.Drawing.Point(11, 27);
             this.filtrosTabla.Name = "filtrosTabla";
             this.filtrosTabla.RowCount = 2;
@@ -235,49 +242,14 @@
             // 
             // habilitadaCheckbox
             // 
-            this.habilitadaCheckbox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.habilitadaCheckbox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.habilitadaCheckbox.AutoSize = true;
-            this.habilitadaCheckbox.Location = new System.Drawing.Point(592, 37);
+            this.habilitadaCheckbox.Location = new System.Drawing.Point(548, 35);
             this.habilitadaCheckbox.Name = "habilitadaCheckbox";
-            this.habilitadaCheckbox.Size = new System.Drawing.Size(15, 14);
+            this.habilitadaCheckbox.Size = new System.Drawing.Size(72, 17);
             this.habilitadaCheckbox.TabIndex = 21;
+            this.habilitadaCheckbox.Text = "Habilitadx";
             this.habilitadaCheckbox.UseVisualStyleBackColor = true;
-            // 
-            // habilitadaTextBox
-            // 
-            this.habilitadaTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.habilitadaTextBox.AutoSize = true;
-            this.habilitadaTextBox.Location = new System.Drawing.Point(439, 37);
-            this.habilitadaTextBox.Name = "habilitadaTextBox";
-            this.habilitadaTextBox.Size = new System.Drawing.Size(103, 13);
-            this.habilitadaTextBox.TabIndex = 20;
-            this.habilitadaTextBox.Text = "Habilitada";
-            // 
-            // clienteTextBox
-            // 
-            this.clienteTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.clienteTextBox.Location = new System.Drawing.Point(549, 4);
-            this.clienteTextBox.Name = "clienteTextBox";
-            this.clienteTextBox.Size = new System.Drawing.Size(100, 20);
-            this.clienteTextBox.TabIndex = 19;
-            // 
-            // empresaTextBox
-            // 
-            this.empresaTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.empresaTextBox.Location = new System.Drawing.Point(331, 4);
-            this.empresaTextBox.Name = "empresaTextBox";
-            this.empresaTextBox.Size = new System.Drawing.Size(100, 20);
-            this.empresaTextBox.TabIndex = 18;
-            // 
-            // pagadaLabel
-            // 
-            this.pagadaLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.pagadaLabel.AutoSize = true;
-            this.pagadaLabel.Location = new System.Drawing.Point(3, 37);
-            this.pagadaLabel.Name = "pagadaLabel";
-            this.pagadaLabel.Size = new System.Drawing.Size(103, 13);
-            this.pagadaLabel.TabIndex = 12;
-            this.pagadaLabel.Text = "Pagada";
             // 
             // numeroFactura
             // 
@@ -298,6 +270,7 @@
             this.limpiarButton.TabIndex = 10;
             this.limpiarButton.Text = "Limpiar";
             this.limpiarButton.UseVisualStyleBackColor = true;
+            this.limpiarButton.Click += new System.EventHandler(this.limpiarButton_Click);
             // 
             // buscarButton
             // 
@@ -308,6 +281,7 @@
             this.buscarButton.TabIndex = 11;
             this.buscarButton.Text = "Buscar";
             this.buscarButton.UseVisualStyleBackColor = true;
+            this.buscarButton.Click += new System.EventHandler(this.buscarButton_Click);
             // 
             // cuitLabel
             // 
@@ -317,7 +291,7 @@
             this.cuitLabel.Name = "cuitLabel";
             this.cuitLabel.Size = new System.Drawing.Size(103, 13);
             this.cuitLabel.TabIndex = 2;
-            this.cuitLabel.Text = "Nombre de empresa";
+            this.cuitLabel.Text = "Cuit de empresa";
             // 
             // clienteLabel
             // 
@@ -338,44 +312,29 @@
             this.buscadorCliente.TabIndex = 13;
             this.buscadorCliente.Text = "Seleccionar";
             this.buscadorCliente.UseVisualStyleBackColor = true;
-            // 
-            // rendidaLabel
-            // 
-            this.rendidaLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.rendidaLabel.AutoSize = true;
-            this.rendidaLabel.Location = new System.Drawing.Point(221, 37);
-            this.rendidaLabel.Name = "rendidaLabel";
-            this.rendidaLabel.Size = new System.Drawing.Size(103, 13);
-            this.rendidaLabel.TabIndex = 14;
-            this.rendidaLabel.Text = "Rendida";
+            this.buscadorCliente.Click += new System.EventHandler(this.buscadorCliente_Click);
             // 
             // pagadaCheckbox
             // 
-            this.pagadaCheckbox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pagadaCheckbox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.pagadaCheckbox.AutoSize = true;
-            this.pagadaCheckbox.Location = new System.Drawing.Point(156, 37);
+            this.pagadaCheckbox.Location = new System.Drawing.Point(112, 35);
             this.pagadaCheckbox.Name = "pagadaCheckbox";
-            this.pagadaCheckbox.Size = new System.Drawing.Size(15, 14);
+            this.pagadaCheckbox.Size = new System.Drawing.Size(63, 17);
             this.pagadaCheckbox.TabIndex = 15;
+            this.pagadaCheckbox.Text = "Pagada";
             this.pagadaCheckbox.UseVisualStyleBackColor = true;
             // 
             // rendidaCheckbox
             // 
-            this.rendidaCheckbox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rendidaCheckbox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.rendidaCheckbox.AutoSize = true;
-            this.rendidaCheckbox.Location = new System.Drawing.Point(374, 37);
+            this.rendidaCheckbox.Location = new System.Drawing.Point(330, 35);
             this.rendidaCheckbox.Name = "rendidaCheckbox";
-            this.rendidaCheckbox.Size = new System.Drawing.Size(15, 14);
+            this.rendidaCheckbox.Size = new System.Drawing.Size(66, 17);
             this.rendidaCheckbox.TabIndex = 16;
+            this.rendidaCheckbox.Text = "Rendida";
             this.rendidaCheckbox.UseVisualStyleBackColor = true;
-            // 
-            // numeroTextBox
-            // 
-            this.numeroTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numeroTextBox.Location = new System.Drawing.Point(113, 4);
-            this.numeroTextBox.Name = "numeroTextBox";
-            this.numeroTextBox.Size = new System.Drawing.Size(100, 20);
-            this.numeroTextBox.TabIndex = 17;
             // 
             // tituloLabel
             // 
@@ -394,6 +353,46 @@
             // 
             this.facturaTableAdapter.ClearBeforeFill = true;
             // 
+            // facturaBindingSource1
+            // 
+            this.facturaBindingSource1.DataMember = "Factura";
+            this.facturaBindingSource1.DataSource = this.sQL_BOYS_Data_Set;
+            // 
+            // empresaComboBox
+            // 
+            this.empresaComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.empresaComboBox.FormattingEnabled = true;
+            this.empresaComboBox.Location = new System.Drawing.Point(330, 4);
+            this.empresaComboBox.Name = "empresaComboBox";
+            this.empresaComboBox.Size = new System.Drawing.Size(103, 21);
+            this.empresaComboBox.TabIndex = 25;
+            // 
+            // numeroNumericUpDown
+            // 
+            this.numeroNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.numeroNumericUpDown.Location = new System.Drawing.Point(112, 4);
+            this.numeroNumericUpDown.Name = "numeroNumericUpDown";
+            this.numeroNumericUpDown.Size = new System.Drawing.Size(103, 20);
+            this.numeroNumericUpDown.TabIndex = 24;
+            // 
+            // dniNumericUpDown
+            // 
+            this.dniNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dniNumericUpDown.Location = new System.Drawing.Point(548, 4);
+            this.dniNumericUpDown.Name = "dniNumericUpDown";
+            this.dniNumericUpDown.Size = new System.Drawing.Size(103, 20);
+            this.dniNumericUpDown.TabIndex = 26;
+            // 
+            // estadoLabel
+            // 
+            this.estadoLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.estadoLabel.AutoSize = true;
+            this.estadoLabel.Location = new System.Drawing.Point(3, 37);
+            this.estadoLabel.Name = "estadoLabel";
+            this.estadoLabel.Size = new System.Drawing.Size(103, 13);
+            this.estadoLabel.TabIndex = 27;
+            this.estadoLabel.Text = "Estado de factura";
+            // 
             // FacturaBuscador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -409,11 +408,13 @@
             this.Load += new System.EventHandler(this.FacturaBuscador_Load);
             this.resultadosBusquedaPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.empresasDataGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.facturaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.facturaBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sQL_BOYS_Data_Set)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.facturaBindingSource)).EndInit();
             this.filtrosPanel.ResumeLayout(false);
             this.filtrosTabla.ResumeLayout(false);
             this.filtrosTabla.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.facturaBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -428,24 +429,16 @@
         private System.Windows.Forms.GroupBox filtrosPanel;
         private System.Windows.Forms.TableLayoutPanel filtrosTabla;
         private System.Windows.Forms.Button buscarButton;
-        private System.Windows.Forms.Label pagadaLabel;
         private System.Windows.Forms.Button limpiarButton;
         private System.Windows.Forms.Label numeroFactura;
         private System.Windows.Forms.Label cuitLabel;
         private System.Windows.Forms.Label clienteLabel;
         private System.Windows.Forms.Label tituloLabel;
         private System.Windows.Forms.Button buscadorCliente;
-        private System.Windows.Forms.TextBox clienteTextBox;
-        private System.Windows.Forms.TextBox empresaTextBox;
-        private System.Windows.Forms.Label rendidaLabel;
-        private System.Windows.Forms.CheckBox pagadaCheckbox;
-        private System.Windows.Forms.CheckBox rendidaCheckbox;
-        private System.Windows.Forms.TextBox numeroTextBox;
-        private System.Windows.Forms.CheckBox habilitadaCheckbox;
-        private System.Windows.Forms.Label habilitadaTextBox;
         private DataSet.SQL_BOYS_Data_Set sQL_BOYS_Data_Set;
         private System.Windows.Forms.BindingSource facturaBindingSource;
         private DataSet.SQL_BOYS_Data_SetTableAdapters.FacturaTableAdapter facturaTableAdapter;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn habilitadxDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn numerofacturaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn facturamontototalDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn facturafechaaltaDataGridViewTextBoxColumn;
@@ -453,6 +446,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dniclienteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idempresaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn numerorendicionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn habilitadxDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.BindingSource facturaBindingSource2;
+        private System.Windows.Forms.BindingSource facturaBindingSource1;
+        public System.Windows.Forms.ComboBox empresaComboBox;
+        public System.Windows.Forms.CheckBox pagadaCheckbox;
+        public System.Windows.Forms.CheckBox rendidaCheckbox;
+        public System.Windows.Forms.CheckBox habilitadaCheckbox;
+        public System.Windows.Forms.TextBox dniNumericUpDown;
+        public System.Windows.Forms.TextBox numeroNumericUpDown;
+        private System.Windows.Forms.Label estadoLabel;
     }
 }

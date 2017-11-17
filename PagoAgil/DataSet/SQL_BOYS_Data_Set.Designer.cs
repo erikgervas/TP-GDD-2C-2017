@@ -2383,6 +2383,8 @@ namespace PagoAgil.DataSet {
             
             private global::System.Data.DataColumn columnnumero_rendicion;
             
+            private global::System.Data.DataColumn columnhabilitadx;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public FacturaDataTable() {
@@ -2474,6 +2476,14 @@ namespace PagoAgil.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn habilitadxColumn {
+                get {
+                    return this.columnhabilitadx;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2509,7 +2519,7 @@ namespace PagoAgil.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public FacturaRow AddFacturaRow(decimal numero_factura, decimal factura_monto_total, System.DateTime factura_fecha_alta, System.DateTime factura_fecha_vencimiento, ClienteRow parentClienteRowByFK__Factura__dni_cli__284EBFAA, EmpresaRow parentEmpresaRowByFK__Factura__id_empr__2942E3E3, RendicionRow parentRendicionRowByFK__Factura__numero___2A37081C) {
+            public FacturaRow AddFacturaRow(decimal numero_factura, decimal factura_monto_total, System.DateTime factura_fecha_alta, System.DateTime factura_fecha_vencimiento, ClienteRow parentClienteRowByFK__Factura__dni_cli__284EBFAA, EmpresaRow parentEmpresaRowByFK__Factura__id_empr__2942E3E3, RendicionRow parentRendicionRowByFK__Factura__numero___2A37081C, bool habilitadx) {
                 FacturaRow rowFacturaRow = ((FacturaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         numero_factura,
@@ -2518,7 +2528,8 @@ namespace PagoAgil.DataSet {
                         factura_fecha_vencimiento,
                         null,
                         null,
-                        null};
+                        null,
+                        habilitadx};
                 if ((parentClienteRowByFK__Factura__dni_cli__284EBFAA != null)) {
                     columnValuesArray[4] = parentClienteRowByFK__Factura__dni_cli__284EBFAA[0];
                 }
@@ -2564,6 +2575,7 @@ namespace PagoAgil.DataSet {
                 this.columndni_cliente = base.Columns["dni_cliente"];
                 this.columnid_empresa = base.Columns["id_empresa"];
                 this.columnnumero_rendicion = base.Columns["numero_rendicion"];
+                this.columnhabilitadx = base.Columns["habilitadx"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2583,6 +2595,8 @@ namespace PagoAgil.DataSet {
                 base.Columns.Add(this.columnid_empresa);
                 this.columnnumero_rendicion = new global::System.Data.DataColumn("numero_rendicion", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnumero_rendicion);
+                this.columnhabilitadx = new global::System.Data.DataColumn("habilitadx", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnhabilitadx);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnumero_factura}, true));
                 this.columnnumero_factura.AllowDBNull = false;
@@ -2592,6 +2606,7 @@ namespace PagoAgil.DataSet {
                 this.columnfactura_fecha_vencimiento.AllowDBNull = false;
                 this.columndni_cliente.AllowDBNull = false;
                 this.columnid_empresa.AllowDBNull = false;
+                this.columnhabilitadx.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10717,6 +10732,17 @@ namespace PagoAgil.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool habilitadx {
+                get {
+                    return ((bool)(this[this.tableFactura.habilitadxColumn]));
+                }
+                set {
+                    this[this.tableFactura.habilitadxColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ClienteRow ClienteRow {
                 get {
                     return ((ClienteRow)(this.GetParentRow(this.Table.ParentRelations["FK__Factura__dni_cli__284EBFAA"])));
@@ -16647,51 +16673,8 @@ SELECT id_devolucion, fecha_devolucion, motivo, numero_factura FROM Devolucion W
             tableMapping.ColumnMappings.Add("dni_cliente", "dni_cliente");
             tableMapping.ColumnMappings.Add("id_empresa", "id_empresa");
             tableMapping.ColumnMappings.Add("numero_rendicion", "numero_rendicion");
+            tableMapping.ColumnMappings.Add("habilitadx", "habilitadx");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Factura] WHERE (([numero_factura] = @Original_numero_factura) AND ([factura_monto_total] = @Original_factura_monto_total) AND ([factura_fecha_alta] = @Original_factura_fecha_alta) AND ([factura_fecha_vencimiento] = @Original_factura_fecha_vencimiento) AND ([dni_cliente] = @Original_dni_cliente) AND ([id_empresa] = @Original_id_empresa) AND ((@IsNull_numero_rendicion = 1 AND [numero_rendicion] IS NULL) OR ([numero_rendicion] = @Original_numero_rendicion)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_numero_factura", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "numero_factura", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_factura_monto_total", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "factura_monto_total", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_factura_fecha_alta", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "factura_fecha_alta", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_factura_fecha_vencimiento", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "factura_fecha_vencimiento", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dni_cliente", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "dni_cliente", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_empresa", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_empresa", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_numero_rendicion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "numero_rendicion", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_numero_rendicion", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "numero_rendicion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Factura] ([numero_factura], [factura_monto_total], [factura_fecha_alta], [factura_fecha_vencimiento], [dni_cliente], [id_empresa], [numero_rendicion]) VALUES (@numero_factura, @factura_monto_total, @factura_fecha_alta, @factura_fecha_vencimiento, @dni_cliente, @id_empresa, @numero_rendicion);
-SELECT numero_factura, factura_monto_total, factura_fecha_alta, factura_fecha_vencimiento, dni_cliente, id_empresa, numero_rendicion FROM Factura WHERE (numero_factura = @numero_factura)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@numero_factura", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "numero_factura", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@factura_monto_total", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "factura_monto_total", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@factura_fecha_alta", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "factura_fecha_alta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@factura_fecha_vencimiento", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "factura_fecha_vencimiento", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dni_cliente", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "dni_cliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_empresa", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_empresa", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@numero_rendicion", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "numero_rendicion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Factura] SET [numero_factura] = @numero_factura, [factura_monto_total] = @factura_monto_total, [factura_fecha_alta] = @factura_fecha_alta, [factura_fecha_vencimiento] = @factura_fecha_vencimiento, [dni_cliente] = @dni_cliente, [id_empresa] = @id_empresa, [numero_rendicion] = @numero_rendicion WHERE (([numero_factura] = @Original_numero_factura) AND ([factura_monto_total] = @Original_factura_monto_total) AND ([factura_fecha_alta] = @Original_factura_fecha_alta) AND ([factura_fecha_vencimiento] = @Original_factura_fecha_vencimiento) AND ([dni_cliente] = @Original_dni_cliente) AND ([id_empresa] = @Original_id_empresa) AND ((@IsNull_numero_rendicion = 1 AND [numero_rendicion] IS NULL) OR ([numero_rendicion] = @Original_numero_rendicion)));
-SELECT numero_factura, factura_monto_total, factura_fecha_alta, factura_fecha_vencimiento, dni_cliente, id_empresa, numero_rendicion FROM Factura WHERE (numero_factura = @numero_factura)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@numero_factura", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "numero_factura", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@factura_monto_total", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "factura_monto_total", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@factura_fecha_alta", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "factura_fecha_alta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@factura_fecha_vencimiento", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "factura_fecha_vencimiento", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dni_cliente", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "dni_cliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_empresa", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_empresa", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@numero_rendicion", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "numero_rendicion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_numero_factura", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "numero_factura", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_factura_monto_total", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "factura_monto_total", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_factura_fecha_alta", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "factura_fecha_alta", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_factura_fecha_vencimiento", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "factura_fecha_vencimiento", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dni_cliente", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "dni_cliente", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_empresa", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_empresa", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_numero_rendicion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "numero_rendicion", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_numero_rendicion", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "numero_rendicion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -16708,7 +16691,8 @@ SELECT numero_factura, factura_monto_total, factura_fecha_alta, factura_fecha_ve
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT numero_factura, factura_monto_total, factura_fecha_alta, factura_fecha_ven" +
-                "cimiento, dni_cliente, id_empresa, numero_rendicion FROM dbo.Factura";
+                "cimiento, habilitadx, dni_cliente, id_empresa, numero_rendicion FROM SQL_BOYS.Fa" +
+                "ctura";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -16734,158 +16718,6 @@ SELECT numero_factura, factura_monto_total, factura_fecha_alta, factura_fecha_ve
             SQL_BOYS_Data_Set.FacturaDataTable dataTable = new SQL_BOYS_Data_Set.FacturaDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SQL_BOYS_Data_Set.FacturaDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SQL_BOYS_Data_Set dataSet) {
-            return this.Adapter.Update(dataSet, "Factura");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(decimal Original_numero_factura, decimal Original_factura_monto_total, System.DateTime Original_factura_fecha_alta, System.DateTime Original_factura_fecha_vencimiento, decimal Original_dni_cliente, int Original_id_empresa, global::System.Nullable<decimal> Original_numero_rendicion) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((decimal)(Original_numero_factura));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((decimal)(Original_factura_monto_total));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((System.DateTime)(Original_factura_fecha_alta));
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((System.DateTime)(Original_factura_fecha_vencimiento));
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((decimal)(Original_dni_cliente));
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_id_empresa));
-            if ((Original_numero_rendicion.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((decimal)(Original_numero_rendicion.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(decimal numero_factura, decimal factura_monto_total, System.DateTime factura_fecha_alta, System.DateTime factura_fecha_vencimiento, decimal dni_cliente, int id_empresa, global::System.Nullable<decimal> numero_rendicion) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((decimal)(numero_factura));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((decimal)(factura_monto_total));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(factura_fecha_alta));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(factura_fecha_vencimiento));
-            this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(dni_cliente));
-            this.Adapter.InsertCommand.Parameters[5].Value = ((int)(id_empresa));
-            if ((numero_rendicion.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((decimal)(numero_rendicion.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(decimal numero_factura, decimal factura_monto_total, System.DateTime factura_fecha_alta, System.DateTime factura_fecha_vencimiento, decimal dni_cliente, int id_empresa, global::System.Nullable<decimal> numero_rendicion, decimal Original_numero_factura, decimal Original_factura_monto_total, System.DateTime Original_factura_fecha_alta, System.DateTime Original_factura_fecha_vencimiento, decimal Original_dni_cliente, int Original_id_empresa, global::System.Nullable<decimal> Original_numero_rendicion) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((decimal)(numero_factura));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((decimal)(factura_monto_total));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(factura_fecha_alta));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(factura_fecha_vencimiento));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(dni_cliente));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(id_empresa));
-            if ((numero_rendicion.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(numero_rendicion.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((decimal)(Original_numero_factura));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((decimal)(Original_factura_monto_total));
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(Original_factura_fecha_alta));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Original_factura_fecha_vencimiento));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((decimal)(Original_dni_cliente));
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_id_empresa));
-            if ((Original_numero_rendicion.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((decimal)(Original_numero_rendicion.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(decimal factura_monto_total, System.DateTime factura_fecha_alta, System.DateTime factura_fecha_vencimiento, decimal dni_cliente, int id_empresa, global::System.Nullable<decimal> numero_rendicion, decimal Original_numero_factura, decimal Original_factura_monto_total, System.DateTime Original_factura_fecha_alta, System.DateTime Original_factura_fecha_vencimiento, decimal Original_dni_cliente, int Original_id_empresa, global::System.Nullable<decimal> Original_numero_rendicion) {
-            return this.Update(Original_numero_factura, factura_monto_total, factura_fecha_alta, factura_fecha_vencimiento, dni_cliente, id_empresa, numero_rendicion, Original_numero_factura, Original_factura_monto_total, Original_factura_fecha_alta, Original_factura_fecha_vencimiento, Original_dni_cliente, Original_id_empresa, Original_numero_rendicion);
         }
     }
     
@@ -23010,8 +22842,6 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
         
         private DevolucionTableAdapter _devolucionTableAdapter;
         
-        private FacturaTableAdapter _facturaTableAdapter;
-        
         private FuncionalidadTableAdapter _funcionalidadTableAdapter;
         
         private Funcionalidad_Por_RolTableAdapter _funcionalidad_Por_RolTableAdapter;
@@ -23080,20 +22910,6 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
             }
             set {
                 this._devolucionTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public FacturaTableAdapter FacturaTableAdapter {
-            get {
-                return this._facturaTableAdapter;
-            }
-            set {
-                this._facturaTableAdapter = value;
             }
         }
         
@@ -23320,10 +23136,6 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
                             && (this._devolucionTableAdapter.Connection != null))) {
                     return this._devolucionTableAdapter.Connection;
                 }
-                if (((this._facturaTableAdapter != null) 
-                            && (this._facturaTableAdapter.Connection != null))) {
-                    return this._facturaTableAdapter.Connection;
-                }
                 if (((this._funcionalidadTableAdapter != null) 
                             && (this._funcionalidadTableAdapter.Connection != null))) {
                     return this._funcionalidadTableAdapter.Connection;
@@ -23397,9 +23209,6 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
                     count = (count + 1);
                 }
                 if ((this._devolucionTableAdapter != null)) {
-                    count = (count + 1);
-                }
-                if ((this._facturaTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._funcionalidadTableAdapter != null)) {
@@ -23479,15 +23288,6 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._rendicionTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._facturaTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Factura.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._facturaTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -23639,14 +23439,6 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._rendicionTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._facturaTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Factura.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._facturaTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -23868,14 +23660,6 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._facturaTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Factura.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._facturaTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._rendicionTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Rendicion.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -23946,11 +23730,6 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
             }
             if (((this._devolucionTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._devolucionTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
-            if (((this._facturaTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._facturaTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -24072,15 +23851,6 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
                     if (this._devolucionTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._devolucionTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._devolucionTableAdapter.Adapter);
-                    }
-                }
-                if ((this._facturaTableAdapter != null)) {
-                    revertConnections.Add(this._facturaTableAdapter, this._facturaTableAdapter.Connection);
-                    this._facturaTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._facturaTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._facturaTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._facturaTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._facturaTableAdapter.Adapter);
                     }
                 }
                 if ((this._funcionalidadTableAdapter != null)) {
@@ -24274,10 +24044,6 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
                 if ((this._devolucionTableAdapter != null)) {
                     this._devolucionTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._devolucionTableAdapter]));
                     this._devolucionTableAdapter.Transaction = null;
-                }
-                if ((this._facturaTableAdapter != null)) {
-                    this._facturaTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._facturaTableAdapter]));
-                    this._facturaTableAdapter.Transaction = null;
                 }
                 if ((this._funcionalidadTableAdapter != null)) {
                     this._funcionalidadTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._funcionalidadTableAdapter]));
