@@ -58,6 +58,7 @@ namespace PagoAgil.Aplicacion.View.Empresas
             this.viewModel.empresa.diaRendicion = 1;
             this.viewModel.empresa.porcentajeComision = 1;
             foreach (String rubro in this.viewModel.rubros) this.rubroComboBox.Items.Add(rubro);
+            this.rubroComboBox.SelectedIndex = 0;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -69,9 +70,7 @@ namespace PagoAgil.Aplicacion.View.Empresas
 
         private void cuitText_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsNumber(e.KeyChar) || e.KeyChar == '.' || e.KeyChar == 8) return;
-
-            else e.Handled = e.KeyChar != (char)Keys.Back;
+            if (!Char.IsDigit(e.KeyChar) || e.KeyChar != 8 || e.KeyChar != 32) e.Handled = true;
         }
 
         private void rellenarCampos()
@@ -90,7 +89,7 @@ namespace PagoAgil.Aplicacion.View.Empresas
             this.nombreText.Text = null;
             this.cuitText.Text = null;
             this.direccionText.Text = null;
-            this.rubroComboBox.Text = null;
+            this.rubroComboBox.SelectedIndex = 0;
             this.diaNumericUpDown.Value = 1;
             this.porcentajeNumericUpDown.Value = 1;
             this.habilitadaCheckBox.Checked = false;

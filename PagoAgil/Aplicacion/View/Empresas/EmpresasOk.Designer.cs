@@ -37,11 +37,12 @@
             // 
             this.confirmacionText.AutoSize = true;
             this.confirmacionText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmacionText.Location = new System.Drawing.Point(23, 29);
+            this.confirmacionText.Location = new System.Drawing.Point(27, 29);
             this.confirmacionText.Name = "confirmacionText";
             this.confirmacionText.Size = new System.Drawing.Size(146, 20);
             this.confirmacionText.TabIndex = 0;
             this.confirmacionText.Text = "<Mensaje de éxito>";
+            this.confirmacionText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // volverAInicioButton
             // 

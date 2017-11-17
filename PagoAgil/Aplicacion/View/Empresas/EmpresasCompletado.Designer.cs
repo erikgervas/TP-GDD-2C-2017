@@ -63,12 +63,12 @@
             this.tituloLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.tituloLabel.AutoSize = true;
             this.tituloLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tituloLabel.Location = new System.Drawing.Point(127, 38);
+            this.tituloLabel.Location = new System.Drawing.Point(131, 38);
             this.tituloLabel.Name = "tituloLabel";
             this.tituloLabel.Size = new System.Drawing.Size(65, 20);
             this.tituloLabel.TabIndex = 1;
             this.tituloLabel.Text = "<Título>";
-            this.tituloLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.tituloLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // altaPanel
             // 
@@ -229,8 +229,9 @@
             // 
             // cuitText
             // 
-            this.cuitText.Location = new System.Drawing.Point(151, 43);
-            this.cuitText.Mask = "9-99999999-9";
+            this.cuitText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cuitText.Location = new System.Drawing.Point(151, 50);
+            this.cuitText.Mask = "99-99999999-9";
             this.cuitText.Name = "cuitText";
             this.cuitText.Size = new System.Drawing.Size(142, 20);
             this.cuitText.TabIndex = 12;
@@ -252,7 +253,7 @@
             // 
             this.habilitadaCheckBox.AutoSize = true;
             this.habilitadaCheckBox.Checked = true;
-            this.habilitadaCheckBox.CheckState = System.Windows.Forms.CheckState.Indeterminate;
+            this.habilitadaCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.habilitadaCheckBox.Location = new System.Drawing.Point(30, 307);
             this.habilitadaCheckBox.Name = "habilitadaCheckBox";
             this.habilitadaCheckBox.Size = new System.Drawing.Size(73, 17);

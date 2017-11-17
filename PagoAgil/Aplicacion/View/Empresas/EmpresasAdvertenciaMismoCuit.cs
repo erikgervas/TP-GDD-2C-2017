@@ -23,5 +23,12 @@ namespace PagoAgil.Aplicacion.View.Empresas
             this.formulario = unForm;
             this.excepcion = excepcion;
         }
+
+        private void volverButton_Click(object sender, EventArgs e)
+        {
+            formulario.Show();
+            
+            this.Close();
+        }
     }
 }

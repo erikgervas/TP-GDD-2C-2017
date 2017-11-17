@@ -8,7 +8,7 @@ namespace PagoAgil.Aplicacion.Orquestradores.TiposDeABM
     {
         public string[] completado(string abm)
         {
-            return new string[] { "Modificación de " + abm, "Modifiación de " + abm, "Datos de la " + abm, "Confirmar" };
+            return new string[] { "Modificación de " + abm, "Modificación de " + abm, "Datos de la " + abm, "Confirmar" };
         }
 
         public string[] confirmado(string abm)
