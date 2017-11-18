@@ -13,5 +13,10 @@ namespace PagoAgil.Aplicacion.Modelo.Usuario
             this.rol = rol;
         }
 
+        public Boolean poseesFuncionalidad(string funcionalidad)
+        {
+            return rol.posees(funcionalidad);
+        }
+
     }
 }

@@ -44,7 +44,7 @@ namespace PagoAgil.Aplicacion.View
             }
             else
             {
-                MessageBox.Show("Acceso invalido, tanto como vos");
+                MessageBox.Show("Acceso invalido");
             }
 
         }

@@ -20,5 +20,10 @@ namespace PagoAgil.Aplicacion.Modelo.Usuario
 
         }
 
+        public Boolean posees(string funcionalidad)
+        {
+            return funcionalides.Any(f => f.es(funcionalidad));
+        }
+
     }
 }

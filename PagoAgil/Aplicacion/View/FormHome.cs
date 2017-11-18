@@ -28,6 +28,16 @@ namespace PagoAgil.Aplicacion.View
             InitializeComponent();
             this.CenterToScreen();
             homeVM = new HomeVM();
+
+            button_abm_cliente.Enabled = Sesion.usuario.poseesFuncionalidad("Gestionar clientes");
+            button_abm_empresas.Enabled = Sesion.usuario.poseesFuncionalidad("Gestionar empresas");
+            button_abm_sucursales.Enabled = Sesion.usuario.poseesFuncionalidad("Gestionar sucursales");
+            button_abm_facturas.Enabled = Sesion.usuario.poseesFuncionalidad("Gestionar facturas");
+            button_registro_pago.Enabled = Sesion.usuario.poseesFuncionalidad("Cobrar facturas");
+            button_rendicion.Enabled = Sesion.usuario.poseesFuncionalidad("Rendir facturas");
+            button_devolucion.Enabled = Sesion.usuario.poseesFuncionalidad("Devolver facturas");
+
+
         }
 
         private void button_abm_cliente_Click(object sender, EventArgs e)

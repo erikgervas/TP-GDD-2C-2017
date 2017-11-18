@@ -1,4 +1,5 @@
-﻿namespace PagoAgil.Aplicacion.Modelo.Usuario
+﻿using System;
+namespace PagoAgil.Aplicacion.Modelo.Usuario
 {
     public class Funcionalidad
     {
@@ -9,7 +10,11 @@
         {
             this.nombre = nuevoNombre;
         }
-        
+
+        public Boolean es(string funcionalidad)
+        {
+            return nombre.Equals(funcionalidad);
+        }
 
     }
 }
