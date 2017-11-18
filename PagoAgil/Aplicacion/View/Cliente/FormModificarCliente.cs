@@ -1,4 +1,5 @@
-﻿using PagoAgil.Aplicacion.Modelo.ClienteSQL;
+﻿using PagoAgil.Aplicacion.BD.Repositorios;
+using PagoAgil.Aplicacion.Modelo.ClienteSQL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -70,6 +71,7 @@ namespace PagoAgil.Aplicacion.View.Cliente
             this.guardarButton.TabIndex = 35;
             this.guardarButton.Text = "Guardar";
             this.guardarButton.UseVisualStyleBackColor = true;
+            this.guardarButton.Click += new System.EventHandler(this.guardarButton_Click);
             // 
             // limpiarButton
             // 
@@ -128,7 +130,7 @@ namespace PagoAgil.Aplicacion.View.Cliente
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(346, 130);
+            this.label3.Location = new System.Drawing.Point(346, 26);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 20);
             this.label3.TabIndex = 28;
@@ -137,7 +139,7 @@ namespace PagoAgil.Aplicacion.View.Cliente
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(332, 77);
+            this.label2.Location = new System.Drawing.Point(332, 131);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 20);
             this.label2.TabIndex = 27;
@@ -189,21 +191,22 @@ namespace PagoAgil.Aplicacion.View.Cliente
             // 
             // dniTextBox
             // 
-            this.dniTextBox.Location = new System.Drawing.Point(264, 153);
+            this.dniTextBox.Location = new System.Drawing.Point(264, 49);
             this.dniTextBox.Name = "dniTextBox";
+            this.dniTextBox.ReadOnly = true;
             this.dniTextBox.Size = new System.Drawing.Size(201, 26);
             this.dniTextBox.TabIndex = 20;
             // 
             // apellidoTextBox
             // 
-            this.apellidoTextBox.Location = new System.Drawing.Point(264, 100);
+            this.apellidoTextBox.Location = new System.Drawing.Point(264, 154);
             this.apellidoTextBox.Name = "apellidoTextBox";
             this.apellidoTextBox.Size = new System.Drawing.Size(201, 26);
             this.apellidoTextBox.TabIndex = 19;
             // 
             // nombreTextBox
             // 
-            this.nombreTextBox.Location = new System.Drawing.Point(264, 47);
+            this.nombreTextBox.Location = new System.Drawing.Point(264, 101);
             this.nombreTextBox.Name = "nombreTextBox";
             this.nombreTextBox.Size = new System.Drawing.Size(201, 26);
             this.nombreTextBox.TabIndex = 18;
@@ -212,7 +215,7 @@ namespace PagoAgil.Aplicacion.View.Cliente
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(332, 24);
+            this.label9.Location = new System.Drawing.Point(332, 78);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 20);
             this.label9.TabIndex = 36;
@@ -263,6 +266,29 @@ namespace PagoAgil.Aplicacion.View.Cliente
             codigoPostal.Text = cliente.codigoPostal;
             dateTimePicker1.Value = cliente.nacimiento;
 
+        }
+
+        private void guardarButton_Click(object sender, EventArgs e)
+        {
+            ClienteDB c = new ClienteDB();
+            
+            c.nombre = nombreTextBox.Text;
+            c.apellido = apellidoTextBox.Text;
+            c.domicilio = codigoPostal.Text;
+            c.habilitado = true;
+            c.mail = mailTextBox.Text;
+            c.nacimiento = DateTime.Parse(dateTimePicker1.Text);
+            c.telefono = Int32.Parse(telefonoTextBox.Text);
+            c.codigoPostal = codigoPostal.Text;
+
+            if ( c.nombre == null || c.apellido == null || c.domicilio == null || c.codigoPostal == null)
+            {
+                MessageBox.Show("Los campos DNI, Nombre y apellido no pueden estar vacios");
+            }
+            else
+            {
+                RepositorioClientes.getInstance().almacenamiento.modificar(c);
+            }
         }
     }
 }

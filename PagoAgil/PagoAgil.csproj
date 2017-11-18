@@ -350,6 +350,9 @@
     <EmbeddedResource Include="Aplicacion\View\Cliente\FormABMCliente.resx">
       <DependentUpon>FormABMCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Cliente\FormModificarCliente.resx">
+      <DependentUpon>FormModificarCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\Devolucion\FormDevolucion.resx">
       <DependentUpon>FormDevolucion.cs</DependentUpon>
     </EmbeddedResource>
