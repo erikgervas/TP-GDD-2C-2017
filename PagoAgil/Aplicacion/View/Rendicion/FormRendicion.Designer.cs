@@ -34,6 +34,7 @@
             this.sQL_BOYS_Data_Set = new PagoAgil.DataSet.SQL_BOYS_Data_Set();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonRendir = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRendicion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sQLBOYSDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sQL_BOYS_Data_Set)).BeginInit();
@@ -86,11 +87,22 @@
             this.buttonRendir.UseVisualStyleBackColor = true;
             this.buttonRendir.Click += new System.EventHandler(this.buttonRendir_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(27, 414);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(266, 16);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Esta operación puede llevar varios minutos";
+            // 
             // FormRendicion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(724, 414);
+            this.ClientSize = new System.Drawing.Size(724, 448);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonRendir);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridRendicion);
@@ -112,5 +124,6 @@
         private DataSet.SQL_BOYS_Data_Set sQL_BOYS_Data_Set;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonRendir;
+        private System.Windows.Forms.Label label2;
     }
 }
