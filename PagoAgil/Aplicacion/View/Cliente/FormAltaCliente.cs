@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PagoAgil.Aplicacion.BD.Repositorios;
+using PagoAgil.Aplicacion.Modelo.ClienteSQL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -70,6 +72,7 @@ namespace PagoAgil.Aplicacion.View
             this.dniTextBox.Name = "dniTextBox";
             this.dniTextBox.Size = new System.Drawing.Size(201, 26);
             this.dniTextBox.TabIndex = 2;
+            this.dniTextBox.TextChanged += new System.EventHandler(this.dniTextBox_TextChanged);
             // 
             // mailTextBox
             // 
@@ -84,6 +87,7 @@ namespace PagoAgil.Aplicacion.View
             this.telefonoTextBox.Name = "telefonoTextBox";
             this.telefonoTextBox.Size = new System.Drawing.Size(201, 26);
             this.telefonoTextBox.TabIndex = 4;
+            this.telefonoTextBox.TextChanged += new System.EventHandler(this.telefonoTextBox_TextChanged);
             // 
             // direccionTextBox
             // 
@@ -195,6 +199,7 @@ namespace PagoAgil.Aplicacion.View
             this.guardarButton.TabIndex = 17;
             this.guardarButton.Text = "Guardar";
             this.guardarButton.UseVisualStyleBackColor = true;
+            this.guardarButton.Click += new System.EventHandler(this.guardarButton_Click);
             // 
             // FormAltaCliente
             // 
@@ -219,6 +224,7 @@ namespace PagoAgil.Aplicacion.View
             this.Controls.Add(this.nombreTextBox);
             this.Name = "FormAltaCliente";
             this.Text = "Alta cliente";
+            this.Load += new System.EventHandler(this.FormAltaCliente_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,6 +234,51 @@ namespace PagoAgil.Aplicacion.View
         {
             InitializeComponent();
             this.CenterToScreen();
+        }
+
+        private void guardarButton_Click(object sender, EventArgs e)
+        {
+            ClienteDB c = new ClienteDB();
+            c.id = Int32.Parse(dniTextBox.Text);
+            c.nombre = nombreTextBox.Text;
+            c.apellido = apellidoTextBox.Text;
+            c.domicilio = codigoPostal.Text;
+            c.habilitado = true;
+            c.mail = mailTextBox.Text;
+            c.nacimiento = DateTime.Parse(dateTimePicker1.Text);
+            c.telefono = Int32.Parse(telefonoTextBox.Text);
+            c.codigoPostal = codigoPostal.Text;
+
+            if (c.id == 0 || c.nombre == null || c.apellido == null || c.domicilio == null || c.codigoPostal == null) 
+            {
+                MessageBox.Show("Los campos DNI, Nombre y apellido no pueden estar vacios");
+            }
+            else { 
+            RepositorioClientes.getInstance().almacenamiento.aniadir(c);
+                }
+        }
+
+        private void dniTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(dniTextBox.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Please enter only numbers.");
+                dniTextBox.Text = dniTextBox.Text.Remove(dniTextBox.Text.Length - 1);
+            }
+        }
+
+        private void FormAltaCliente_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void telefonoTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(telefonoTextBox.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Please enter only numbers.");
+                telefonoTextBox.Text = telefonoTextBox.Text.Remove(telefonoTextBox.Text.Length - 1);
+            }
         }
     }
 }

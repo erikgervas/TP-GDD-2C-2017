@@ -25,7 +25,8 @@ namespace PagoAgil.Aplicacion.ViewModel
         {
 
 
-            return medioCliente.obtenerCamposCliente();
+            return RepositorioClientes.getInstance().getAlmacenamiento().obtenerCamposCliente();
+
         }
 
         public List<ClienteDB> obtenerClientesFiltradosPor(string condicion,string filtro, string valor)
@@ -33,6 +34,11 @@ namespace PagoAgil.Aplicacion.ViewModel
             //return medioCliente.obtenerClientesFiltradosPor( condicion, filtro, valor);
 
             return RepositorioClientes.getInstance().getAlmacenamiento().obtenerClientesFiltradosPor(condicion, filtro, valor);
+        }
+
+        public void insertarCliente (ClienteDB c)
+        {
+            RepositorioClientes.getInstance().getAlmacenamiento().aniadir(c);
         }
 
     }

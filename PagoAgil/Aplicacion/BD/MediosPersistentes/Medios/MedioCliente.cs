@@ -1,4 +1,5 @@
-﻿using PagoAgil.Aplicacion.Modelo.ClienteSQL;
+﻿using PagoAgil.Aplicacion.BD.Utils;
+using PagoAgil.Aplicacion.Modelo.ClienteSQL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
     {
         public void aniadir(ClienteDB unaEntidad)
         {
-            throw new NotImplementedException();
+            Insertador.getInstance().insertarCliente(unaEntidad);
         }
 
         public long asignarId()

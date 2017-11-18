@@ -61,6 +61,34 @@ namespace PagoAgil.Aplicacion.BD.Utils
             cmd.ExecuteNonQuery();
 
         }
+        public void insertarCliente(ClienteDB c)
+        {
+            
+            SqlCommand cmd = new SqlCommand("INSERT INTO SQL_BOYS.Cliente (dni_cliente, nombre, apellido, nacimiento,mail,domicilio,codigo_postal,telefono,habilitadodx) " +
+                        " VALUES (@dni, @nombre, @apellido, @nacimiento,@mail,@domicilio,@cp,@telefono,@telefono,@hab)", Conexion.getInstance().obtenerConexion());
+
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@dni", DbType.Int32);
+            cmd.Parameters.AddWithValue("@nombre", DbType.String);
+            cmd.Parameters.AddWithValue("@apellido", DbType.String);
+            cmd.Parameters.AddWithValue("@nacimiento", DbType.DateTime);
+            cmd.Parameters.AddWithValue("@mail", DbType.String);
+            cmd.Parameters.AddWithValue("@domicilio", DbType.String);
+            cmd.Parameters.AddWithValue("@cp", DbType.Int32);
+            cmd.Parameters.AddWithValue("@telefono", DbType.Int32);
+            cmd.Parameters.AddWithValue("@hab", DbType.Boolean);
+
+            cmd.Parameters[0].Value = c.id;
+            cmd.Parameters[1].Value = c.nombre;
+            cmd.Parameters[2].Value = c.apellido;
+            cmd.Parameters[3].Value = c.nacimiento;
+            cmd.Parameters[4].Value = c.mail;
+            cmd.Parameters[5].Value = c.domicilio;
+            cmd.Parameters[6].Value = c.codigoPostal;
+            cmd.Parameters[7].Value = c.telefono;
+            cmd.Parameters[8].Value = c.habilitado;
+             
+        }
 
     }
 }

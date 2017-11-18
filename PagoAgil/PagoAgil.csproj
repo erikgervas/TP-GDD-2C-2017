@@ -139,6 +139,9 @@
     <Compile Include="Aplicacion\View\Cliente\FormABMCliente.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Aplicacion\View\Cliente\FormModificarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Aplicacion\View\Devolucion\FormDevolucion.cs">
       <SubType>Form</SubType>
     </Compile>
