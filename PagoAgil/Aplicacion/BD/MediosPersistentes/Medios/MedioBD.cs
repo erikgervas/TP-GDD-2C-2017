@@ -19,7 +19,7 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
 
         public DataTable darTabla()
         {
-            return LectorDeTablas.getInstance().obtenerMejorado(this.todasLasColumnas() + this.nombreTabla());
+            return LectorDeTablas.getInstance().obtenerMejorado(this.nombreTabla());
         }
 
         public DataTable darTablaFiltrados(List<Parametro> parametros)

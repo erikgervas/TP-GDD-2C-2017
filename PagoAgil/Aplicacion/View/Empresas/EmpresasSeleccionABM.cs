@@ -24,8 +24,6 @@ namespace PagoAgil.Aplicacion.View.Empresas
 
         private void ingresarButton_Click(object sender, EventArgs e)
         {
-            this.Close();
-
             EmpresaABM.instanciar().abm = new Alta<Empresa>();
 
             new EmpresasCompletado().Show();
@@ -33,14 +31,7 @@ namespace PagoAgil.Aplicacion.View.Empresas
 
         private void consultarButton_Click(object sender, EventArgs e)
         {
-            this.Close();
-
             new EmpresasBuscador().Show();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }
