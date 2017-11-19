@@ -274,40 +274,40 @@ GO
 
 /* Como los clientes conflictivos también tienen facturas, pagos y rendiciones, decidimos apartar las filas de la tabla maestra de dichos clientes. */
 
-CREATE VIEW SQL_BOYS.View_Tabla_Maestra_Conflictiva AS
+SELECT
 
-	SELECT
+	[Cliente-Dni],
+	[Cliente-Apellido],
+	[Cliente-Nombre],
+	[Cliente-Fecha_Nac],
+	[Cliente_Mail],
+	[Cliente_Direccion],
+	[Cliente_Codigo_Postal],
+	[Nro_Factura],
+	[Factura_Fecha],
+	[Factura_Total],
+	[Factura_Fecha_Vencimiento],
+	[ItemFactura_Monto],
+	[ItemFactura_Cantidad],
+	[Empresa_Nombre],
+	[Empresa_Cuit],
+	[Empresa_Direccion],
+	[Empresa_Rubro],
+	[Rubro_Descripcion],
+	[Pago_nro],
+	[Pago_Fecha],
+	[ItemPago_nro],
+	[Total],
+	[FormaPagoDescripcion],
+	[Sucursal_Nombre],
+	[Sucursal_Dirección],
+	[Sucursal_Codigo_Postal],
+	[Rendicion_Nro],
+	[Rendicion_Fecha],
+	[ItemRendicion_nro],
+	[ItemRendicion_Importe]
 
-		[Cliente-Dni],
-		[Cliente-Apellido],
-		[Cliente-Nombre],
-		[Cliente-Fecha_Nac],
-		[Cliente_Mail],
-		[Cliente_Direccion],
-		[Cliente_Codigo_Postal],
-		[Nro_Factura],
-		[Factura_Fecha],
-		[Factura_Total],
-		[Factura_Fecha_Vencimiento],
-		[ItemFactura_Monto],
-		[ItemFactura_Cantidad],
-		[Empresa_Nombre],
-		[Empresa_Cuit],
-		[Empresa_Direccion],
-		[Empresa_Rubro],
-		[Rubro_Descripcion],
-		[Pago_nro],
-		[Pago_Fecha],
-		[ItemPago_nro],
-		[Total],
-		[FormaPagoDescripcion],
-		[Sucursal_Nombre],
-		[Sucursal_Dirección],
-		[Sucursal_Codigo_Postal],
-		[Rendicion_Nro],
-		[Rendicion_Fecha],
-		[ItemRendicion_nro],
-		[ItemRendicion_Importe]
+	INTO SQL_BOYS.Tabla_Maestra_Conflictiva
 
 	FROM [GD2C2017].[gd_esquema].[Maestra]
 
@@ -730,7 +730,7 @@ CREATE PROCEDURE SQL_BOYS.modificacionDeEmpresa (@id_empresa AS INT, @nombre AS 
 
 GO
 
-CREATE FUNCTION SQL_BOYS.filtrarEmpresa (@nombre AS NVARCHAR(255), @cuit AS NVARCHAR(50), @nombre_rubro AS NVARCHAR(50)) RETURNS TABLE
+CREATE FUNCTION SQL_BOYS.filtrarEmpresa (@nombre AS NVARCHAR(255), @cuit AS NVARCHAR(50), @nombre_rubro AS NVARCHAR(50), @id_empresa AS INT) RETURNS TABLE
 
 	RETURN
 	
@@ -740,17 +740,13 @@ CREATE FUNCTION SQL_BOYS.filtrarEmpresa (@nombre AS NVARCHAR(255), @cuit AS NVAR
 
 		WHERE
 
-			NOT (LEN(@nombre) = 0 AND LEN(@cuit) = 0 AND LEN(@nombre_rubro) = 0)
-			
-			AND
+			(LEN(@nombre) != 0 AND e.nombre LIKE @nombre + '%') OR
 
-			(
-				(LEN(@nombre) != 0 AND e.nombre LIKE @nombre + '%') OR
+			(LEN(@cuit) != 0 AND e.cuit = @cuit) OR
 
-				(LEN(@cuit) != 0 AND e.cuit = @cuit) OR
+			(LEN(@nombre_rubro) != 0 AND e.descripcion = @nombre_rubro) OR
 
-				(LEN(@nombre_rubro) != 0 AND e.descripcion = @nombre_rubro)
-			)
+			(e.id_empresa = @id_empresa)
 
 GO
 

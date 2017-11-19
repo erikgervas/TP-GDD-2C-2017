@@ -52,19 +52,20 @@
             this.cuitLabel = new System.Windows.Forms.Label();
             this.rubroComboBox = new System.Windows.Forms.ComboBox();
             this.nombreText = new System.Windows.Forms.TextBox();
-            this.eleccionLabel = new System.Windows.Forms.Label();
             this.seleccionarButton = new System.Windows.Forms.Button();
-            this.empresaElegidaText = new System.Windows.Forms.TextBox();
             this.tituloLabel = new System.Windows.Forms.Label();
             this.modificarButton = new System.Windows.Forms.Button();
             this.bajaButton = new System.Windows.Forms.Button();
             this.empresaTableAdapter = new PagoAgil.DataSet.SQL_BOYS_Data_SetTableAdapters.EmpresaTableAdapter();
+            this.eleccionLabel = new System.Windows.Forms.Label();
+            this.empresaElegidaText = new System.Windows.Forms.NumericUpDown();
             this.resultadosBusquedaPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.empresasDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.empresaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sQL_BOYS_Data_Set)).BeginInit();
             this.filtrosPanel.SuspendLayout();
             this.filtrosTabla.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.empresaElegidaText)).BeginInit();
             this.SuspendLayout();
             // 
             // resultadosBusquedaPanel
@@ -210,6 +211,7 @@
             this.filtrosTabla.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.filtrosTabla.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.filtrosTabla.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.filtrosTabla.Controls.Add(this.empresaElegidaText, 3, 1);
             this.filtrosTabla.Controls.Add(this.cuitText, 3, 0);
             this.filtrosTabla.Controls.Add(this.buscarButton, 5, 1);
             this.filtrosTabla.Controls.Add(this.rubroLabel, 0, 1);
@@ -219,8 +221,7 @@
             this.filtrosTabla.Controls.Add(this.rubroComboBox, 1, 1);
             this.filtrosTabla.Controls.Add(this.nombreText, 1, 0);
             this.filtrosTabla.Controls.Add(this.eleccionLabel, 2, 1);
-            this.filtrosTabla.Controls.Add(this.seleccionarButton, 3, 1);
-            this.filtrosTabla.Controls.Add(this.empresaElegidaText, 4, 1);
+            this.filtrosTabla.Controls.Add(this.seleccionarButton, 4, 1);
             this.filtrosTabla.Location = new System.Drawing.Point(11, 27);
             this.filtrosTabla.Name = "filtrosTabla";
             this.filtrosTabla.RowCount = 2;
@@ -232,7 +233,7 @@
             // cuitText
             // 
             this.cuitText.Location = new System.Drawing.Point(352, 3);
-            this.cuitText.Mask = "9-99999999-9";
+            this.cuitText.Mask = "99-99999999-9";
             this.cuitText.Name = "cuitText";
             this.cuitText.Size = new System.Drawing.Size(142, 20);
             this.cuitText.TabIndex = 18;
@@ -306,35 +307,16 @@
             this.nombreText.Size = new System.Drawing.Size(142, 20);
             this.nombreText.TabIndex = 10;
             // 
-            // eleccionLabel
-            // 
-            this.eleccionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.eleccionLabel.AutoSize = true;
-            this.eleccionLabel.Location = new System.Drawing.Point(265, 37);
-            this.eleccionLabel.Name = "eleccionLabel";
-            this.eleccionLabel.Size = new System.Drawing.Size(81, 13);
-            this.eleccionLabel.TabIndex = 4;
-            this.eleccionLabel.Text = "Elección";
-            // 
             // seleccionarButton
             // 
             this.seleccionarButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.seleccionarButton.Location = new System.Drawing.Point(352, 32);
+            this.seleccionarButton.Location = new System.Drawing.Point(527, 32);
             this.seleccionarButton.Name = "seleccionarButton";
             this.seleccionarButton.Size = new System.Drawing.Size(142, 23);
             this.seleccionarButton.TabIndex = 13;
             this.seleccionarButton.Text = "Seleccionar";
             this.seleccionarButton.UseVisualStyleBackColor = true;
             this.seleccionarButton.Click += new System.EventHandler(this.seleccionarButton_Click);
-            // 
-            // empresaElegidaText
-            // 
-            this.empresaElegidaText.BackColor = System.Drawing.SystemColors.Menu;
-            this.empresaElegidaText.Location = new System.Drawing.Point(527, 32);
-            this.empresaElegidaText.Name = "empresaElegidaText";
-            this.empresaElegidaText.ReadOnly = true;
-            this.empresaElegidaText.Size = new System.Drawing.Size(142, 20);
-            this.empresaElegidaText.TabIndex = 14;
             // 
             // tituloLabel
             // 
@@ -351,6 +333,7 @@
             // 
             // modificarButton
             // 
+            this.modificarButton.Enabled = false;
             this.modificarButton.Location = new System.Drawing.Point(632, 550);
             this.modificarButton.Name = "modificarButton";
             this.modificarButton.Size = new System.Drawing.Size(150, 30);
@@ -361,6 +344,7 @@
             // 
             // bajaButton
             // 
+            this.bajaButton.Enabled = false;
             this.bajaButton.Location = new System.Drawing.Point(191, 550);
             this.bajaButton.Name = "bajaButton";
             this.bajaButton.Size = new System.Drawing.Size(150, 30);
@@ -372,6 +356,40 @@
             // empresaTableAdapter
             // 
             this.empresaTableAdapter.ClearBeforeFill = true;
+            // 
+            // eleccionLabel
+            // 
+            this.eleccionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.eleccionLabel.AutoSize = true;
+            this.eleccionLabel.Location = new System.Drawing.Point(265, 37);
+            this.eleccionLabel.Name = "eleccionLabel";
+            this.eleccionLabel.Size = new System.Drawing.Size(81, 13);
+            this.eleccionLabel.TabIndex = 4;
+            this.eleccionLabel.Text = "Elección";
+            // 
+            // empresaElegidaText
+            // 
+            this.empresaElegidaText.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.empresaElegidaText.Enabled = false;
+            this.empresaElegidaText.Location = new System.Drawing.Point(352, 34);
+            this.empresaElegidaText.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.empresaElegidaText.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.empresaElegidaText.Name = "empresaElegidaText";
+            this.empresaElegidaText.Size = new System.Drawing.Size(142, 20);
+            this.empresaElegidaText.TabIndex = 18;
+            this.empresaElegidaText.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // EmpresasBuscador
             // 
@@ -393,6 +411,7 @@
             this.filtrosPanel.ResumeLayout(false);
             this.filtrosTabla.ResumeLayout(false);
             this.filtrosTabla.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.empresaElegidaText)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -409,18 +428,13 @@
         private System.Windows.Forms.Label rubroLabel;
         private System.Windows.Forms.Label nombreLabel;
         private System.Windows.Forms.Label cuitLabel;
-        private System.Windows.Forms.ComboBox rubroComboBox;
-        private System.Windows.Forms.TextBox nombreText;
-        private System.Windows.Forms.Label eleccionLabel;
         private System.Windows.Forms.Button seleccionarButton;
-        private System.Windows.Forms.TextBox empresaElegidaText;
         private System.Windows.Forms.Label tituloLabel;
         private System.Windows.Forms.Button modificarButton;
         private System.Windows.Forms.Button bajaButton;
         private DataSet.SQL_BOYS_Data_Set sQL_BOYS_Data_Set;
         private DataSet.SQL_BOYS_Data_SetTableAdapters.EmpresaTableAdapter empresaTableAdapter;
         private System.Windows.Forms.BindingSource empresaBindingSource;
-        private System.Windows.Forms.MaskedTextBox cuitText;
         private System.Windows.Forms.DataGridViewTextBoxColumn idempresaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cuitDataGridViewTextBoxColumn;
@@ -430,5 +444,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idrubroDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn habilitadxDataGridViewCheckBoxColumn;
+        public System.Windows.Forms.ComboBox rubroComboBox;
+        public System.Windows.Forms.TextBox nombreText;
+        public System.Windows.Forms.MaskedTextBox cuitText;
+        private System.Windows.Forms.Label eleccionLabel;
+        public System.Windows.Forms.NumericUpDown empresaElegidaText;
     }
 }

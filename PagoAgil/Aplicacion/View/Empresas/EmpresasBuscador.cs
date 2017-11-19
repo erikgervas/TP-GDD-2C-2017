@@ -42,11 +42,15 @@ namespace PagoAgil.Aplicacion.View.Empresas
             this.cuitText.Text = null;
             this.rubroComboBox.Text = null;
             this.empresasDataGrid.DataSource = null;
+            this.empresaElegidaText.Value = 1;
+
+            this.viewModel.empresa = new EmpresaBuilder();
         }
 
         private void buscarButton_Click(object sender, EventArgs e)
         {
-            this.empresasDataGrid.DataSource = this.viewModel.buscar(this.nombreText.Text, this.cuitText.Text, this.rubroComboBox.Text);
+            
+            this.empresasDataGrid.DataSource = this.viewModel.buscar(this.nombreText.Text, this.cuitText.Text, this.rubroComboBox.Text, (long) this.empresaElegidaText.Value);
         }
 
         private void cuitText_KeyPress(object sender, KeyPressEventArgs e)
@@ -58,11 +62,27 @@ namespace PagoAgil.Aplicacion.View.Empresas
 
         private void empresasDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow[] filas = empresasDataGrid.Rows.Cast<DataGridViewRow>().ToArray();
+            try
+            {
+                DataGridViewRow[] filas = empresasDataGrid.Rows.Cast<DataGridViewRow>().ToArray();
 
-            filaElegida = filas[e.RowIndex];
+                filaElegida = filas[e.RowIndex];
 
-            this.generarEmpresa();
+                this.generarEmpresa();
+
+                this.modificarButton.Enabled = true;
+                this.bajaButton.Enabled = true;
+
+                if (this.viewModel.empresa.estado == false) this.bajaButton.Enabled = false;
+            }
+            catch (NullReferenceException)
+            {
+
+            }
+            catch (IndexOutOfRangeException)
+            {
+
+            }
         }
 
         private void EmpresasBuscador_Load(object sender, EventArgs e)
@@ -86,10 +106,7 @@ namespace PagoAgil.Aplicacion.View.Empresas
             this.viewModel.empresa.porcentajeComision = ushort.Parse(this.valorCelda(4));
             this.viewModel.empresa.diaRendicion = ushort.Parse(this.valorCelda(5));
             this.viewModel.empresa.rubro = valorCelda(7);
-
-            DataGridViewCheckBoxCell coso = filaElegida.Cells[8].Value as DataGridViewCheckBoxCell;
-
-            this.viewModel.empresa.estado = Convert.ToBoolean(coso);
+            this.viewModel.empresa.estado = bool.Parse(valorCelda(8));
         }
 
         private string valorCelda(int celda)

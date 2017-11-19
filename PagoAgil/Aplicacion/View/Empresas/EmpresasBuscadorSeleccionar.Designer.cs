@@ -34,6 +34,8 @@
             this.bajaButton = new System.Windows.Forms.Button();
             this.resultadosBusquedaPanel = new System.Windows.Forms.GroupBox();
             this.empresasDataGrid = new System.Windows.Forms.DataGridView();
+            this.empresaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.empresaTableAdapter = new PagoAgil.DataSet.SQL_BOYS_Data_SetTableAdapters.EmpresaTableAdapter();
             this.idempresaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cuitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,8 +45,6 @@
             this.idrubroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.habilitadxDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.empresaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.empresaTableAdapter = new PagoAgil.DataSet.SQL_BOYS_Data_SetTableAdapters.EmpresaTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.sQL_BOYS_Data_Set)).BeginInit();
             this.resultadosBusquedaPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.empresasDataGrid)).BeginInit();
@@ -77,6 +77,7 @@
             this.bajaButton.TabIndex = 18;
             this.bajaButton.Text = "Seleccionar";
             this.bajaButton.UseVisualStyleBackColor = true;
+            this.bajaButton.Click += new System.EventHandler(this.bajaButton_Click);
             // 
             // resultadosBusquedaPanel
             // 
@@ -90,6 +91,7 @@
             // 
             // empresasDataGrid
             // 
+            this.empresasDataGrid.AllowUserToDeleteRows = false;
             this.empresasDataGrid.AutoGenerateColumns = false;
             this.empresasDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idempresaDataGridViewTextBoxColumn,
@@ -111,6 +113,15 @@
             this.empresasDataGrid.Size = new System.Drawing.Size(920, 310);
             this.empresasDataGrid.TabIndex = 1;
             // 
+            // empresaBindingSource
+            // 
+            this.empresaBindingSource.DataMember = "Empresa";
+            this.empresaBindingSource.DataSource = this.sQL_BOYS_Data_Set;
+            // 
+            // empresaTableAdapter
+            // 
+            this.empresaTableAdapter.ClearBeforeFill = true;
+            // 
             // idempresaDataGridViewTextBoxColumn
             // 
             this.idempresaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -122,12 +133,11 @@
             // 
             // nombreDataGridViewTextBoxColumn
             // 
-            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
             this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
             this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
             this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreDataGridViewTextBoxColumn.Width = 69;
             // 
             // cuitDataGridViewTextBoxColumn
             // 
@@ -191,15 +201,6 @@
             this.habilitadxDataGridViewCheckBoxColumn.Name = "habilitadxDataGridViewCheckBoxColumn";
             this.habilitadxDataGridViewCheckBoxColumn.ReadOnly = true;
             this.habilitadxDataGridViewCheckBoxColumn.Width = 59;
-            // 
-            // empresaBindingSource
-            // 
-            this.empresaBindingSource.DataMember = "Empresa";
-            this.empresaBindingSource.DataSource = this.sQL_BOYS_Data_Set;
-            // 
-            // empresaTableAdapter
-            // 
-            this.empresaTableAdapter.ClearBeforeFill = true;
             // 
             // EmpresasBuscadorSeleccionar
             // 

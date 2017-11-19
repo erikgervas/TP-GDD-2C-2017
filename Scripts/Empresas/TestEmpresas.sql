@@ -50,7 +50,7 @@ CREATE PROCEDURE SQL_BOYS.EmpresaPrueba AS
 				
 				SET @nombre = 'TestEmpresa ' + CONVERT(NVARCHAR(255), @i)
 
-				SET @cuit = '1-' + CONVERT(NVARCHAR(50), 10000000 + @i) + '-' + CONVERT(NVARCHAR(50), @i % 10)
+				SET @cuit = '11-' + CONVERT(NVARCHAR(50), 10000000 + @i) + '-' + CONVERT(NVARCHAR(50), @i % 10)
 
 				SET @domicilio = 'Ni idea ' + CONVERT(NVARCHAR(255), 1000 + @i*2)
 

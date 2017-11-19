@@ -1,6 +1,7 @@
 ﻿using PagoAgil.Aplicacion;
 using PagoAgil.Aplicacion.Orquestradores;
 using PagoAgil.Aplicacion.View;
+using PagoAgil.Aplicacion.View.Empresas;
 using System;
 using System.Windows.Forms;
 
@@ -23,7 +24,7 @@ namespace PagoAgil
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new FormLogin());
+            Application.Run(new EmpresasSeleccionABM());
 
         }
     }
