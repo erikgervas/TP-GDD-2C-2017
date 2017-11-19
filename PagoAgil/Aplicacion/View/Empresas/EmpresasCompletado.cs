@@ -36,6 +36,7 @@ namespace PagoAgil.Aplicacion.View.Empresas
 
         private void iniciarTitulos()
         {
+            EmpresaABM.instanciar().determinarBotones(this);
             this.Text = EmpresaABM.instanciar().titulosCompletado()[0];
             this.tituloLabel.Text = EmpresaABM.instanciar().titulosCompletado()[1];
             this.altaGroup.Text = EmpresaABM.instanciar().titulosCompletado()[2];
@@ -84,7 +85,7 @@ namespace PagoAgil.Aplicacion.View.Empresas
             this.viewModel.empresa.estado = habilitadaCheckBox.Checked;
         }
 
-        private void limpiarButton_Click(object sender, EventArgs e)
+        private void limpiarAlta()
         {
             this.nombreText.Text = null;
             this.cuitText.Text = null;
@@ -95,6 +96,22 @@ namespace PagoAgil.Aplicacion.View.Empresas
             this.habilitadaCheckBox.Checked = false;
 
             this.viewModel.empresa = new EmpresaBuilder();
+        }
+
+        private void limpiarBaja()
+        {
+            this.nombreText.Text = null;
+            this.direccionText.Text = null;
+            this.rubroComboBox.SelectedIndex = 0;
+            this.diaNumericUpDown.Value = 1;
+            this.porcentajeNumericUpDown.Value = 1;
+        }
+
+        private void limpiarButton_Click(object sender, EventArgs e)
+        {
+            if (this.cuitText.Enabled) limpiarAlta();
+
+            else limpiarBaja();
         }
 
         private void altaButton_Click(object sender, EventArgs e)
@@ -115,7 +132,15 @@ namespace PagoAgil.Aplicacion.View.Empresas
             }
             catch (YaExisteObjetoConEsaClave excepcion)
             {
-                new EmpresasAdvertenciaMismoCuit(this, excepcion).Show();
+                if (this.cuitText.Enabled) new EmpresasAdvertenciaMismoCuit(this, excepcion).Show();
+
+                else
+                {
+                    this.Close();
+
+                    new EmpresasConfirmacion(this.viewModel.empresa).Show();
+                }
+
             }
         }
     }

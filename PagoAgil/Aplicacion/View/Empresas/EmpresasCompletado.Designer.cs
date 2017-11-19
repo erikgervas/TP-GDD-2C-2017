@@ -318,23 +318,23 @@
 
         private System.Windows.Forms.Label tituloLabel;
         private System.Windows.Forms.TableLayoutPanel altaPanel;
-        private System.Windows.Forms.TextBox direccionText;
         private System.Windows.Forms.Label nombreLabel;
         private System.Windows.Forms.Label cuitLabel;
         private System.Windows.Forms.Label direccionLabel;
         private System.Windows.Forms.Label rubroLabel;
         private System.Windows.Forms.Label diaLabel;
-        private System.Windows.Forms.TextBox nombreText;
-        private System.Windows.Forms.NumericUpDown diaNumericUpDown;
         private System.Windows.Forms.GroupBox altaGroup;
-        private System.Windows.Forms.Button limpiarButton;
-        private System.Windows.Forms.Button altaButton;
-        private System.Windows.Forms.NumericUpDown porcentajeNumericUpDown;
         private System.Windows.Forms.Label porcentajeText;
         private DataSet.SQL_BOYS_Data_Set sQL_BOYS_Data_Set;
         private System.Windows.Forms.BindingSource sQLBOYSDataSetBindingSource;
         public System.Windows.Forms.CheckBox habilitadaCheckBox;
-        private System.Windows.Forms.MaskedTextBox cuitText;
         public System.Windows.Forms.ComboBox rubroComboBox;
+        public System.Windows.Forms.TextBox direccionText;
+        public System.Windows.Forms.TextBox nombreText;
+        public System.Windows.Forms.NumericUpDown diaNumericUpDown;
+        public System.Windows.Forms.Button limpiarButton;
+        public System.Windows.Forms.Button altaButton;
+        public System.Windows.Forms.NumericUpDown porcentajeNumericUpDown;
+        public System.Windows.Forms.MaskedTextBox cuitText;
     }
 }

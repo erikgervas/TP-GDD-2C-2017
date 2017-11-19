@@ -65,7 +65,7 @@
     " rendición.";
             this.advertenciaText.Click += new System.EventHandler(this.advertenciaText_Click);
             // 
-            // EmpresaAdvertenciaRendicionesPendientes
+            // EmpresasAdvertenciaRendicionesPendientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -73,7 +73,7 @@
             this.Controls.Add(this.advertenciaTitulo);
             this.Controls.Add(this.volverButton);
             this.Controls.Add(this.advertenciaText);
-            this.Name = "EmpresaAdvertenciaRendicionesPendientes";
+            this.Name = "EmpresasAdvertenciaRendicionesPendientes";
             this.Text = "Advertencia";
             this.ResumeLayout(false);
             this.PerformLayout();
