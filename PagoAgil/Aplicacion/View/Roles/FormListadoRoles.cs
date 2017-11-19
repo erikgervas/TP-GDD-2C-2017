@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PagoAgil.Aplicacion.ViewModel;
+using PagoAgil.Aplicacion.Modelo.Usuario;
 
 namespace PagoAgil.Aplicacion.View.Roles
 {
@@ -22,6 +23,31 @@ namespace PagoAgil.Aplicacion.View.Roles
             this.CenterToScreen();
             VM = new ListadoRolesVM();
             accion = miAccion;
+
+        }
+
+        private void FormListadoRoles_Load(object sender, EventArgs e)
+        {
+            Rol[] roles = VM.obtenerRoles();
+
+            comboBoxRoles.Items.AddRange(roles);
+
+        }
+
+        private void buttonSeleccionar_Click(object sender, EventArgs e)
+        {
+            Rol rolElegido = comboBoxRoles.SelectedItem as Rol;
+
+            this.Hide();
+
+            if (accion.Equals("modificacion"))
+            {
+                new FormModificacionRol(rolElegido).Show();
+            }
+            else 
+            {
+                new FormBajaRol(rolElegido).Show();
+            }
         }
     }
 }
