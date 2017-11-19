@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using PagoAgil.Aplicacion.Modelo.ClienteSQL;
+using PagoAgil.Aplicacion.Modelo.Usuario;
 
 namespace PagoAgil.Aplicacion.BD.Utils
 {
@@ -88,6 +89,10 @@ namespace PagoAgil.Aplicacion.BD.Utils
             cmd.Parameters[7].Value = c.telefono;
             cmd.Parameters[8].Value = c.habilitado;
              
+        }
+
+        public void insertarRol(Rol r) 
+        {
         }
 
     }
