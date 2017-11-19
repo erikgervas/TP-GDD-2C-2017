@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Data;
 using PagoAgil.Aplicacion.Modelo.ClienteSQL;
 using PagoAgil.Aplicacion.Modelo.Usuario;
+using PagoAgil.Aplicacion.BD.Utils;
 
 namespace PagoAgil.Aplicacion.BD.Utils
 {
@@ -79,6 +80,7 @@ namespace PagoAgil.Aplicacion.BD.Utils
 
             cmd.ExecuteNonQuery();
 
+            Insertador.getInstance().insertarFuncionalidadesDeRol(r, r.id);
         }
 
     }

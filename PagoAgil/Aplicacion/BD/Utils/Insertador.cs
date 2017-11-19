@@ -109,6 +109,12 @@ namespace PagoAgil.Aplicacion.BD.Utils
 
             cmd2.ExecuteNonQuery();
 
+            this.insertarFuncionalidadesDeRol(r, idRol);
+
+        }
+
+        public void insertarFuncionalidadesDeRol(Rol r, int idRol) 
+        {
             for (int i = 0; i < r.funcionalidades.Count; i++)
             {
                 SqlCommand cmd3 = new SqlCommand("INSERT INTO SQL_BOYS.Funcionalidad_Por_Rol (id_funcionalidad,id_rol) " +

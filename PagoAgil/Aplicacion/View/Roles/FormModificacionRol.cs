@@ -18,6 +18,7 @@ namespace PagoAgil.Aplicacion.View.Roles
     {
         Rol rol;
         RolesBuilder builder;
+        ModificacionRolVM VM;
 
         public FormModificacionRol(Rol rolElegido)
         {
@@ -26,6 +27,7 @@ namespace PagoAgil.Aplicacion.View.Roles
 
             rol = rolElegido;
             builder = new RolesBuilder();
+            VM = new ModificacionRolVM();
 
             this.cargarCampos();
         }
@@ -34,10 +36,29 @@ namespace PagoAgil.Aplicacion.View.Roles
         {
             textBoxNombre.Text = rol.nombre;
 
+            List<Funcionalidad> funcionalidades = VM.obtenerFuncionalidades();
+
             //Agregar funcionalidades al checked list box
-            foreach (Funcionalidad f in rol.funcionalidades)
+            foreach (Funcionalidad f in funcionalidades)
             {
                 checkedListBoxFuncionalidades.Items.Add(f);
+            }
+
+            List<Funcionalidad> funcionalidadesDelRol = rol.funcionalidades;
+
+            for (int i = 0; i < checkedListBoxFuncionalidades.Items.Count; i++)
+            {
+                Funcionalidad fun = (Funcionalidad)checkedListBoxFuncionalidades.Items[i];
+
+                //Esto es para marcar de todas las funcionalidades las que tiene el rol seleccionado
+                if (funcionalidadesDelRol.Any(f => f.nombre.Equals(fun.nombre)))
+                {
+                    checkedListBoxFuncionalidades.SetItemCheckState(i, CheckState.Checked);
+                }
+                else 
+                {
+                    checkedListBoxFuncionalidades.SetItemCheckState(i, CheckState.Unchecked);
+                }
             }
 
             if (rol.habilitado == false)
