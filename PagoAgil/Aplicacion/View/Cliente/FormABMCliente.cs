@@ -1,4 +1,5 @@
 ﻿using PagoAgil.Aplicacion.Modelo.ClienteSQL;
+using PagoAgil.Aplicacion.View.Cliente;
 using PagoAgil.Aplicacion.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Windows.Forms;
 
 namespace PagoAgil.Aplicacion.View
 {
-    
+
     class FormABMCliente : Form
     {
         ClientesVM clientesVM = new ClientesVM();
@@ -24,6 +25,7 @@ namespace PagoAgil.Aplicacion.View
         private DataGridView dataGridView2;
         private ComboBox tipoFiltroComboBox;
         private Label label3;
+        private DataGridViewButtonColumn Modificar;
         private System.ComponentModel.IContainer components;
 
         private void InitializeComponent()
@@ -38,6 +40,7 @@ namespace PagoAgil.Aplicacion.View
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tipoFiltroComboBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.Modificar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -110,6 +113,8 @@ namespace PagoAgil.Aplicacion.View
             // 
             this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Modificar});
             this.dataGridView2.Location = new System.Drawing.Point(12, 397);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
@@ -135,6 +140,12 @@ namespace PagoAgil.Aplicacion.View
             this.label3.Size = new System.Drawing.Size(73, 20);
             this.label3.TabIndex = 10;
             this.label3.Text = "Tipo filtro";
+            // 
+            // Modificar
+            // 
+            this.Modificar.HeaderText = "Modificar";
+            this.Modificar.Name = "Modificar";
+            this.Modificar.ReadOnly = true;
             // 
             // FormABMCliente
             // 
@@ -172,7 +183,7 @@ namespace PagoAgil.Aplicacion.View
 
         private void FormABMCliente_Load(object sender, EventArgs e)
         {
-            var clientes = clientesVM.obtenerClientes();          
+            var clientes = clientesVM.obtenerClientes();
             var bindingList = new BindingList<ClienteDB>(clientes);
             var source = new BindingSource(bindingList, null);
             dataGridView2.DataSource = source;
@@ -194,16 +205,19 @@ namespace PagoAgil.Aplicacion.View
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            MessageBox.Show(e.RowIndex.ToString());
+            ClienteDB cliente = clientesVM.obtenerClientes().ElementAt(e.RowIndex);
+
+            Form mc = new FormModificarCliente(cliente);
+            mc.Show();
         }
 
         private void CondicionComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
 
             condicionTextBox.Enabled = false;
 
-            
+
 
 
 
@@ -219,9 +233,9 @@ namespace PagoAgil.Aplicacion.View
             string filtroCondicion = tipoFiltroComboBox.SelectedItem as string;
             string valorCondicion = condicionTextBox.Text as string;
 
-            
 
-            dataGridView2.DataSource = clientesVM.obtenerClientesFiltradosPor(condicionSeleccionada,filtroCondicion, valorCondicion);
+
+            dataGridView2.DataSource = clientesVM.obtenerClientesFiltradosPor(condicionSeleccionada, filtroCondicion, valorCondicion);
         }
 
         private void limpiarButton_Click(object sender, EventArgs e)
@@ -233,15 +247,15 @@ namespace PagoAgil.Aplicacion.View
         {
 
         }
-        
+
 
         private void dataGridView2_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-           
+
 
             ClienteDB cliente = clientesVM.obtenerClientes().ElementAt(e.RowIndex);
 
-           
+
 
             //MessageBox.Show(cliente.Nombre);
         }

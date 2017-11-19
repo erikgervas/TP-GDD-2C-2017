@@ -139,6 +139,9 @@
     <Compile Include="Aplicacion\View\Cliente\FormABMCliente.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Aplicacion\View\Cliente\FormModificarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Aplicacion\View\Devolucion\FormDevolucion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -346,6 +349,9 @@
     </Compile>
     <EmbeddedResource Include="Aplicacion\View\Cliente\FormABMCliente.resx">
       <DependentUpon>FormABMCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Cliente\FormModificarCliente.resx">
+      <DependentUpon>FormModificarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\Devolucion\FormDevolucion.resx">
       <DependentUpon>FormDevolucion.cs</DependentUpon>

@@ -34,6 +34,37 @@ namespace PagoAgil.Aplicacion.BD.Utils
             cmd.ExecuteNonQuery();
 
         }
+        public void actualizarCliente(ClienteDB c)
+        {
+
+            SqlCommand cmd = new SqlCommand("UPDATE INTO SQL_BOYS.Cliente " +
+                        " SET nombre=@nombre, apellido=@apellido, nacimiento=@nacimiento,mail=@mail,domicilio=@domicilio,codigo_postal=@cp,telefono=@telefono,habilitadodx=@hab"
+                         + "WHERE dni_cliente = @dni;", Conexion.getInstance().obtenerConexion());
+
+          
+
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@dni", DbType.Int32);
+            cmd.Parameters.AddWithValue("@nombre", DbType.String);
+            cmd.Parameters.AddWithValue("@apellido", DbType.String);
+            cmd.Parameters.AddWithValue("@nacimiento", DbType.DateTime);
+            cmd.Parameters.AddWithValue("@mail", DbType.String);
+            cmd.Parameters.AddWithValue("@domicilio", DbType.String);
+            cmd.Parameters.AddWithValue("@cp", DbType.Int32);
+            cmd.Parameters.AddWithValue("@telefono", DbType.Int32);
+            cmd.Parameters.AddWithValue("@hab", DbType.Boolean);
+
+            cmd.Parameters[0].Value = c.id;
+            cmd.Parameters[1].Value = c.nombre;
+            cmd.Parameters[2].Value = c.apellido;
+            cmd.Parameters[3].Value = c.nacimiento;
+            cmd.Parameters[4].Value = c.mail;
+            cmd.Parameters[5].Value = c.domicilio;
+            cmd.Parameters[6].Value = c.codigoPostal;
+            cmd.Parameters[7].Value = c.telefono;
+            cmd.Parameters[8].Value = c.habilitado;
+
+        }
 
     }
 }
