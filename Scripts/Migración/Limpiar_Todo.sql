@@ -16,5 +16,5 @@ DROP TABLE
 	SQL_BOYS.Funcionalidad_Por_Rol,
 	SQL_BOYS.Funcionalidad,
 	SQL_BOYS.Rol,
-	SQL_BOYS.Usuario,
-	SQL_BOYS.Tabla_Maestra_Conflictiva
+	SQL_BOYS.Usuario
+	/*SQL_BOYS.Tabla_Maestra_Conflictiva*/

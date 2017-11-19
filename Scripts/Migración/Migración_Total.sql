@@ -535,3 +535,706 @@ DROP VIEW
 	SQL_BOYS.View_Factura_Con_Rendicion,
 	SQL_BOYS.View_Pago_Medio_De_Pago,
 	SQL_BOYS.View_Item
+
+GO
+
+/*Creamos funciones y procedimientos necesarios*/
+
+/*ABM Sucursal*/
+
+CREATE FUNCTION SQL_BOYS.obtenerSucursalPorNombre(@nombre NVARCHAR(50))
+RETURNS table as 
+
+	return(SELECT * FROM SQL_BOYS.Sucursal s WHERE (@nombre IS NULL) OR (s.nombre LIKE concat(@nombre,'%')))
+
+GO
+
+CREATE FUNCTION SQL_BOYS.obtenerSucursalPorDireccion(@direccion NVARCHAR(50))
+RETURNS table as 
+
+	return(SELECT * FROM SQL_BOYS.Sucursal s WHERE (@direccion IS NULL) OR (s.domicilio LIKE concat(@direccion,'%')))
+
+GO
+
+CREATE FUNCTION SQL_BOYS.obtenerSucursalPorCodigoPostal(@CP NUMERIC(18,0))
+RETURNS table as 
+
+	return(SELECT * FROM SQL_BOYS.Sucursal s WHERE (@CP = 0) OR (s.cp_sucursal = @CP))
+
+GO
+
+CREATE FUNCTION SQL_BOYS.obtenerSucursalPorFiltrado(@CP NUMERIC(18,0),@nombre NVARCHAR(50),@domicilio NVARCHAR(50))
+RETURNS table
+
+return (
+	
+		SELECT * FROM SQL_BOYS.Sucursal s
+			where s.cp_sucursal IN (SELECT s.cp_sucursal FROM SQL_BOYS.obtenerSucursalPorCodigoPostal(@CP) as s) AND
+			s.nombre IN (SELECT s.nombre FROM SQL_BOYS.obtenerSucursalPorNombre(@nombre) as s) AND
+			s.domicilio IN (SELECT s.domicilio FROM SQL_BOYS.obtenerSucursalPorDireccion(@domicilio) as s)
+
+	)
+
+GO
+
+CREATE PROCEDURE SQL_BOYS.actualizarSucursal(@CP NUMERIC(18,0),@nombre nvarchar(50), @domicilio nvarchar(50), @estado bit) AS
+
+UPDATE Sucursal SET nombre = @nombre ,domicilio = @domicilio ,habilitadx = @estado WHERE cp_sucursal = @CP
+
+GO
+
+CREATE PROCEDURE SQL_BOYS.darDeBajaSucursal(@CP NUMERIC(18,0)) AS
+
+UPDATE Sucursal SET habilitadx = 0 WHERE cp_sucursal = @CP
+
+GO
+
+/*Devolución*/
+
+create function SQL_BOYS.facturasDevolvibles()
+returns table
+
+	return	(	
+	
+				-- Obtengo las que no fueron devueltas, fueron pagas y no han sido rendidas
+				select f.numero_factura from SQL_BOYS.Factura f left join
+					SQL_BOYS.Devolucion d on f.numero_factura = d.numero_factura left join
+					SQL_BOYS.Item_Pago ip on f.numero_factura = ip.numero_pago
+					
+					where d.numero_factura is null and f.numero_rendicion is null and ip.numero_factura is not null
+
+			)
+
+GO
+
+create procedure SQL_BOYS.devolverFacturaPaga(@numero_factura int, @motivo nvarchar(255), @fecha_actual nvarchar(10))
+as begin
+
+	if(exists(select fd.numero_factura from SQL_BOYS.facturasDevolvibles() fd where fd.numero_factura = @numero_factura))
+	begin
+
+		declare @numero_pago int
+
+		-- Tomo el numero del pago a borrar
+		set @numero_pago = (select top 1 ip.numero_pago from SQL_BOYS.Item_Pago ip where ip.numero_factura = @numero_factura)
+
+		declare @devolucion_de_factura char
+
+		-- En caso de que falle la transaccion, es conveniente que la base haga rollback automaticamente
+		set xact_abort on
+
+		begin transaction @devolucion_de_factura
+
+			delete from SQL_BOYS.Item_Pago
+				where numero_pago = @numero_pago	
+
+			delete from SQL_BOYS.Pago
+				where numero_pago = @numero_pago
+
+			-- Una vez borrados los pagos y los items, puedo insertar la devolucion correspondiente
+			insert into SQL_BOYS.Devolucion (fecha_devolucion, motivo, numero_factura) values
+				(SQL_BOYS.obtenerFecha(@fecha_actual), @motivo, @numero_factura)
+
+		commit transaction @devolucion_de_factura
+
+	end
+
+	else
+
+	begin
+
+		;throw 50071, 'No se pudo devolver la factura, ya que no cumplia los requisitos para ser devuelta', 1
+
+	end
+
+end
+
+GO
+
+/*ABM Empresa*/
+
+CREATE VIEW SQL_BOYS.Empresa_View_Empresa_Con_Rubro AS
+
+		SELECT e.id_empresa, e.nombre, e.cuit, e.domicilio, e.dia_rendicion, e.porcentaje_comision, e.id_rubro, r.descripcion , e.habilitadx
+		
+		FROM SQL_BOYS.Empresa e
+
+		JOIN SQL_BOYS.Rubro r ON r.id_rubro = e.id_rubro
+
+GO
+
+CREATE FUNCTION SQL_BOYS.obtenerRubros () RETURNS TABLE
+
+	RETURN SELECT r.id_rubro, r.descripcion FROM SQL_BOYS.Rubro r
+
+GO
+
+CREATE PROCEDURE SQL_BOYS.altaDeEmpresa (@id_empresa AS INT, @nombre AS NVARCHAR(255), @cuit AS NVARCHAR(50), @domicilio AS NVARCHAR(255), @dia_rendicion AS INT, @porcentaje_comision AS INT, @habilitadx AS BIT, @nombre_rubro AS NVARCHAR(50)) AS
+	
+	BEGIN
+		
+		BEGIN TRANSACTION
+
+			DECLARE @id_rubro NUMERIC(18,0) = (SELECT r.id_rubro FROM SQL_BOYS.Rubro r WHERE @nombre_rubro = r.descripcion)
+
+			INSERT INTO SQL_BOYS.Empresa (nombre, cuit, domicilio, dia_rendicion, porcentaje_comision, habilitadx, id_rubro)
+
+			VALUES (@nombre, @cuit, @domicilio, @dia_rendicion, @porcentaje_comision, @habilitadx, @id_rubro)
+
+		COMMIT
+
+	END
+
+GO
+
+CREATE PROCEDURE SQL_BOYS.bajaDeEmpresa (@id_empresa AS INT, @nombre AS NVARCHAR(255), @cuit AS NVARCHAR(50), @domicilio AS NVARCHAR(255), @dia_rendicion AS INT, @porcentaje_comision AS INT, @habilitadx AS BIT, @nombre_rubro AS NVARCHAR(50)) AS
+
+	BEGIN
+
+		BEGIN TRANSACTION
+
+			UPDATE SQL_BOYS.Empresa
+
+			SET habilitadx = 0
+
+			WHERE id_empresa = @id_empresa
+
+		COMMIT
+
+	END
+
+GO
+
+CREATE PROCEDURE SQL_BOYS.modificacionDeEmpresa (@id_empresa AS INT, @nombre AS NVARCHAR(255), @cuit AS NVARCHAR(50), @domicilio AS NVARCHAR(255), @dia_rendicion AS INT, @porcentaje_comision AS INT, @habilitadx AS BIT, @nombre_rubro AS NVARCHAR(50)) AS
+
+	BEGIN
+
+		BEGIN TRANSACTION
+
+			UPDATE SQL_BOYS.Empresa
+
+			SET
+			
+				nombre = @nombre,
+				cuit = @cuit,
+				domicilio = @domicilio,
+				dia_rendicion = @dia_rendicion,
+				porcentaje_comision = @porcentaje_comision,
+				id_rubro = (SELECT id_rubro FROM SQL_BOYS.Rubro WHERE descripcion = @nombre_rubro)
+
+			WHERE id_empresa = @id_empresa
+
+		COMMIT
+
+	END
+
+GO
+
+CREATE FUNCTION SQL_BOYS.filtrarEmpresa (@nombre AS NVARCHAR(255), @cuit AS NVARCHAR(50), @nombre_rubro AS NVARCHAR(50)) RETURNS TABLE
+
+	RETURN
+	
+		SELECT e.id_empresa, e.nombre, e.cuit, e.domicilio, e.dia_rendicion, e.porcentaje_comision, e.id_rubro, e.descripcion , e.habilitadx
+		
+		FROM SQL_BOYS.Empresa_View_Empresa_Con_Rubro e
+
+		WHERE
+
+			NOT (LEN(@nombre) = 0 AND LEN(@cuit) = 0 AND LEN(@nombre_rubro) = 0)
+			
+			AND
+
+			(
+				(LEN(@nombre) != 0 AND e.nombre LIKE @nombre + '%') OR
+
+				(LEN(@cuit) != 0 AND e.cuit = @cuit) OR
+
+				(LEN(@nombre_rubro) != 0 AND e.descripcion = @nombre_rubro)
+			)
+
+GO
+
+CREATE FUNCTION SQL_BOYS.esFechaValida(@fecha datetime, @anio int, @trimestre int)
+RETURNS bit
+AS
+BEGIN
+
+	declare @mes int
+
+	set @mes = month(@fecha)
+
+	declare @trimesteDelAnio int
+
+		if(@mes >= 0 and @mes <= 2)
+			SET @trimesteDelAnio = 1
+
+		if(@mes >= 3 and @mes <= 5)
+			SET @trimesteDelAnio = 2
+
+		if(@mes >= 6 and @mes <= 8)
+			SET @trimesteDelAnio = 3
+		
+		if(@mes >= 9 and @mes <= 11)
+			SET @trimesteDelAnio = 4
+
+	if(year(@fecha) = @anio and @trimesteDelAnio = @trimestre)
+		return 1
+
+	return 0
+
+END
+
+GO
+
+CREATE FUNCTION SQL_BOYS.clientesConMasPagos(@anio int, @trimestre int)
+RETURNS TABLE
+AS 
+
+	RETURN (
+
+		select top 5 c.*, count(p.dni_cliente) as cantidad_de_pagos from SQL_BOYS.Cliente c join SQL_BOYS.Pago p on c.dni_cliente = p.dni_cliente
+			where SQL_BOYS.esFechaValida(p.fecha_pago, @anio, @trimestre) = 1
+			group by c.dni_cliente, c.nombre, c.apellido, c.mail, c.nacimiento, c.telefono, c.codigo_postal, c.habilitadx, c.domicilio
+			order by cantidad_de_pagos DESC
+
+	)
+
+GO
+
+CREATE FUNCTION SQL_BOYS.clientesCumplidores(@anio int, @trimestre int)
+RETURNS TABLE
+AS 
+
+	RETURN (
+
+		select top 5 c.*, (sum(ip.numero_factura) * 100 / sum(f.numero_factura)) as porcentaje_facturas_pagadas from SQL_BOYS.Cliente c 
+			join SQL_BOYS.Pago p on c.dni_cliente = p.dni_cliente
+			join SQL_BOYS.Item_Pago ip on p.numero_pago = ip.numero_pago
+			join SQL_BOYS.Factura f on c.dni_cliente = f.dni_cliente
+
+			where SQL_BOYS.esFechaValida(p.fecha_pago, @anio, @trimestre) = 1 and SQL_BOYS.esFechaValida(f.factura_fecha_alta, @anio, @trimestre) = 1
+			group by c.dni_cliente, c.nombre, c.apellido, c.mail, c.nacimiento, c.telefono, c.codigo_postal, c.habilitadx, c.domicilio
+		
+			order by porcentaje_facturas_pagadas DESC
+
+	)
+
+GO
+
+CREATE FUNCTION SQL_BOYS.empresasConMayorMontoRendido(@anio int, @trimestre int)
+RETURNS TABLE
+AS 
+
+	RETURN (
+
+		select top 5 e.*, sum(i.monto) as monto_rendido from SQL_BOYS.Empresa e
+			join SQL_BOYS.Factura f on e.id_empresa = f.id_empresa
+			join SQL_BOYS.Rendicion r on f.numero_rendicion = r.numero_rendicion
+			join SQL_BOYS.Item_Rendicion ir on r.numero_rendicion = ir.numero_rendicion
+			join SQL_BOYS.Item i on ir.id_item = i.id_item
+
+			where SQL_BOYS.esFechaValida(r.fecha_rendicion, @anio, @trimestre) = 1
+
+			group by e.id_empresa, e.nombre, e.cuit, e.domicilio, e.porcentaje_comision, e.id_rubro, e.dia_rendicion, e.habilitadx
+
+			order by monto_rendido desc
+
+	)
+
+GO
+
+CREATE FUNCTION SQL_BOYS.porcentajeDeFacturasCobradasPorEmpresa(@anio int, @trimestre int)
+RETURNS table
+AS
+
+	return (
+	
+		SELECT top 5 e.*, sum (
+
+					case 
+						when e.id_empresa = f.id_empresa and f.numero_factura = i.numero_factura and i.numero_pago IS NOT NULL then 1
+						else 0
+					end
+
+
+				) * 100 / sum (
+				
+					case 
+						when e.id_empresa = f.id_empresa then 1
+						else 0
+					end
+				
+				) as porcentaje_facturas_cobradas -- Cantidad de pagos que tuvo la empresa por cien, dividido la cantidad de facturas que tuvo
+				
+				from SQL_BOYS.Empresa e join 
+				SQL_BOYS.Factura f on e.id_empresa = f.id_empresa join 
+				SQL_BOYS.Item_Pago i on f.numero_factura = i.numero_factura join 
+				SQL_BOYS.Pago p on i.numero_pago = p.numero_pago
+			
+			where SQL_BOYS.esFechaValida(p.fecha_pago, @anio, @trimestre) = 1
+
+			group by e.id_empresa, e.nombre, e.porcentaje_comision, e.cuit, e.domicilio, e.id_rubro, e.dia_rendicion, e.habilitadx
+
+			order by porcentaje_facturas_cobradas DESC
+			
+
+		)
+
+GO
+
+/*ABM Factura*/
+
+CREATE FUNCTION SQL_BOYS.obtenerEmpresa(@unCuit NVARCHAR(255)) RETURNS INT AS
+	
+	BEGIN
+
+		RETURN (SELECT id_empresa FROM SQL_BOYS.Empresa WHERE cuit = @unCuit)
+
+	END
+
+GO
+
+CREATE PROCEDURE SQL_BOYS.altaDeFactura (@numero_factura NUMERIC(18, 0), @factura_monto_total NUMERIC(18, 2), @factura_fecha_alta DATETIME, @factura_fecha_vencimiento DATETIME, @habilitadx BIT, @dni_cliente NUMERIC(18, 0), @cuit_empresa NVARCHAR(255)) AS
+	
+	BEGIN
+		
+		BEGIN TRANSACTION
+
+			INSERT INTO SQL_BOYS.Factura(numero_factura, factura_monto_total, factura_fecha_alta, factura_fecha_vencimiento, habilitadx, dni_cliente, id_empresa)
+
+				VALUES (@numero_factura, @factura_monto_total, @factura_fecha_alta, @factura_fecha_vencimiento, @habilitadx, @dni_cliente, SQL_BOYS.obtenerEmpresa(@cuit_empresa))
+
+		COMMIT
+
+	END
+
+GO
+
+CREATE PROCEDURE SQL_BOYS.altaDeItem (@nombre NVARCHAR(255), @monto NUMERIC(18, 2), @cantidad INT, @numero_factura NUMERIC(18, 0)) AS
+	
+	BEGIN
+
+		BEGIN TRANSACTION
+
+			INSERT INTO SQL_BOYS.Item(nombre, monto, cantidad, numero_factura)
+
+				VALUES (@nombre, @monto, @cantidad, @numero_factura)
+
+		COMMIT
+
+	END
+
+GO
+
+CREATE PROCEDURE SQL_BOYS.bajaDeFactura (@numero_factura NUMERIC(18, 0), @factura_monto_total NUMERIC(18, 2), @factura_fecha_alta DATETIME, @factura_fecha_vencimiento DATETIME, @habilitadx BIT, @dni_cliente NUMERIC(18, 0), @cuit_empresa NVARCHAR(255)) AS
+
+	BEGIN
+
+		BEGIN TRANSACTION
+
+			UPDATE SQL_BOYS.Factura
+
+				SET habilitadx = 0
+
+				WHERE numero_factura = @numero_factura
+
+		COMMIT
+
+	END
+
+GO
+
+CREATE PROCEDURE SQL_BOYS.modificacionDeFactura (@numero_factura NUMERIC(18, 0), @factura_monto_total NUMERIC(18, 2), @factura_fecha_alta DATETIME, @factura_fecha_vencimiento DATETIME, @habilitadx BIT, @dni_cliente NUMERIC(18, 0), @cuit_empresa NVARCHAR(255)) AS
+	
+	BEGIN
+
+		BEGIN TRANSACTION
+
+			UPDATE SQL_BOYS.Factura
+
+				SET
+
+					factura_monto_total = @factura_monto_total,
+					factura_fecha_alta = @factura_fecha_alta,
+					factura_fecha_vencimiento = @factura_fecha_vencimiento,
+					habilitadx = @habilitadx,
+					dni_cliente = @dni_cliente,
+					id_empresa = SQL_BOYS.obtenerEmpresa(@cuit_empresa)
+
+				WHERE
+				
+					numero_factura = @numero_factura
+
+		COMMIT
+
+	END
+
+GO
+
+CREATE FUNCTION SQL_BOYS.filtrarFactura (@numero_factura NUMERIC(18, 0), @cuit_empresa NVARCHAR(255), @dni_cliente NUMERIC(18, 0), @pagada BIT, @rendida BIT, @habilitadx BIT) RETURNS TABLE AS
+	
+	RETURN
+
+		SELECT
+		
+			f.numero_factura,
+			f.factura_monto_total,
+			f.factura_fecha_alta,
+			f.factura_fecha_vencimiento,
+			f.habilitadx,
+			f.dni_cliente,
+			f.id_empresa,
+			f.numero_rendicion
+
+		FROM SQL_BOYS.Factura f
+
+		WHERE
+
+			f.numero_factura = @numero_factura OR
+			f.id_empresa = SQL_BOYS.obtenerEmpresa(@cuit_empresa) OR
+			f.dni_cliente = @dni_cliente OR
+			(@pagada = 1 AND f.numero_factura IN (SELECT numero_factura FROM Item_Pago)) OR
+			(@rendida = 1 AND f.numero_factura IN (SELECT numero_factura FROM Item_Rendicion)) OR
+			f.habilitadx = @habilitadx
+
+GO
+
+/*Login*/
+
+CREATE FUNCTION SQL_BOYS.obtenerUsuario(@nombre nvarchar(255))
+RETURNS table
+
+	return (
+	
+		select u.* from SQL_BOYS.Usuario u
+			where u.username = @nombre
+
+	)
+
+GO
+
+/*Registro de pago*/
+
+CREATE FUNCTION SQL_BOYS.obtenerProximoNroPago() 
+RETURNS NUMERIC(18,0) AS BEGIN
+
+DECLARE @proximoId NUMERIC(18,0)
+DECLARE @ultimoId NUMERIC(18,0)
+
+SELECT @ultimoId = MAX(p.numero_pago) FROM SQL_BOYS.Pago p
+
+SET @proximoId = @ultimoId + 1
+
+RETURN @proximoId
+
+END
+
+GO
+
+CREATE FUNCTION SQL_BOYS.obtenerFactura(@nroFactura NUMERIC(18,0), @idEmpresa int,@diaV int,@mesV int,@anioV int)
+RETURNS table AS 
+
+	return(SELECT * FROM Factura f WHERE f.numero_factura = @nroFactura AND f.id_empresa = @idEmpresa AND 
+	
+	YEAR(f.factura_fecha_vencimiento) = @anioV AND MONTH(f.factura_fecha_vencimiento) = @mesV AND DAY(f.factura_fecha_vencimiento) = @diaV AND @nroFactura
+	
+	NOT IN (SELECT it.numero_factura FROM SQL_BOYS.Item_Pago it) )
+
+GO
+
+CREATE FUNCTION SQL_BOYS.existeCliente(@DNI NUMERIC(18,0))
+RETURNS table as 
+
+	return(SELECT c.dni_cliente, c.habilitadx FROM SQL_BOYS.Cliente c WHERE c.dni_cliente = @DNI)
+
+GO
+
+CREATE PROCEDURE SQL_BOYS.insertarItemPagoDeFactura(@nroPago NUMERIC(18,0), @nroFactura NUMERIC(18,0))
+AS
+BEGIN
+
+INSERT INTO SQL_BOYS.Item_Pago(id_item, numero_factura, numero_pago)
+
+SELECT it.id_item, @nroFactura, @nroPago FROM SQL_BOYS.Item it WHERE it.numero_factura = @nroFactura
+
+END
+
+GO
+
+/*Rendición*/
+
+create function SQL_BOYS.obtenerFecha(@fecha_actual nvarchar(10))
+returns date
+as begin
+
+	return (select convert(date, @fecha_actual))
+
+end
+
+GO
+
+create function SQL_BOYS.obtenerFacturasARendir(@id_empresa int, @fecha_actual nvarchar(10))
+returns table
+
+return 
+			(select f.* from SQL_BOYS.Factura f
+					where f.numero_rendicion is null and f.id_empresa = @id_empresa and f.factura_fecha_alta <= SQL_BOYS.obtenerFecha(@fecha_actual)
+						and exists	(select * from SQL_BOYS.Item_Pago ip
+										where ip.numero_factura = f.numero_factura	
+									) -- fue pagada
+						and not exists	(select * from SQL_BOYS.Devolucion d
+											where d.numero_factura = f.numero_factura
+								
+										) -- no fue devuelta
+			)
+
+GO
+
+create function SQL_BOYS.empresasARendir(@fecha_actual nvarchar(10))
+returns table
+
+	return (
+
+		select e.id_empresa, e.cuit, e.nombre, e.domicilio, e.habilitadx, (select count(*) from SQL_BOYS.obtenerFacturasARendir(e.id_empresa, @fecha_actual)) as facturas_a_rendir from SQL_BOYS.Empresa e
+			where e.dia_rendicion = day(SQL_BOYS.obtenerFecha(@fecha_actual)) and SQL_BOYS.obtenerFecha(@fecha_actual) != (select top 1 r.fecha_rendicion from SQL_BOYS.Factura f join SQL_BOYS.Rendicion r on f.numero_rendicion = r.numero_rendicion
+																		where f.id_empresa = e.id_empresa
+																		
+																		order by r.fecha_rendicion desc	
+																	)
+
+					and exists(select * from SQL_BOYS.obtenerFacturasARendir(e.id_empresa, @fecha_actual))
+
+	)
+
+GO
+
+create procedure SQL_BOYS.rendirFacturas(@id_empresa int, @fecha_actual nvarchar(10))
+as
+begin
+
+	-- Verifico que la empresa que me pedis rendir, sea rendible
+	if(exists(select e.* from SQL_BOYS.empresasARendir(@fecha_actual) e where e.id_empresa = @id_empresa))
+	begin
+
+		declare @porcentaje_comision int
+
+		-- Obtengo el porcentaje de la empresa
+		set @porcentaje_comision = (select e.porcentaje_comision from SQL_BOYS.Empresa e where e.id_empresa = @id_empresa)
+
+		-- Declaro mi futura id rendicion
+		declare @id_numero_rendicion int
+
+		-- Inserto en la rendicion la suma de las facturas a rendir
+		insert into SQL_BOYS.Rendicion (importe_comision, fecha_rendicion)
+			values ((select sum(o.factura_monto_total) from SQL_BOYS.obtenerFacturasARendir(@id_empresa, @fecha_actual) o) * @porcentaje_comision / 100, SQL_BOYS.obtenerFecha(@fecha_actual))
+		
+		-- Obtengo el id de la rendicion ingresada
+		set @id_numero_rendicion = (select scope_identity())
+
+		declare @numero_factura_cr int
+
+		-- Obtengo las facturas a rendir de la empresa solicitada
+		declare cr_facturas cursor local for 
+			select fs.numero_factura from SQL_BOYS.obtenerFacturasARendir(@id_empresa, @fecha_actual) fs
+
+		open cr_facturas
+
+		fetch next from cr_facturas into @numero_factura_cr
+
+		-- Recorro las facturas a rendir
+		while @@FETCH_STATUS = 0
+		begin
+
+			print '@numero_factura_cr=' + str(@numero_factura_cr)
+			
+			declare @id_item_factura_cr int
+
+			-- Declaro un nuevo cursor para poder agarrar a cada item de las facturas que van a ser rendidas
+			declare cr_item_facturas cursor local for
+				select i.id_item from SQL_BOYS.Item i where i.numero_factura = @numero_factura_cr
+
+			open cr_item_facturas
+		
+			fetch next from cr_item_facturas into @id_item_factura_cr
+
+			-- Recorro los items a ser agregados como rendidos
+			while @@FETCH_STATUS = 0
+			begin
+
+				print '@id_item_factura_cr=' + str(@id_item_factura_cr)
+
+				-- Los inserto con el id de la rendicion que obtuve previamente
+				insert into SQL_BOYS.Item_Rendicion (id_item, numero_rendicion) values
+					(@id_item_factura_cr, @id_numero_rendicion)
+
+				fetch next from cr_item_facturas into @id_item_factura_cr
+
+			end
+
+			close cr_item_facturas
+
+			deallocate cr_item_facturas
+
+			-- Ahora la factura pasa a estar rendida
+			update SQL_BOYS.Factura
+				set numero_rendicion = @id_numero_rendicion
+				where numero_factura = @numero_factura_cr
+
+			fetch next from cr_facturas into @numero_factura_cr
+
+		end  
+
+		close cr_facturas
+
+		deallocate cr_facturas
+
+	end
+
+	else
+
+	begin
+
+		-- No habia facturas para rendir
+		;throw 50069, 'No hay facturas para rendir para esta empresa', 1
+
+	end
+
+end
+
+GO
+
+/*Seleccionar sucursal y rol*/
+
+CREATE FUNCTION SQL_BOYS.obtenerSucursales(@id_usuario int)
+RETURNS table
+
+	return (
+
+		select s.* from SQL_BOYS.Rol_De_Usuario_Por_Sucursal as rus join SQL_BOYS.Sucursal s on rus.cp_sucursal = s.cp_sucursal
+			where @id_usuario = rus.id_usuario
+
+	)
+
+GO
+
+CREATE FUNCTION SQL_BOYS.obtenerRol(@id_rol int)
+RETURNS table
+
+	return (
+
+		select r.nombre as rol, f.nombre as funcionalidad from SQL_BOYS.Rol r join SQL_BOYS.Funcionalidad_Por_Rol as fr on r.id_rol = fr.id_rol join SQL_BOYS.Funcionalidad f on fr.id_funcionalidad = f.id_funcionalidad
+			where @id_rol = r.id_rol
+
+	)
+
+GO
+
+CREATE FUNCTION SQL_BOYS.obtenerRoles(@id_usuario int, @id_sucursal int)
+RETURNS TABLE
+
+	return (
+
+		select r.* from SQL_BOYS.Rol_De_Usuario_Por_Sucursal as rus join SQL_BOYS.Rol as r on rus.id_rol = r.id_rol
+			where @id_usuario = rus.id_usuario and @id_sucursal = rus.cp_sucursal
+
+	)
