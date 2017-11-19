@@ -13,12 +13,12 @@ namespace PagoAgil.Aplicacion.Modelo.Usuario
         public string nombre{get; set;}
         public bool habilitado { get; set; }
 
-        public List<Funcionalidad> funcionalides{get; set;}
+        public List<Funcionalidad> funcionalidades{get; set;}
 
         public Rol(string nuevoNombre, List<Funcionalidad> nuevasFuncionalidades) {
 
             this.nombre = nuevoNombre;
-            this.funcionalides = nuevasFuncionalidades;
+            this.funcionalidades = nuevasFuncionalidades;
 
         }
 
@@ -35,7 +35,7 @@ namespace PagoAgil.Aplicacion.Modelo.Usuario
 
         public Boolean posees(string funcionalidad)
         {
-            return funcionalides.Any(f => f.es(funcionalidad));
+            return funcionalidades.Any(f => f.es(funcionalidad));
         }
 
         public override string ToString()

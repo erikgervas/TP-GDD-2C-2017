@@ -51,10 +51,12 @@
     <Compile Include="Aplicacion\BD\MediosPersistentes\Medios\MedioEmpresa.cs" />
     <Compile Include="Aplicacion\BD\MediosPersistentes\Medios\MedioFactura.cs" />
     <Compile Include="Aplicacion\BD\MediosPersistentes\Medios\MedioItem.cs" />
+    <Compile Include="Aplicacion\BD\MediosPersistentes\Medios\MedioRol.cs" />
     <Compile Include="Aplicacion\BD\MediosPersistentes\Medios\MedioRubro.cs" />
     <Compile Include="Aplicacion\BD\MediosPersistentes\Medios\MedioSucursal.cs" />
     <Compile Include="Aplicacion\BD\Repositorios\RepositorioFacturas.cs" />
     <Compile Include="Aplicacion\BD\Repositorios\RepositorioItems.cs" />
+    <Compile Include="Aplicacion\BD\Repositorios\RepositorioRoles.cs" />
     <Compile Include="Aplicacion\BD\Utils\Actualizador.cs" />
     <Compile Include="Aplicacion\BD\Utils\Despachador.cs" />
     <Compile Include="Aplicacion\BD\Utils\EjecutadorDeProcedures.cs" />
@@ -119,7 +121,7 @@
     <Compile Include="Aplicacion\Orquestradores\GestorDeSucursales.cs" />
     <Compile Include="Aplicacion\Sesion.cs" />
     <Compile Include="Aplicacion\ViewModel\AltaRolVM.cs" />
-    <Compile Include="Aplicacion\ViewModel\AltaSucursalVM.cs" />
+    <Compile Include="Aplicacion\ViewModel\BajaRolVM.cs" />
     <Compile Include="Aplicacion\ViewModel\BajaSucursalVM.cs" />
     <Compile Include="Aplicacion\ViewModel\EmpresasCompletadoVM.cs" />
     <Compile Include="Aplicacion\ViewModel\EmpresasBuscadorVM.cs" />
@@ -130,6 +132,7 @@
     <Compile Include="Aplicacion\ViewModel\ListadoRolesVM.cs" />
     <Compile Include="Aplicacion\ViewModel\ListadoSucursalesVM.cs" />
     <Compile Include="Aplicacion\ViewModel\LoginVM.cs" />
+    <Compile Include="Aplicacion\ViewModel\ModificacionRolVM.cs" />
     <Compile Include="Aplicacion\ViewModel\ModificacionSucursalVM.cs" />
     <Compile Include="Aplicacion\ViewModel\PagoVM.cs" />
     <Compile Include="Aplicacion\ViewModel\RendicionVM.cs" />
@@ -276,6 +279,8 @@
     <Compile Include="Aplicacion\View\Rendicion\FormRendicion.Designer.cs">
       <DependentUpon>FormRendicion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Aplicacion\View\Roles\Excepciones\DeshabilitarRolActualException.cs" />
+    <Compile Include="Aplicacion\View\Roles\Excepciones\RolYaDeshabilitadoException.cs" />
     <Compile Include="Aplicacion\View\Roles\FormABMRol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -463,6 +468,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\Roles\FormAltaRolOk.resx">
       <DependentUpon>FormAltaRolOk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Roles\FormBajaRol.resx">
+      <DependentUpon>FormBajaRol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\Roles\FormListadoRoles.resx">
       <DependentUpon>FormListadoRoles.cs</DependentUpon>

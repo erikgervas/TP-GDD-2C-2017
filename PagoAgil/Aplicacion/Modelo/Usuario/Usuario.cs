@@ -4,8 +4,8 @@ namespace PagoAgil.Aplicacion.Modelo.Usuario
 {
     public class Usuario
     {
-        String nombre;
-        Rol rol;
+        public String nombre {get; set;}
+        public Rol rol {get; set;}
 
         public Usuario(string nombreUsuario, Rol rol)
         {

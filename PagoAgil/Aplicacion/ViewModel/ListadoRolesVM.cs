@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using PagoAgil.Aplicacion.Modelo.Usuario;
 using PagoAgil.Aplicacion.BD;
+using PagoAgil.Aplicacion.BD.Repositorios;
+using PagoAgil.Aplicacion.BD.MediosPersistentes.Medios;
 
 namespace PagoAgil.Aplicacion.ViewModel
 {
@@ -13,18 +15,12 @@ namespace PagoAgil.Aplicacion.ViewModel
 
         public Rol[] obtenerRoles() 
         {
-            List<Rol> roles = new List<Rol>();
+           return RepositorioRoles.getInstancia().getAlmacenamiento().darTodos().ToArray();
+        }
 
-            TablaDTO tabla = LectorDeTablas.getInstance().obtener("SELECT * FROM SQL_BOYS.Rol");
-            FilaDTO fila;
-
-            for (int i = 0; i < tabla.cantidadDeFilas(); i++)
-            {
-                fila = tabla.obtener(i);
-                roles.Add(new Rol(fila));
-            }
-
-            return roles.ToArray();
+        public List<Funcionalidad> obtenerFuncionalidadesDe(int idRol) 
+        {
+            return RepositorioRoles.getInstancia().getAlmacenamiento().obtenerFuncionalidadesDeUnRol(idRol);
         }
 
     }

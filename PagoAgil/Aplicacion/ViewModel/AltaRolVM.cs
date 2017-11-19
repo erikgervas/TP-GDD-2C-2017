@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using PagoAgil.Aplicacion.Modelo.Usuario;
 using PagoAgil.Aplicacion.BD.Utils;
 using PagoAgil.Aplicacion.BD;
+using PagoAgil.Aplicacion.BD.Repositorios;
 
 namespace PagoAgil.Aplicacion.ViewModel
 {
@@ -13,7 +14,7 @@ namespace PagoAgil.Aplicacion.ViewModel
     {
         public void crearRol(Rol nuevoRol) 
         {
-            Insertador.getInstance().insertarRol(nuevoRol);
+            RepositorioRoles.getInstancia().almacenamiento.aniadir(nuevoRol);
         }
 
         public List<Funcionalidad> obtenerFuncionalidades() 

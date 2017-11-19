@@ -109,7 +109,7 @@ namespace PagoAgil.Aplicacion.BD.Utils
 
             cmd2.ExecuteNonQuery();
 
-            for (int i = 0; i < r.funcionalides.Count; i++)
+            for (int i = 0; i < r.funcionalidades.Count; i++)
             {
                 SqlCommand cmd3 = new SqlCommand("INSERT INTO SQL_BOYS.Funcionalidad_Por_Rol (id_funcionalidad,id_rol) " +
                         " VALUES (@id_funcionalidad, @id_rol)", Conexion.getInstance().obtenerConexion());
@@ -118,7 +118,7 @@ namespace PagoAgil.Aplicacion.BD.Utils
                 cmd3.Parameters.AddWithValue("@id_funcionalidad", DbType.Int32);
                 cmd3.Parameters.AddWithValue("@id_rol", DbType.Int32);
 
-                cmd3.Parameters[0].Value = r.funcionalides.ElementAt(i).id;
+                cmd3.Parameters[0].Value = r.funcionalidades.ElementAt(i).id;
                 cmd3.Parameters[1].Value = idRol;
 
                 cmd3.ExecuteNonQuery();

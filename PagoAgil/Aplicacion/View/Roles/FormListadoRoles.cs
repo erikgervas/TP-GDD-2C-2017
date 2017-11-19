@@ -38,6 +38,8 @@ namespace PagoAgil.Aplicacion.View.Roles
         {
             Rol rolElegido = comboBoxRoles.SelectedItem as Rol;
 
+            rolElegido.funcionalidades = VM.obtenerFuncionalidadesDe(rolElegido.id);
+
             this.Hide();
 
             if (accion.Equals("modificacion"))

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using PagoAgil.Aplicacion.Modelo.ClienteSQL;
+using PagoAgil.Aplicacion.Modelo.Usuario;
 
 namespace PagoAgil.Aplicacion.BD.Utils
 {
@@ -30,6 +31,18 @@ namespace PagoAgil.Aplicacion.BD.Utils
 
             cmd.ExecuteNonQuery();
         }
+
+        public void darDeBajaRol(Rol r)
+        {
+            SqlCommand cmd = new SqlCommand("SQL_BOYS.darDeBajaRol", Conexion.getInstance().obtenerConexion());
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@idRol", DbType.Int32).Value = r.id;
+
+            cmd.ExecuteNonQuery();
+        }
+
 
     }
 }
