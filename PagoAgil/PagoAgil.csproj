@@ -464,6 +464,9 @@
     <EmbeddedResource Include="Aplicacion\View\Roles\FormAltaRolOk.resx">
       <DependentUpon>FormAltaRolOk.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Roles\FormListadoRoles.resx">
+      <DependentUpon>FormListadoRoles.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\Sucursales\FormABMSucursal.resx">
       <DependentUpon>FormABMSucursal.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

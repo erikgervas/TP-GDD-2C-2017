@@ -7,14 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PagoAgil.Aplicacion.Modelo.Usuario;
 
 namespace PagoAgil.Aplicacion.View.Roles
 {
     public partial class FormBajaRol : Form
     {
-        public FormBajaRol()
+        Rol rol;
+
+        public FormBajaRol(Rol rolElegido)
         {
             InitializeComponent();
+            this.CenterToScreen();
+
+            rol = rolElegido;
         }
     }
 }

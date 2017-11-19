@@ -69,6 +69,7 @@
             // 
             // buttonCrearRol
             // 
+            this.buttonCrearRol.Enabled = false;
             this.buttonCrearRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCrearRol.Location = new System.Drawing.Point(239, 387);
             this.buttonCrearRol.Name = "buttonCrearRol";
@@ -80,6 +81,7 @@
             // 
             // buttonLimpiar
             // 
+            this.buttonLimpiar.Enabled = false;
             this.buttonLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLimpiar.Location = new System.Drawing.Point(44, 387);
             this.buttonLimpiar.Name = "buttonLimpiar";
