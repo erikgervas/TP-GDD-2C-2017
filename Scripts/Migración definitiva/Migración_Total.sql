@@ -1236,3 +1236,44 @@ RETURNS TABLE
 
 	)
 
+GO
+
+/*ABM Rol*/
+
+CREATE PROCEDURE SQL_BOYS.actualizarRol(@idRol INT,@nombre nvarchar(255), @estado bit) AS BEGIN
+
+UPDATE SQL_BOYS.Rol SET nombre = @nombre ,habilitadx = @estado WHERE id_rol = @idRol
+
+DELETE FROM SQL_BOYS.Funcionalidad_Por_Rol WHERE id_rol = @idRol 
+
+END
+
+GO
+
+CREATE PROCEDURE SQL_BOYS.darDeBajaRol(@idRol INT) AS
+
+UPDATE SQL_BOYS.Rol SET habilitadx = 0 WHERE id_rol = @idRol
+
+GO
+
+CREATE FUNCTION SQL_BOYS.obtenerFuncionalidadesDeRol(@idRol INT) 
+RETURNS TABLE AS 
+
+RETURN (SELECT f.id_funcionalidad, f.nombre FROM SQL_BOYS.Funcionalidad f JOIN SQL_BOYS.Funcionalidad_Por_Rol fxr ON (f.id_funcionalidad = fxr.id_funcionalidad) WHERE fxr.id_rol = @idRol)
+
+GO
+
+CREATE FUNCTION SQL_BOYS.obtenerProximoIdRol() 
+RETURNS INT AS BEGIN
+
+DECLARE @proximoId INT
+DECLARE @ultimoId INT
+
+SELECT @ultimoId = MAX(r.id_rol) FROM SQL_BOYS.Rol r
+
+SET @proximoId = @ultimoId + 1
+
+RETURN @proximoId
+
+END
+
