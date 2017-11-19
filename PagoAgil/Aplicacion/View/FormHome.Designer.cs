@@ -37,6 +37,7 @@
             this.button_devolucion = new System.Windows.Forms.Button();
             this.button_registro_pago = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button_abm_roles = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
@@ -134,16 +135,28 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button_abm_roles);
             this.groupBox1.Controls.Add(this.button_abm_cliente);
             this.groupBox1.Controls.Add(this.button_abm_empresas);
             this.groupBox1.Controls.Add(this.button_abm_sucursales);
             this.groupBox1.Controls.Add(this.button_abm_facturas);
             this.groupBox1.Location = new System.Drawing.Point(32, 27);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(268, 324);
+            this.groupBox1.Size = new System.Drawing.Size(268, 388);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Altas, bajas y modificaciones";
+            // 
+            // button_abm_roles
+            // 
+            this.button_abm_roles.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_abm_roles.Location = new System.Drawing.Point(58, 326);
+            this.button_abm_roles.Name = "button_abm_roles";
+            this.button_abm_roles.Size = new System.Drawing.Size(153, 37);
+            this.button_abm_roles.TabIndex = 4;
+            this.button_abm_roles.Text = "ABM Roles";
+            this.button_abm_roles.UseVisualStyleBackColor = true;
+            this.button_abm_roles.Click += new System.EventHandler(this.button_abm_roles_Click);
             // 
             // groupBox2
             // 
@@ -152,7 +165,7 @@
             this.groupBox2.Controls.Add(this.button_registro_pago);
             this.groupBox2.Location = new System.Drawing.Point(306, 27);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(268, 324);
+            this.groupBox2.Size = new System.Drawing.Size(268, 388);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Facturas";
@@ -162,7 +175,7 @@
             this.groupBox3.Controls.Add(this.button_estadisticas);
             this.groupBox3.Location = new System.Drawing.Point(580, 27);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(268, 324);
+            this.groupBox3.Size = new System.Drawing.Size(268, 388);
             this.groupBox3.TabIndex = 10;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Miscelaneo";
@@ -172,7 +185,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(884, 382);
+            this.ClientSize = new System.Drawing.Size(884, 422);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -198,5 +211,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button button_abm_roles;
     }
 }
