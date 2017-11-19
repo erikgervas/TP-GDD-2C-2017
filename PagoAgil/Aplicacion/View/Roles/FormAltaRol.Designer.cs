@@ -58,10 +58,11 @@
             // 
             // checkedListBoxFuncionalidades
             // 
+            this.checkedListBoxFuncionalidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkedListBoxFuncionalidades.FormattingEnabled = true;
             this.checkedListBoxFuncionalidades.Location = new System.Drawing.Point(44, 125);
             this.checkedListBoxFuncionalidades.Name = "checkedListBoxFuncionalidades";
-            this.checkedListBoxFuncionalidades.Size = new System.Drawing.Size(356, 244);
+            this.checkedListBoxFuncionalidades.Size = new System.Drawing.Size(356, 214);
             this.checkedListBoxFuncionalidades.TabIndex = 4;
             this.checkedListBoxFuncionalidades.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxFuncionalidades_SelectedIndexChanged);
             // 
@@ -93,9 +94,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(41, 92);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 18);
+            this.label2.Size = new System.Drawing.Size(164, 18);
             this.label2.TabIndex = 11;
-            this.label2.Text = "Funcionalidades";
+            this.label2.Text = "Elija las funcionalidades";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // FormAltaRol

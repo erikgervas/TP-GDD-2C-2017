@@ -118,6 +118,7 @@
     <Compile Include="Aplicacion\Orquestradores\GestorDeRoles.cs" />
     <Compile Include="Aplicacion\Orquestradores\GestorDeSucursales.cs" />
     <Compile Include="Aplicacion\Sesion.cs" />
+    <Compile Include="Aplicacion\ViewModel\AltaRolVM.cs" />
     <Compile Include="Aplicacion\ViewModel\AltaSucursalVM.cs" />
     <Compile Include="Aplicacion\ViewModel\BajaSucursalVM.cs" />
     <Compile Include="Aplicacion\ViewModel\EmpresasCompletadoVM.cs" />

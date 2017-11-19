@@ -15,6 +15,7 @@ namespace PagoAgil.Aplicacion.View.Roles
         public FormAltaRolOk()
         {
             InitializeComponent();
+            this.CenterToScreen();
         }
     }
 }
