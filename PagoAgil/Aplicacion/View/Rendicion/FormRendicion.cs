@@ -34,7 +34,7 @@ namespace PagoAgil.Aplicacion.View.Rendicion
             this.dataGridRendicion.DataSource = dt;
 
             dataGridRendicion.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridRendicion.Columns[dataGridRendicion.ColumnCount].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridRendicion.Columns[dataGridRendicion.ColumnCount -1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
         }
 

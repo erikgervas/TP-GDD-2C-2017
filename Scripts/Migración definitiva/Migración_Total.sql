@@ -1238,3 +1238,4 @@ RETURNS TABLE
 			where @id_usuario = rus.id_usuario and @id_sucursal = rus.cp_sucursal
 
 	)
+
