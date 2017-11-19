@@ -9,9 +9,9 @@ namespace PagoAgil.Aplicacion.Modelo.Usuario
     public class Rol
     {
 
-        string nombre;
+        public string nombre{get; set;}
 
-        List<Funcionalidad> funcionalides;
+        public List<Funcionalidad> funcionalides{get; set;}
 
         public Rol(string nuevoNombre, List<Funcionalidad> nuevasFuncionalidades) {
 

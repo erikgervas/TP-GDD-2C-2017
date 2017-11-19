@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using PagoAgil.Aplicacion.Modelo.ClienteSQL;
+using PagoAgil.Aplicacion.Modelo.Usuario;
 
 namespace PagoAgil.Aplicacion.BD.Utils
 {
@@ -88,6 +89,41 @@ namespace PagoAgil.Aplicacion.BD.Utils
             cmd.Parameters[7].Value = c.telefono;
             cmd.Parameters[8].Value = c.habilitado;
              
+        }
+
+        public void insertarRol(Rol r) 
+        {
+            int idRol;
+            SqlCommand cmd1 = new SqlCommand("SELECT SQL_BOYS.obtenerProximoIdRol()", Conexion.getInstance().obtenerConexion());
+            idRol = int.Parse(cmd1.ExecuteScalar().ToString());
+
+            SqlCommand cmd2 = new SqlCommand("INSERT INTO SQL_BOYS.Rol (nombre,habilitadx) " +
+                        " VALUES (@nombre, @habilitado)", Conexion.getInstance().obtenerConexion());
+
+            cmd2.CommandType = CommandType.Text;
+            cmd2.Parameters.AddWithValue("@nombre", DbType.String);
+            cmd2.Parameters.AddWithValue("@habilitado", DbType.Boolean);
+
+            cmd2.Parameters[0].Value = r.nombre;
+            cmd2.Parameters[1].Value = true;
+
+            cmd2.ExecuteNonQuery();
+
+            for (int i = 0; i < r.funcionalides.Count; i++)
+            {
+                SqlCommand cmd3 = new SqlCommand("INSERT INTO SQL_BOYS.Funcionalidad_Por_Rol (id_funcionalidad,id_rol) " +
+                        " VALUES (@id_funcionalidad, @id_rol)", Conexion.getInstance().obtenerConexion());
+
+                cmd3.CommandType = CommandType.Text;
+                cmd3.Parameters.AddWithValue("@id_funcionalidad", DbType.Int32);
+                cmd3.Parameters.AddWithValue("@id_rol", DbType.Int32);
+
+                cmd3.Parameters[0].Value = r.funcionalides.ElementAt(i).id;
+                cmd3.Parameters[1].Value = idRol;
+
+                cmd3.ExecuteNonQuery();
+            }
+
         }
 
     }

@@ -325,6 +325,7 @@ INSERT INTO SQL_BOYS.Funcionalidad (nombre)
 		('Gestionar empresas'),
 		('Gestionar sucursales'),
 		('Gestionar facturas'),
+		('Gestionar roles'),
 		('Cobrar facturas'),
 		('Rendir facturas'),
 		('Devolver facturas')
@@ -341,8 +342,8 @@ INSERT INTO SQL_BOYS.Funcionalidad_Por_Rol (id_funcionalidad, id_rol)
 
 	VALUES
 		
-		(1 , 1) , (2 , 1) , (3 , 1) , (4 , 1) , (5 , 1) ,
-		(1 , 2) , (2 , 2) , (3 , 2) , (4 , 2) , (5 , 2) , (6 , 2) , (7 , 2)
+		(1 , 1) , (2 , 1) , (3 , 1) , (4 , 1) , (5 , 1) , (6 , 1),
+		(1 , 2) , (2 , 2) , (3 , 2) , (4 , 2) , (5 , 2) , (6 , 2) , (7 , 2) , (8 , 2)
 
 INSERT INTO SQL_BOYS.Usuario (username, contraseña, habilitadx)
 

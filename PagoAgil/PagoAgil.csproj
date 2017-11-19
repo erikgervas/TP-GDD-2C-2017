@@ -118,6 +118,7 @@
     <Compile Include="Aplicacion\Orquestradores\GestorDeRoles.cs" />
     <Compile Include="Aplicacion\Orquestradores\GestorDeSucursales.cs" />
     <Compile Include="Aplicacion\Sesion.cs" />
+    <Compile Include="Aplicacion\ViewModel\AltaRolVM.cs" />
     <Compile Include="Aplicacion\ViewModel\AltaSucursalVM.cs" />
     <Compile Include="Aplicacion\ViewModel\BajaSucursalVM.cs" />
     <Compile Include="Aplicacion\ViewModel\EmpresasCompletadoVM.cs" />
@@ -126,6 +127,7 @@
     <Compile Include="Aplicacion\ViewModel\FacturaCompletadoVM.cs" />
     <Compile Include="Aplicacion\ViewModel\FormDevolucionVM.cs" />
     <Compile Include="Aplicacion\ViewModel\HomeVM.cs" />
+    <Compile Include="Aplicacion\ViewModel\ListadoRolesVM.cs" />
     <Compile Include="Aplicacion\ViewModel\ListadoSucursalesVM.cs" />
     <Compile Include="Aplicacion\ViewModel\LoginVM.cs" />
     <Compile Include="Aplicacion\ViewModel\ModificacionSucursalVM.cs" />
@@ -274,6 +276,43 @@
     <Compile Include="Aplicacion\View\Rendicion\FormRendicion.Designer.cs">
       <DependentUpon>FormRendicion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Aplicacion\View\Roles\FormABMRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Roles\FormABMRol.Designer.cs">
+      <DependentUpon>FormABMRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicacion\View\Roles\FormAltaRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Roles\FormAltaRol.Designer.cs">
+      <DependentUpon>FormAltaRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicacion\View\Roles\FormAltaRolOk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Roles\FormAltaRolOk.Designer.cs">
+      <DependentUpon>FormAltaRolOk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicacion\View\Roles\FormBajaRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Roles\FormBajaRol.Designer.cs">
+      <DependentUpon>FormBajaRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicacion\View\Roles\FormListadoRoles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Roles\FormListadoRoles.Designer.cs">
+      <DependentUpon>FormListadoRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicacion\View\Roles\FormModificacionRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Roles\FormModificacionRol.Designer.cs">
+      <DependentUpon>FormModificacionRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicacion\View\Roles\RolesBuilder.cs" />
     <Compile Include="Aplicacion\View\Sucursales\Excepciones\DeshabilitarSucursalActualException.cs" />
     <Compile Include="Aplicacion\View\Sucursales\Excepciones\SucursalYaDeshabilitadaException.cs" />
     <Compile Include="Aplicacion\View\Sucursales\FormABMSucursal.cs">
@@ -415,6 +454,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\Rendicion\FormRendicion.resx">
       <DependentUpon>FormRendicion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Roles\FormABMRol.resx">
+      <DependentUpon>FormABMRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Roles\FormAltaRol.resx">
+      <DependentUpon>FormAltaRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Roles\FormAltaRolOk.resx">
+      <DependentUpon>FormAltaRolOk.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\Sucursales\FormABMSucursal.resx">
       <DependentUpon>FormABMSucursal.cs</DependentUpon>
