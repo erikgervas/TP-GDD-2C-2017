@@ -32,10 +32,7 @@ namespace PagoAgil.Aplicacion.Orquestradores.TiposDeABM
 
         public void botones(EmpresasCompletado empresasCompletado) { }
 
-        public void botones(FacturaConfirmado facturaConfirmado)
-        {
-
-        }
+        public void botones(FacturaConfirmado facturaConfirmado) { }
 
         public void realizate(Repositorio<E> repositorio, E entidad)
         {

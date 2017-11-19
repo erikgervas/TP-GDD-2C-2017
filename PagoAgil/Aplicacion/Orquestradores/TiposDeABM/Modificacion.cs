@@ -28,7 +28,8 @@ namespace PagoAgil.Aplicacion.Orquestradores.TiposDeABM
 
         public void botones(EmpresasCompletado empresasCompletado)
         {
-            empresasCompletado.habilitadaCheckBox.Visible = false;
+            if(empresasCompletado.viewModel.empresa.estado) empresasCompletado.habilitadaCheckBox.Enabled = false;
+            empresasCompletado.cuitText.Enabled = false;
         }
 
         public void botones(FacturaConfirmado facturaConfirmado)

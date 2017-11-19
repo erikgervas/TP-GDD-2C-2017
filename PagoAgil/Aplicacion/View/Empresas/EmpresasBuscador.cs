@@ -24,6 +24,7 @@ namespace PagoAgil.Aplicacion.View.Empresas
         {
             InitializeComponent();
             this.CenterToScreen();
+            if (this.empresaElegidaText.Value == 0) this.empresaElegidaText.Text = "";
             foreach (String rubro in this.viewModel.rubros) this.rubroComboBox.Items.Add(rubro);
             this.viewModel.empresa = new EmpresaBuilder();
             this.empresasDataGrid.DataSource = null;
@@ -106,7 +107,7 @@ namespace PagoAgil.Aplicacion.View.Empresas
             this.viewModel.empresa.porcentajeComision = ushort.Parse(this.valorCelda(4));
             this.viewModel.empresa.diaRendicion = ushort.Parse(this.valorCelda(5));
             this.viewModel.empresa.rubro = valorCelda(7);
-            this.viewModel.empresa.estado = bool.Parse(valorCelda(8));
+            this.viewModel.empresa.estado = (bool) filaElegida.Cells[8].Value;
         }
 
         private string valorCelda(int celda)

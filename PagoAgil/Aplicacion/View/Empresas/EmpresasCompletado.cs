@@ -18,7 +18,7 @@ namespace PagoAgil.Aplicacion.View.Empresas
 {
     public partial class EmpresasCompletado : Form
     {
-        private EmpresasCompletadoVM viewModel = new EmpresasCompletadoVM();
+        public EmpresasCompletadoVM viewModel = new EmpresasCompletadoVM();
 
         public EmpresasCompletado()
         {
@@ -32,6 +32,7 @@ namespace PagoAgil.Aplicacion.View.Empresas
         {
             this.viewModel.empresa = empresaBuilder;
             this.rellenarConLoAnterior();
+            EmpresaABM.instanciar().determinarBotones(this);
         }
 
         private void iniciarTitulos()
@@ -84,17 +85,29 @@ namespace PagoAgil.Aplicacion.View.Empresas
             this.viewModel.empresa.estado = habilitadaCheckBox.Checked;
         }
 
-        private void limpiarButton_Click(object sender, EventArgs e)
+        private void limpiarAlta()
+        {
+            limpiarBaja();
+            this.cuitText.Text = null;
+            this.habilitadaCheckBox.Checked = false;
+        }
+
+        private void limpiarBaja()
         {
             this.nombreText.Text = null;
-            this.cuitText.Text = null;
             this.direccionText.Text = null;
             this.rubroComboBox.SelectedIndex = 0;
             this.diaNumericUpDown.Value = 1;
             this.porcentajeNumericUpDown.Value = 1;
-            this.habilitadaCheckBox.Checked = false;
 
             this.viewModel.empresa = new EmpresaBuilder();
+        }
+
+        private void limpiarButton_Click(object sender, EventArgs e)
+        {
+            if (this.cuitText.Enabled) limpiarAlta();
+
+            else limpiarBaja();
         }
 
         private void altaButton_Click(object sender, EventArgs e)
@@ -115,7 +128,14 @@ namespace PagoAgil.Aplicacion.View.Empresas
             }
             catch (YaExisteObjetoConEsaClave excepcion)
             {
-                new EmpresasAdvertenciaMismoCuit(this, excepcion).Show();
+                if (cuitText.Enabled) new EmpresasAdvertenciaMismoCuit(this, excepcion).Show();
+
+                else
+                {
+                    new EmpresasConfirmacion(this.viewModel.empresa).Show();
+
+                    this.Close();
+                }
             }
         }
     }

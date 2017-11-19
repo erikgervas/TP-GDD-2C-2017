@@ -39,10 +39,9 @@
             this.advertenciaText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.advertenciaText.Location = new System.Drawing.Point(82, 67);
             this.advertenciaText.Name = "advertenciaText";
-            this.advertenciaText.Size = new System.Drawing.Size(213, 26);
+            this.advertenciaText.Size = new System.Drawing.Size(200, 26);
             this.advertenciaText.TabIndex = 0;
-            this.advertenciaText.Text = "No se puede ingresar una empresa con ese\r\nCUIT porque ya existe una con el mismo." +
-    "";
+            this.advertenciaText.Text = "No se puede ingresar ese\r\nCUIT porque ya existe una con el mismo.";
             this.advertenciaText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // volverButton
