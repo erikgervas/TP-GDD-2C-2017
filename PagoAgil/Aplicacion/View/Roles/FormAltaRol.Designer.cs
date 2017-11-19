@@ -58,11 +58,12 @@
             // 
             // checkedListBoxFuncionalidades
             // 
+            this.checkedListBoxFuncionalidades.CheckOnClick = true;
             this.checkedListBoxFuncionalidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkedListBoxFuncionalidades.FormattingEnabled = true;
             this.checkedListBoxFuncionalidades.Location = new System.Drawing.Point(44, 125);
             this.checkedListBoxFuncionalidades.Name = "checkedListBoxFuncionalidades";
-            this.checkedListBoxFuncionalidades.Size = new System.Drawing.Size(356, 214);
+            this.checkedListBoxFuncionalidades.Size = new System.Drawing.Size(356, 213);
             this.checkedListBoxFuncionalidades.TabIndex = 4;
             this.checkedListBoxFuncionalidades.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxFuncionalidades_SelectedIndexChanged);
             // 
