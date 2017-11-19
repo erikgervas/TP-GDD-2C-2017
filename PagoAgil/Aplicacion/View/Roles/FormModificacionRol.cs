@@ -103,6 +103,7 @@ namespace PagoAgil.Aplicacion.View.Roles
         {
 
             Rol rolModificado = builder.crearRolModificado();
+            rolModificado.id = rol.id;
 
             RepositorioRoles.getInstancia().getAlmacenamiento().modificar(rolModificado);
 
