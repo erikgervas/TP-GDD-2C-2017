@@ -22,6 +22,15 @@ namespace PagoAgil.Aplicacion.Modelo.Usuario
 
         }
 
+        public Rol(string nuevoNombre, List<Funcionalidad> nuevasFuncionalidades, bool unEstado)
+        {
+
+            this.nombre = nuevoNombre;
+            this.funcionalidades = nuevasFuncionalidades;
+            this.habilitado = unEstado;
+
+        }
+
         public Rol(FilaDTO fila)
         {
 

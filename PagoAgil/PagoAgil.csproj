@@ -132,8 +132,6 @@
     <Compile Include="Aplicacion\ViewModel\ListadoRolesVM.cs" />
     <Compile Include="Aplicacion\ViewModel\ListadoSucursalesVM.cs" />
     <Compile Include="Aplicacion\ViewModel\LoginVM.cs" />
-    <Compile Include="Aplicacion\ViewModel\ModificacionRolVM.cs" />
-    <Compile Include="Aplicacion\ViewModel\ModificacionSucursalVM.cs" />
     <Compile Include="Aplicacion\ViewModel\PagoVM.cs" />
     <Compile Include="Aplicacion\ViewModel\RendicionVM.cs" />
     <Compile Include="Aplicacion\ViewModel\SeleccionadorDeRolVM.cs" />
@@ -474,6 +472,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\Roles\FormListadoRoles.resx">
       <DependentUpon>FormListadoRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Roles\FormModificacionRol.resx">
+      <DependentUpon>FormModificacionRol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\Sucursales\FormABMSucursal.resx">
       <DependentUpon>FormABMSucursal.cs</DependentUpon>

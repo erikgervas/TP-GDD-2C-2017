@@ -12,7 +12,6 @@ namespace PagoAgil.Aplicacion.View
 {
     public partial class FormModificacionSucursal : Form
     {
-        ModificacionSucursalVM modificacionSucursalVM;
         SucursalDB sucursal;
         SucursalesBuilder sucursalBuilder = new SucursalesBuilder();
 
@@ -25,8 +24,6 @@ namespace PagoAgil.Aplicacion.View
             sucursalBuilder.codigoPostal = sucursal.codigoPostal;
 
             this.cargarCampos();
-
-            modificacionSucursalVM = new ModificacionSucursalVM();
         }
 
         public void cargarCampos() 

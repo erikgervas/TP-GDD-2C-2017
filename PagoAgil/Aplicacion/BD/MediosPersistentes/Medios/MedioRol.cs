@@ -82,7 +82,7 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
 
         public void modificar(Rol rol)
         {
-            //Actualizador.getInstance().actualizarSucursal(unaSucursal);
+            Actualizador.getInstance().actualizarRol(rol);
         }
 
 

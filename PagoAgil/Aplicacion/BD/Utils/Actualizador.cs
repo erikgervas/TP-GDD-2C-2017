@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using PagoAgil.Aplicacion.Modelo.ClienteSQL;
+using PagoAgil.Aplicacion.Modelo.Usuario;
 
 namespace PagoAgil.Aplicacion.BD.Utils
 {
@@ -63,6 +64,20 @@ namespace PagoAgil.Aplicacion.BD.Utils
             cmd.Parameters[6].Value = c.codigoPostal;
             cmd.Parameters[7].Value = c.telefono;
             cmd.Parameters[8].Value = c.habilitado;
+
+        }
+
+        public void actualizarRol(Rol r)
+        {
+            SqlCommand cmd = new SqlCommand("SQL_BOYS.actualizarRol", Conexion.getInstance().obtenerConexion());
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@idRol", DbType.Int32).Value = r.id;
+            cmd.Parameters.AddWithValue("@nombre", DbType.String).Value = r.nombre;
+            cmd.Parameters.AddWithValue("@estado", DbType.Boolean).Value = r.habilitado;
+
+            cmd.ExecuteNonQuery();
 
         }
 
