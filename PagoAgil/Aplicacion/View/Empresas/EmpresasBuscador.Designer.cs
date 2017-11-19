@@ -44,6 +44,7 @@
             this.sQL_BOYS_Data_Set = new PagoAgil.DataSet.SQL_BOYS_Data_Set();
             this.filtrosPanel = new System.Windows.Forms.GroupBox();
             this.filtrosTabla = new System.Windows.Forms.TableLayoutPanel();
+            this.empresaElegidaText = new System.Windows.Forms.NumericUpDown();
             this.cuitText = new System.Windows.Forms.MaskedTextBox();
             this.buscarButton = new System.Windows.Forms.Button();
             this.rubroLabel = new System.Windows.Forms.Label();
@@ -52,13 +53,12 @@
             this.cuitLabel = new System.Windows.Forms.Label();
             this.rubroComboBox = new System.Windows.Forms.ComboBox();
             this.nombreText = new System.Windows.Forms.TextBox();
+            this.eleccionLabel = new System.Windows.Forms.Label();
             this.seleccionarButton = new System.Windows.Forms.Button();
             this.tituloLabel = new System.Windows.Forms.Label();
             this.modificarButton = new System.Windows.Forms.Button();
             this.bajaButton = new System.Windows.Forms.Button();
             this.empresaTableAdapter = new PagoAgil.DataSet.SQL_BOYS_Data_SetTableAdapters.EmpresaTableAdapter();
-            this.eleccionLabel = new System.Windows.Forms.Label();
-            this.empresaElegidaText = new System.Windows.Forms.NumericUpDown();
             this.resultadosBusquedaPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.empresasDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.empresaBindingSource)).BeginInit();
@@ -230,6 +230,20 @@
             this.filtrosTabla.Size = new System.Drawing.Size(875, 59);
             this.filtrosTabla.TabIndex = 4;
             // 
+            // empresaElegidaText
+            // 
+            this.empresaElegidaText.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.empresaElegidaText.Enabled = false;
+            this.empresaElegidaText.Location = new System.Drawing.Point(352, 34);
+            this.empresaElegidaText.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.empresaElegidaText.Name = "empresaElegidaText";
+            this.empresaElegidaText.Size = new System.Drawing.Size(142, 20);
+            this.empresaElegidaText.TabIndex = 18;
+            // 
             // cuitText
             // 
             this.cuitText.Location = new System.Drawing.Point(352, 3);
@@ -307,6 +321,16 @@
             this.nombreText.Size = new System.Drawing.Size(142, 20);
             this.nombreText.TabIndex = 10;
             // 
+            // eleccionLabel
+            // 
+            this.eleccionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.eleccionLabel.AutoSize = true;
+            this.eleccionLabel.Location = new System.Drawing.Point(265, 37);
+            this.eleccionLabel.Name = "eleccionLabel";
+            this.eleccionLabel.Size = new System.Drawing.Size(81, 13);
+            this.eleccionLabel.TabIndex = 4;
+            this.eleccionLabel.Text = "Elección";
+            // 
             // seleccionarButton
             // 
             this.seleccionarButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -356,40 +380,6 @@
             // empresaTableAdapter
             // 
             this.empresaTableAdapter.ClearBeforeFill = true;
-            // 
-            // eleccionLabel
-            // 
-            this.eleccionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.eleccionLabel.AutoSize = true;
-            this.eleccionLabel.Location = new System.Drawing.Point(265, 37);
-            this.eleccionLabel.Name = "eleccionLabel";
-            this.eleccionLabel.Size = new System.Drawing.Size(81, 13);
-            this.eleccionLabel.TabIndex = 4;
-            this.eleccionLabel.Text = "Elección";
-            // 
-            // empresaElegidaText
-            // 
-            this.empresaElegidaText.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.empresaElegidaText.Enabled = false;
-            this.empresaElegidaText.Location = new System.Drawing.Point(352, 34);
-            this.empresaElegidaText.Maximum = new decimal(new int[] {
-            2147483647,
-            0,
-            0,
-            0});
-            this.empresaElegidaText.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.empresaElegidaText.Name = "empresaElegidaText";
-            this.empresaElegidaText.Size = new System.Drawing.Size(142, 20);
-            this.empresaElegidaText.TabIndex = 18;
-            this.empresaElegidaText.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // EmpresasBuscador
             // 

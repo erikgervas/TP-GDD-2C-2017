@@ -18,7 +18,7 @@ namespace PagoAgil.Aplicacion.View.Empresas
 {
     public partial class EmpresasCompletado : Form
     {
-        private EmpresasCompletadoVM viewModel = new EmpresasCompletadoVM();
+        public EmpresasCompletadoVM viewModel = new EmpresasCompletadoVM();
 
         public EmpresasCompletado()
         {
@@ -32,11 +32,11 @@ namespace PagoAgil.Aplicacion.View.Empresas
         {
             this.viewModel.empresa = empresaBuilder;
             this.rellenarConLoAnterior();
+            EmpresaABM.instanciar().determinarBotones(this);
         }
 
         private void iniciarTitulos()
         {
-            EmpresaABM.instanciar().determinarBotones(this);
             this.Text = EmpresaABM.instanciar().titulosCompletado()[0];
             this.tituloLabel.Text = EmpresaABM.instanciar().titulosCompletado()[1];
             this.altaGroup.Text = EmpresaABM.instanciar().titulosCompletado()[2];
@@ -87,15 +87,9 @@ namespace PagoAgil.Aplicacion.View.Empresas
 
         private void limpiarAlta()
         {
-            this.nombreText.Text = null;
+            limpiarBaja();
             this.cuitText.Text = null;
-            this.direccionText.Text = null;
-            this.rubroComboBox.SelectedIndex = 0;
-            this.diaNumericUpDown.Value = 1;
-            this.porcentajeNumericUpDown.Value = 1;
             this.habilitadaCheckBox.Checked = false;
-
-            this.viewModel.empresa = new EmpresaBuilder();
         }
 
         private void limpiarBaja()
@@ -105,6 +99,8 @@ namespace PagoAgil.Aplicacion.View.Empresas
             this.rubroComboBox.SelectedIndex = 0;
             this.diaNumericUpDown.Value = 1;
             this.porcentajeNumericUpDown.Value = 1;
+
+            this.viewModel.empresa = new EmpresaBuilder();
         }
 
         private void limpiarButton_Click(object sender, EventArgs e)
@@ -132,15 +128,14 @@ namespace PagoAgil.Aplicacion.View.Empresas
             }
             catch (YaExisteObjetoConEsaClave excepcion)
             {
-                if (this.cuitText.Enabled) new EmpresasAdvertenciaMismoCuit(this, excepcion).Show();
+                if (cuitText.Enabled) new EmpresasAdvertenciaMismoCuit(this, excepcion).Show();
 
                 else
                 {
-                    this.Close();
-
                     new EmpresasConfirmacion(this.viewModel.empresa).Show();
-                }
 
+                    this.Close();
+                }
             }
         }
     }
