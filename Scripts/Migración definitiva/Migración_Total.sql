@@ -670,17 +670,27 @@ CREATE FUNCTION SQL_BOYS.obtenerRubros () RETURNS TABLE
 
 GO
 
+CREATE FUNCTION SQL_BOYS.id_Rubro (@nombre_rubro AS NVARCHAR(255)) RETURNS INT AS
+
+	BEGIN
+
+		DECLARE @id INT = (SELECT id_rubro FROM SQL_BOYS.Rubro WHERE descripcion = @nombre_rubro)
+
+		RETURN @id
+
+	END
+
+GO
+
 CREATE PROCEDURE SQL_BOYS.altaDeEmpresa (@id_empresa AS INT, @nombre AS NVARCHAR(255), @cuit AS NVARCHAR(50), @domicilio AS NVARCHAR(255), @dia_rendicion AS INT, @porcentaje_comision AS INT, @habilitadx AS BIT, @nombre_rubro AS NVARCHAR(50)) AS
 	
 	BEGIN
 		
 		BEGIN TRANSACTION
 
-			DECLARE @id_rubro NUMERIC(18,0) = (SELECT r.id_rubro FROM SQL_BOYS.Rubro r WHERE @nombre_rubro = r.descripcion)
-
 			INSERT INTO SQL_BOYS.Empresa (nombre, cuit, domicilio, dia_rendicion, porcentaje_comision, habilitadx, id_rubro)
 
-			VALUES (@nombre, @cuit, @domicilio, @dia_rendicion, @porcentaje_comision, @habilitadx, @id_rubro)
+			VALUES (@nombre, @cuit, @domicilio, @dia_rendicion, @porcentaje_comision, @habilitadx, SQL_BOYS.id_Rubro(@nombre_rubro))
 
 		COMMIT
 
@@ -717,13 +727,13 @@ CREATE PROCEDURE SQL_BOYS.modificacionDeEmpresa (@id_empresa AS INT, @nombre AS 
 			SET
 			
 				nombre = @nombre,
-				cuit = @cuit,
 				domicilio = @domicilio,
 				dia_rendicion = @dia_rendicion,
 				porcentaje_comision = @porcentaje_comision,
-				id_rubro = (SELECT id_rubro FROM SQL_BOYS.Rubro WHERE descripcion = @nombre_rubro)
+				habilitadx = @habilitadx,
+				id_rubro = SQL_BOYS.id_Rubro(@nombre_rubro)
 
-			WHERE id_empresa = @id_empresa
+			WHERE id_empresa = @id_empresa AND cuit = @cuit
 
 		COMMIT
 
@@ -741,13 +751,25 @@ CREATE FUNCTION SQL_BOYS.filtrarEmpresa (@nombre AS NVARCHAR(255), @cuit AS NVAR
 
 		WHERE
 
+			(LEN(@nombre) = 0 AND @cuit = '  -        -' AND LEN(@nombre_rubro) = 0 AND @id_empresa = 0) OR
+			
 			(LEN(@nombre) != 0 AND e.nombre LIKE @nombre + '%') OR
 
-			(LEN(@cuit) != 0 AND e.cuit = @cuit) OR
+			(e.cuit = @cuit) OR
 
-			(LEN(@nombre_rubro) != 0 AND e.descripcion = @nombre_rubro) OR
+			(e.descripcion = @nombre_rubro) OR
 
 			(e.id_empresa = @id_empresa)
+
+GO
+
+CREATE FUNCTION SQL_BOYS.cantidadDeFacturasPorRendirDeEmpresa(@id_empresa INT) RETURNS INT
+	
+	BEGIN
+
+		RETURN (SELECT COUNT(*) FROM SQL_BOYS.Empresa e JOIN SQL_BOYS.Factura f ON f.id_empresa = e.id_empresa WHERE f.id_empresa = @id_empresa AND f.numero_rendicion IS NULL)
+
+	END
 
 GO
 

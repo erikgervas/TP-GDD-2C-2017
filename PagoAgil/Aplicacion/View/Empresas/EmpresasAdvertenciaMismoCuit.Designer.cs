@@ -35,18 +35,17 @@
             // 
             // advertenciaText
             // 
-            this.advertenciaText.AutoSize = true;
             this.advertenciaText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.advertenciaText.Location = new System.Drawing.Point(82, 67);
+            this.advertenciaText.Location = new System.Drawing.Point(12, 9);
             this.advertenciaText.Name = "advertenciaText";
-            this.advertenciaText.Size = new System.Drawing.Size(200, 26);
+            this.advertenciaText.Size = new System.Drawing.Size(360, 143);
             this.advertenciaText.TabIndex = 0;
             this.advertenciaText.Text = "No se puede ingresar ese\r\nCUIT porque ya existe una con el mismo.";
             this.advertenciaText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // volverButton
             // 
-            this.volverButton.Location = new System.Drawing.Point(151, 114);
+            this.volverButton.Location = new System.Drawing.Point(155, 114);
             this.volverButton.Name = "volverButton";
             this.volverButton.Size = new System.Drawing.Size(75, 23);
             this.volverButton.TabIndex = 1;
@@ -58,7 +57,7 @@
             // 
             this.advertenciaTitulo.AutoSize = true;
             this.advertenciaTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.advertenciaTitulo.Location = new System.Drawing.Point(142, 26);
+            this.advertenciaTitulo.Location = new System.Drawing.Point(146, 26);
             this.advertenciaTitulo.Name = "advertenciaTitulo";
             this.advertenciaTitulo.Size = new System.Drawing.Size(93, 20);
             this.advertenciaTitulo.TabIndex = 2;

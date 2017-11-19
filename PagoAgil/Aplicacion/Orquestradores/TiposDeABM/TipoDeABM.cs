@@ -18,11 +18,7 @@ namespace PagoAgil.Aplicacion.Orquestradores.TiposDeABM
 
         string[] ok(string abm);
 
-        void botones(EmpresasConfirmacion empresasConfirmacion);
-
-        void botones(EmpresasCompletado empresasCompletado);
-
-        void botones(FacturaConfirmado facturaConfirmado);
+        void mostrar(FormABMAdapter form);
 
         void realizate(Repositorio<E> repositorio, E entidad);
     }

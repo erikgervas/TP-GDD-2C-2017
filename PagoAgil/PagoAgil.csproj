@@ -59,6 +59,7 @@
     <Compile Include="Aplicacion\BD\Repositorios\RepositorioRoles.cs" />
     <Compile Include="Aplicacion\BD\Utils\Actualizador.cs" />
     <Compile Include="Aplicacion\BD\Utils\Despachador.cs" />
+    <Compile Include="Aplicacion\BD\Utils\EjecutadorDeFunciones.cs" />
     <Compile Include="Aplicacion\BD\Utils\EjecutadorDeProcedures.cs" />
     <Compile Include="Aplicacion\BD\Utils\Parametro.cs" />
     <Compile Include="Aplicacion\BD\Repositorios\RepositorioClientes.cs" />
@@ -110,6 +111,7 @@
     <Compile Include="Aplicacion\Orquestradores\TiposDeABM\ABMs\FacturaABM.cs" />
     <Compile Include="Aplicacion\Orquestradores\TiposDeABM\Alta.cs" />
     <Compile Include="Aplicacion\Orquestradores\TiposDeABM\Baja.cs" />
+    <Compile Include="Aplicacion\Orquestradores\TiposDeABM\FormABMAdapter.cs" />
     <Compile Include="Aplicacion\Orquestradores\TiposDeABM\TipoDeABM.cs" />
     <Compile Include="Aplicacion\Orquestradores\GestorDeABM.cs" />
     <Compile Include="Aplicacion\Orquestradores\TiposDeABM\Modificacion.cs" />
@@ -207,6 +209,7 @@
       <DependentUpon>EmpresasSeleccionABM.cs</DependentUpon>
     </Compile>
     <Compile Include="Aplicacion\Builders\Excepciones\YaExisteObjetoConEsaClave.cs" />
+    <Compile Include="Aplicacion\Builders\Excepciones\FacturasPendientesDeRendicionException.cs" />
     <Compile Include="Aplicacion\View\Estadisticas\FormEstadisticas.cs">
       <SubType>Form</SubType>
     </Compile>

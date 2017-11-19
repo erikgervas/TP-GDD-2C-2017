@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagoAgil.Aplicacion.Modelo.Excepciones;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,16 +16,12 @@ namespace PagoAgil.Aplicacion.View.Empresas
         public EmpresasAdvertenciaRendicionesPendientes()
         {
             InitializeComponent();
+            this.CenterToScreen();
         }
 
-        private void volverButton_Click(object sender, EventArgs e)
+        public EmpresasAdvertenciaRendicionesPendientes(FacturasPendientesDeRendicionException excepcion) : this()
         {
-
-        }
-
-        private void advertenciaText_Click(object sender, EventArgs e)
-        {
-
+            this.advertenciaText.Text = excepcion.mensaje();
         }
     }
 }

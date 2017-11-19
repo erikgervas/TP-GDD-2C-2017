@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.advertenciaTitulo = new System.Windows.Forms.Label();
-            this.volverButton = new System.Windows.Forms.Button();
             this.advertenciaText = new System.Windows.Forms.Label();
             this.camposLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -38,27 +37,17 @@
             // 
             this.advertenciaTitulo.AutoSize = true;
             this.advertenciaTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.advertenciaTitulo.Location = new System.Drawing.Point(142, 26);
+            this.advertenciaTitulo.Location = new System.Drawing.Point(146, 26);
             this.advertenciaTitulo.Name = "advertenciaTitulo";
             this.advertenciaTitulo.Size = new System.Drawing.Size(93, 20);
             this.advertenciaTitulo.TabIndex = 5;
             this.advertenciaTitulo.Text = "Advertencia";
             // 
-            // volverButton
-            // 
-            this.volverButton.Location = new System.Drawing.Point(151, 205);
-            this.volverButton.Name = "volverButton";
-            this.volverButton.Size = new System.Drawing.Size(75, 23);
-            this.volverButton.TabIndex = 4;
-            this.volverButton.Text = "Volver atrás";
-            this.volverButton.UseVisualStyleBackColor = true;
-            this.volverButton.Click += new System.EventHandler(this.volverButton_Click);
-            // 
             // advertenciaText
             // 
             this.advertenciaText.AutoSize = true;
             this.advertenciaText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.advertenciaText.Location = new System.Drawing.Point(91, 63);
+            this.advertenciaText.Location = new System.Drawing.Point(95, 63);
             this.advertenciaText.Name = "advertenciaText";
             this.advertenciaText.Size = new System.Drawing.Size(194, 13);
             this.advertenciaText.TabIndex = 3;
@@ -66,10 +55,11 @@
             // 
             // camposLabel
             // 
-            this.camposLabel.AutoSize = true;
-            this.camposLabel.Location = new System.Drawing.Point(160, 103);
+            this.camposLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.camposLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.camposLabel.Location = new System.Drawing.Point(12, 9);
             this.camposLabel.Name = "camposLabel";
-            this.camposLabel.Size = new System.Drawing.Size(57, 13);
+            this.camposLabel.Size = new System.Drawing.Size(360, 243);
             this.camposLabel.TabIndex = 6;
             this.camposLabel.Text = "<Campos>";
             this.camposLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -79,10 +69,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 261);
-            this.Controls.Add(this.camposLabel);
             this.Controls.Add(this.advertenciaTitulo);
-            this.Controls.Add(this.volverButton);
             this.Controls.Add(this.advertenciaText);
+            this.Controls.Add(this.camposLabel);
             this.Name = "EmpresasAdvertenciaFaltanCampos";
             this.Text = "Advertencia";
             this.ResumeLayout(false);
@@ -93,7 +82,6 @@
         #endregion
 
         private System.Windows.Forms.Label advertenciaTitulo;
-        private System.Windows.Forms.Button volverButton;
         private System.Windows.Forms.Label advertenciaText;
         private System.Windows.Forms.Label camposLabel;
     }

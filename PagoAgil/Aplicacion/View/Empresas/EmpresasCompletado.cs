@@ -5,18 +5,11 @@ using PagoAgil.Aplicacion.Orquestradores.TiposDeABM.ABMs;
 using PagoAgil.Aplicacion.View.Excepciones;
 using PagoAgil.Aplicacion.ViewModel;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PagoAgil.Aplicacion.View.Empresas
 {
-    public partial class EmpresasCompletado : Form
+    public partial class EmpresasCompletado : Form, FormABMAdapter
     {
         public EmpresasCompletadoVM viewModel = new EmpresasCompletadoVM();
 
@@ -26,13 +19,13 @@ namespace PagoAgil.Aplicacion.View.Empresas
             this.CenterToScreen();
             this.iniciarTitulos();
             this.iniciarCampos();
+            EmpresaABM.instanciar().mostrar(this);
         }
 
         public EmpresasCompletado(EmpresaBuilder empresaBuilder) : this()
         {
             this.viewModel.empresa = empresaBuilder;
             this.rellenarConLoAnterior();
-            EmpresaABM.instanciar().determinarBotones(this);
         }
 
         private void iniciarTitulos()
@@ -62,13 +55,6 @@ namespace PagoAgil.Aplicacion.View.Empresas
             this.rubroComboBox.SelectedIndex = 0;
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Close();
-
-            new EmpresasSeleccionABM().Show();
-        }
-
         private void cuitText_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsDigit(e.KeyChar) || e.KeyChar != 8 || e.KeyChar != 32) e.Handled = true;
@@ -87,7 +73,6 @@ namespace PagoAgil.Aplicacion.View.Empresas
 
         private void limpiarAlta()
         {
-            limpiarBaja();
             this.cuitText.Text = null;
             this.habilitadaCheckBox.Checked = false;
         }
@@ -99,15 +84,13 @@ namespace PagoAgil.Aplicacion.View.Empresas
             this.rubroComboBox.SelectedIndex = 0;
             this.diaNumericUpDown.Value = 1;
             this.porcentajeNumericUpDown.Value = 1;
-
-            this.viewModel.empresa = new EmpresaBuilder();
         }
 
         private void limpiarButton_Click(object sender, EventArgs e)
         {
             if (this.cuitText.Enabled) limpiarAlta();
 
-            else limpiarBaja();
+            limpiarBaja();
         }
 
         private void altaButton_Click(object sender, EventArgs e)
@@ -137,6 +120,16 @@ namespace PagoAgil.Aplicacion.View.Empresas
                     this.Close();
                 }
             }
+        }
+
+        public void alta() { }
+
+        public void baja() { }
+
+        public void modificacion()
+        {
+            if (EmpresaABM.instanciar().estado) this.habilitadaCheckBox.Enabled = false;
+            this.cuitText.Enabled = false;
         }
     }
 }

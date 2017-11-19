@@ -16,6 +16,7 @@ namespace PagoAgil.Aplicacion.Orquestradores
     public abstract class GestorABM<E>
     {
         public TipoDeABM<E> abm { get; set; }
+        public bool estado { get; set; }
 
         protected abstract string nombreAbm();
 
@@ -34,19 +35,9 @@ namespace PagoAgil.Aplicacion.Orquestradores
             return this.abm.ok(this.nombreAbm());
         }
 
-        public void determinarBotones(EmpresasCompletado formCompletado)
+        public void mostrar(FormABMAdapter form)
         {
-            this.abm.botones(formCompletado);
-        }
-
-        public void determinarBotones(EmpresasConfirmacion formConfirmacion)
-        {
-            this.abm.botones(formConfirmacion);
-        }
-
-        public void determinarBotones(FacturaConfirmado formConfirmacion)
-        {
-            this.abm.botones(formConfirmacion);
+            this.abm.mostrar(form);
         }
 
         public void realizarABM(Repositorio<E> repositorio, E entidad)

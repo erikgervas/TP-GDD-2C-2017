@@ -28,11 +28,10 @@ namespace PagoAgil.Aplicacion.Orquestradores.TiposDeABM
             return new string[] { "Alta de " + abm, "¡¡La " + abm + " se ha dado de alta con éxito!!" };
         }
 
-        public void botones(EmpresasConfirmacion empresasConfirmacion) { }
-
-        public void botones(EmpresasCompletado empresasCompletado) { }
-
-        public void botones(FacturaConfirmado facturaConfirmado) { }
+        public void mostrar(FormABMAdapter form)
+        {
+            form.alta();
+        }
 
         public void realizate(Repositorio<E> repositorio, E entidad)
         {

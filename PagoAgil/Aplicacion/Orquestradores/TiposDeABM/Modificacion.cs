@@ -21,25 +21,14 @@ namespace PagoAgil.Aplicacion.Orquestradores.TiposDeABM
             return new string[] { "Modificación de " + abm, "La " + abm + " se ha modificado con éxito." };
         }
 
-        public void botones(EmpresasConfirmacion empresasConfirmacion)
+        public void mostrar(FormABMAdapter form)
         {
-
-        }
-
-        public void botones(EmpresasCompletado empresasCompletado)
-        {
-            if(empresasCompletado.viewModel.empresa.estado) empresasCompletado.habilitadaCheckBox.Enabled = false;
-            empresasCompletado.cuitText.Enabled = false;
-        }
-
-        public void botones(FacturaConfirmado facturaConfirmado)
-        {
-            
+            form.modificacion();
         }
 
         public void realizate(Repositorio<E> repositorio, E entidad)
         {
-            repositorio.almacenamiento.modificar(entidad);
+            repositorio.modificacion(entidad);
         }
     }
 }
