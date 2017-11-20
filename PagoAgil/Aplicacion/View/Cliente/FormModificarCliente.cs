@@ -81,6 +81,7 @@ namespace PagoAgil.Aplicacion.View.Cliente
             this.limpiarButton.TabIndex = 34;
             this.limpiarButton.Text = "Limpiar";
             this.limpiarButton.UseVisualStyleBackColor = true;
+            this.limpiarButton.Click += new System.EventHandler(this.limpiarButton_Click);
             // 
             // label8
             // 
@@ -299,6 +300,19 @@ namespace PagoAgil.Aplicacion.View.Cliente
                 MessageBox.Show("Solo numeros");
                 dniTextBox.Text = dniTextBox.Text.Remove(dniTextBox.Text.Length - 1);
             }
+        }
+
+        private void limpiarButton_Click(object sender, EventArgs e)
+        {
+            dniTextBox.Text = null;
+            nombreTextBox.Text = null;
+            apellidoTextBox.Text = null;
+            codigoPostal.Text = null;
+
+            mailTextBox.Text = null;
+            dateTimePicker1.Text = null;
+            telefonoTextBox.Text = null;
+            codigoPostal.Text = null;
         }
     }
 }
