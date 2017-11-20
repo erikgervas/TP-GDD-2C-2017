@@ -77,6 +77,7 @@
     <Compile Include="Aplicacion\BD\Utils\DTO\TablaDTO.cs" />
     <Compile Include="Aplicacion\BD\Utils\ParametroFactory.cs" />
     <Compile Include="Aplicacion\Builders\EmpresaBuilder.cs" />
+    <Compile Include="Aplicacion\Builders\Excepciones\NoExisteObjetoConEsaClave.cs" />
     <Compile Include="Aplicacion\Builders\Excepciones\NoSePuedeCrearException.cs" />
     <Compile Include="Aplicacion\Builders\FacturaBuilder.cs" />
     <Compile Include="Aplicacion\Builders\ItemBuilder.cs" />

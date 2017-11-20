@@ -43,7 +43,6 @@
             this.diarendicionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.porcentajecomisionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idrubroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.habilitadxDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.sQL_BOYS_Data_Set)).BeginInit();
             this.resultadosBusquedaPanel.SuspendLayout();
@@ -101,7 +100,6 @@
             this.diarendicionDataGridViewTextBoxColumn,
             this.porcentajecomisionDataGridViewTextBoxColumn,
             this.idrubroDataGridViewTextBoxColumn,
-            this.descripcionDataGridViewTextBoxColumn,
             this.habilitadxDataGridViewCheckBoxColumn});
             this.empresasDataGrid.DataSource = this.empresaBindingSource;
             this.empresasDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -184,15 +182,6 @@
             this.idrubroDataGridViewTextBoxColumn.ReadOnly = true;
             this.idrubroDataGridViewTextBoxColumn.Width = 83;
             // 
-            // descripcionDataGridViewTextBoxColumn
-            // 
-            this.descripcionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "descripcion";
-            this.descripcionDataGridViewTextBoxColumn.HeaderText = "Descripción";
-            this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
-            this.descripcionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.descripcionDataGridViewTextBoxColumn.Width = 88;
-            // 
             // habilitadxDataGridViewCheckBoxColumn
             // 
             this.habilitadxDataGridViewCheckBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -238,7 +227,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn diarendicionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn porcentajecomisionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idrubroDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn habilitadxDataGridViewCheckBoxColumn;
     }
 }

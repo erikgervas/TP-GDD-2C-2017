@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace PagoAgil.Aplicacion.View.Excepciones
+namespace PagoAgil.Aplicacion.Builders.Excepciones
 {
-    public class YaExisteObjetoConEsaClave : Exception
+    public class NoExisteObjetoConEsaClave : Exception
     {
         public string mensaje { get; set; }
     }

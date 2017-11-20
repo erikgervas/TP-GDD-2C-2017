@@ -13,6 +13,8 @@ namespace PagoAgil.Aplicacion.View.Empresas
 {
     public partial class EmpresasAdvertenciaRendicionesPendientes : Form
     {
+        private string p;
+
         public EmpresasAdvertenciaRendicionesPendientes()
         {
             InitializeComponent();
@@ -22,6 +24,11 @@ namespace PagoAgil.Aplicacion.View.Empresas
         public EmpresasAdvertenciaRendicionesPendientes(FacturasPendientesDeRendicionException excepcion) : this()
         {
             this.advertenciaText.Text = excepcion.mensaje();
+        }
+
+        public EmpresasAdvertenciaRendicionesPendientes(string mensaje) : this()
+        {
+            this.advertenciaText.Text = mensaje;
         }
     }
 }

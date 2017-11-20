@@ -32,6 +32,8 @@
             this.altaGroup = new System.Windows.Forms.GroupBox();
             this.habilitadaCheckBox = new System.Windows.Forms.CheckBox();
             this.facturaLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.dniClienteTextBox = new System.Windows.Forms.NumericUpDown();
+            this.numeroTextBox = new System.Windows.Forms.NumericUpDown();
             this.empresaLabel = new System.Windows.Forms.Label();
             this.numeroLabel = new System.Windows.Forms.Label();
             this.dniLabel = new System.Windows.Forms.Label();
@@ -45,7 +47,7 @@
             this.tituloLabel = new System.Windows.Forms.Label();
             this.itemsBox = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.montoValor = new System.Windows.Forms.Label();
+            this.montoValor = new System.Windows.Forms.TextBox();
             this.montoLabel = new System.Windows.Forms.Label();
             this.limpiarItemsButton = new System.Windows.Forms.Button();
             this.itemDataGrid = new System.Windows.Forms.DataGridView();
@@ -57,17 +59,15 @@
             this.itemTableAdapter = new PagoAgil.DataSet.SQL_BOYS_Data_SetTableAdapters.ItemTableAdapter();
             this.limpiarTodoButton = new System.Windows.Forms.Button();
             this.completarButton = new System.Windows.Forms.Button();
-            this.numeroTextBox = new System.Windows.Forms.NumericUpDown();
-            this.dniClienteTextBox = new System.Windows.Forms.NumericUpDown();
             this.altaGroup.SuspendLayout();
             this.facturaLayout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dniClienteTextBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numeroTextBox)).BeginInit();
             this.itemsBox.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sQL_BOYS_Data_Set)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numeroTextBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dniClienteTextBox)).BeginInit();
             this.SuspendLayout();
             // 
             // altaGroup
@@ -95,9 +95,9 @@
             // facturaLayout
             // 
             this.facturaLayout.ColumnCount = 3;
-            this.facturaLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.facturaLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.facturaLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.facturaLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.facturaLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
+            this.facturaLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.facturaLayout.Controls.Add(this.dniClienteTextBox, 1, 3);
             this.facturaLayout.Controls.Add(this.numeroTextBox, 1, 0);
             this.facturaLayout.Controls.Add(this.empresaLabel, 0, 4);
@@ -120,13 +120,59 @@
             this.facturaLayout.Size = new System.Drawing.Size(489, 200);
             this.facturaLayout.TabIndex = 4;
             // 
+            // dniClienteTextBox
+            // 
+            this.dniClienteTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dniClienteTextBox.Location = new System.Drawing.Point(149, 130);
+            this.dniClienteTextBox.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.dniClienteTextBox.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.dniClienteTextBox.Name = "dniClienteTextBox";
+            this.dniClienteTextBox.Size = new System.Drawing.Size(214, 20);
+            this.dniClienteTextBox.TabIndex = 12;
+            this.dniClienteTextBox.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // numeroTextBox
+            // 
+            this.numeroTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.numeroTextBox.Location = new System.Drawing.Point(149, 10);
+            this.numeroTextBox.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.numeroTextBox.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numeroTextBox.Name = "numeroTextBox";
+            this.numeroTextBox.Size = new System.Drawing.Size(214, 20);
+            this.numeroTextBox.TabIndex = 12;
+            this.numeroTextBox.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // empresaLabel
             // 
             this.empresaLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.empresaLabel.AutoSize = true;
             this.empresaLabel.Location = new System.Drawing.Point(3, 173);
             this.empresaLabel.Name = "empresaLabel";
-            this.empresaLabel.Size = new System.Drawing.Size(189, 13);
+            this.empresaLabel.Size = new System.Drawing.Size(140, 13);
             this.empresaLabel.TabIndex = 4;
             this.empresaLabel.Text = "Cuit de empresa";
             // 
@@ -136,7 +182,7 @@
             this.numeroLabel.AutoSize = true;
             this.numeroLabel.Location = new System.Drawing.Point(3, 13);
             this.numeroLabel.Name = "numeroLabel";
-            this.numeroLabel.Size = new System.Drawing.Size(189, 13);
+            this.numeroLabel.Size = new System.Drawing.Size(140, 13);
             this.numeroLabel.TabIndex = 0;
             this.numeroLabel.Text = "Número de factura";
             // 
@@ -146,7 +192,7 @@
             this.dniLabel.AutoSize = true;
             this.dniLabel.Location = new System.Drawing.Point(3, 133);
             this.dniLabel.Name = "dniLabel";
-            this.dniLabel.Size = new System.Drawing.Size(189, 13);
+            this.dniLabel.Size = new System.Drawing.Size(140, 13);
             this.dniLabel.TabIndex = 3;
             this.dniLabel.Text = "Dni de cliente";
             // 
@@ -156,7 +202,7 @@
             this.altaLabel.AutoSize = true;
             this.altaLabel.Location = new System.Drawing.Point(3, 53);
             this.altaLabel.Name = "altaLabel";
-            this.altaLabel.Size = new System.Drawing.Size(189, 13);
+            this.altaLabel.Size = new System.Drawing.Size(140, 13);
             this.altaLabel.TabIndex = 1;
             this.altaLabel.Text = "Fecha de alta";
             // 
@@ -166,7 +212,7 @@
             this.vencimientoLabel.AutoSize = true;
             this.vencimientoLabel.Location = new System.Drawing.Point(3, 93);
             this.vencimientoLabel.Name = "vencimientoLabel";
-            this.vencimientoLabel.Size = new System.Drawing.Size(189, 13);
+            this.vencimientoLabel.Size = new System.Drawing.Size(140, 13);
             this.vencimientoLabel.TabIndex = 2;
             this.vencimientoLabel.Text = "Fecha de vencimiento";
             // 
@@ -176,16 +222,16 @@
             this.empresasNombreComboBox.DisplayMember = "nombre";
             this.empresasNombreComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.empresasNombreComboBox.FormattingEnabled = true;
-            this.empresasNombreComboBox.Location = new System.Drawing.Point(198, 169);
+            this.empresasNombreComboBox.Location = new System.Drawing.Point(149, 169);
             this.empresasNombreComboBox.Name = "empresasNombreComboBox";
-            this.empresasNombreComboBox.Size = new System.Drawing.Size(189, 21);
+            this.empresasNombreComboBox.Size = new System.Drawing.Size(214, 21);
             this.empresasNombreComboBox.TabIndex = 9;
             this.empresasNombreComboBox.ValueMember = "nombre";
             // 
             // buscadorCliente
             // 
             this.buscadorCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buscadorCliente.Location = new System.Drawing.Point(402, 128);
+            this.buscadorCliente.Location = new System.Drawing.Point(390, 128);
             this.buscadorCliente.Name = "buscadorCliente";
             this.buscadorCliente.Size = new System.Drawing.Size(75, 23);
             this.buscadorCliente.TabIndex = 9;
@@ -195,19 +241,19 @@
             // 
             // altaTimePicker
             // 
-            this.altaTimePicker.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.altaTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.altaTimePicker.Enabled = false;
-            this.altaTimePicker.Location = new System.Drawing.Point(198, 50);
+            this.altaTimePicker.Location = new System.Drawing.Point(149, 50);
             this.altaTimePicker.Name = "altaTimePicker";
-            this.altaTimePicker.Size = new System.Drawing.Size(189, 20);
+            this.altaTimePicker.Size = new System.Drawing.Size(214, 20);
             this.altaTimePicker.TabIndex = 10;
             // 
             // vencimientoTimePicker
             // 
-            this.vencimientoTimePicker.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.vencimientoTimePicker.Location = new System.Drawing.Point(198, 90);
+            this.vencimientoTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.vencimientoTimePicker.Location = new System.Drawing.Point(149, 90);
             this.vencimientoTimePicker.Name = "vencimientoTimePicker";
-            this.vencimientoTimePicker.Size = new System.Drawing.Size(189, 20);
+            this.vencimientoTimePicker.Size = new System.Drawing.Size(214, 20);
             this.vencimientoTimePicker.TabIndex = 11;
             // 
             // limpiarButton
@@ -248,9 +294,9 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 83.33334F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.Controls.Add(this.montoValor, 0, 0);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 79.14111F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.8589F));
+            this.tableLayoutPanel1.Controls.Add(this.montoValor, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.montoLabel, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(19, 148);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -261,13 +307,14 @@
             // 
             // montoValor
             // 
-            this.montoValor.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.montoValor.AutoSize = true;
-            this.montoValor.Location = new System.Drawing.Point(437, 12);
+            this.montoValor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.montoValor.Enabled = false;
+            this.montoValor.Location = new System.Drawing.Point(389, 8);
             this.montoValor.Name = "montoValor";
-            this.montoValor.Size = new System.Drawing.Size(49, 13);
-            this.montoValor.TabIndex = 1;
-            this.montoValor.Text = "<Monto>";
+            this.montoValor.Size = new System.Drawing.Size(97, 20);
+            this.montoValor.TabIndex = 12;
+            this.montoValor.Text = "0";
+            this.montoValor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // montoLabel
             // 
@@ -275,7 +322,7 @@
             this.montoLabel.AutoSize = true;
             this.montoLabel.Location = new System.Drawing.Point(3, 12);
             this.montoLabel.Name = "montoLabel";
-            this.montoLabel.Size = new System.Drawing.Size(401, 13);
+            this.montoLabel.Size = new System.Drawing.Size(380, 13);
             this.montoLabel.TabIndex = 0;
             this.montoLabel.Text = "Monto total de factura";
             // 
@@ -301,7 +348,9 @@
             this.itemDataGrid.Name = "itemDataGrid";
             this.itemDataGrid.Size = new System.Drawing.Size(489, 115);
             this.itemDataGrid.TabIndex = 0;
-            this.itemDataGrid.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.itemDataGrid_RowLeave);
+            this.itemDataGrid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.itemDataGrid_CellValueChanged);
+            this.itemDataGrid.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.itemDataGrid_EditingControlShowing);
+            this.itemDataGrid.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.itemDataGrid_KeyPress);
             // 
             // nombre
             // 
@@ -353,52 +402,6 @@
             this.completarButton.UseVisualStyleBackColor = true;
             this.completarButton.Click += new System.EventHandler(this.completarButton_Click);
             // 
-            // numeroTextBox
-            // 
-            this.numeroTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.numeroTextBox.Location = new System.Drawing.Point(198, 10);
-            this.numeroTextBox.Maximum = new decimal(new int[] {
-            2147483647,
-            0,
-            0,
-            0});
-            this.numeroTextBox.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numeroTextBox.Name = "numeroTextBox";
-            this.numeroTextBox.Size = new System.Drawing.Size(189, 20);
-            this.numeroTextBox.TabIndex = 12;
-            this.numeroTextBox.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // dniClienteTextBox
-            // 
-            this.dniClienteTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dniClienteTextBox.Location = new System.Drawing.Point(198, 130);
-            this.dniClienteTextBox.Maximum = new decimal(new int[] {
-            2147483647,
-            0,
-            0,
-            0});
-            this.dniClienteTextBox.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.dniClienteTextBox.Name = "dniClienteTextBox";
-            this.dniClienteTextBox.Size = new System.Drawing.Size(189, 20);
-            this.dniClienteTextBox.TabIndex = 12;
-            this.dniClienteTextBox.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
             // FacturaCompletado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -416,14 +419,14 @@
             this.altaGroup.PerformLayout();
             this.facturaLayout.ResumeLayout(false);
             this.facturaLayout.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dniClienteTextBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numeroTextBox)).EndInit();
             this.itemsBox.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sQL_BOYS_Data_Set)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numeroTextBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dniClienteTextBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -440,10 +443,7 @@
         private System.Windows.Forms.Label empresaLabel;
         private System.Windows.Forms.Label tituloLabel;
         private System.Windows.Forms.TableLayoutPanel facturaLayout;
-        private System.Windows.Forms.ComboBox empresasNombreComboBox;
         private System.Windows.Forms.Button buscadorCliente;
-        private System.Windows.Forms.DateTimePicker altaTimePicker;
-        private System.Windows.Forms.DateTimePicker vencimientoTimePicker;
         private System.Windows.Forms.GroupBox itemsBox;
         private System.Windows.Forms.Button limpiarItemsButton;
         private System.Windows.Forms.DataGridView itemDataGrid;
@@ -452,14 +452,17 @@
         private DataSet.SQL_BOYS_Data_SetTableAdapters.ItemTableAdapter itemTableAdapter;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label montoLabel;
-        private System.Windows.Forms.Label montoValor;
         private System.Windows.Forms.Button limpiarTodoButton;
         private System.Windows.Forms.Button completarButton;
         private System.Windows.Forms.CheckBox habilitadaCheckBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn monto;
-        private System.Windows.Forms.NumericUpDown numeroTextBox;
-        private System.Windows.Forms.NumericUpDown dniClienteTextBox;
+        public System.Windows.Forms.ComboBox empresasNombreComboBox;
+        public System.Windows.Forms.DateTimePicker altaTimePicker;
+        public System.Windows.Forms.DateTimePicker vencimientoTimePicker;
+        public System.Windows.Forms.NumericUpDown numeroTextBox;
+        public System.Windows.Forms.NumericUpDown dniClienteTextBox;
+        private System.Windows.Forms.TextBox montoValor;
     }
 }

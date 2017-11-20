@@ -990,6 +990,47 @@ CREATE PROCEDURE SQL_BOYS.modificacionDeFactura (@numero_factura NUMERIC(18, 0),
 
 GO
 
+CREATE FUNCTION SQL_BOYS.buscarFactura (@numero_factura NUMERIC(18, 0)) RETURNS BIT AS
+	
+	BEGIN
+
+		DECLARE @vof BIT
+
+		IF (EXISTS(SELECT 1 FROM SQL_BOYS.Factura WHERE numero_factura = @numero_factura))
+		
+			SET @vof = 1
+		
+		ELSE
+
+			SET @vof = 0
+
+		RETURN @vof
+
+	END
+
+GO
+
+CREATE FUNCTION SQL_BOYS.buscarCliente (@dni_cliente NUMERIC(18, 0)) RETURNS BIT AS
+	
+	BEGIN
+
+		DECLARE @vof BIT
+
+		IF (EXISTS(SELECT 1 FROM SQL_BOYS.Cliente WHERE dni_cliente = @dni_cliente))
+		
+			SET @vof = 1
+		
+		ELSE
+
+			SET @vof = 0
+
+		RETURN @vof
+
+	END
+
+GO
+
+
 CREATE FUNCTION SQL_BOYS.filtrarFactura (@numero_factura NUMERIC(18, 0), @cuit_empresa NVARCHAR(255), @dni_cliente NUMERIC(18, 0), @pagada BIT, @rendida BIT, @habilitadx BIT) RETURNS TABLE AS
 	
 	RETURN

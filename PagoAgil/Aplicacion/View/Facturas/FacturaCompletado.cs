@@ -1,6 +1,7 @@
 ﻿using PagoAgil.Aplicacion.Builders;
 using PagoAgil.Aplicacion.Builders.Excepciones;
 using PagoAgil.Aplicacion.Modelo;
+using PagoAgil.Aplicacion.Orquestradores.TiposDeABM;
 using PagoAgil.Aplicacion.Orquestradores.TiposDeABM.ABMs;
 using PagoAgil.Aplicacion.View.Empresas;
 using PagoAgil.Aplicacion.View.Excepciones;
@@ -18,7 +19,7 @@ using System.Windows.Forms;
 
 namespace PagoAgil.Aplicacion.View.Facturas
 {
-    public partial class FacturaCompletado : Form
+    public partial class FacturaCompletado : Form, FormABMAdapter
     {
         public FacturaCompletadoVM viewModel = new FacturaCompletadoVM();
 
@@ -44,6 +45,17 @@ namespace PagoAgil.Aplicacion.View.Facturas
             this.completarButton.Text = FacturaABM.instanciar().titulosCompletado()[3];
         }
 
+        private void iniciarCampos()
+        {
+            this.limpiarBase();
+
+            this.viewModel.factura.fecha_alta = this.altaTimePicker.Value;
+            this.viewModel.factura.fecha_vencimiento = this.vencimientoTimePicker.Value;
+            foreach (Empresa unaEmpresa in this.viewModel.empresas) this.empresasNombreComboBox.Items.Add(unaEmpresa);
+            this.empresasNombreComboBox.DisplayMember = "cuit";
+            this.habilitadaCheckBox.CheckState = CheckState.Checked;
+        }
+
         private void rellenarConLoAnterior()
         {
             if(this.viewModel.factura.numero != null) this.numeroTextBox.Text = this.viewModel.factura.numero.ToString();
@@ -55,19 +67,6 @@ namespace PagoAgil.Aplicacion.View.Facturas
             foreach (Item i in this.viewModel.factura.items) this.itemDataGrid.Rows.Add(i.nombre, i.cantidad.ToString(), i.monto.ToString());
             this.montoValor.Text = this.viewModel.factura.items.Sum(i => i.montoTotal()).ToString();
             this.viewModel.factura.items = new List<Item>();
-        }
-
-        private void iniciarCampos()
-        {
-            this.altaTimePicker.Value = DateTime.Now;
-            this.viewModel.factura.fecha_alta = this.altaTimePicker.Value;
-            this.vencimientoTimePicker.Value = DateTime.Now.AddDays(1);
-            this.viewModel.factura.fecha_vencimiento = this.vencimientoTimePicker.Value;
-            foreach (Empresa unaEmpresa in this.viewModel.empresas) this.empresasNombreComboBox.Items.Add(unaEmpresa);
-            this.empresasNombreComboBox.DisplayMember = "cuit";
-            this.habilitadaCheckBox.CheckState = CheckState.Indeterminate;
-            this.limpiarItems();
-            this.montoValor.Text = "";
         }
 
         private void limpiarBase()
@@ -87,6 +86,7 @@ namespace PagoAgil.Aplicacion.View.Facturas
             this.viewModel.factura.items = new List<Item>();
 
             this.itemDataGrid.Rows.Clear();
+            this.montoValor.Text = "0";
         }
 
         private void limpiarButton_Click(object sender, EventArgs e)
@@ -137,11 +137,24 @@ namespace PagoAgil.Aplicacion.View.Facturas
             }
             catch (Exception)
             {
-
+                this.viewModel.factura.items = new List<Item>();
             }
         }
 
-        private void itemDataGrid_RowLeave(object sender, DataGridViewCellEventArgs e)
+        private void itemDataGrid_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            e.Control.KeyPress += new KeyPressEventHandler(itemDataGrid_KeyPress);
+        }
+
+
+        private void itemDataGrid_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && itemDataGrid.CurrentCell.ColumnIndex == 1) e.Handled = true;
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ',' && itemDataGrid.CurrentCell.ColumnIndex == 2) e.Handled = true;
+        }
+
+        private void itemDataGrid_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             float montoActual = 0;
 
@@ -182,11 +195,21 @@ namespace PagoAgil.Aplicacion.View.Facturas
             }
             catch (NoSePuedeCrearException excepcion)
             {
+                this.viewModel.factura.items = new List<Item>();
+
                 new EmpresasAdvertenciaFaltanCampos(this, excepcion).Show();
             }
             catch (YaExisteObjetoConEsaClave excepcion)
             {
-                new EmpresasAdvertenciaMismoCuit(this, excepcion).Show();
+                this.viewModel.factura.items = new List<Item>();
+
+                new EmpresasAdvertenciaRendicionesPendientes(excepcion.mensaje).Show();
+            }
+            catch (NoExisteObjetoConEsaClave excepcion)
+            {
+                this.viewModel.factura.items = new List<Item>();
+
+                new EmpresasAdvertenciaRendicionesPendientes(excepcion.mensaje).Show();
             }
         }
 
@@ -195,5 +218,19 @@ namespace PagoAgil.Aplicacion.View.Facturas
 
         }
 
+        public void alta()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void baja()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void modificacion()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
