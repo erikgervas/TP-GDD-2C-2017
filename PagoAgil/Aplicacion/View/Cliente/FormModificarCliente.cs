@@ -32,12 +32,20 @@ namespace PagoAgil.Aplicacion.View.Cliente
         private TextBox nombreTextBox;
         private CheckBox habilitadoCheckBox;
         ClienteDB cliente;
-
-        public FormModificarCliente(ClienteDB c)
+        FormABMCliente _owner;
+       
+        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _owner.PerformRefresh();
+        }
+        public FormModificarCliente(ClienteDB c, FormABMCliente owner)
         {
             InitializeComponent();
             this.CenterToScreen();
             this.cliente = c;
+
+            _owner = owner;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
         }
 
         private void InitializeComponent()
@@ -268,6 +276,7 @@ namespace PagoAgil.Aplicacion.View.Cliente
         {
 
         }
+       
 
         private void FormModificarCliente_Load(object sender, EventArgs e)
         {
@@ -285,10 +294,10 @@ namespace PagoAgil.Aplicacion.View.Cliente
         private void guardarButton_Click(object sender, EventArgs e)
         {
             ClienteDB c = new ClienteDB();
-            
+            c.id = long.Parse( dniTextBox.Text);
             c.nombre = nombreTextBox.Text;
             c.apellido = apellidoTextBox.Text;
-            c.domicilio = codigoPostal.Text;
+            c.domicilio = direccionTextBox.Text;
             c.habilitado = habilitadoCheckBox.Checked;
             c.mail = mailTextBox.Text;
             c.nacimiento = DateTime.Parse(dateTimePicker1.Text);

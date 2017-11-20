@@ -29,7 +29,20 @@ namespace PagoAgil.Aplicacion.View
         private Button limpiarButton;
         private Button guardarButton;
         private Label label8;
+        FormABMCliente _owner;
+        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _owner.PerformRefresh();
+        }
+        public FormAltaCliente(FormABMCliente owner)
+        {
+            InitializeComponent();
+            this.CenterToScreen();
+            
 
+            _owner = owner;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
+        }
         private void InitializeComponent()
         {
             this.nombreTextBox = new System.Windows.Forms.TextBox();
@@ -240,19 +253,41 @@ namespace PagoAgil.Aplicacion.View
         private void guardarButton_Click(object sender, EventArgs e)
         {
             ClienteDB c = new ClienteDB();
+            
+            if(dniTextBox.Text.Length>0)
             c.id = Int32.Parse(dniTextBox.Text);
-            c.nombre = nombreTextBox.Text;
-            c.apellido = apellidoTextBox.Text;
-            c.domicilio = codigoPostal.Text;
-            c.habilitado = true;
-            c.mail = mailTextBox.Text;
-            c.nacimiento = DateTime.Parse(dateTimePicker1.Text);
-            c.telefono = Int32.Parse(telefonoTextBox.Text);
-            c.codigoPostal = codigoPostal.Text;
 
-            if (c.id == 0 || c.nombre == null || c.apellido == null || c.domicilio == null || c.codigoPostal == null) 
+            if (nombreTextBox.Text.Length > 0)
+            c.nombre = nombreTextBox.Text;
+
+            if(apellidoTextBox.Text.Length>0)
+            c.apellido = apellidoTextBox.Text;
+
+            if (direccionTextBox.Text.Length > 0)
+                c.domicilio = direccionTextBox.Text;
+            else
+                c.domicilio = "NINGUNO";
+         
+            c.habilitado = true;
+
+            if (mailTextBox.Text.Length > 0)
+                c.mail = mailTextBox.Text;
+            
+            c.nacimiento = DateTime.Parse(dateTimePicker1.Text);
+
+            if (telefonoTextBox.Text.Length > 0)
+                c.telefono = Int32.Parse(telefonoTextBox.Text);
+            else
+                c.telefono = 0;
+
+            if (codigoPostal.Text.Length > 0)
+                c.codigoPostal = codigoPostal.Text;
+            else
+                c.codigoPostal = "NINGUNO";
+
+            if (c.id == 0 || c.nombre == null || c.apellido == null || c.mail==null) 
             {
-                MessageBox.Show("Los campos DNI, Nombre y apellido no pueden estar vacios");
+                MessageBox.Show("Los campos DNI, Nombre, apellido e email no pueden estar vacios");
             }
             else { 
             RepositorioClientes.getInstance().almacenamiento.aniadir(c);

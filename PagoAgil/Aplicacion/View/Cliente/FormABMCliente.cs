@@ -166,6 +166,7 @@ namespace PagoAgil.Aplicacion.View
             this.groupBox1.Size = new System.Drawing.Size(682, 309);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // FormABMCliente
             // 
@@ -197,7 +198,7 @@ namespace PagoAgil.Aplicacion.View
 
         private void nuevoClienteButton_Click(object sender, EventArgs e)
         {
-            Form altaClinte = new FormAltaCliente();
+            Form altaClinte = new FormAltaCliente(this);
             altaClinte.Show();
 
         }
@@ -234,8 +235,9 @@ namespace PagoAgil.Aplicacion.View
                 List<ClienteDB> c = clientesVM.obtenerClientesFiltradosPor("dni_cliente", "=", dni);
 
                 ClienteDB cliente = clientesVM.obtenerClientes().ElementAt(e.RowIndex);
-                Form mc = new FormModificarCliente(c.ElementAt(0));
+                Form mc = new FormModificarCliente(c.ElementAt(0),this);
             mc.Show();
+              
             }
             if (e.ColumnIndex == 0)
             {
@@ -293,6 +295,11 @@ namespace PagoAgil.Aplicacion.View
             
         }
 
+        internal void PerformRefresh()
+        {
+            dataGridView2.DataSource = clientesVM.obtenerClientes(); 
+        }
+
         private void limpiarButton_Click(object sender, EventArgs e)
         {
             dataGridView2.DataSource = clientesVM.obtenerClientes();
@@ -326,6 +333,11 @@ namespace PagoAgil.Aplicacion.View
 
 
             //MessageBox.Show(cliente.Nombre);
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
