@@ -301,7 +301,7 @@ namespace PagoAgil.Aplicacion.View
         private void condicionTextBox_TextChanged(object sender, EventArgs e)
         {
            
-            if (condicionTextBox.Text==null)
+            if (condicionTextBox.Text.Length==0)
                 buscarButton.Enabled = false;
             else
                 buscarButton.Enabled = true;
