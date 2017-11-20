@@ -26,19 +26,5 @@ namespace PagoAgil.Aplicacion.View.Empresas
             this.Text = EmpresaABM.instanciar().titulosOk()[0];
             this.confirmacionText.Text = EmpresaABM.instanciar().titulosOk()[1];
         }
-
-        private void volverAInicioButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-
-            new FormHome().Show();
-        }
-
-        private void volverAEmpresasButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-
-            new EmpresasSeleccionABM().Show();
-        }
     }
 }

@@ -27,25 +27,14 @@ namespace PagoAgil.Aplicacion.Orquestradores.TiposDeABM
             return new string[] { "Baja de " + abm, "La " + abm + " se ha dado de baja con éxito." };
         }
 
-        public void botones(EmpresasConfirmacion empresasConfirmacion)
+        public void mostrar(FormABMAdapter form)
         {
-            empresasConfirmacion.seguirModificandoButton.Visible = false;
-            empresasConfirmacion.habilitadaCheckBox.Enabled = false;
-        }
-
-        public void botones(EmpresasCompletado empresasCompletado)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void botones(FacturaConfirmado facturaConfirmado)
-        {
-
+            form.baja();
         }
 
         public void realizate(Repositorio<E> repositorio, E entidad)
         {
-            repositorio.almacenamiento.eliminar(entidad);
+            repositorio.baja(entidad);
         }
     }
 }

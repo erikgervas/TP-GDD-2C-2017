@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace PagoAgil.Aplicacion.View.Empresas
 {
-    public partial class EmpresasConfirmacion : Form
+    public partial class EmpresasConfirmacion : Form, FormABMAdapter
     {
         private EmpresaBuilder empresa;
 
@@ -26,7 +26,7 @@ namespace PagoAgil.Aplicacion.View.Empresas
             this.empresa = empresaBuilder;
             this.iniciarTitulos();
             this.completarCampos();
-            EmpresaABM.instanciar().determinarBotones(this);
+            EmpresaABM.instanciar().mostrar(this);
         }
 
         private void iniciarTitulos()
@@ -63,5 +63,15 @@ namespace PagoAgil.Aplicacion.View.Empresas
 
             new EmpresasOk().Show();
         }
+
+        public void alta() { }
+
+        public void baja()
+        {
+            this.seguirModificandoButton.Visible = false;
+            this.habilitadaCheckBox.Enabled = false;
+        }
+
+        public void modificacion() { }
     }
 }

@@ -1,5 +1,9 @@
-﻿using PagoAgil.Aplicacion.Builders;
+﻿using PagoAgil.Aplicacion.BD.MediosPersistentes.Medios;
+using PagoAgil.Aplicacion.BD.Repositorios;
+using PagoAgil.Aplicacion.BD.Utils;
+using PagoAgil.Aplicacion.Builders;
 using PagoAgil.Aplicacion.Modelo;
+using PagoAgil.Aplicacion.Modelo.Excepciones;
 using PagoAgil.Aplicacion.Orquestradores.TiposDeABM;
 using PagoAgil.Aplicacion.Orquestradores.TiposDeABM.ABMs;
 using PagoAgil.Aplicacion.ViewModel;
@@ -24,7 +28,7 @@ namespace PagoAgil.Aplicacion.View.Empresas
         {
             InitializeComponent();
             this.CenterToScreen();
-            if (this.empresaElegidaText.Value == 0) this.empresaElegidaText.Text = "";
+            this.empresaElegidaText.Text = "";
             foreach (String rubro in this.viewModel.rubros) this.rubroComboBox.Items.Add(rubro);
             this.viewModel.empresa = new EmpresaBuilder();
             this.empresasDataGrid.DataSource = null;
@@ -43,14 +47,14 @@ namespace PagoAgil.Aplicacion.View.Empresas
             this.cuitText.Text = null;
             this.rubroComboBox.Text = null;
             this.empresasDataGrid.DataSource = null;
-            this.empresaElegidaText.Value = 1;
+            this.empresaElegidaText.Value = 0;
+            this.empresaElegidaText.Text = "";
 
             this.viewModel.empresa = new EmpresaBuilder();
         }
 
         private void buscarButton_Click(object sender, EventArgs e)
         {
-            
             this.empresasDataGrid.DataSource = this.viewModel.buscar(this.nombreText.Text, this.cuitText.Text, this.rubroComboBox.Text, (long) this.empresaElegidaText.Value);
         }
 
@@ -100,14 +104,23 @@ namespace PagoAgil.Aplicacion.View.Empresas
 
         private void generarEmpresa()
         {
-            this.viewModel.empresa.id = long.Parse(valorCelda(0));
-            this.viewModel.empresa.nombre = valorCelda(1);
-            this.viewModel.empresa.cuit = valorCelda(2);
-            this.viewModel.empresa.direccion = valorCelda(3);
-            this.viewModel.empresa.porcentajeComision = ushort.Parse(this.valorCelda(4));
-            this.viewModel.empresa.diaRendicion = ushort.Parse(this.valorCelda(5));
-            this.viewModel.empresa.rubro = valorCelda(7);
-            this.viewModel.empresa.estado = (bool) filaElegida.Cells[8].Value;
+            try
+            {
+                this.viewModel.empresa.id = long.Parse(valorCelda(0));
+                this.viewModel.empresa.nombre = valorCelda(1);
+                this.viewModel.empresa.cuit = valorCelda(2);
+                this.viewModel.empresa.direccion = valorCelda(3);
+                this.viewModel.empresa.porcentajeComision = ushort.Parse(this.valorCelda(4));
+                this.viewModel.empresa.diaRendicion = ushort.Parse(this.valorCelda(5));
+                this.viewModel.empresa.rubro = valorCelda(7);
+                bool estado = (bool) filaElegida.Cells[8].Value;
+                this.viewModel.empresa.estado = estado;
+                EmpresaABM.instanciar().estado = estado;
+            }
+            catch (FormatException)
+            {
+
+            }
         }
 
         private string valorCelda(int celda)
@@ -117,8 +130,6 @@ namespace PagoAgil.Aplicacion.View.Empresas
 
         private void modificarButton_Click(object sender, EventArgs e)
         {
-            this.Close();
-
             EmpresaABM.instanciar().abm = new Modificacion<Empresa>();
 
             new EmpresasCompletado(this.viewModel.empresa).Show();
@@ -126,11 +137,21 @@ namespace PagoAgil.Aplicacion.View.Empresas
 
         private void bajaButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            try
+            {
 
-            EmpresaABM.instanciar().abm = new Baja<Empresa>();
+                int facturasPendientesDeRendicion = (int) EjecutadorDeFunciones.instanciar().ejecutarFuncion("cantidadDeFacturasPorRendirDeEmpresa", this.viewModel.empresa.id, SqlDbType.Int);
 
-            new EmpresasConfirmacion(this.viewModel.empresa).Show();
+                if (facturasPendientesDeRendicion != 0) throw new FacturasPendientesDeRendicionException(this.viewModel.empresa, facturasPendientesDeRendicion);
+
+                EmpresaABM.instanciar().abm = new Baja<Empresa>();
+
+                new EmpresasConfirmacion(this.viewModel.empresa).Show();
+            }
+            catch (FacturasPendientesDeRendicionException excepcion)
+            {
+                new EmpresasAdvertenciaRendicionesPendientes(excepcion).Show();
+            }
         }
     }
 }

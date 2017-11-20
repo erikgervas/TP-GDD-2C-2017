@@ -25,7 +25,6 @@ namespace PagoAgil.Aplicacion.View.Facturas
             this.factura = facturaBuilder;
             this.iniciarTitulos();
             this.completarCampos();
-            FacturaABM.instanciar().determinarBotones(this);
         }
 
         private void completarCampos()

@@ -2,6 +2,7 @@
 using PagoAgil.Aplicacion.Orquestradores;
 using PagoAgil.Aplicacion.View;
 using PagoAgil.Aplicacion.View.Empresas;
+using PagoAgil.Aplicacion.View.Facturas;
 using System;
 using System.Windows.Forms;
 

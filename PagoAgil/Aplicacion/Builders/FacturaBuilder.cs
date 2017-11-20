@@ -1,7 +1,11 @@
-﻿using PagoAgil.Aplicacion.Builders.Excepciones;
+﻿using PagoAgil.Aplicacion.BD.Repositorios;
+using PagoAgil.Aplicacion.BD.Utils;
+using PagoAgil.Aplicacion.Builders.Excepciones;
 using PagoAgil.Aplicacion.Modelo;
+using PagoAgil.Aplicacion.View.Excepciones;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,6 +36,7 @@ namespace PagoAgil.Aplicacion.Builders
         {
             revisarLlenado();
             existeOtroIgual();
+            noExisteDni();
         }
 
         private void revisarLlenado()
@@ -50,7 +55,26 @@ namespace PagoAgil.Aplicacion.Builders
 
         private void existeOtroIgual()
         {
-            // if (Existe otra empresa igual) throw new YaExisteObjetoConEsaClave();
+            if ( (bool) EjecutadorDeFunciones.instanciar().ejecutarFuncion("buscarFactura", this.numero, SqlDbType.Int))
+            {
+                YaExisteObjetoConEsaClave excepcion = new YaExisteObjetoConEsaClave();
+
+                excepcion.mensaje = "Ya existe la factura número " + this.numero + ".";
+
+                throw excepcion;
+            }
+        }
+
+        private void noExisteDni()
+        {
+            if ( ! (bool) EjecutadorDeFunciones.instanciar().ejecutarFuncion("buscarCliente", this.dni_cliente, SqlDbType.Int))
+            {
+                NoExisteObjetoConEsaClave excepcion = new NoExisteObjetoConEsaClave();
+
+                excepcion.mensaje = "No existe el DNI " + this.dni_cliente + ".";
+
+                throw excepcion;
+            }
         }
     }
 }

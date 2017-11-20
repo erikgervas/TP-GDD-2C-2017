@@ -59,7 +59,11 @@
     <Compile Include="Aplicacion\BD\Repositorios\RepositorioRoles.cs" />
     <Compile Include="Aplicacion\BD\Utils\Actualizador.cs" />
     <Compile Include="Aplicacion\BD\Utils\Despachador.cs" />
+<<<<<<< HEAD
     <Compile Include="Aplicacion\BD\Utils\Eliminador.cs" />
+=======
+    <Compile Include="Aplicacion\BD\Utils\EjecutadorDeFunciones.cs" />
+>>>>>>> 2d6563d72edb6cbf7fa79c3dab1389c1d2fe9ec2
     <Compile Include="Aplicacion\BD\Utils\EjecutadorDeProcedures.cs" />
     <Compile Include="Aplicacion\BD\Utils\Parametro.cs" />
     <Compile Include="Aplicacion\BD\Repositorios\RepositorioClientes.cs" />
@@ -77,6 +81,7 @@
     <Compile Include="Aplicacion\BD\Utils\DTO\TablaDTO.cs" />
     <Compile Include="Aplicacion\BD\Utils\ParametroFactory.cs" />
     <Compile Include="Aplicacion\Builders\EmpresaBuilder.cs" />
+    <Compile Include="Aplicacion\Builders\Excepciones\NoExisteObjetoConEsaClave.cs" />
     <Compile Include="Aplicacion\Builders\Excepciones\NoSePuedeCrearException.cs" />
     <Compile Include="Aplicacion\Builders\FacturaBuilder.cs" />
     <Compile Include="Aplicacion\Builders\ItemBuilder.cs" />
@@ -111,6 +116,7 @@
     <Compile Include="Aplicacion\Orquestradores\TiposDeABM\ABMs\FacturaABM.cs" />
     <Compile Include="Aplicacion\Orquestradores\TiposDeABM\Alta.cs" />
     <Compile Include="Aplicacion\Orquestradores\TiposDeABM\Baja.cs" />
+    <Compile Include="Aplicacion\Orquestradores\TiposDeABM\FormABMAdapter.cs" />
     <Compile Include="Aplicacion\Orquestradores\TiposDeABM\TipoDeABM.cs" />
     <Compile Include="Aplicacion\Orquestradores\GestorDeABM.cs" />
     <Compile Include="Aplicacion\Orquestradores\TiposDeABM\Modificacion.cs" />
@@ -208,6 +214,7 @@
       <DependentUpon>EmpresasSeleccionABM.cs</DependentUpon>
     </Compile>
     <Compile Include="Aplicacion\Builders\Excepciones\YaExisteObjetoConEsaClave.cs" />
+    <Compile Include="Aplicacion\Builders\Excepciones\FacturasPendientesDeRendicionException.cs" />
     <Compile Include="Aplicacion\View\Estadisticas\FormEstadisticas.cs">
       <SubType>Form</SubType>
     </Compile>
