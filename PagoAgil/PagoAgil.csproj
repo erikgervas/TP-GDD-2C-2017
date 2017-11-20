@@ -59,11 +59,8 @@
     <Compile Include="Aplicacion\BD\Repositorios\RepositorioRoles.cs" />
     <Compile Include="Aplicacion\BD\Utils\Actualizador.cs" />
     <Compile Include="Aplicacion\BD\Utils\Despachador.cs" />
-<<<<<<< HEAD
     <Compile Include="Aplicacion\BD\Utils\Eliminador.cs" />
-=======
     <Compile Include="Aplicacion\BD\Utils\EjecutadorDeFunciones.cs" />
->>>>>>> 2d6563d72edb6cbf7fa79c3dab1389c1d2fe9ec2
     <Compile Include="Aplicacion\BD\Utils\EjecutadorDeProcedures.cs" />
     <Compile Include="Aplicacion\BD\Utils\Parametro.cs" />
     <Compile Include="Aplicacion\BD\Repositorios\RepositorioClientes.cs" />
@@ -390,7 +387,6 @@
     <Compile Include="Aplicacion\View\Sucursales\SucursalesBuilder.cs" />
     <Compile Include="DataSet\SQL_BOYS_Data_Set.cs">
       <DependentUpon>SQL_BOYS_Data_Set.xsd</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
