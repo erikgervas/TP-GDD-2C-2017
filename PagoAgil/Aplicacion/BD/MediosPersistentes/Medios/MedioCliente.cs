@@ -1,4 +1,6 @@
-﻿using PagoAgil.Aplicacion.BD.Utils;
+﻿using PagoAgil.Aplicacion.BD.Repositorios;
+using PagoAgil.Aplicacion.BD.Utils;
+using PagoAgil.Aplicacion.BD.Utils.DTO;
 using PagoAgil.Aplicacion.Modelo.ClienteSQL;
 using System;
 using System.Collections.Generic;
@@ -22,7 +24,7 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
 
         public List<ClienteDB> darTodos()
         {
-            string query = "SELECT * FROM SQL_BOYS.Cliente";
+            string query = "SELECT * FROM SQL_BOYS.Cliente WHERE habilitadx=1";
 
             TablaDTO tabla = LectorDeTablas.getInstance().obtener(query);
 
@@ -64,12 +66,12 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
 
         public void eliminar(ClienteDB unaEntidad)
         {
-            throw new NotImplementedException();
+            Eliminador.getInstance().eliminarCliente(unaEntidad);
         }
 
         public void modificar(ClienteDB unaEntidad)
         {
-            throw new NotImplementedException();
+            Actualizador.getInstance().actualizarCliente(unaEntidad);
         }
 
         public List<string> obtenerCamposCliente()

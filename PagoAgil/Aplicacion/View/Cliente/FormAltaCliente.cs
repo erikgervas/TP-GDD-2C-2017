@@ -262,7 +262,7 @@ namespace PagoAgil.Aplicacion.View
         {
             if (System.Text.RegularExpressions.Regex.IsMatch(dniTextBox.Text, "[^0-9]"))
             {
-                MessageBox.Show("Please enter only numbers.");
+                MessageBox.Show("Solo numeros");
                 dniTextBox.Text = dniTextBox.Text.Remove(dniTextBox.Text.Length - 1);
             }
         }
@@ -276,7 +276,7 @@ namespace PagoAgil.Aplicacion.View
         {
             if (System.Text.RegularExpressions.Regex.IsMatch(telefonoTextBox.Text, "[^0-9]"))
             {
-                MessageBox.Show("Please enter only numbers.");
+                MessageBox.Show("Solo numeros");
                 telefonoTextBox.Text = telefonoTextBox.Text.Remove(telefonoTextBox.Text.Length - 1);
             }
         }

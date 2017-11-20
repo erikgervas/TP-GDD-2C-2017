@@ -59,6 +59,7 @@
     <Compile Include="Aplicacion\BD\Repositorios\RepositorioRoles.cs" />
     <Compile Include="Aplicacion\BD\Utils\Actualizador.cs" />
     <Compile Include="Aplicacion\BD\Utils\Despachador.cs" />
+    <Compile Include="Aplicacion\BD\Utils\Eliminador.cs" />
     <Compile Include="Aplicacion\BD\Utils\EjecutadorDeProcedures.cs" />
     <Compile Include="Aplicacion\BD\Utils\Parametro.cs" />
     <Compile Include="Aplicacion\BD\Repositorios\RepositorioClientes.cs" />

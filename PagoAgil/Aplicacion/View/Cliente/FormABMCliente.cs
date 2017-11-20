@@ -1,4 +1,5 @@
-﻿using PagoAgil.Aplicacion.Modelo.ClienteSQL;
+﻿using PagoAgil.Aplicacion.BD.Repositorios;
+using PagoAgil.Aplicacion.Modelo.ClienteSQL;
 using PagoAgil.Aplicacion.View.Cliente;
 using PagoAgil.Aplicacion.ViewModel;
 using System;
@@ -25,6 +26,7 @@ namespace PagoAgil.Aplicacion.View
         private DataGridView dataGridView2;
         private ComboBox tipoFiltroComboBox;
         private Label label3;
+        private DataGridViewButtonColumn Eliminar;
         private DataGridViewButtonColumn Modificar;
         private System.ComponentModel.IContainer components;
 
@@ -40,6 +42,7 @@ namespace PagoAgil.Aplicacion.View
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tipoFiltroComboBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Modificar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -114,6 +117,7 @@ namespace PagoAgil.Aplicacion.View
             this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Eliminar,
             this.Modificar});
             this.dataGridView2.Location = new System.Drawing.Point(12, 397);
             this.dataGridView2.Name = "dataGridView2";
@@ -140,6 +144,12 @@ namespace PagoAgil.Aplicacion.View
             this.label3.Size = new System.Drawing.Size(73, 20);
             this.label3.TabIndex = 10;
             this.label3.Text = "Tipo filtro";
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
             // 
             // Modificar
             // 
@@ -183,6 +193,7 @@ namespace PagoAgil.Aplicacion.View
 
         private void FormABMCliente_Load(object sender, EventArgs e)
         {
+            buscarButton.Enabled = false;
             var clientes = clientesVM.obtenerClientes();
             var bindingList = new BindingList<ClienteDB>(clientes);
             var source = new BindingSource(bindingList, null);
@@ -205,10 +216,39 @@ namespace PagoAgil.Aplicacion.View
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            ClienteDB cliente = clientesVM.obtenerClientes().ElementAt(e.RowIndex);
+            if (e.ColumnIndex==1)
+            {
 
-            Form mc = new FormModificarCliente(cliente);
+                string dni = dataGridView2.Rows[e.RowIndex].Cells[10].FormattedValue.ToString();
+                List<ClienteDB> c = clientesVM.obtenerClientesFiltradosPor("dni_cliente", "=", dni);
+
+                ClienteDB cliente = clientesVM.obtenerClientes().ElementAt(e.RowIndex);
+                Form mc = new FormModificarCliente(c.ElementAt(0));
             mc.Show();
+            }
+            if (e.ColumnIndex == 0)
+            {
+                try
+                {
+                    string dni =dataGridView2.Rows[e.RowIndex].Cells[10].FormattedValue.ToString();
+                    ClienteDB cliente = clientesVM.obtenerClientes().ElementAt(e.RowIndex);
+
+                    List<ClienteDB> c = clientesVM.obtenerClientesFiltradosPor("dni_cliente", "=", dni);
+
+                    RepositorioClientes.getInstance().almacenamiento.eliminar(c.ElementAt(0));
+
+                    MessageBox.Show("Cliente elimando con exito");
+
+                    var clientes = clientesVM.obtenerClientes();
+                    var bindingList = new BindingList<ClienteDB>(clientes);
+                    var source = new BindingSource(bindingList, null);
+                    dataGridView2.DataSource = source;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
 
         private void CondicionComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -229,6 +269,8 @@ namespace PagoAgil.Aplicacion.View
 
         private void buscarButton_Click(object sender, EventArgs e)
         {
+          
+
             string condicionSeleccionada = CondicionComboBox.SelectedItem as string;
             string filtroCondicion = tipoFiltroComboBox.SelectedItem as string;
             string valorCondicion = condicionTextBox.Text as string;
@@ -236,6 +278,8 @@ namespace PagoAgil.Aplicacion.View
 
 
             dataGridView2.DataSource = clientesVM.obtenerClientesFiltradosPor(condicionSeleccionada, filtroCondicion, valorCondicion);
+            
+            
         }
 
         private void limpiarButton_Click(object sender, EventArgs e)
@@ -245,7 +289,11 @@ namespace PagoAgil.Aplicacion.View
 
         private void condicionTextBox_TextChanged(object sender, EventArgs e)
         {
-
+           
+            if (condicionTextBox.Text==null)
+                buscarButton.Enabled = false;
+            else
+                buscarButton.Enabled = true;
         }
 
 

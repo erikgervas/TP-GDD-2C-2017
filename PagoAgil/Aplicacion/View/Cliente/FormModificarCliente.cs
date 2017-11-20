@@ -181,6 +181,7 @@ namespace PagoAgil.Aplicacion.View.Cliente
             this.telefonoTextBox.Name = "telefonoTextBox";
             this.telefonoTextBox.Size = new System.Drawing.Size(201, 26);
             this.telefonoTextBox.TabIndex = 22;
+            this.telefonoTextBox.TextChanged += new System.EventHandler(this.telefonoTextBox_TextChanged);
             // 
             // mailTextBox
             // 
@@ -288,6 +289,15 @@ namespace PagoAgil.Aplicacion.View.Cliente
             else
             {
                 RepositorioClientes.getInstance().almacenamiento.modificar(c);
+            }
+        }
+
+        private void telefonoTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(dniTextBox.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Solo numeros");
+                dniTextBox.Text = dniTextBox.Text.Remove(dniTextBox.Text.Length - 1);
             }
         }
     }

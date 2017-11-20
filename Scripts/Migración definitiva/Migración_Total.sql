@@ -374,7 +374,7 @@ INSERT INTO SQL_BOYS.Rol_De_Usuario_Por_Sucursal (id_rol, id_usuario, cp_sucursa
 
 	VALUES (2, 1, 7210)
 
-INSERT INTO SQL_BOYS.Cliente(dni_cliente, nombre, apellido, nacimiento, mail, domicilio, codigo_postal, telefono, habilitadx)
+INSERT INTO SQL_BOYS.Cliente(dni_cliente,apellido ,nombre , nacimiento, mail, domicilio, codigo_postal, telefono, habilitadx)
 	
 	SELECT DISTINCT
 
