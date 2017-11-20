@@ -76,6 +76,7 @@
     <Compile Include="Aplicacion\BD\Repositorios\RepositorioUsuarios.cs" />
     <Compile Include="Aplicacion\BD\Utils\DTO\TablaDTO.cs" />
     <Compile Include="Aplicacion\BD\Utils\ParametroFactory.cs" />
+    <Compile Include="Aplicacion\BD\Utils\ProveedorDeTablas.cs" />
     <Compile Include="Aplicacion\Builders\EmpresaBuilder.cs" />
     <Compile Include="Aplicacion\Builders\Excepciones\NoExisteObjetoConEsaClave.cs" />
     <Compile Include="Aplicacion\Builders\Excepciones\NoSePuedeCrearException.cs" />
@@ -247,17 +248,17 @@
     <Compile Include="Aplicacion\View\Facturas\FacturaConfirmado.Designer.cs">
       <DependentUpon>FacturaConfirmado.cs</DependentUpon>
     </Compile>
-    <Compile Include="Aplicacion\View\Facturas\FacturaOk.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Aplicacion\View\Facturas\FacturaOk.Designer.cs">
-      <DependentUpon>FacturaOk.cs</DependentUpon>
-    </Compile>
     <Compile Include="Aplicacion\View\Facturas\FacturaSeleccionadorABM.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Aplicacion\View\Facturas\FacturaSeleccionadorABM.Designer.cs">
       <DependentUpon>FacturaSeleccionadorABM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicacion\View\Facturas\FacturasOk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Facturas\FacturasOk.Designer.cs">
+      <DependentUpon>FacturasOk.cs</DependentUpon>
     </Compile>
     <Compile Include="Aplicacion\View\Pago\Excepciones\ClienteDeshabilitadoException.cs" />
     <Compile Include="Aplicacion\View\Pago\Excepciones\FacturaInvalidaException.cs" />
@@ -448,11 +449,11 @@
     <EmbeddedResource Include="Aplicacion\View\Facturas\FacturaConfirmado.resx">
       <DependentUpon>FacturaConfirmado.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Aplicacion\View\Facturas\FacturaOk.resx">
-      <DependentUpon>FacturaOk.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\Facturas\FacturaSeleccionadorABM.resx">
       <DependentUpon>FacturaSeleccionadorABM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Facturas\FacturasOk.resx">
+      <DependentUpon>FacturasOk.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\Pago\FormPago.resx">
       <DependentUpon>FormPago.cs</DependentUpon>

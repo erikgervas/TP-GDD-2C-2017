@@ -1,11 +1,11 @@
 ﻿using PagoAgil.Aplicacion.Orquestradores.TiposDeABM.ABMs;
 using System.Windows.Forms;
 
-namespace PagoAgil.Aplicacion.View.Empresas
+namespace PagoAgil.Aplicacion.View.Facturas
 {
-    public partial class EmpresasOk : Form
+    public partial class FacturasOk : Form
     {
-        public EmpresasOk()
+        public FacturasOk()
         {
             InitializeComponent();
             this.iniciarTitulos();
@@ -14,8 +14,8 @@ namespace PagoAgil.Aplicacion.View.Empresas
 
         private void iniciarTitulos()
         {
-            this.Text = EmpresaABM.instanciar().titulosOk()[0];
-            this.confirmacionText.Text = EmpresaABM.instanciar().titulosOk()[1];
+            this.Text = FacturaABM.instanciar().titulosOk()[0];
+            this.confirmacionText.Text = FacturaABM.instanciar().titulosOk()[1];
         }
     }
 }

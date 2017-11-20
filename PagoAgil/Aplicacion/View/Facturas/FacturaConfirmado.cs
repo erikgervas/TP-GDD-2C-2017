@@ -1,7 +1,9 @@
 ﻿using PagoAgil.Aplicacion.BD.Repositorios;
 using PagoAgil.Aplicacion.Builders;
 using PagoAgil.Aplicacion.Modelo;
+using PagoAgil.Aplicacion.Orquestradores.TiposDeABM;
 using PagoAgil.Aplicacion.Orquestradores.TiposDeABM.ABMs;
+using PagoAgil.Aplicacion.View.Empresas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,9 +16,10 @@ using System.Windows.Forms;
 
 namespace PagoAgil.Aplicacion.View.Facturas
 {
-    public partial class FacturaConfirmado : Form
+    public partial class FacturaConfirmado : Form, FormABMAdapter
     {
         private FacturaBuilder factura;
+        private bool permitirItems;
 
         public FacturaConfirmado(FacturaBuilder facturaBuilder)
         {
@@ -25,6 +28,7 @@ namespace PagoAgil.Aplicacion.View.Facturas
             this.factura = facturaBuilder;
             this.iniciarTitulos();
             this.completarCampos();
+            FacturaABM.instanciar().mostrar(this);
         }
 
         private void completarCampos()
@@ -60,16 +64,32 @@ namespace PagoAgil.Aplicacion.View.Facturas
 
             FacturaABM.instanciar().realizarABM(RepositorioFacturas.instanciar(), nuevaFactura);
 
-            foreach (Item unItem in nuevaFactura.items) ItemABM.instanciar().realizarABM(RepositorioItems.instanciar(), unItem);
+            if(permitirItems) foreach (Item unItem in nuevaFactura.items) ItemABM.instanciar().realizarABM(RepositorioItems.instanciar(), unItem);
 
             this.Close();
 
-            new FacturaOk().Show();
+            new FacturasOk().Show();
         }
 
         private void FacturaConfirmado_Load(object sender, EventArgs e)
         {
 
+        }
+
+        public void alta()
+        {
+            permitirItems = true;
+        }
+
+        public void baja()
+        {
+            this.seguirModificandoButton.Visible = false;
+            permitirItems = false;
+        }
+
+        public void modificacion()
+        {
+            this.baja();
         }
     }
 }

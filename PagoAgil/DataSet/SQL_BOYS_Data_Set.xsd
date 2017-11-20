@@ -1167,6 +1167,31 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="viewFacturaBuscadorTableAdapter" GeneratorDataComponentClassName="viewFacturaBuscadorTableAdapter" Name="viewFacturaBuscador" UserDataComponentName="viewFacturaBuscadorTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="GD2C2017ConnectionString (Settings)" DbObjectName="GD2C2017.SQL_BOYS.viewFacturaBuscador" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT * FROM SQL_BOYS.viewFacturaBuscador</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Numero" DataSetColumn="Numero" />
+              <Mapping SourceColumn="Monto" DataSetColumn="Monto" />
+              <Mapping SourceColumn="Alta" DataSetColumn="Alta" />
+              <Mapping SourceColumn="Vencimiento" DataSetColumn="Vencimiento" />
+              <Mapping SourceColumn="Cliente" DataSetColumn="Cliente" />
+              <Mapping SourceColumn="Empresa" DataSetColumn="Empresa" />
+              <Mapping SourceColumn="Cuit_Empresa" DataSetColumn="Cuit_Empresa" />
+              <Mapping SourceColumn="Pago" DataSetColumn="Pago" />
+              <Mapping SourceColumn="Rendición" DataSetColumn="Rendición" />
+              <Mapping SourceColumn="Habilitadx" DataSetColumn="Habilitadx" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -1866,6 +1891,28 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="viewFacturaBuscador" msprop:Generator_TableClassName="viewFacturaBuscadorDataTable" msprop:Generator_TableVarName="tableviewFacturaBuscador" msprop:Generator_TablePropName="viewFacturaBuscador" msprop:Generator_RowDeletingName="viewFacturaBuscadorRowDeleting" msprop:Generator_RowChangingName="viewFacturaBuscadorRowChanging" msprop:Generator_RowEvHandlerName="viewFacturaBuscadorRowChangeEventHandler" msprop:Generator_RowDeletedName="viewFacturaBuscadorRowDeleted" msprop:Generator_UserTableName="viewFacturaBuscador" msprop:Generator_RowChangedName="viewFacturaBuscadorRowChanged" msprop:Generator_RowEvArgName="viewFacturaBuscadorRowChangeEvent" msprop:Generator_RowClassName="viewFacturaBuscadorRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Numero" msprop:Generator_ColumnVarNameInTable="columnNumero" msprop:Generator_ColumnPropNameInRow="Numero" msprop:Generator_ColumnPropNameInTable="NumeroColumn" msprop:Generator_UserColumnName="Numero" type="xs:decimal" />
+              <xs:element name="Monto" msprop:Generator_ColumnVarNameInTable="columnMonto" msprop:Generator_ColumnPropNameInRow="Monto" msprop:Generator_ColumnPropNameInTable="MontoColumn" msprop:Generator_UserColumnName="Monto" type="xs:decimal" />
+              <xs:element name="Alta" msprop:Generator_ColumnVarNameInTable="columnAlta" msprop:Generator_ColumnPropNameInRow="Alta" msprop:Generator_ColumnPropNameInTable="AltaColumn" msprop:Generator_UserColumnName="Alta" type="xs:dateTime" />
+              <xs:element name="Vencimiento" msprop:Generator_ColumnVarNameInTable="columnVencimiento" msprop:Generator_ColumnPropNameInRow="Vencimiento" msprop:Generator_ColumnPropNameInTable="VencimientoColumn" msprop:Generator_UserColumnName="Vencimiento" type="xs:dateTime" />
+              <xs:element name="Cliente" msprop:Generator_ColumnVarNameInTable="columnCliente" msprop:Generator_ColumnPropNameInRow="Cliente" msprop:Generator_ColumnPropNameInTable="ClienteColumn" msprop:Generator_UserColumnName="Cliente" type="xs:decimal" />
+              <xs:element name="Empresa" msprop:Generator_ColumnVarNameInTable="columnEmpresa" msprop:Generator_ColumnPropNameInRow="Empresa" msprop:Generator_ColumnPropNameInTable="EmpresaColumn" msprop:Generator_UserColumnName="Empresa" type="xs:int" />
+              <xs:element name="Cuit_Empresa" msprop:Generator_ColumnVarNameInTable="columnCuit_Empresa" msprop:Generator_ColumnPropNameInRow="Cuit_Empresa" msprop:Generator_ColumnPropNameInTable="Cuit_EmpresaColumn" msprop:Generator_UserColumnName="Cuit_Empresa">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Pago" msprop:Generator_ColumnVarNameInTable="columnPago" msprop:Generator_ColumnPropNameInRow="Pago" msprop:Generator_ColumnPropNameInTable="PagoColumn" msprop:Generator_UserColumnName="Pago" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Rendición" msprop:Generator_ColumnVarNameInTable="columnRendición" msprop:Generator_ColumnPropNameInRow="Rendición" msprop:Generator_ColumnPropNameInTable="RendiciónColumn" msprop:Generator_UserColumnName="Rendición" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Habilitadx" msprop:Generator_ColumnVarNameInTable="columnHabilitadx" msprop:Generator_ColumnPropNameInRow="Habilitadx" msprop:Generator_ColumnPropNameInTable="HabilitadxColumn" msprop:Generator_UserColumnName="Habilitadx" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -1941,6 +1988,10 @@ SELECT id_usuario, username, contraseña, habilitadx FROM Usuario WHERE (id_usua
     <xs:unique name="Usuario_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Usuario" />
       <xs:field xpath="mstns:id_usuario" />
+    </xs:unique>
+    <xs:unique name="viewFacturaBuscador_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:viewFacturaBuscador" />
+      <xs:field xpath="mstns:Numero" />
     </xs:unique>
   </xs:element>
   <xs:annotation>

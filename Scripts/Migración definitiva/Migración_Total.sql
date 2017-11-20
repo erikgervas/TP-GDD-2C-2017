@@ -971,18 +971,9 @@ CREATE PROCEDURE SQL_BOYS.modificacionDeFactura (@numero_factura NUMERIC(18, 0),
 
 			UPDATE SQL_BOYS.Factura
 
-				SET
+				SET habilitadx = 1
 
-					factura_monto_total = @factura_monto_total,
-					factura_fecha_alta = @factura_fecha_alta,
-					factura_fecha_vencimiento = @factura_fecha_vencimiento,
-					habilitadx = @habilitadx,
-					dni_cliente = @dni_cliente,
-					id_empresa = SQL_BOYS.obtenerEmpresa(@cuit_empresa)
-
-				WHERE
-				
-					numero_factura = @numero_factura
+				WHERE numero_factura = @numero_factura
 
 		COMMIT
 
@@ -1030,32 +1021,71 @@ CREATE FUNCTION SQL_BOYS.buscarCliente (@dni_cliente NUMERIC(18, 0)) RETURNS BIT
 
 GO
 
+CREATE FUNCTION SQL_BOYS.darItems (@numero_factura NUMERIC(18, 0)) RETURNS TABLE
 
-CREATE FUNCTION SQL_BOYS.filtrarFactura (@numero_factura NUMERIC(18, 0), @cuit_empresa NVARCHAR(255), @dni_cliente NUMERIC(18, 0), @pagada BIT, @rendida BIT, @habilitadx BIT) RETURNS TABLE AS
+	RETURN (
+				SELECT
+				
+					i.id_item,
+					i.nombre,
+					i.monto,
+					i.cantidad
+					
+				FROM SQL_BOYS.Item i
+
+				WHERE i.numero_factura = @numero_factura
+			)
+
+GO
+
+CREATE VIEW SQL_BOYS.viewFacturaBuscador AS
+
+		SELECT DISTINCT
+		
+			f.numero_factura AS Numero,
+			f.factura_monto_total AS Monto,
+			f.factura_fecha_alta AS Alta,
+			f.factura_fecha_vencimiento AS Vencimiento,
+			f.dni_cliente AS Cliente,
+			f.id_empresa AS Empresa,
+			e.cuit AS Cuit_Empresa,
+			ip.numero_pago AS Pago,
+			f.numero_rendicion AS Rendición,
+			f.habilitadx AS Habilitadx
+
+		FROM SQL_BOYS.Factura f
+
+		JOIN SQL_BOYS.Empresa e ON f.id_empresa = e.id_empresa
+		LEFT JOIN SQL_BOYS.Item_Pago ip ON f.numero_factura = ip.numero_factura
+		LEFT JOIN SQL_BOYS.Item_Rendicion ir ON f.numero_factura = ir.numero_rendicion
+
+GO
+
+CREATE FUNCTION SQL_BOYS.filtrarFactura (@numero_factura NUMERIC(18, 0), @cuit_empresa NVARCHAR(255), @dni_cliente NUMERIC(18, 0)) RETURNS TABLE AS
 	
 	RETURN
 
 		SELECT
 		
-			f.numero_factura,
-			f.factura_monto_total,
-			f.factura_fecha_alta,
-			f.factura_fecha_vencimiento,
-			f.habilitadx,
-			f.dni_cliente,
-			f.id_empresa,
-			f.numero_rendicion
+			Numero,
+			Monto,
+			Alta,
+			Vencimiento,
+			Cliente,
+			Empresa,
+			Cuit_Empresa,
+			Pago,
+			Rendición,
+			Habilitadx
 
-		FROM SQL_BOYS.Factura f
+		FROM SQL_BOYS.viewFacturaBuscador
 
 		WHERE
 
-			f.numero_factura = @numero_factura OR
-			f.id_empresa = SQL_BOYS.obtenerEmpresa(@cuit_empresa) OR
-			f.dni_cliente = @dni_cliente OR
-			(@pagada = 1 AND f.numero_factura IN (SELECT numero_factura FROM Item_Pago)) OR
-			(@rendida = 1 AND f.numero_factura IN (SELECT numero_factura FROM Item_Rendicion)) OR
-			f.habilitadx = @habilitadx
+			(@numero_factura = 0 AND LEN(@cuit_empresa) = 0 AND @dni_cliente = 0) OR
+			Numero = @numero_factura OR
+			Empresa = SQL_BOYS.obtenerEmpresa(@cuit_empresa) OR
+			Cliente = @dni_cliente
 
 GO
 
