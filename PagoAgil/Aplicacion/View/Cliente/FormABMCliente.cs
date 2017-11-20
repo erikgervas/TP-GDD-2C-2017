@@ -28,6 +28,7 @@ namespace PagoAgil.Aplicacion.View
         private Label label3;
         private DataGridViewButtonColumn Eliminar;
         private DataGridViewButtonColumn Modificar;
+        private GroupBox groupBox1;
         private System.ComponentModel.IContainer components;
 
         private void InitializeComponent()
@@ -40,10 +41,11 @@ namespace PagoAgil.Aplicacion.View
             this.label2 = new System.Windows.Forms.Label();
             this.nuevoClienteButton = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.tipoFiltroComboBox = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Modificar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.tipoFiltroComboBox = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,9 +106,9 @@ namespace PagoAgil.Aplicacion.View
             // 
             // nuevoClienteButton
             // 
-            this.nuevoClienteButton.Location = new System.Drawing.Point(824, 30);
+            this.nuevoClienteButton.Location = new System.Drawing.Point(941, 12);
             this.nuevoClienteButton.Name = "nuevoClienteButton";
-            this.nuevoClienteButton.Size = new System.Drawing.Size(199, 69);
+            this.nuevoClienteButton.Size = new System.Drawing.Size(102, 69);
             this.nuevoClienteButton.TabIndex = 7;
             this.nuevoClienteButton.Text = "NUEVO CLIENTE";
             this.nuevoClienteButton.UseVisualStyleBackColor = true;
@@ -128,6 +130,18 @@ namespace PagoAgil.Aplicacion.View
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             this.dataGridView2.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView2_CellMouseDoubleClick);
             // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            // 
+            // Modificar
+            // 
+            this.Modificar.HeaderText = "Modificar";
+            this.Modificar.Name = "Modificar";
+            this.Modificar.ReadOnly = true;
+            // 
             // tipoFiltroComboBox
             // 
             this.tipoFiltroComboBox.FormattingEnabled = true;
@@ -145,17 +159,13 @@ namespace PagoAgil.Aplicacion.View
             this.label3.TabIndex = 10;
             this.label3.Text = "Tipo filtro";
             // 
-            // Eliminar
+            // groupBox1
             // 
-            this.Eliminar.HeaderText = "Eliminar";
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
-            // 
-            // Modificar
-            // 
-            this.Modificar.HeaderText = "Modificar";
-            this.Modificar.Name = "Modificar";
-            this.Modificar.ReadOnly = true;
+            this.groupBox1.Location = new System.Drawing.Point(199, 56);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(682, 309);
+            this.groupBox1.TabIndex = 11;
+            this.groupBox1.TabStop = false;
             // 
             // FormABMCliente
             // 
@@ -170,6 +180,7 @@ namespace PagoAgil.Aplicacion.View
             this.Controls.Add(this.CondicionComboBox);
             this.Controls.Add(this.buscarButton);
             this.Controls.Add(this.limpiarButton);
+            this.Controls.Add(this.groupBox1);
             this.Name = "FormABMCliente";
             this.Load += new System.EventHandler(this.FormABMCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
@@ -294,6 +305,15 @@ namespace PagoAgil.Aplicacion.View
                 buscarButton.Enabled = false;
             else
                 buscarButton.Enabled = true;
+
+            if(CondicionComboBox.Text == "dni_cliente" || CondicionComboBox.Text == "telefono")
+            {
+                if (System.Text.RegularExpressions.Regex.IsMatch(condicionTextBox.Text, "[^0-9]"))
+                {
+                    MessageBox.Show("Solo numeros");
+                    condicionTextBox.Text = condicionTextBox.Text.Remove(condicionTextBox.Text.Length - 1);
+                }
+            }
         }
 
 

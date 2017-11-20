@@ -24,7 +24,7 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
 
         public List<ClienteDB> darTodos()
         {
-            string query = "SELECT * FROM SQL_BOYS.Cliente WHERE habilitadx=1";
+            string query = "SELECT * FROM SQL_BOYS.Cliente";
 
             TablaDTO tabla = LectorDeTablas.getInstance().obtener(query);
 
