@@ -387,6 +387,7 @@
     <Compile Include="Aplicacion\View\Sucursales\SucursalesBuilder.cs" />
     <Compile Include="DataSet\SQL_BOYS_Data_Set.cs">
       <DependentUpon>SQL_BOYS_Data_Set.xsd</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
