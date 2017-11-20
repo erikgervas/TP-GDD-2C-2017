@@ -257,10 +257,7 @@ namespace PagoAgil.Aplicacion.View
 
                     MessageBox.Show("Cliente elimando con exito");
 
-                    var clientes = clientesVM.obtenerClientes();
-                    var bindingList = new BindingList<ClienteDB>(clientes);
-                    var source = new BindingSource(bindingList, null);
-                    dataGridView2.DataSource = source;
+                    PerformRefresh();
                 }
                 catch (Exception ex)
                 {
@@ -302,12 +299,15 @@ namespace PagoAgil.Aplicacion.View
 
         internal void PerformRefresh()
         {
-            dataGridView2.DataSource = clientesVM.obtenerClientes(); 
+            dataGridView2.DataSource = clientesVM.obtenerClientes();
+            int i;
+            for (i = 0; i < dataGridView2.RowCount; i++)
+                dataGridView2.Rows[i].Cells[0].Style.BackColor = Color.DarkRed;
         }
 
         private void limpiarButton_Click(object sender, EventArgs e)
         {
-            dataGridView2.DataSource = clientesVM.obtenerClientes();
+            PerformRefresh();
         }
 
         private void condicionTextBox_TextChanged(object sender, EventArgs e)
