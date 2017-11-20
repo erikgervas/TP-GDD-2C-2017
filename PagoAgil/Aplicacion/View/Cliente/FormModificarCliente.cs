@@ -288,6 +288,8 @@ namespace PagoAgil.Aplicacion.View.Cliente
             direccionTextBox.Text = cliente.domicilio;
             codigoPostal.Text = cliente.codigoPostal;
             dateTimePicker1.Value = cliente.nacimiento;
+            if (cliente.habilitado)
+                habilitadoCheckBox.Visible = false;
             habilitadoCheckBox.Checked = cliente.habilitado;
         }
 

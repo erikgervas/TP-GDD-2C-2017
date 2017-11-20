@@ -5,6 +5,7 @@ using PagoAgil.Aplicacion.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,9 +27,9 @@ namespace PagoAgil.Aplicacion.View
         private DataGridView dataGridView2;
         private ComboBox tipoFiltroComboBox;
         private Label label3;
+        private GroupBox groupBox1;
         private DataGridViewButtonColumn Eliminar;
         private DataGridViewButtonColumn Modificar;
-        private GroupBox groupBox1;
         private System.ComponentModel.IContainer components;
 
         private void InitializeComponent()
@@ -41,11 +42,11 @@ namespace PagoAgil.Aplicacion.View
             this.label2 = new System.Windows.Forms.Label();
             this.nuevoClienteButton = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Modificar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tipoFiltroComboBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Modificar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -130,18 +131,6 @@ namespace PagoAgil.Aplicacion.View
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             this.dataGridView2.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView2_CellMouseDoubleClick);
             // 
-            // Eliminar
-            // 
-            this.Eliminar.HeaderText = "Eliminar";
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
-            // 
-            // Modificar
-            // 
-            this.Modificar.HeaderText = "Modificar";
-            this.Modificar.Name = "Modificar";
-            this.Modificar.ReadOnly = true;
-            // 
             // tipoFiltroComboBox
             // 
             this.tipoFiltroComboBox.FormattingEnabled = true;
@@ -167,6 +156,20 @@ namespace PagoAgil.Aplicacion.View
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Width = 70;
+            // 
+            // Modificar
+            // 
+            this.Modificar.HeaderText = "Modificar";
+            this.Modificar.Name = "Modificar";
+            this.Modificar.ReadOnly = true;
+            this.Modificar.Width = 80;
             // 
             // FormABMCliente
             // 
@@ -223,7 +226,9 @@ namespace PagoAgil.Aplicacion.View
             filtros.Add("!=");
 
             tipoFiltroComboBox.DataSource = filtros;
-
+            int i;
+            for (i=0;i<dataGridView2.RowCount;i++)
+            dataGridView2.Rows[i].Cells[0].Style.BackColor = Color.DarkRed;
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
