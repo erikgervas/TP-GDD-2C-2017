@@ -70,8 +70,6 @@ namespace PagoAgil.Aplicacion.ViewModel.Validador
 
             return usuario != null && usuario.getContrasenia().Equals(EncriptadorSHA.Instance.encriptar(password)) && usuario.getHabilitado();
 
-            
-
         }
 
         private void loginErroneo()
