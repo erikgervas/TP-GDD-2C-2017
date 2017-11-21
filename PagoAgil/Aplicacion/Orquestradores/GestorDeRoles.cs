@@ -50,7 +50,7 @@ namespace PagoAgil.Aplicacion.Orquestradores
 
             TablaDTO tabla = LectorDeTablas.getInstance().obtener(query);
 
-            return RolDB.generar(tabla);
+            return RolDB.generar(rol.getId(), tabla);
 
         }
 

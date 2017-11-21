@@ -76,7 +76,13 @@ namespace PagoAgil.Aplicacion.BD.Utils
 
             cmd.ExecuteNonQuery();
 
-            Insertador.getInstance().insertarFuncionalidadesDeRol(r, r.id);
+            try
+            {
+                Insertador.getInstance().insertarFuncionalidadesDeRol(r, r.id);
+            }
+            catch(NullReferenceException)
+            {
+            }
         }
 
     }

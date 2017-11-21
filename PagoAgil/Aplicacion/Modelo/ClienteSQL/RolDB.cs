@@ -24,7 +24,7 @@ namespace PagoAgil.Aplicacion.Modelo.ClienteSQL
 
         }
 
-        public static Rol generar(TablaDTO tablaDTO)
+        public static Rol generar(long id ,TablaDTO tablaDTO)
         {
 
             List<Funcionalidad> funcionalidades = new List<Funcionalidad>();
@@ -42,7 +42,7 @@ namespace PagoAgil.Aplicacion.Modelo.ClienteSQL
 
             }
 
-            return new Rol(tablaDTO.obtener(0).obtener().ElementAt(0), funcionalidades);
+            return new Rol((int)id,tablaDTO.obtener(0).obtener().ElementAt(0), funcionalidades);
 
         }
 

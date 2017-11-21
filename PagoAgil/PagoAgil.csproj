@@ -285,6 +285,7 @@
       <DependentUpon>FormRendicion.cs</DependentUpon>
     </Compile>
     <Compile Include="Aplicacion\View\Roles\Excepciones\DeshabilitarRolActualException.cs" />
+    <Compile Include="Aplicacion\View\Roles\Excepciones\NoSeleccionoElRolException.cs" />
     <Compile Include="Aplicacion\View\Roles\Excepciones\RolYaDeshabilitadoException.cs" />
     <Compile Include="Aplicacion\View\Roles\FormABMRol.cs">
       <SubType>Form</SubType>

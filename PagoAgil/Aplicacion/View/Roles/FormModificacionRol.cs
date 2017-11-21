@@ -19,8 +19,9 @@ namespace PagoAgil.Aplicacion.View.Roles
         Rol rol;
         RolesBuilder builder;
         ModificacionRolVM VM;
+        HomeVM VMHome;
 
-        public FormModificacionRol(Rol rolElegido)
+        public FormModificacionRol(Rol rolElegido, HomeVM vm)
         {
             InitializeComponent();
             this.CenterToScreen();
@@ -28,6 +29,7 @@ namespace PagoAgil.Aplicacion.View.Roles
             rol = rolElegido;
             builder = new RolesBuilder();
             VM = new ModificacionRolVM();
+            VMHome = vm;
 
             this.cargarCampos();
         }
@@ -71,10 +73,15 @@ namespace PagoAgil.Aplicacion.View.Roles
                 checkBoxEstado.Checked = true;
                 checkBoxEstado.Enabled = false;
             }
+
+            builder.funcionalidades = rol.funcionalidades;
         }
 
         private void textBoxNombre_TextChanged(object sender, EventArgs e)
         {
+            if (textBoxNombre.Text.Trim().Length==0) buttonConfirmarCambios.Enabled = false;
+            else buttonConfirmarCambios.Enabled = true;
+
             builder.nombre = textBoxNombre.Text;
         }
 
@@ -106,6 +113,12 @@ namespace PagoAgil.Aplicacion.View.Roles
             rolModificado.id = rol.id;
 
             RepositorioRoles.getInstancia().getAlmacenamiento().modificar(rolModificado);
+
+            if(Sesion.usuario.rol.id == rolModificado.id){
+            Sesion.usuario.rol = rolModificado;
+
+            VMHome.notificarCambios();
+            }
 
             this.Hide();
         }

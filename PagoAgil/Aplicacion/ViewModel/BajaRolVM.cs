@@ -20,5 +20,21 @@ namespace PagoAgil.Aplicacion.ViewModel
             RepositorioRoles.getInstancia().getAlmacenamiento().eliminar(rolADespachar);
         }
 
+        public List<Funcionalidad> obtenerFuncionalidades()
+        {
+            List<Funcionalidad> funcionalidades = new List<Funcionalidad>();
+
+            TablaDTO tabla = LectorDeTablas.getInstance().obtener("SELECT * FROM SQL_BOYS.Funcionalidad");
+            FilaDTO fila;
+
+            for (int i = 0; i < tabla.cantidadDeFilas(); i++)
+            {
+                fila = tabla.obtener(i);
+                funcionalidades.Add(new Funcionalidad(fila));
+            }
+
+            return funcionalidades;
+        }
+
     }
 }

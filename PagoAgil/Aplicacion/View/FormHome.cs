@@ -28,8 +28,13 @@ namespace PagoAgil.Aplicacion.View
         {
             InitializeComponent();
             this.CenterToScreen();
-            homeVM = new HomeVM();
+            homeVM = new HomeVM(this);
 
+            this.actualizarBotonesDeFuncionalidades();
+        }
+
+        public void actualizarBotonesDeFuncionalidades()
+        {
             button_abm_cliente.Enabled = Sesion.usuario.poseesFuncionalidad("Gestionar clientes");
             button_abm_empresas.Enabled = Sesion.usuario.poseesFuncionalidad("Gestionar empresas");
             button_abm_sucursales.Enabled = Sesion.usuario.poseesFuncionalidad("Gestionar sucursales");
@@ -38,7 +43,6 @@ namespace PagoAgil.Aplicacion.View
             button_registro_pago.Enabled = Sesion.usuario.poseesFuncionalidad("Cobrar facturas");
             button_rendicion.Enabled = Sesion.usuario.poseesFuncionalidad("Rendir facturas");
             button_devolucion.Enabled = Sesion.usuario.poseesFuncionalidad("Devolver facturas");
-
         }
 
         private void button_abm_cliente_Click(object sender, EventArgs e)
@@ -94,7 +98,7 @@ namespace PagoAgil.Aplicacion.View
         private void button_abm_roles_Click(object sender, EventArgs e)
         {
 
-            new FormABMRol().Show();
+            new FormABMRol(this.homeVM).Show();
 
         }
 

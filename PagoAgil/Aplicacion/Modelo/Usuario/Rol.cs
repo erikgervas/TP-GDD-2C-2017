@@ -15,6 +15,14 @@ namespace PagoAgil.Aplicacion.Modelo.Usuario
 
         public List<Funcionalidad> funcionalidades{get; set;}
 
+        public Rol(int id, string nuevoNombre, List<Funcionalidad> nuevasFuncionalidades)
+        {
+            this.id = id;
+            this.nombre = nuevoNombre;
+            this.funcionalidades = nuevasFuncionalidades;
+
+        }
+
         public Rol(string nuevoNombre, List<Funcionalidad> nuevasFuncionalidades) {
 
             this.nombre = nuevoNombre;

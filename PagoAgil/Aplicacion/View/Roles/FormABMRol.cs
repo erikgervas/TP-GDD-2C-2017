@@ -7,15 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PagoAgil.Aplicacion.ViewModel;
 
 namespace PagoAgil.Aplicacion.View.Roles
 {
     public partial class FormABMRol : Form
     {
-        public FormABMRol()
+        HomeVM VMHome;
+
+        public FormABMRol(HomeVM vm)
         {
             InitializeComponent();
             this.CenterToScreen();
+
+            VMHome = vm;
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -27,14 +33,14 @@ namespace PagoAgil.Aplicacion.View.Roles
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FormListadoRoles listado = new FormListadoRoles("modificacion");
+            FormListadoRoles listado = new FormListadoRoles("modificacion",VMHome);
             this.Hide();
             listado.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            FormListadoRoles listado = new FormListadoRoles("baja");
+            FormListadoRoles listado = new FormListadoRoles("baja", VMHome);
             this.Hide();
             listado.Show();
         }

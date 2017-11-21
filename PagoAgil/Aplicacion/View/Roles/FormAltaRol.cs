@@ -36,8 +36,15 @@ namespace PagoAgil.Aplicacion.View.Roles
         {
             rolBuilder.nombre = textBoxNombre.Text;
 
-            buttonCrearRol.Enabled = true;
-            buttonLimpiar.Enabled = true;
+            if (textBoxNombre.Text.Trim().Length != 0)
+            {
+                buttonCrearRol.Enabled = true;
+                buttonLimpiar.Enabled = true;
+            }
+            else {
+                buttonCrearRol.Enabled = false;
+                buttonLimpiar.Enabled = false;
+            }
         }
 
         private void checkedListBoxFuncionalidades_SelectedIndexChanged(object sender, EventArgs e)

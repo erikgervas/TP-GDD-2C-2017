@@ -39,7 +39,8 @@ namespace PagoAgil.Aplicacion.View
 
             Rol rolDelUsuario = this.armarRol(rol);
 
-            return new Usuario(usuarioActual.getNombre(), rolDelUsuario);
+            //return new Usuario(usuarioActual.id, usuarioActual.getNombre(), rolDelUsuario);
+            return new Usuario(usuarioActual.id,usuarioActual.getNombre(),rolDelUsuario);
         }
 
         private Rol armarRol(RolDB rol)
