@@ -37,7 +37,7 @@ namespace PagoAgil.Aplicacion.ViewModel
             if (tabla.cantidadDeFilas() == 0) throw new NoExisteClienteException("No existe el cliente");
 
             //Esto quiere decir que el cliente está deshabilitado, por lo que no puede haber pagos a su nombre
-            if (tabla.getFilas().ElementAt(0).obtener().ElementAt(1) == "false") throw new ClienteDeshabilitadoException("Cliente deshabilitado");
+            if (tabla.getFilas().ElementAt(0).obtener().ElementAt(1) == "False") throw new ClienteDeshabilitadoException("Cliente deshabilitado");
 
             return DNI;
         }

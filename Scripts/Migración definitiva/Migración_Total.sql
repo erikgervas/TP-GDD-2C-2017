@@ -1109,11 +1109,8 @@ CREATE FUNCTION SQL_BOYS.obtenerProximoNroPago()
 RETURNS NUMERIC(18,0) AS BEGIN
 
 DECLARE @proximoId NUMERIC(18,0)
-DECLARE @ultimoId NUMERIC(18,0)
 
-SELECT @ultimoId = MAX(p.numero_pago) FROM SQL_BOYS.Pago p
-
-SET @proximoId = @ultimoId + 1
+SELECT @proximoId = ident_current('SQL_BOYS.Pago') + ident_incr('SQL_BOYS.Pago')
 
 RETURN @proximoId
 
@@ -1124,7 +1121,7 @@ GO
 CREATE FUNCTION SQL_BOYS.obtenerFactura(@nroFactura NUMERIC(18,0), @idEmpresa int,@diaV int,@mesV int,@anioV int)
 RETURNS table AS 
 
-	return(SELECT * FROM Factura f WHERE f.numero_factura = @nroFactura AND f.id_empresa = @idEmpresa AND 
+	return(SELECT f.numero_factura,f.factura_monto_total,f.factura_fecha_alta,f.factura_fecha_vencimiento,f.habilitadx,f.dni_cliente,f.id_empresa FROM Factura f WHERE f.numero_factura = @nroFactura AND f.id_empresa = @idEmpresa AND 
 	
 	YEAR(f.factura_fecha_vencimiento) = @anioV AND MONTH(f.factura_fecha_vencimiento) = @mesV AND DAY(f.factura_fecha_vencimiento) = @diaV AND @nroFactura
 	
@@ -1360,11 +1357,8 @@ CREATE FUNCTION SQL_BOYS.obtenerProximoIdRol()
 RETURNS INT AS BEGIN
 
 DECLARE @proximoId INT
-DECLARE @ultimoId INT
 
-SELECT @ultimoId = MAX(r.id_rol) FROM SQL_BOYS.Rol r
-
-SET @proximoId = @ultimoId + 1
+SELECT @proximoId = ident_current('SQL_BOYS.Rol') + ident_incr('SQL_BOYS.Rol')
 
 RETURN @proximoId
 

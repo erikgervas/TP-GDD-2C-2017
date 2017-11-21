@@ -31,7 +31,8 @@ namespace PagoAgil.Aplicacion.ViewModel
         {
             List<EmpresaDB> empresas = new List<EmpresaDB>();
 
-            TablaDTO tabla = LectorDeTablas.getInstance().obtener("SELECT * FROM SQL_BOYS.Empresa");
+            //Traigo al selector todas las empresas habilitadas
+            TablaDTO tabla = LectorDeTablas.getInstance().obtener("SELECT * FROM SQL_BOYS.Empresa e WHERE e.habilitadx = 1");
             FilaDTO fila;
 
             for (int i = 0; i < tabla.cantidadDeFilas(); i++)

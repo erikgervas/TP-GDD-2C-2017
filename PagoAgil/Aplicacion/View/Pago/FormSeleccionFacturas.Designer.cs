@@ -73,7 +73,7 @@
             this.dataGridViewFacturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewFacturas.Location = new System.Drawing.Point(12, 160);
             this.dataGridViewFacturas.Name = "dataGridViewFacturas";
-            this.dataGridViewFacturas.Size = new System.Drawing.Size(1121, 58);
+            this.dataGridViewFacturas.Size = new System.Drawing.Size(1121, 54);
             this.dataGridViewFacturas.TabIndex = 4;
             // 
             // dateTimePickerFechaV

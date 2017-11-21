@@ -35,6 +35,8 @@ namespace PagoAgil.Aplicacion.View.Pago
             EmpresaDB[] empresas = VM.obtenerEmpresas();
 
             comboBoxEmpresa.Items.AddRange(empresas);
+
+            dateTimePickerFechaV.Value = Configuracion.fecha();
         }
 
         private void buttonBuscarFactura_Click(object sender, EventArgs e)
@@ -45,6 +47,9 @@ namespace PagoAgil.Aplicacion.View.Pago
 
             try
             {
+                if (numeroFactura == 0) throw new FaltaElegirFacturaException();
+                if (empresaSeleccionada == null) throw new FaltaElegirEmpresaException();
+
                 DataTable factura = VM.buscarFactura(numeroFactura, empresaSeleccionada.id, fechaVencimiento);
 
                 dataGridViewFacturas.DataSource = factura;
@@ -56,7 +61,6 @@ namespace PagoAgil.Aplicacion.View.Pago
                 dataGridViewFacturas.Columns[4].HeaderText = "Habilitada";
                 dataGridViewFacturas.Columns[5].HeaderText = "Dni del Cliente";
                 dataGridViewFacturas.Columns[6].HeaderText = "Id de Empresa";
-                dataGridViewFacturas.Columns[7].HeaderText = "Numero de Rendicion";
 
                 dataGridViewFacturas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dataGridViewFacturas.Columns[dataGridViewFacturas.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -66,7 +70,6 @@ namespace PagoAgil.Aplicacion.View.Pago
                 dataGridViewFacturas.Columns[dataGridViewFacturas.ColumnCount - 5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridViewFacturas.Columns[dataGridViewFacturas.ColumnCount - 6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridViewFacturas.Columns[dataGridViewFacturas.ColumnCount - 7].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                dataGridViewFacturas.Columns[dataGridViewFacturas.ColumnCount - 8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
                 decimal importeActual = factura.Rows[0].Field<decimal>(1);
                 importeTotal += importeActual;
@@ -81,6 +84,14 @@ namespace PagoAgil.Aplicacion.View.Pago
                 MessageBox.Show("La factura buscada es incorrecta o ya fue pagada anteriormente");
                 return;
             }
+            catch(FaltaElegirEmpresaException)
+            {
+                MessageBox.Show("Falta seleccionar la empresa correspondiente");
+            }
+            catch(FaltaElegirFacturaException)
+            {
+                MessageBox.Show("Falta seleccionar la factura correspondiente");
+            }
             
         }
 
@@ -89,7 +100,7 @@ namespace PagoAgil.Aplicacion.View.Pago
             facturasPagadas.Add(numeroFactura);
 
             numericUpDownNroF.Text = "";
-            dateTimePickerFechaV.Value = DateTime.Now;
+            dateTimePickerFechaV.Value = Configuracion.fecha();
             comboBoxEmpresa.SelectedIndex = -1;
             dataGridViewFacturas.ClearSelection();
 
@@ -101,7 +112,7 @@ namespace PagoAgil.Aplicacion.View.Pago
 
         private void buttonFinalizarPago_Click(object sender, EventArgs e)
         {
-            miPagoBuilder.fechaPago = DateTime.Now;
+            miPagoBuilder.fechaPago = Configuracion.fecha();
             miPagoBuilder.montoTotal = importeTotal;
 
             VM.crearPago(miPagoBuilder.crearPago(), this.facturasPagadas);

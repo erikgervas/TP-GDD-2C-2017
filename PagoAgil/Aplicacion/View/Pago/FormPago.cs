@@ -35,6 +35,8 @@ namespace PagoAgil.Aplicacion.View.Pago
 
             textBox1.Text = Sesion.sucursal.nombre;
 
+            dateTimePicker1.Value = Configuracion.fecha();
+
             pagoBuilder = new PagoBuilder();
         }
 
