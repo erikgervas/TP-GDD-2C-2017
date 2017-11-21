@@ -10487,7 +10487,7 @@ namespace PagoAgil.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public viewFacturaBuscadorRow AddviewFacturaBuscadorRow(decimal Numero, decimal Monto, System.DateTime Alta, System.DateTime Vencimiento, decimal Cliente, int Empresa, string Cuit_Empresa, decimal Pago, decimal Rendición, bool Habilitadx) {
+            public viewFacturaBuscadorRow AddviewFacturaBuscadorRow(decimal Numero, decimal Monto, System.DateTime Alta, System.DateTime Vencimiento, decimal Cliente, string Empresa, string Cuit_Empresa, decimal Pago, decimal Rendición, bool Habilitadx) {
                 viewFacturaBuscadorRow rowviewFacturaBuscadorRow = ((viewFacturaBuscadorRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Numero,
@@ -10554,7 +10554,7 @@ namespace PagoAgil.DataSet {
                 base.Columns.Add(this.columnVencimiento);
                 this.columnCliente = new global::System.Data.DataColumn("Cliente", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCliente);
-                this.columnEmpresa = new global::System.Data.DataColumn("Empresa", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnEmpresa = new global::System.Data.DataColumn("Empresa", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEmpresa);
                 this.columnCuit_Empresa = new global::System.Data.DataColumn("Cuit_Empresa", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCuit_Empresa);
@@ -10573,6 +10573,7 @@ namespace PagoAgil.DataSet {
                 this.columnVencimiento.AllowDBNull = false;
                 this.columnCliente.AllowDBNull = false;
                 this.columnEmpresa.AllowDBNull = false;
+                this.columnEmpresa.MaxLength = 255;
                 this.columnCuit_Empresa.AllowDBNull = false;
                 this.columnCuit_Empresa.MaxLength = 50;
                 this.columnHabilitadx.AllowDBNull = false;
@@ -15360,9 +15361,9 @@ namespace PagoAgil.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Empresa {
+            public string Empresa {
                 get {
-                    return ((int)(this[this.tableviewFacturaBuscador.EmpresaColumn]));
+                    return ((string)(this[this.tableviewFacturaBuscador.EmpresaColumn]));
                 }
                 set {
                     this[this.tableviewFacturaBuscador.EmpresaColumn] = value;

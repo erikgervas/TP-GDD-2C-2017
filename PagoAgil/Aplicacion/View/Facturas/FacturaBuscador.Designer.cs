@@ -32,8 +32,6 @@
             this.modificarButton = new System.Windows.Forms.Button();
             this.resultadosBusquedaPanel = new System.Windows.Forms.GroupBox();
             this.empresasDataGrid = new System.Windows.Forms.DataGridView();
-            this.viewFacturaBuscadorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sQL_BOYS_Data_Set = new PagoAgil.DataSet.SQL_BOYS_Data_Set();
             this.filtrosPanel = new System.Windows.Forms.GroupBox();
             this.filtrosTabla = new System.Windows.Forms.TableLayoutPanel();
             this.numeroFactura = new System.Windows.Forms.Label();
@@ -46,6 +44,8 @@
             this.buscarButton = new System.Windows.Forms.Button();
             this.buscadorCliente = new System.Windows.Forms.Button();
             this.tituloLabel = new System.Windows.Forms.Label();
+            this.sQL_BOYS_Data_Set = new PagoAgil.DataSet.SQL_BOYS_Data_Set();
+            this.viewFacturaBuscadorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.viewFacturaBuscadorTableAdapter = new PagoAgil.DataSet.SQL_BOYS_Data_SetTableAdapters.viewFacturaBuscadorTableAdapter();
             this.numeroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.montoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,16 +53,16 @@
             this.vencimientoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.empresaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cuit_Empresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pagoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rendiciónDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.resultadosBusquedaPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.empresasDataGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.viewFacturaBuscadorBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sQL_BOYS_Data_Set)).BeginInit();
             this.filtrosPanel.SuspendLayout();
             this.filtrosTabla.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sQL_BOYS_Data_Set)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewFacturaBuscadorBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // modificarButton
@@ -98,7 +98,7 @@
             this.vencimientoDataGridViewTextBoxColumn,
             this.clienteDataGridViewTextBoxColumn,
             this.empresaDataGridViewTextBoxColumn,
-            this.Cuit_Empresa,
+            this.dataGridViewTextBoxColumn1,
             this.pagoDataGridViewTextBoxColumn,
             this.rendiciónDataGridViewTextBoxColumn,
             this.dataGridViewCheckBoxColumn1});
@@ -112,16 +112,6 @@
             this.empresasDataGrid.Size = new System.Drawing.Size(886, 343);
             this.empresasDataGrid.TabIndex = 0;
             this.empresasDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.empresasDataGrid_CellClick);
-            // 
-            // viewFacturaBuscadorBindingSource
-            // 
-            this.viewFacturaBuscadorBindingSource.DataMember = "viewFacturaBuscador";
-            this.viewFacturaBuscadorBindingSource.DataSource = this.sQL_BOYS_Data_Set;
-            // 
-            // sQL_BOYS_Data_Set
-            // 
-            this.sQL_BOYS_Data_Set.DataSetName = "SQL_BOYS_Data_Set";
-            this.sQL_BOYS_Data_Set.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // filtrosPanel
             // 
@@ -261,6 +251,16 @@
             this.tituloLabel.Text = "Buscador de facturas";
             this.tituloLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // sQL_BOYS_Data_Set
+            // 
+            this.sQL_BOYS_Data_Set.DataSetName = "SQL_BOYS_Data_Set";
+            this.sQL_BOYS_Data_Set.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // viewFacturaBuscadorBindingSource
+            // 
+            this.viewFacturaBuscadorBindingSource.DataMember = "viewFacturaBuscador";
+            this.viewFacturaBuscadorBindingSource.DataSource = this.sQL_BOYS_Data_Set;
+            // 
             // viewFacturaBuscadorTableAdapter
             // 
             this.viewFacturaBuscadorTableAdapter.ClearBeforeFill = true;
@@ -275,11 +275,12 @@
             // 
             // montoDataGridViewTextBoxColumn
             // 
-            this.montoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.montoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.montoDataGridViewTextBoxColumn.DataPropertyName = "Monto";
             this.montoDataGridViewTextBoxColumn.HeaderText = "Monto";
             this.montoDataGridViewTextBoxColumn.Name = "montoDataGridViewTextBoxColumn";
             this.montoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.montoDataGridViewTextBoxColumn.Width = 62;
             // 
             // altaDataGridViewTextBoxColumn
             // 
@@ -317,14 +318,14 @@
             this.empresaDataGridViewTextBoxColumn.ReadOnly = true;
             this.empresaDataGridViewTextBoxColumn.Width = 73;
             // 
-            // Cuit_Empresa
+            // dataGridViewTextBoxColumn1
             // 
-            this.Cuit_Empresa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Cuit_Empresa.DataPropertyName = "Cuit_Empresa";
-            this.Cuit_Empresa.HeaderText = "Cuit";
-            this.Cuit_Empresa.Name = "Cuit_Empresa";
-            this.Cuit_Empresa.ReadOnly = true;
-            this.Cuit_Empresa.Width = 50;
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Cuit_Empresa";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Cuit";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 50;
             // 
             // pagoDataGridViewTextBoxColumn
             // 
@@ -368,11 +369,11 @@
             this.Load += new System.EventHandler(this.FacturaBuscador_Load);
             this.resultadosBusquedaPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.empresasDataGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.viewFacturaBuscadorBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sQL_BOYS_Data_Set)).EndInit();
             this.filtrosPanel.ResumeLayout(false);
             this.filtrosTabla.ResumeLayout(false);
             this.filtrosTabla.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sQL_BOYS_Data_Set)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewFacturaBuscadorBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -395,18 +396,18 @@
         private System.Windows.Forms.DataGridView empresasDataGrid;
         private System.Windows.Forms.Button limpiarButton;
         private System.Windows.Forms.Button buscarButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cuitEmpresaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button buscadorCliente;
         private DataSet.SQL_BOYS_Data_Set sQL_BOYS_Data_Set;
         private System.Windows.Forms.BindingSource viewFacturaBuscadorBindingSource;
         private DataSet.SQL_BOYS_Data_SetTableAdapters.viewFacturaBuscadorTableAdapter viewFacturaBuscadorTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cuitEmpresaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button buscadorCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn numeroDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn montoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn altaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn vencimientoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn clienteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn empresaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cuit_Empresa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn pagoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rendiciónDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;

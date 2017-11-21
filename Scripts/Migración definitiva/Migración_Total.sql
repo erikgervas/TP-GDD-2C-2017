@@ -111,9 +111,10 @@ CREATE TABLE SQL_BOYS.Pago (
 CREATE TABLE SQL_BOYS.Item (
 	id_item INT IDENTITY(1, 1) PRIMARY KEY,
 	nombre NVARCHAR(255) NOT NULL,
-	monto NUMERIC(18, 2) NOT NULL,
-	cantidad INT NOT NULL,
+	monto NUMERIC(18, 2) NOT NULL CHECK (monto > 0),
+	cantidad INT NOT NULL CHECK (cantidad > 0),
 	numero_factura NUMERIC(18, 0) FOREIGN KEY REFERENCES SQL_BOYS.Factura(numero_factura) NOT NULL
+	CONSTRAINT monto_positivo CHECK (monto > 0 AND cantidad > 0)
 )
 
 CREATE TABLE SQL_BOYS.Item_Pago (
@@ -1052,7 +1053,7 @@ CREATE VIEW SQL_BOYS.viewFacturaBuscador AS
 			f.factura_fecha_alta AS Alta,
 			f.factura_fecha_vencimiento AS Vencimiento,
 			f.dni_cliente AS Cliente,
-			f.id_empresa AS Empresa,
+			e.nombre AS Empresa,
 			e.cuit AS Cuit_Empresa,
 			ip.numero_pago AS Pago,
 			f.numero_rendicion AS Rendición,
@@ -1089,7 +1090,7 @@ CREATE FUNCTION SQL_BOYS.filtrarFactura (@numero_factura NUMERIC(18, 0), @cuit_e
 
 			(@numero_factura = 0 AND LEN(@cuit_empresa) = 0 AND @dni_cliente = 0) OR
 			Numero = @numero_factura OR
-			Empresa = SQL_BOYS.obtenerEmpresa(@cuit_empresa) OR
+			Cuit_Empresa = @cuit_empresa OR
 			Cliente = @dni_cliente
 
 GO
