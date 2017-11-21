@@ -20,9 +20,6 @@ DROP TABLE
 	SQL_BOYS.Funcionalidad_Por_Rol,
 	SQL_BOYS.Funcionalidad,
 	SQL_BOYS.Rol,
-<<<<<<< HEAD
-	SQL_BOYS.Usuario
-=======
 	SQL_BOYS.Usuario,
 	SQL_BOYS.Tabla_Maestra_Conflictiva
 
@@ -73,5 +70,3 @@ DROP PROCEDURE
 	SQL_BOYS.modificacionDeEmpresa,
 	SQL_BOYS.modificacionDeFactura,
 	SQL_BOYS.rendirFacturas
-
->>>>>>> 2d6563d72edb6cbf7fa79c3dab1389c1d2fe9ec2

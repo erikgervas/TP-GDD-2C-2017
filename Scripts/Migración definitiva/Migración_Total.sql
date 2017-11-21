@@ -1185,8 +1185,8 @@ returns table
 
 	return (
 
-		select e.id_empresa, e.cuit, e.nombre, e.domicilio, e.habilitadx, (select count(*) from SQL_BOYS.obtenerFacturasARendir(e.id_empresa, @fecha_actual)) as facturas_a_rendir from SQL_BOYS.Empresa e
-			where e.dia_rendicion = day(SQL_BOYS.obtenerFecha(@fecha_actual)) and SQL_BOYS.obtenerFecha(@fecha_actual) != (select top 1 r.fecha_rendicion from SQL_BOYS.Factura f join SQL_BOYS.Rendicion r on f.numero_rendicion = r.numero_rendicion
+		select e.id_empresa, e.cuit, e.nombre, e.domicilio, (select count(*) from SQL_BOYS.obtenerFacturasARendir(e.id_empresa, @fecha_actual)) as facturas_a_rendir from SQL_BOYS.Empresa e
+			where e.habilitadx = 1 and e.dia_rendicion = day(SQL_BOYS.obtenerFecha(@fecha_actual)) and SQL_BOYS.obtenerFecha(@fecha_actual) != (select top 1 r.fecha_rendicion from SQL_BOYS.Factura f join SQL_BOYS.Rendicion r on f.numero_rendicion = r.numero_rendicion
 																		where f.id_empresa = e.id_empresa
 																		
 																		order by r.fecha_rendicion desc	
