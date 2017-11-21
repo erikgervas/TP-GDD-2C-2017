@@ -41,8 +41,6 @@ namespace PagoAgil.Aplicacion.View.Facturas
 
         private void modificarButton_Click(object sender, EventArgs e)
         {
-            this.Close();
-
             this.adjuntarItems();
 
             new FacturaConfirmado(this.viewModel).Show();
@@ -128,6 +126,7 @@ namespace PagoAgil.Aplicacion.View.Facturas
         {
             this.numeroNumericUpDown.Text = "";
             this.empresaComboBox.SelectedValue = 0;
+            this.empresaComboBox.Text = "";
             this.dniNumericUpDown.Text = "";
             this.empresasDataGrid.DataSource = null;
 

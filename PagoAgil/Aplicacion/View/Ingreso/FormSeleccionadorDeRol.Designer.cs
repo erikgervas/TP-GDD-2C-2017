@@ -50,6 +50,7 @@ namespace PagoAgil.Aplicacion.View
             // comboRol
             // 
             this.comboRol.BackColor = System.Drawing.SystemColors.Window;
+            this.comboRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboRol.Enabled = false;
             this.comboRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboRol.FormattingEnabled = true;
@@ -84,6 +85,7 @@ namespace PagoAgil.Aplicacion.View
             // comboSucursal
             // 
             this.comboSucursal.BackColor = System.Drawing.SystemColors.Window;
+            this.comboSucursal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboSucursal.FormattingEnabled = true;
             this.comboSucursal.Location = new System.Drawing.Point(135, 36);
