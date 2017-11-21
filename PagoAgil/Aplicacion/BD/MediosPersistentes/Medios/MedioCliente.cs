@@ -71,7 +71,11 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
 
         public void modificar(ClienteDB unaEntidad)
         {
-            Actualizador.getInstance().actualizarCliente(unaEntidad);
+            
+        }
+        public void modificarCliente(ClienteDB unaEntidad, int dniViejo)
+        {
+            Actualizador.getInstance().actualizarCliente(unaEntidad, dniViejo);
         }
 
         public List<string> obtenerCamposCliente()

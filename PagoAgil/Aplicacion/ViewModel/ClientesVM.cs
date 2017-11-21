@@ -40,9 +40,9 @@ namespace PagoAgil.Aplicacion.ViewModel
         {
             RepositorioClientes.getInstance().getAlmacenamiento().aniadir(c);
         }
-        public void modificarCliente (ClienteDB c)
+        public void modificarCliente (ClienteDB c,int dni)
         {
-            RepositorioClientes.getInstance().getAlmacenamiento().modificar(c);
+            RepositorioClientes.getInstance().getAlmacenamiento().modificarCliente(c,dni);
         }
     }
 }

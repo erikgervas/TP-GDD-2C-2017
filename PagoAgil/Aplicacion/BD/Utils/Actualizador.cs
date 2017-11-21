@@ -37,12 +37,13 @@ namespace PagoAgil.Aplicacion.BD.Utils
             cmd.ExecuteNonQuery();
 
         }
-        public void actualizarCliente(ClienteDB c)
+        public void actualizarCliente(ClienteDB c,int dniViejo)
         {
 
-            SqlCommand cmd = new SqlCommand("UPDATE SQL_BOYS.Cliente SET nombre=@nombre,apellido=@apellido,nacimiento=@nacimiento,mail=@mail,domicilio=@domicilio,codigo_postal=@cp,telefono=@telefono,habilitadx=@hab WHERE dni_cliente=@dni", Conexion.getInstance().obtenerConexion());
+            SqlCommand cmd = new SqlCommand("UPDATE SQL_BOYS.Cliente SET dni_cliente=@dni,nombre=@nombre,apellido=@apellido,nacimiento=@nacimiento,mail=@mail,domicilio=@domicilio,codigo_postal=@cp,telefono=@telefono,habilitadx=@hab WHERE dni_cliente=@dniViejo", Conexion.getInstance().obtenerConexion());
 
             cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@dniViejo", dniViejo);
             cmd.Parameters.AddWithValue("@dni", c.id);
             cmd.Parameters.AddWithValue("@nombre", c.nombre);
             cmd.Parameters.AddWithValue("@apellido", c.apellido);

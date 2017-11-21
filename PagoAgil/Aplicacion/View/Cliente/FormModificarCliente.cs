@@ -34,19 +34,21 @@ namespace PagoAgil.Aplicacion.View.Cliente
         ClienteDB cliente;
         private GroupBox groupBox1;
         FormABMCliente _owner;
-       
+        int dniViejo;
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
             _owner.PerformRefresh();
         }
         public FormModificarCliente(ClienteDB c, FormABMCliente owner)
         {
+            
             InitializeComponent();
             this.CenterToScreen();
             this.cliente = c;
 
             _owner = owner;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
+            
         }
 
         private void InitializeComponent()
@@ -208,9 +210,9 @@ namespace PagoAgil.Aplicacion.View.Cliente
             // 
             this.dniTextBox.Location = new System.Drawing.Point(264, 28);
             this.dniTextBox.Name = "dniTextBox";
-            this.dniTextBox.ReadOnly = true;
             this.dniTextBox.Size = new System.Drawing.Size(201, 26);
             this.dniTextBox.TabIndex = 20;
+            this.dniTextBox.TextChanged += new System.EventHandler(this.dniTextBox_TextChanged);
             // 
             // apellidoTextBox
             // 
@@ -299,6 +301,8 @@ namespace PagoAgil.Aplicacion.View.Cliente
 
         private void FormModificarCliente_Load(object sender, EventArgs e)
         {
+            
+
             dateTimePicker1.MaxDate = Configuracion.fecha();
             nombreTextBox.Text = cliente.nombre;
             apellidoTextBox.Text = cliente.apellido;
@@ -311,6 +315,7 @@ namespace PagoAgil.Aplicacion.View.Cliente
             if (cliente.habilitado)
                 habilitadoCheckBox.Visible = false;
             habilitadoCheckBox.Checked = cliente.habilitado;
+            dniViejo = int.Parse(dniTextBox.Text);
         }
 
         private void guardarButton_Click(object sender, EventArgs e)
@@ -319,6 +324,8 @@ namespace PagoAgil.Aplicacion.View.Cliente
 
             if (dniTextBox.Text.Length > 0)
                 c.id = Int32.Parse(dniTextBox.Text);
+            else
+                c.id = 0;
 
             if (nombreTextBox.Text.Length > 0)
                 c.nombre = nombreTextBox.Text;
@@ -357,7 +364,7 @@ namespace PagoAgil.Aplicacion.View.Cliente
             }
             else
             {
-                RepositorioClientes.getInstance().almacenamiento.modificar(c);
+                RepositorioClientes.getInstance().getAlmacenamiento().modificarCliente(c, dniViejo);
             }
         }
 
@@ -390,6 +397,11 @@ namespace PagoAgil.Aplicacion.View.Cliente
                 MessageBox.Show("Solo texto");
                 apellidoTextBox.Text = apellidoTextBox.Text.Remove(apellidoTextBox.Text.Length - 1);
             }
+        }
+
+        private void dniTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
