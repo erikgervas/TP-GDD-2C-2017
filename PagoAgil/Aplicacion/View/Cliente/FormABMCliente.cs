@@ -229,6 +229,7 @@ namespace PagoAgil.Aplicacion.View
             int i;
             for (i=0;i<dataGridView2.RowCount;i++)
             dataGridView2.Rows[i].Cells[0].Style.BackColor = Color.DarkRed;
+            dataGridView2.Columns[10].HeaderText = "DNI";
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -269,16 +270,6 @@ namespace PagoAgil.Aplicacion.View
         private void CondicionComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-
-            condicionTextBox.Enabled = false;
-
-
-
-
-
-
-
-            condicionTextBox.Enabled = true;
 
         }
 
@@ -333,7 +324,7 @@ namespace PagoAgil.Aplicacion.View
         {
 
 
-            ClienteDB cliente = clientesVM.obtenerClientes().ElementAt(e.RowIndex);
+            
 
 
 
