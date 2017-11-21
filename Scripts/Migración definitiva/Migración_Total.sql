@@ -602,12 +602,11 @@ returns table
 
 	return	(	
 	
-				-- Obtengo las que no fueron devueltas, fueron pagas y no han sido rendidas
-				select f.numero_factura from SQL_BOYS.Factura f left join
-					SQL_BOYS.Devolucion d on f.numero_factura = d.numero_factura left join
-					SQL_BOYS.Item_Pago ip on f.numero_factura = ip.numero_pago
+				-- Obtengo las que fueron pagas y no han sido rendidas
+				select f.numero_factura from SQL_BOYS.Factura f join
+					SQL_BOYS.Item_Pago ip on f.numero_factura = ip.numero_factura
 					
-					where d.numero_factura is null and f.numero_rendicion is null and ip.numero_factura is not null
+					where f.numero_rendicion is null
 
 			)
 
@@ -1189,13 +1188,14 @@ returns table
 	return (
 
 		select e.id_empresa, e.cuit, e.nombre, e.domicilio, (select count(*) from SQL_BOYS.obtenerFacturasARendir(e.id_empresa, @fecha_actual)) as facturas_a_rendir from SQL_BOYS.Empresa e
-			where e.habilitadx = 1 and e.dia_rendicion = day(SQL_BOYS.obtenerFecha(@fecha_actual)) and SQL_BOYS.obtenerFecha(@fecha_actual) != (select top 1 r.fecha_rendicion from SQL_BOYS.Factura f join SQL_BOYS.Rendicion r on f.numero_rendicion = r.numero_rendicion
-																		where f.id_empresa = e.id_empresa
-																		
-																		order by r.fecha_rendicion desc	
-																	)
+			where e.habilitadx = 1 -- Este habilitada
+			
+			and e.dia_rendicion = day(SQL_BOYS.obtenerFecha(@fecha_actual)) -- Sea hoy el día de la rendición
+			
+			and exists(select * from SQL_BOYS.obtenerFacturasARendir(e.id_empresa, @fecha_actual)) -- Tenga alguna factura a rendir
 
-					and exists(select * from SQL_BOYS.obtenerFacturasARendir(e.id_empresa, @fecha_actual))
+			and not exists(select * from SQL_BOYS.Factura f join SQL_BOYS.Rendicion r on f.numero_rendicion = r.numero_rendicion
+								where f.id_empresa = e.id_empresa and r.fecha_rendicion = SQL_BOYS.obtenerFecha(@fecha_actual)) -- No se haya rendido hoy
 
 	)
 
