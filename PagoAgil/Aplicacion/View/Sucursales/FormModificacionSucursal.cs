@@ -52,11 +52,21 @@ namespace PagoAgil.Aplicacion.View
 
         private void buttonConfirmarCambios_Click(object sender, EventArgs e)
         {
-            SucursalDB sucursalModificada = sucursalBuilder.crearSucursalModificada();
+            try
+            {
+                SucursalDB sucursalModificada = sucursalBuilder.crearSucursalModificada();
+                RepositorioSucursales.getInstancia().getAlmacenamiento().modificar(sucursalModificada);
 
-            RepositorioSucursales.getInstancia().getAlmacenamiento().modificar(sucursalModificada);
-
-            this.Hide();
+                this.Hide();
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("No se puede insertar la sucursal porque el código postal ingresado ya existe");
+            }
+            catch (camposVaciosException)
+            {
+                MessageBox.Show("No completó alguno o ninguno de los campos");
+            }
         }
 
         private void textBoxNombre_TextChanged(object sender, EventArgs e)

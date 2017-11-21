@@ -13,12 +13,9 @@ namespace PagoAgil.Aplicacion.View.Sucursales
 {
     public partial class FormAltaSucursalOk : Form
     {
-        SucursalDB sucursal;
 
-        public FormAltaSucursalOk(SucursalDB sucursalNueva)
+        public FormAltaSucursalOk()
         {
-            sucursal = sucursalNueva;
-
             InitializeComponent();
             this.CenterToScreen();
         }

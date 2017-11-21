@@ -5,6 +5,7 @@ using PagoAgil.Aplicacion.BD.Repositorios;
 using PagoAgil.Aplicacion.Modelo;
 using PagoAgil.Aplicacion.Modelo.ClienteSQL;
 using PagoAgil.Aplicacion.BD.Utils;
+using PagoAgil.Aplicacion.View.Sucursales.Excepciones;
 
 namespace PagoAgil.Aplicacion.View
 {
@@ -61,13 +62,22 @@ namespace PagoAgil.Aplicacion.View
 
         private void buttonConfirmar_Click(object sender, EventArgs e)
         {
-            SucursalDB sucursalNueva = sucursalBuilder.crearSucursal();
+            try
+            {
+                SucursalDB sucursalNueva = sucursalBuilder.crearSucursal();
+                RepositorioSucursales.getInstancia().getAlmacenamiento().aniadir(sucursalNueva);
+                FormAltaSucursalOk formAlta = new FormAltaSucursalOk();
 
-            RepositorioSucursales.getInstancia().getAlmacenamiento().aniadir(sucursalNueva);
-
-            FormAltaSucursalOk formAlta = new FormAltaSucursalOk(sucursalNueva);
-
-            formAlta.Show();
+                formAlta.Show();
+            }
+            catch(System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("No se puede insertar la sucursal porque el código postal ingresado ya existe");
+            }
+            catch(camposVaciosException)
+            {
+                MessageBox.Show("No completó alguno o ninguno de los campos");
+            }
 
         }
 

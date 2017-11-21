@@ -324,6 +324,7 @@
       <DependentUpon>FormModificacionRol.cs</DependentUpon>
     </Compile>
     <Compile Include="Aplicacion\View\Roles\RolesBuilder.cs" />
+    <Compile Include="Aplicacion\View\Sucursales\Excepciones\camposVaciosException.cs" />
     <Compile Include="Aplicacion\View\Sucursales\Excepciones\DeshabilitarSucursalActualException.cs" />
     <Compile Include="Aplicacion\View\Sucursales\Excepciones\SucursalYaDeshabilitadaException.cs" />
     <Compile Include="Aplicacion\View\Sucursales\FormABMSucursal.cs">
