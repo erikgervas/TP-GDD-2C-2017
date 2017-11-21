@@ -32,6 +32,7 @@ namespace PagoAgil.Aplicacion.View.Cliente
         private TextBox nombreTextBox;
         private CheckBox habilitadoCheckBox;
         ClienteDB cliente;
+        private GroupBox groupBox1;
         FormABMCliente _owner;
        
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
@@ -70,11 +71,12 @@ namespace PagoAgil.Aplicacion.View.Cliente
             this.nombreTextBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.habilitadoCheckBox = new System.Windows.Forms.CheckBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
             // 
             // guardarButton
             // 
-            this.guardarButton.Location = new System.Drawing.Point(481, 472);
+            this.guardarButton.Location = new System.Drawing.Point(481, 484);
             this.guardarButton.Name = "guardarButton";
             this.guardarButton.Size = new System.Drawing.Size(132, 55);
             this.guardarButton.TabIndex = 35;
@@ -84,7 +86,7 @@ namespace PagoAgil.Aplicacion.View.Cliente
             // 
             // limpiarButton
             // 
-            this.limpiarButton.Location = new System.Drawing.Point(98, 472);
+            this.limpiarButton.Location = new System.Drawing.Point(98, 484);
             this.limpiarButton.Name = "limpiarButton";
             this.limpiarButton.Size = new System.Drawing.Size(132, 55);
             this.limpiarButton.TabIndex = 34;
@@ -167,9 +169,11 @@ namespace PagoAgil.Aplicacion.View.Cliente
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(264, 397);
+            this.dateTimePicker1.MaxDate = new System.DateTime(2017, 11, 20, 0, 0, 0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(201, 26);
             this.dateTimePicker1.TabIndex = 25;
+            this.dateTimePicker1.Value = new System.DateTime(2017, 11, 20, 0, 0, 0, 0);
             // 
             // codigoPostal
             // 
@@ -214,6 +218,7 @@ namespace PagoAgil.Aplicacion.View.Cliente
             this.apellidoTextBox.Name = "apellidoTextBox";
             this.apellidoTextBox.Size = new System.Drawing.Size(201, 26);
             this.apellidoTextBox.TabIndex = 19;
+            this.apellidoTextBox.TextChanged += new System.EventHandler(this.apellidoTextBox_TextChanged);
             // 
             // nombreTextBox
             // 
@@ -242,6 +247,14 @@ namespace PagoAgil.Aplicacion.View.Cliente
             this.habilitadoCheckBox.Text = "Habilitado";
             this.habilitadoCheckBox.UseVisualStyleBackColor = true;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(201, 5);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(328, 461);
+            this.groupBox1.TabIndex = 38;
+            this.groupBox1.TabStop = false;
+            // 
             // FormModificarCliente
             // 
             this.ClientSize = new System.Drawing.Size(715, 574);
@@ -265,6 +278,7 @@ namespace PagoAgil.Aplicacion.View.Cliente
             this.Controls.Add(this.dniTextBox);
             this.Controls.Add(this.apellidoTextBox);
             this.Controls.Add(this.nombreTextBox);
+            this.Controls.Add(this.groupBox1);
             this.Name = "FormModificarCliente";
             this.Load += new System.EventHandler(this.FormModificarCliente_Load);
             this.ResumeLayout(false);
@@ -274,12 +288,18 @@ namespace PagoAgil.Aplicacion.View.Cliente
 
         private void nombreTextBox_TextChanged(object sender, EventArgs e)
         {
+            if (System.Text.RegularExpressions.Regex.IsMatch(nombreTextBox.Text, "[^a-zA-Z]"))
+            {
+                MessageBox.Show("Solo texto");
+                nombreTextBox.Text = nombreTextBox.Text.Remove(nombreTextBox.Text.Length - 1);
+            }
 
         }
        
 
         private void FormModificarCliente_Load(object sender, EventArgs e)
         {
+            dateTimePicker1.MaxDate = Configuracion.fecha();
             nombreTextBox.Text = cliente.nombre;
             apellidoTextBox.Text = cliente.apellido;
             dniTextBox.Text = cliente.id.ToString();
@@ -296,19 +316,44 @@ namespace PagoAgil.Aplicacion.View.Cliente
         private void guardarButton_Click(object sender, EventArgs e)
         {
             ClienteDB c = new ClienteDB();
-            c.id = long.Parse( dniTextBox.Text);
-            c.nombre = nombreTextBox.Text;
-            c.apellido = apellidoTextBox.Text;
-            c.domicilio = direccionTextBox.Text;
-            c.habilitado = habilitadoCheckBox.Checked;
-            c.mail = mailTextBox.Text;
-            c.nacimiento = DateTime.Parse(dateTimePicker1.Text);
-            c.telefono = Int32.Parse(telefonoTextBox.Text);
-            c.codigoPostal = codigoPostal.Text;
 
-            if ( c.nombre == null || c.apellido == null || c.domicilio == null || c.codigoPostal == null)
+            if (dniTextBox.Text.Length > 0)
+                c.id = Int32.Parse(dniTextBox.Text);
+
+            if (nombreTextBox.Text.Length > 0)
+                c.nombre = nombreTextBox.Text;
+
+            if (apellidoTextBox.Text.Length > 0)
+                c.apellido = apellidoTextBox.Text;
+
+            if (direccionTextBox.Text.Length > 0)
+                c.domicilio = direccionTextBox.Text;
+            else
+                c.domicilio = "NINGUNO";
+
+            c.habilitado = true;
+
+            if (mailTextBox.Text.Length > 0)
+                c.mail = mailTextBox.Text;
+
+            c.nacimiento = DateTime.Parse(dateTimePicker1.Text);
+
+            if (telefonoTextBox.Text.Length > 0)
             {
-                MessageBox.Show("Los campos DNI, Nombre y apellido no pueden estar vacios");
+                string a = telefonoTextBox.Text;
+                c.telefono = int.Parse(a);
+            }
+            else
+                c.telefono = 0;
+
+            if (codigoPostal.Text.Length > 0)
+                c.codigoPostal = codigoPostal.Text;
+            else
+                c.codigoPostal = "NINGUNO";
+
+            if (c.id == 0 || c.nombre == null || c.apellido == null || c.mail == null)
+            {
+                MessageBox.Show("Los campos DNI, Nombre, apellido e email no pueden estar vacios");
             }
             else
             {
@@ -336,6 +381,15 @@ namespace PagoAgil.Aplicacion.View.Cliente
             dateTimePicker1.Text = null;
             telefonoTextBox.Text = null;
             codigoPostal.Text = null;
+        }
+
+        private void apellidoTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(apellidoTextBox.Text, "[^a-zA-Z]"))
+            {
+                MessageBox.Show("Solo texto");
+                apellidoTextBox.Text = apellidoTextBox.Text.Remove(apellidoTextBox.Text.Length - 1);
+            }
         }
     }
 }

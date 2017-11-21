@@ -29,6 +29,7 @@ namespace PagoAgil.Aplicacion.View
         private Button limpiarButton;
         private Button guardarButton;
         private Label label8;
+        private GroupBox groupBox1;
         FormABMCliente _owner;
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -63,6 +64,7 @@ namespace PagoAgil.Aplicacion.View
             this.label8 = new System.Windows.Forms.Label();
             this.limpiarButton = new System.Windows.Forms.Button();
             this.guardarButton = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
             // 
             // nombreTextBox
@@ -71,6 +73,7 @@ namespace PagoAgil.Aplicacion.View
             this.nombreTextBox.Name = "nombreTextBox";
             this.nombreTextBox.Size = new System.Drawing.Size(201, 26);
             this.nombreTextBox.TabIndex = 0;
+            this.nombreTextBox.TextChanged += new System.EventHandler(this.nombreTextBox_TextChanged);
             // 
             // apellidoTextBox
             // 
@@ -78,6 +81,7 @@ namespace PagoAgil.Aplicacion.View
             this.apellidoTextBox.Name = "apellidoTextBox";
             this.apellidoTextBox.Size = new System.Drawing.Size(201, 26);
             this.apellidoTextBox.TabIndex = 1;
+            this.apellidoTextBox.TextChanged += new System.EventHandler(this.apellidoTextBox_TextChanged);
             // 
             // dniTextBox
             // 
@@ -215,6 +219,14 @@ namespace PagoAgil.Aplicacion.View
             this.guardarButton.UseVisualStyleBackColor = true;
             this.guardarButton.Click += new System.EventHandler(this.guardarButton_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(175, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(328, 450);
+            this.groupBox1.TabIndex = 18;
+            this.groupBox1.TabStop = false;
+            // 
             // FormAltaCliente
             // 
             this.ClientSize = new System.Drawing.Size(659, 573);
@@ -236,6 +248,7 @@ namespace PagoAgil.Aplicacion.View
             this.Controls.Add(this.dniTextBox);
             this.Controls.Add(this.apellidoTextBox);
             this.Controls.Add(this.nombreTextBox);
+            this.Controls.Add(this.groupBox1);
             this.Name = "FormAltaCliente";
             this.Text = "Alta cliente";
             this.Load += new System.EventHandler(this.FormAltaCliente_Load);
@@ -305,7 +318,7 @@ namespace PagoAgil.Aplicacion.View
 
         private void FormAltaCliente_Load(object sender, EventArgs e)
         {
-
+            dateTimePicker1.MaxDate = Configuracion.fecha();
         }
 
         private void telefonoTextBox_TextChanged(object sender, EventArgs e)
@@ -328,6 +341,24 @@ namespace PagoAgil.Aplicacion.View
             dateTimePicker1.Text = null;
            telefonoTextBox.Text=null;
             codigoPostal.Text=null;
+        }
+
+        private void apellidoTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(apellidoTextBox.Text, "[^a-zA-Z]"))
+            {
+                MessageBox.Show("Solo texto");
+                apellidoTextBox.Text = apellidoTextBox.Text.Remove(apellidoTextBox.Text.Length - 1);
+            }
+        }
+
+        private void nombreTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(nombreTextBox.Text, "[^a-zA-Z]"))
+            {
+                MessageBox.Show("Solo texto");
+                nombreTextBox.Text = nombreTextBox.Text.Remove(nombreTextBox.Text.Length - 1);
+            }
         }
     }
 }
