@@ -720,7 +720,7 @@ CREATE PROCEDURE SQL_BOYS.bajaDeEmpresa (@id_empresa AS INT, @nombre AS NVARCHAR
 
 GO
 
-CREATE PROCEDURE SQL_BOYS.modificacionDeEmpresa (@id_empresa AS INT, @nombre AS NVARCHAR(255), @cuit AS NVARCHAR(50), @domicilio AS NVARCHAR(255), @dia_rendicion AS INT, @porcentaje_comision AS INT, @habilitadx AS BIT, @nombre_rubro AS NVARCHAR(50)) AS
+ALTER PROCEDURE SQL_BOYS.modificacionDeEmpresa (@id_empresa AS INT, @nombre AS NVARCHAR(255), @cuit AS NVARCHAR(50), @domicilio AS NVARCHAR(255), @dia_rendicion AS INT, @porcentaje_comision AS INT, @habilitadx AS BIT, @nombre_rubro AS NVARCHAR(50)) AS
 
 	BEGIN
 
@@ -731,13 +731,14 @@ CREATE PROCEDURE SQL_BOYS.modificacionDeEmpresa (@id_empresa AS INT, @nombre AS 
 			SET
 			
 				nombre = @nombre,
+				cuit = @cuit,
 				domicilio = @domicilio,
 				dia_rendicion = @dia_rendicion,
 				porcentaje_comision = @porcentaje_comision,
 				habilitadx = @habilitadx,
 				id_rubro = SQL_BOYS.id_Rubro(@nombre_rubro)
 
-			WHERE id_empresa = @id_empresa AND cuit = @cuit
+			WHERE id_empresa = @id_empresa
 
 		COMMIT
 

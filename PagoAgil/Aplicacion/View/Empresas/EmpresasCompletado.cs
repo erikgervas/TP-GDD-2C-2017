@@ -27,6 +27,7 @@ namespace PagoAgil.Aplicacion.View.Empresas
         {
             this.viewModel.empresa = empresaBuilder;
             this.rellenarConLoAnterior();
+            EmpresaABM.instanciar().mostrar(this);
         }
 
         private void iniciarTitulos()
@@ -112,25 +113,21 @@ namespace PagoAgil.Aplicacion.View.Empresas
             }
             catch (YaExisteObjetoConEsaClave excepcion)
             {
-                if (cuitText.Enabled) new EmpresasAdvertenciaMismoCuit(this, excepcion).Show();
-
-                else
-                {
-                    new EmpresasConfirmacion(this.viewModel.empresa).Show();
-
-                    this.Close();
-                }
+                new EmpresasAdvertenciaMismoCuit(this, excepcion).Show();
             }
         }
 
-        public void alta() { }
+        public void alta()
+        {
+            this.viewModel.empresa.cuitActual = "No";
+        }
 
         public void baja() { }
 
         public void modificacion()
         {
             if (EmpresaABM.instanciar().estado) this.habilitadaCheckBox.Enabled = false;
-            this.cuitText.Enabled = false;
+            this.viewModel.empresa.cuitActual = this.viewModel.empresa.cuit;
         }
     }
 }

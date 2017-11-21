@@ -17,6 +17,7 @@ namespace PagoAgil.Aplicacion.Builders
         public string nombre { get; set; }
         public bool estado { get; set; }
         public string cuit { get; set; }
+        public string cuitActual { get; set; }
         public string direccion { get; set; }
         public string rubro { get; set; }
         public ushort diaRendicion { get; set; }
@@ -32,7 +33,7 @@ namespace PagoAgil.Aplicacion.Builders
         public void validar()
         {
             revisarLlenado();
-            existeOtroIgual();
+            if (!cuitActual.Equals(this.cuit)) existeOtroIgual();
         }
 
         private bool estaVacio(String campo)
