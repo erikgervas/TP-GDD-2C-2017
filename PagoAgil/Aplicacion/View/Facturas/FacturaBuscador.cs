@@ -50,29 +50,40 @@ namespace PagoAgil.Aplicacion.View.Facturas
 
         private void empresasDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow[] filas = empresasDataGrid.Rows.Cast<DataGridViewRow>().ToArray();
-
-            filaElegida = filas[e.RowIndex];
-
-            this.generarFactura();
-
-            this.modificarButton.Enabled = !rendida_pagada;
-
-            if (this.viewModel.estado)
+            try
             {
-                this.modificarButton.Text = "Deshabilitar";
+                DataGridViewRow[] filas = empresasDataGrid.Rows.Cast<DataGridViewRow>().ToArray();
 
-                FacturaABM.instanciar().abm = new Baja<Factura>();
+                filaElegida = filas[e.RowIndex];
 
-                ItemABM.instanciar().abm = new Baja<Item>();
+                this.generarFactura();
+
+                this.modificarButton.Enabled = !rendida_pagada;
+
+                if (this.viewModel.estado)
+                {
+                    this.modificarButton.Text = "Deshabilitar";
+
+                    FacturaABM.instanciar().abm = new Baja<Factura>();
+
+                    ItemABM.instanciar().abm = new Baja<Item>();
+                }
+                else
+                {
+                    this.modificarButton.Text = "Habilitar";
+
+                    FacturaABM.instanciar().abm = new Modificacion<Factura>();
+
+                    ItemABM.instanciar().abm = new Modificacion<Item>();
+                }
             }
-            else
+            catch (IndexOutOfRangeException)
             {
-                this.modificarButton.Text = "Habilitar";
 
-                FacturaABM.instanciar().abm = new Modificacion<Factura>();
+            }
+            catch (FormatException)
+            {
 
-                ItemABM.instanciar().abm = new Modificacion<Item>();
             }
         }
 
@@ -119,6 +130,13 @@ namespace PagoAgil.Aplicacion.View.Facturas
             this.empresaComboBox.SelectedValue = 0;
             this.dniNumericUpDown.Text = "";
             this.empresasDataGrid.DataSource = null;
+
+            this.modificarButton.Enabled = false;
+            this.modificarButton.Text = "Expectante";
+
+            FacturaABM.instanciar().abm = null;
+
+            ItemABM.instanciar().abm = null;
         }
 
         private void buscarButton_Click(object sender, EventArgs e)

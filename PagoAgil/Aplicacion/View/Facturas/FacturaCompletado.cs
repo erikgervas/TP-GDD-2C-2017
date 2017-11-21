@@ -1,4 +1,5 @@
-﻿using PagoAgil.Aplicacion.Builders;
+﻿using PagoAgil.Aplicacion.BD;
+using PagoAgil.Aplicacion.Builders;
 using PagoAgil.Aplicacion.Builders.Excepciones;
 using PagoAgil.Aplicacion.Modelo;
 using PagoAgil.Aplicacion.Orquestradores.TiposDeABM;
@@ -72,8 +73,8 @@ namespace PagoAgil.Aplicacion.View.Facturas
         private void limpiarBase()
         {
             this.numeroTextBox.Value = 1;
-            this.altaTimePicker.Value = DateTime.Now;
-            this.vencimientoTimePicker.Value = DateTime.Now.AddDays(1);
+            this.altaTimePicker.Value = Configuracion.fecha();
+            this.vencimientoTimePicker.Value = Configuracion.fecha().AddDays(1);
             this.dniClienteTextBox.Value = 1;
             this.empresasNombreComboBox.Text = null;
             this.habilitadaCheckBox.Checked = false;

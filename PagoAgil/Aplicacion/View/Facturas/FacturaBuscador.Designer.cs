@@ -32,16 +32,6 @@
             this.modificarButton = new System.Windows.Forms.Button();
             this.resultadosBusquedaPanel = new System.Windows.Forms.GroupBox();
             this.empresasDataGrid = new System.Windows.Forms.DataGridView();
-            this.numeroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.montoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.altaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vencimientoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.empresaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cuit_Empresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pagoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rendiciónDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.viewFacturaBuscadorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sQL_BOYS_Data_Set = new PagoAgil.DataSet.SQL_BOYS_Data_Set();
             this.filtrosPanel = new System.Windows.Forms.GroupBox();
@@ -52,11 +42,21 @@
             this.numeroNumericUpDown = new System.Windows.Forms.TextBox();
             this.empresaComboBox = new System.Windows.Forms.ComboBox();
             this.dniNumericUpDown = new System.Windows.Forms.TextBox();
-            this.buscadorCliente = new System.Windows.Forms.Button();
             this.limpiarButton = new System.Windows.Forms.Button();
             this.buscarButton = new System.Windows.Forms.Button();
+            this.buscadorCliente = new System.Windows.Forms.Button();
             this.tituloLabel = new System.Windows.Forms.Label();
             this.viewFacturaBuscadorTableAdapter = new PagoAgil.DataSet.SQL_BOYS_Data_SetTableAdapters.viewFacturaBuscadorTableAdapter();
+            this.numeroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.montoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.altaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vencimientoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.empresaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cuit_Empresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pagoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rendiciónDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.resultadosBusquedaPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.empresasDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewFacturaBuscadorBindingSource)).BeginInit();
@@ -89,6 +89,7 @@
             // empresasDataGrid
             // 
             this.empresasDataGrid.AllowUserToDeleteRows = false;
+            this.empresasDataGrid.AllowUserToOrderColumns = true;
             this.empresasDataGrid.AutoGenerateColumns = false;
             this.empresasDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.numeroDataGridViewTextBoxColumn,
@@ -111,94 +112,6 @@
             this.empresasDataGrid.Size = new System.Drawing.Size(886, 343);
             this.empresasDataGrid.TabIndex = 0;
             this.empresasDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.empresasDataGrid_CellClick);
-            // 
-            // numeroDataGridViewTextBoxColumn
-            // 
-            this.numeroDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.numeroDataGridViewTextBoxColumn.DataPropertyName = "Numero";
-            this.numeroDataGridViewTextBoxColumn.HeaderText = "Numero";
-            this.numeroDataGridViewTextBoxColumn.Name = "numeroDataGridViewTextBoxColumn";
-            this.numeroDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // montoDataGridViewTextBoxColumn
-            // 
-            this.montoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.montoDataGridViewTextBoxColumn.DataPropertyName = "Monto";
-            this.montoDataGridViewTextBoxColumn.HeaderText = "Monto";
-            this.montoDataGridViewTextBoxColumn.Name = "montoDataGridViewTextBoxColumn";
-            this.montoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // altaDataGridViewTextBoxColumn
-            // 
-            this.altaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.altaDataGridViewTextBoxColumn.DataPropertyName = "Alta";
-            this.altaDataGridViewTextBoxColumn.HeaderText = "Alta";
-            this.altaDataGridViewTextBoxColumn.Name = "altaDataGridViewTextBoxColumn";
-            this.altaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.altaDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // vencimientoDataGridViewTextBoxColumn
-            // 
-            this.vencimientoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.vencimientoDataGridViewTextBoxColumn.DataPropertyName = "Vencimiento";
-            this.vencimientoDataGridViewTextBoxColumn.HeaderText = "Vencimiento";
-            this.vencimientoDataGridViewTextBoxColumn.Name = "vencimientoDataGridViewTextBoxColumn";
-            this.vencimientoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.vencimientoDataGridViewTextBoxColumn.Width = 90;
-            // 
-            // clienteDataGridViewTextBoxColumn
-            // 
-            this.clienteDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.clienteDataGridViewTextBoxColumn.DataPropertyName = "Cliente";
-            this.clienteDataGridViewTextBoxColumn.HeaderText = "Cliente";
-            this.clienteDataGridViewTextBoxColumn.Name = "clienteDataGridViewTextBoxColumn";
-            this.clienteDataGridViewTextBoxColumn.ReadOnly = true;
-            this.clienteDataGridViewTextBoxColumn.Width = 64;
-            // 
-            // empresaDataGridViewTextBoxColumn
-            // 
-            this.empresaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.empresaDataGridViewTextBoxColumn.DataPropertyName = "Empresa";
-            this.empresaDataGridViewTextBoxColumn.HeaderText = "Empresa";
-            this.empresaDataGridViewTextBoxColumn.Name = "empresaDataGridViewTextBoxColumn";
-            this.empresaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.empresaDataGridViewTextBoxColumn.Width = 73;
-            // 
-            // Cuit_Empresa
-            // 
-            this.Cuit_Empresa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Cuit_Empresa.DataPropertyName = "Cuit_Empresa";
-            this.Cuit_Empresa.HeaderText = "Cuit";
-            this.Cuit_Empresa.Name = "Cuit_Empresa";
-            this.Cuit_Empresa.ReadOnly = true;
-            this.Cuit_Empresa.Width = 50;
-            // 
-            // pagoDataGridViewTextBoxColumn
-            // 
-            this.pagoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.pagoDataGridViewTextBoxColumn.DataPropertyName = "Pago";
-            this.pagoDataGridViewTextBoxColumn.HeaderText = "Pago";
-            this.pagoDataGridViewTextBoxColumn.Name = "pagoDataGridViewTextBoxColumn";
-            this.pagoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pagoDataGridViewTextBoxColumn.Width = 57;
-            // 
-            // rendiciónDataGridViewTextBoxColumn
-            // 
-            this.rendiciónDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.rendiciónDataGridViewTextBoxColumn.DataPropertyName = "Rendición";
-            this.rendiciónDataGridViewTextBoxColumn.HeaderText = "Rendición";
-            this.rendiciónDataGridViewTextBoxColumn.Name = "rendiciónDataGridViewTextBoxColumn";
-            this.rendiciónDataGridViewTextBoxColumn.ReadOnly = true;
-            this.rendiciónDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataGridViewCheckBoxColumn1.DataPropertyName = "Habilitadx";
-            this.dataGridViewCheckBoxColumn1.HeaderText = "Habilitadx";
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
-            this.dataGridViewCheckBoxColumn1.Width = 59;
             // 
             // viewFacturaBuscadorBindingSource
             // 
@@ -302,17 +215,6 @@
             this.dniNumericUpDown.Size = new System.Drawing.Size(103, 20);
             this.dniNumericUpDown.TabIndex = 26;
             // 
-            // buscadorCliente
-            // 
-            this.buscadorCliente.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.buscadorCliente.Location = new System.Drawing.Point(568, 32);
-            this.buscadorCliente.Name = "buscadorCliente";
-            this.buscadorCliente.Size = new System.Drawing.Size(103, 23);
-            this.buscadorCliente.TabIndex = 13;
-            this.buscadorCliente.Text = "Seleccionar";
-            this.buscadorCliente.UseVisualStyleBackColor = true;
-            this.buscadorCliente.Click += new System.EventHandler(this.buscadorCliente_Click);
-            // 
             // limpiarButton
             // 
             this.limpiarButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -335,6 +237,17 @@
             this.buscarButton.UseVisualStyleBackColor = true;
             this.buscarButton.Click += new System.EventHandler(this.buscarButton_Click);
             // 
+            // buscadorCliente
+            // 
+            this.buscadorCliente.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.buscadorCliente.Location = new System.Drawing.Point(568, 32);
+            this.buscadorCliente.Name = "buscadorCliente";
+            this.buscadorCliente.Size = new System.Drawing.Size(103, 23);
+            this.buscadorCliente.TabIndex = 13;
+            this.buscadorCliente.Text = "Seleccionar";
+            this.buscadorCliente.UseVisualStyleBackColor = true;
+            this.buscadorCliente.Click += new System.EventHandler(this.buscadorCliente_Click);
+            // 
             // tituloLabel
             // 
             this.tituloLabel.AccessibleName = "";
@@ -351,6 +264,95 @@
             // viewFacturaBuscadorTableAdapter
             // 
             this.viewFacturaBuscadorTableAdapter.ClearBeforeFill = true;
+            // 
+            // numeroDataGridViewTextBoxColumn
+            // 
+            this.numeroDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.numeroDataGridViewTextBoxColumn.DataPropertyName = "Numero";
+            this.numeroDataGridViewTextBoxColumn.HeaderText = "Numero";
+            this.numeroDataGridViewTextBoxColumn.Name = "numeroDataGridViewTextBoxColumn";
+            this.numeroDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // montoDataGridViewTextBoxColumn
+            // 
+            this.montoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.montoDataGridViewTextBoxColumn.DataPropertyName = "Monto";
+            this.montoDataGridViewTextBoxColumn.HeaderText = "Monto";
+            this.montoDataGridViewTextBoxColumn.Name = "montoDataGridViewTextBoxColumn";
+            this.montoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // altaDataGridViewTextBoxColumn
+            // 
+            this.altaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.altaDataGridViewTextBoxColumn.DataPropertyName = "Alta";
+            this.altaDataGridViewTextBoxColumn.HeaderText = "Alta";
+            this.altaDataGridViewTextBoxColumn.Name = "altaDataGridViewTextBoxColumn";
+            this.altaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.altaDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // vencimientoDataGridViewTextBoxColumn
+            // 
+            this.vencimientoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.vencimientoDataGridViewTextBoxColumn.DataPropertyName = "Vencimiento";
+            this.vencimientoDataGridViewTextBoxColumn.HeaderText = "Vencimiento";
+            this.vencimientoDataGridViewTextBoxColumn.Name = "vencimientoDataGridViewTextBoxColumn";
+            this.vencimientoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.vencimientoDataGridViewTextBoxColumn.Width = 90;
+            // 
+            // clienteDataGridViewTextBoxColumn
+            // 
+            this.clienteDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.clienteDataGridViewTextBoxColumn.DataPropertyName = "Cliente";
+            this.clienteDataGridViewTextBoxColumn.HeaderText = "Cliente";
+            this.clienteDataGridViewTextBoxColumn.Name = "clienteDataGridViewTextBoxColumn";
+            this.clienteDataGridViewTextBoxColumn.ReadOnly = true;
+            this.clienteDataGridViewTextBoxColumn.Width = 64;
+            // 
+            // empresaDataGridViewTextBoxColumn
+            // 
+            this.empresaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.empresaDataGridViewTextBoxColumn.DataPropertyName = "Empresa";
+            this.empresaDataGridViewTextBoxColumn.HeaderText = "Empresa";
+            this.empresaDataGridViewTextBoxColumn.Name = "empresaDataGridViewTextBoxColumn";
+            this.empresaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.empresaDataGridViewTextBoxColumn.Width = 73;
+            // 
+            // Cuit_Empresa
+            // 
+            this.Cuit_Empresa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Cuit_Empresa.DataPropertyName = "Cuit_Empresa";
+            this.Cuit_Empresa.HeaderText = "Cuit";
+            this.Cuit_Empresa.Name = "Cuit_Empresa";
+            this.Cuit_Empresa.ReadOnly = true;
+            this.Cuit_Empresa.Width = 50;
+            // 
+            // pagoDataGridViewTextBoxColumn
+            // 
+            this.pagoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.pagoDataGridViewTextBoxColumn.DataPropertyName = "Pago";
+            this.pagoDataGridViewTextBoxColumn.HeaderText = "Pago";
+            this.pagoDataGridViewTextBoxColumn.Name = "pagoDataGridViewTextBoxColumn";
+            this.pagoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pagoDataGridViewTextBoxColumn.Width = 57;
+            // 
+            // rendiciónDataGridViewTextBoxColumn
+            // 
+            this.rendiciónDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.rendiciónDataGridViewTextBoxColumn.DataPropertyName = "Rendición";
+            this.rendiciónDataGridViewTextBoxColumn.HeaderText = "Rendición";
+            this.rendiciónDataGridViewTextBoxColumn.Name = "rendiciónDataGridViewTextBoxColumn";
+            this.rendiciónDataGridViewTextBoxColumn.ReadOnly = true;
+            this.rendiciónDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewCheckBoxColumn1.DataPropertyName = "Habilitadx";
+            this.dataGridViewCheckBoxColumn1.HeaderText = "Habilitadx";
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
+            this.dataGridViewCheckBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewCheckBoxColumn1.Width = 78;
             // 
             // FacturaBuscador
             // 
@@ -397,6 +399,7 @@
         private System.Windows.Forms.BindingSource viewFacturaBuscadorBindingSource;
         private DataSet.SQL_BOYS_Data_SetTableAdapters.viewFacturaBuscadorTableAdapter viewFacturaBuscadorTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn cuitEmpresaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button buscadorCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn numeroDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn montoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn altaDataGridViewTextBoxColumn;
@@ -407,6 +410,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pagoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rendiciónDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
-        private System.Windows.Forms.Button buscadorCliente;
     }
 }
