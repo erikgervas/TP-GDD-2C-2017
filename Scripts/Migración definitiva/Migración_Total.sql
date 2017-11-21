@@ -1,5 +1,9 @@
 /* Se crean las entidades del sistema en función del DER realizado */
 
+CREATE SCHEMA SQL_BOYS
+
+GO
+
 CREATE TABLE SQL_BOYS.Funcionalidad (
 	id_funcionalidad INT IDENTITY(1, 1) PRIMARY KEY,
 	nombre NVARCHAR(255) NOT NULL
@@ -751,7 +755,7 @@ CREATE FUNCTION SQL_BOYS.filtrarEmpresa (@nombre AS NVARCHAR(255), @cuit AS NVAR
 
 		WHERE
 
-			(LEN(@nombre) = 0 AND @cuit = '  -        -' AND LEN(@nombre_rubro) = 0 AND @id_empresa = 0) OR
+			(LEN(@nombre) = 0 AND LEN(@cuit) = 2 AND LEN(@nombre_rubro) = 0 AND @id_empresa = 0) OR
 			
 			(LEN(@nombre) != 0 AND e.nombre LIKE @nombre + '%') OR
 

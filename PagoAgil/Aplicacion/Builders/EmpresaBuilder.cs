@@ -45,7 +45,7 @@ namespace PagoAgil.Aplicacion.Builders
             List<String> errores = new List<String>();
 
             if (this.estaVacio(this.nombre)) errores.Add("Nombre");
-            if (this.estaVacio(this.cuit)) { errores.Add("Cuit"); } else if (this.cuit.Count() > 0 && this.cuit.Count() < 13 && this.cuit.Any(c => Char.IsWhiteSpace(c))) errores.Add("Cuit incompleto");
+            if (this.estaVacio(this.cuit)) { errores.Add("Cuit"); } else if (this.cuit.Count() != 13) errores.Add("Cuit incompleto");
             if (this.estaVacio(this.direccion)) errores.Add("Dirección");
             if (this.estaVacio(this.rubro)) errores.Add("Rubro");
             if (this.diaRendicion < 1 && diaRendicion > 31) errores.Add("Día imposible");

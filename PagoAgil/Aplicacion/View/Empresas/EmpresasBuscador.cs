@@ -14,6 +14,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -55,14 +56,12 @@ namespace PagoAgil.Aplicacion.View.Empresas
 
         private void buscarButton_Click(object sender, EventArgs e)
         {
-            this.empresasDataGrid.DataSource = this.viewModel.buscar(this.nombreText.Text, this.cuitText.Text, this.rubroComboBox.Text, (long) this.empresaElegidaText.Value);
+            this.empresasDataGrid.DataSource = this.viewModel.buscar(this.nombreText.Text, Regex.Replace(this.cuitText.Text, @"\s+", ""), this.rubroComboBox.Text, (long) this.empresaElegidaText.Value);
         }
 
-        private void cuitText_KeyPress(object sender, KeyPressEventArgs e)
+        private void cuitText_KeyPress_1(object sender, KeyPressEventArgs e)
         {
-            if (char.IsNumber(e.KeyChar) || e.KeyChar == '.' || e.KeyChar == 8) return;
-
-            else e.Handled = e.KeyChar != (char)Keys.Back;
+            if (!Char.IsDigit(e.KeyChar) || e.KeyChar != 8 || e.KeyChar != 32) e.Handled = true;
         }
 
         private void empresasDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -108,7 +107,7 @@ namespace PagoAgil.Aplicacion.View.Empresas
             {
                 this.viewModel.empresa.id = long.Parse(valorCelda(0));
                 this.viewModel.empresa.nombre = valorCelda(1);
-                this.viewModel.empresa.cuit = valorCelda(2);
+                this.viewModel.empresa.cuit = Regex.Replace(valorCelda(2), @"\s+", "");
                 this.viewModel.empresa.direccion = valorCelda(3);
                 this.viewModel.empresa.porcentajeComision = ushort.Parse(this.valorCelda(4));
                 this.viewModel.empresa.diaRendicion = ushort.Parse(this.valorCelda(5));

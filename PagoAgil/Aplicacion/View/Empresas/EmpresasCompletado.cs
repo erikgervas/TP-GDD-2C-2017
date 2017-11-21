@@ -5,6 +5,7 @@ using PagoAgil.Aplicacion.Orquestradores.TiposDeABM.ABMs;
 using PagoAgil.Aplicacion.View.Excepciones;
 using PagoAgil.Aplicacion.ViewModel;
 using System;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace PagoAgil.Aplicacion.View.Empresas
@@ -63,7 +64,7 @@ namespace PagoAgil.Aplicacion.View.Empresas
         private void rellenarCampos()
         {
             this.viewModel.empresa.nombre = nombreText.Text;
-            this.viewModel.empresa.cuit = cuitText.Text;
+            this.viewModel.empresa.cuit = Regex.Replace(cuitText.Text, @"\s+", "");
             this.viewModel.empresa.direccion = direccionText.Text;
             this.viewModel.empresa.rubro = rubroComboBox.Text;
             this.viewModel.empresa.diaRendicion = (ushort) diaNumericUpDown.Value;
@@ -74,7 +75,7 @@ namespace PagoAgil.Aplicacion.View.Empresas
         private void limpiarAlta()
         {
             this.cuitText.Text = null;
-            this.habilitadaCheckBox.Checked = false;
+            this.habilitadaCheckBox.Checked = true;
         }
 
         private void limpiarBaja()
