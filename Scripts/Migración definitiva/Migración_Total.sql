@@ -139,148 +139,148 @@ CREATE TABLE SQL_BOYS.Item_Rendicion (
 
 GO
 
-/* Se crean vistas auxiliares para mejorar la performance de la migración, sobretodo cuando es necesario consultar a la tabla maestra más de una vez cuando el resultado de una consulta ya tiene todo lo necesario. */
+/* Se crean vistas materializadas auxiliares para mejorar la performance de la migración, sobretodo cuando es necesario consultar a la tabla maestra más de una vez cuando el resultado de una consulta ya tiene todo lo necesario. */
 
 /* Vista de todos los clientes del sistema, para optimizar la búsqueda de clientes con el mismo mail. */
 
-CREATE VIEW SQL_BOYS.View_Cliente AS
+SELECT DISTINCT
 
-	SELECT DISTINCT
+	[Cliente-Dni] AS view_dni_cliente,
+	[Cliente-Apellido] AS view_apellido,
+	[Cliente-Nombre] AS view_nombre,
+	[Cliente-Fecha_Nac] AS view_nacimiento,
+	Cliente_Mail AS view_mail,
+	Cliente_Direccion AS view_domicilio,
+	Cliente_Codigo_Postal AS view_codigo_postal
 
-		[Cliente-Dni] AS view_dni_cliente,
-		[Cliente-Apellido] AS view_apellido,
-		[Cliente-Nombre] AS view_nombre,
-		[Cliente-Fecha_Nac] AS view_nacimiento,
-		Cliente_Mail AS view_mail,
-		Cliente_Direccion AS view_domicilio,
-		Cliente_Codigo_Postal AS view_codigo_postal
+INTO SQL_BOYS.View_Cliente
 
-	FROM [GD2C2017].[gd_esquema].[Maestra]
+FROM [GD2C2017].[gd_esquema].[Maestra]
 
 GO
 
 /* Hay clientes con el mismo mail, que impiden cumplir con el requerimiento de mails únicos. Esto optimiza el tiempo de búsqueda de los mismos usando la vista anterior. */
 
-CREATE VIEW SQL_BOYS.View_Cliente_Conflictivo AS
+SELECT
 
-	SELECT
+	c1.view_dni_cliente AS view_dni_cliente,
+	c1.view_apellido AS view_apellido,
+	c1.view_nombre AS view_nombre,
+	c1.view_nacimiento AS view_nacimiento,
+	c1.view_mail AS view_mail,
+	c1.view_domicilio AS view_domicilio,
+	c1.view_codigo_postal AS view_codigo_postal
 
-		c1.view_dni_cliente AS view_dni_cliente,
-		c1.view_apellido AS view_apellido,
-		c1.view_nombre AS view_nombre,
-		c1.view_nacimiento AS view_nacimiento,
-		c1.view_mail AS view_mail,
-		c1.view_domicilio AS view_domicilio,
-		c1.view_codigo_postal AS view_codigo_postal
+INTO SQL_BOYS.View_Cliente_Conflictivo
 
-	FROM SQL_BOYS.View_Cliente c1, SQL_BOYS.View_Cliente c2
+FROM SQL_BOYS.View_Cliente c1, SQL_BOYS.View_Cliente c2
 	
-	WHERE c1.view_dni_cliente != c2.view_dni_cliente AND c1.view_mail = c2.view_mail
+WHERE c1.view_dni_cliente != c2.view_dni_cliente AND c1.view_mail = c2.view_mail
 
 GO
 
 /* Vista para no recorrer toda la tabla maestra de nuevo sólo para buscar el rubro de una empresa. */
 
-CREATE VIEW SQL_BOYS.View_Empresa_Rubro AS
+SELECT DISTINCT
 
-	SELECT DISTINCT
+	[Empresa_Nombre] AS view_nombre,
+	[Empresa_Cuit] AS view_cuit,
+	[Empresa_Direccion] AS view_domicilio,
+	[Empresa_Rubro] AS view_id_rubro,
+	[Rubro_Descripcion] AS view_descripcion
 
-		[Empresa_Nombre] AS view_nombre,
-		[Empresa_Cuit] AS view_cuit,
-		[Empresa_Direccion] AS view_domicilio,
-		[Empresa_Rubro] AS view_id_rubro,
-		[Rubro_Descripcion] AS view_descripcion
+INTO SQL_BOYS.View_Empresa_Rubro
 
-	FROM [GD2C2017].[gd_esquema].[Maestra]
+FROM [GD2C2017].[gd_esquema].[Maestra]
 
 GO
 
 /* Vista para no tener que recorrer la tabla maestra de nuevo para buscar facturas. */
 
-CREATE VIEW SQL_BOYS.View_Factura AS
-
-	SELECT DISTINCT
+SELECT DISTINCT
 		
-		[Nro_Factura] AS view_numero_factura,
-		[Factura_Total] AS view_factura_monto_total,
-		[Factura_Fecha] AS view_factura_fecha_alta,
-		[Factura_Fecha_Vencimiento] AS view_factura_fecha_vencimiento,
-		[Cliente-Dni] AS view_dni_cliente,
-		[Empresa_Cuit] AS view_cuit_empresa,
-		[Rendicion_Nro] AS view_numero_rendicion
+	[Nro_Factura] AS view_numero_factura,
+	[Factura_Total] AS view_factura_monto_total,
+	[Factura_Fecha] AS view_factura_fecha_alta,
+	[Factura_Fecha_Vencimiento] AS view_factura_fecha_vencimiento,
+	[Cliente-Dni] AS view_dni_cliente,
+	[Empresa_Cuit] AS view_cuit_empresa,
+	[Rendicion_Nro] AS view_numero_rendicion
 
-	FROM [GD2C2017].[gd_esquema].[Maestra] m
+INTO SQL_BOYS.View_Factura
+
+FROM [GD2C2017].[gd_esquema].[Maestra] m
 
 GO
 
 /* Vista para obtener las facturas con sus rendiciones, ya que en el anterior no se añadieron. */
 
-CREATE VIEW SQL_BOYS.View_Factura_Con_Rendicion AS
+SELECT
 
-	SELECT
+	v1.view_numero_factura AS view_numero_factura,
+	v1.view_factura_monto_total AS view_factura_monto_total,
+	v1.view_factura_fecha_alta AS view_factura_fecha_alta,
+	v1.view_factura_fecha_vencimiento AS view_factura_fecha_vencimiento,
+	v1.view_dni_cliente AS view_dni_cliente,
+	v1.view_cuit_empresa AS view_cuit_empresa,
+	v1.view_numero_rendicion AS view_numero_rendicion
 
-		v1.view_numero_factura AS view_numero_factura,
-		v1.view_factura_monto_total AS view_factura_monto_total,
-		v1.view_factura_fecha_alta AS view_factura_fecha_alta,
-		v1.view_factura_fecha_vencimiento AS view_factura_fecha_vencimiento,
-		v1.view_dni_cliente AS view_dni_cliente,
-		v1.view_cuit_empresa AS view_cuit_empresa,
-		v1.view_numero_rendicion AS view_numero_rendicion
+INTO SQL_BOYS.View_Factura_Con_Rendicion
 		
-	FROM SQL_BOYS.View_Factura v1
+FROM SQL_BOYS.View_Factura v1
 		
-	WHERE v1.view_numero_rendicion IS NOT NULL
+WHERE v1.view_numero_rendicion IS NOT NULL
 
-	UNION
+UNION
 
-	SELECT
+SELECT
 	
-		v2.view_numero_factura AS view_numero_factura,
-		v2.view_factura_monto_total AS view_factura_monto_total,
-		v2.view_factura_fecha_alta AS view_factura_fecha_alta,
-		v2.view_factura_fecha_vencimiento AS view_factura_fecha_vencimiento,
-		v2.view_dni_cliente AS view_dni_cliente,
-		v2.view_cuit_empresa AS view_cuit_empresa,
-		v2.view_numero_rendicion AS view_numero_rendicion
+	v2.view_numero_factura AS view_numero_factura,
+	v2.view_factura_monto_total AS view_factura_monto_total,
+	v2.view_factura_fecha_alta AS view_factura_fecha_alta,
+	v2.view_factura_fecha_vencimiento AS view_factura_fecha_vencimiento,
+	v2.view_dni_cliente AS view_dni_cliente,
+	v2.view_cuit_empresa AS view_cuit_empresa,
+	v2.view_numero_rendicion AS view_numero_rendicion
 		
-	FROM SQL_BOYS.View_Factura v2
+FROM SQL_BOYS.View_Factura v2
 	
-	WHERE NOT EXISTS (SELECT 1 FROM SQL_BOYS.View_Factura v1 WHERE v2.view_numero_factura = v1.view_numero_factura AND v1.view_numero_rendicion IS NOT NULL)
+WHERE NOT EXISTS (SELECT 1 FROM SQL_BOYS.View_Factura v1 WHERE v2.view_numero_factura = v1.view_numero_factura AND v1.view_numero_rendicion IS NOT NULL)
 
 GO
 
 /* Vista para no tener que recorrer la tabla otra vez para obtener los medios de pago o los pagos. */
 
-CREATE VIEW SQL_BOYS.View_Pago_Medio_De_Pago AS
-
-	SELECT DISTINCT 
+SELECT DISTINCT 
 		
-		[Pago_nro] AS view_numero_pago,
-		[Total] AS view_monto_total,
-		[Pago_Fecha] AS view_fecha_pago,
-		[FormaPagoDescripcion] AS view_medio_de_pago,
-		[Cliente-Dni] AS view_dni_cliente,
-		[Sucursal_Codigo_Postal] AS view_cp_sucursal
+	[Pago_nro] AS view_numero_pago,
+	[Total] AS view_monto_total,
+	[Pago_Fecha] AS view_fecha_pago,
+	[FormaPagoDescripcion] AS view_medio_de_pago,
+	[Cliente-Dni] AS view_dni_cliente,
+	[Sucursal_Codigo_Postal] AS view_cp_sucursal
 
-	FROM [GD2C2017].[gd_esquema].[Maestra]
+INTO SQL_BOYS.View_Pago_Medio_De_Pago
 
-	WHERE [Pago_nro] IS NOT NULL
+FROM [GD2C2017].[gd_esquema].[Maestra]
+
+WHERE [Pago_nro] IS NOT NULL
 
 GO
 
 /* Vista para no tener que recorrer la tabla otra vez para obtener los items y sus variantes. */
 
-CREATE VIEW SQL_BOYS.View_Item AS
+SELECT DISTINCT
 
-	SELECT DISTINCT
+	m.[ItemFactura_Monto] AS view_monto,
+	m.[ItemFactura_Cantidad] AS view_cantidad,
+	m.[Nro_Factura] AS view_numero_factura,
+	m.[ItemPago_nro] AS view_numero_pago,
+	m.[ItemRendicion_nro] AS view_numero_rendicion
 
-		m.[ItemFactura_Monto] AS view_monto,
-		m.[ItemFactura_Cantidad] AS view_cantidad,
-		m.[Nro_Factura] AS view_numero_factura,
-		m.[ItemPago_nro] AS view_numero_pago,
-		m.[ItemRendicion_nro] AS view_numero_rendicion
+INTO SQL_BOYS.View_Item
 
-	FROM [GD2C2017].[gd_esquema].[Maestra] m
+FROM [GD2C2017].[gd_esquema].[Maestra] m
 
 GO
 
@@ -537,15 +537,15 @@ INSERT INTO SQL_BOYS.Item_Rendicion(id_item, numero_rendicion)
 
 GO
 
-/* Limpiamos las vistas temporales para la migración */
+/* Limpiamos las vistas y tablas temporales para la migración */
 
-DROP VIEW
+DROP TABLE
 
 	SQL_BOYS.View_Cliente,
 	SQL_BOYS.View_Cliente_Conflictivo,
-	SQL_BOYS.View_Empresa_Rubro,
 	SQL_BOYS.View_Factura,
 	SQL_BOYS.View_Factura_Con_Rendicion,
+	SQL_BOYS.View_Empresa_Rubro,
 	SQL_BOYS.View_Pago_Medio_De_Pago,
 	SQL_BOYS.View_Item
 
