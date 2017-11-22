@@ -45,8 +45,10 @@ namespace PagoAgil.Aplicacion.View.Rendicion
             {
 
                 string filasAfectadasPorEmpresa = rendicionVM.rendir(dataGridRendicion.SelectedRows);
-
+              
                 MessageBox.Show(filasAfectadasPorEmpresa);
+
+                this.FormRendicion_Load(this, new EventArgs());
 
             }
             catch (ArgumentNullException)

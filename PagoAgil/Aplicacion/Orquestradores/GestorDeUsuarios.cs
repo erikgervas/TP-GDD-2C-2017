@@ -5,9 +5,11 @@ using PagoAgil.Aplicacion.Modelo.Excepciones;
 using PagoAgil.Aplicacion.View.Validador;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace PagoAgil.Aplicacion.ViewModel.Validador
 {
@@ -50,7 +52,15 @@ namespace PagoAgil.Aplicacion.ViewModel.Validador
 
             if (ValidadorDeInputs.Instance.esValido(nombre))
             {
-                RepositorioUsuarios.getInstance().baja(RepositorioUsuarios.getInstance().obtener(nombre));
+                try
+                {
+                    RepositorioUsuarios.getInstance().baja(RepositorioUsuarios.getInstance().obtener(nombre));
+                    MessageBox.Show("Usuario inhabilitado");
+                }
+                catch(NullReferenceException)
+                {
+                    MessageBox.Show("Usuario inexistente");
+                }
             }
 
         }
@@ -59,8 +69,6 @@ namespace PagoAgil.Aplicacion.ViewModel.Validador
         {
 
             return usuario != null && usuario.getContrasenia().Equals(EncriptadorSHA.Instance.encriptar(password)) && usuario.getHabilitado();
-
-            
 
         }
 

@@ -25,7 +25,7 @@ namespace PagoAgil
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new FacturaSeleccionadorABM());
+            Application.Run(new FormLogin());
 
         }
     }
