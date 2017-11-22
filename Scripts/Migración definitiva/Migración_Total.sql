@@ -1,9 +1,5 @@
 /* Se crean las entidades del sistema en función del DER realizado */
 
-CREATE SCHEMA SQL_BOYS
-
-GO
-
 CREATE TABLE SQL_BOYS.Funcionalidad (
 	id_funcionalidad INT IDENTITY(1, 1) PRIMARY KEY,
 	nombre NVARCHAR(255) NOT NULL
@@ -114,7 +110,6 @@ CREATE TABLE SQL_BOYS.Item (
 	monto NUMERIC(18, 2) NOT NULL CHECK (monto > 0),
 	cantidad INT NOT NULL CHECK (cantidad > 0),
 	numero_factura NUMERIC(18, 0) FOREIGN KEY REFERENCES SQL_BOYS.Factura(numero_factura) NOT NULL
-	CONSTRAINT monto_positivo CHECK (monto > 0 AND cantidad > 0)
 )
 
 CREATE TABLE SQL_BOYS.Item_Pago (
