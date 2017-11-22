@@ -1,3 +1,11 @@
+/* Procedimiento para la migración */
+
+/* Se crea el esquema de nuestro grupo. */
+
+CREATE SCHEMA SQL_BOYS
+
+GO
+
 /* Se crean las entidades del sistema en función del DER realizado */
 
 CREATE TABLE SQL_BOYS.Funcionalidad (

@@ -25,12 +25,16 @@ DROP TABLE
 
 DROP VIEW
 
-	SQL_BOYS.Empresa_View_Empresa_Con_Rubro
+	SQL_BOYS.Empresa_View_Empresa_Con_Rubro,
+	SQL_BOYS.viewFacturaBuscador
 
 DROP FUNCTION
 
+	SQL_BOYS.buscarCliente,
+	SQL_BOYS.buscarFactura,
 	SQL_BOYS.clientesConMasPagos,
 	SQL_BOYS.clientesCumplidores,
+	SQL_BOYS.darItems,
 	SQL_BOYS.empresasARendir,
 	SQL_BOYS.empresasConMayorMontoRendido,
 	SQL_BOYS.existeCliente,
@@ -39,9 +43,11 @@ DROP FUNCTION
 	SQL_BOYS.filtrarFactura,
 	SQL_BOYS.obtenerFactura,
 	SQL_BOYS.obtenerFacturasARendir,
+	SQL_BOYS.obtenerFuncionalidadesDeRol,
 	SQL_BOYS.obtenerRol,
 	SQL_BOYS.obtenerRoles,
 	SQL_BOYS.obtenerRubros,
+	SQL_BOYS.obtenerProximoIdRol,
 	SQL_BOYS.obtenerSucursales,
 	SQL_BOYS.obtenerSucursalPorCodigoPostal,
 	SQL_BOYS.obtenerSucursalPorDireccion,
@@ -58,15 +64,19 @@ DROP FUNCTION
 
 DROP PROCEDURE
 
+	SQL_BOYS.actualizarRol,
 	SQL_BOYS.actualizarSucursal,
 	SQL_BOYS.altaDeEmpresa,
 	SQL_BOYS.altaDeFactura,
 	SQL_BOYS.altaDeItem,
 	SQL_BOYS.bajaDeEmpresa,
 	SQL_BOYS.bajaDeFactura,
+	SQL_BOYS.darDeBajaRol,
 	SQL_BOYS.darDeBajaSucursal,
 	SQL_BOYS.devolverFacturaPaga,
 	SQL_BOYS.insertarItemPagoDeFactura,
 	SQL_BOYS.modificacionDeEmpresa,
 	SQL_BOYS.modificacionDeFactura,
 	SQL_BOYS.rendirFacturas
+
+DROP SCHEMA SQL_BOYS
