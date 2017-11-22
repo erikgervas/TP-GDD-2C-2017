@@ -171,13 +171,15 @@ namespace PagoAgil.Aplicacion.View.Facturas
                         if (cantidad <= 0)
                         {
                             cantidad = 1;
-                            itemDataGrid.Rows[i].Cells[1].Value = cantidad;
+                            itemDataGrid.Rows[i].Cells[1].Value = null;
+                            System.Media.SystemSounds.Beep.Play();
                         }
                     }
                     catch (OverflowException)
                     {
                         cantidad = 1;
-                        itemDataGrid.Rows[i].Cells[1].Value = cantidad;
+                        itemDataGrid.Rows[i].Cells[1].Value = null;
+                        System.Media.SystemSounds.Beep.Play();
                     }
                     try
                     {
@@ -185,13 +187,15 @@ namespace PagoAgil.Aplicacion.View.Facturas
                         if (monto <= 0)
                         {
                             monto = 1;
-                            itemDataGrid.Rows[i].Cells[2].Value = monto;
+                            itemDataGrid.Rows[i].Cells[2].Value = null;
+                            System.Media.SystemSounds.Beep.Play();
                         }
                     }
                     catch (OverflowException)
                     {
                         monto = 1;
-                        itemDataGrid.Rows[i].Cells[2].Value = monto;
+                        itemDataGrid.Rows[i].Cells[2].Value = null;
+                        System.Media.SystemSounds.Beep.Play();
                     }
 
                     montoActual += cantidad * monto;
