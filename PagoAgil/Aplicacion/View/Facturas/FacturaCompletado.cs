@@ -157,17 +157,42 @@ namespace PagoAgil.Aplicacion.View.Facturas
 
         private void itemDataGrid_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
+            int cantidad = 0;
+            float monto = 0;
             float montoActual = 0;
 
             for (int i = 0; i < itemDataGrid.Rows.Count - 1; i++)
             {
                 if (itemDataGrid.Rows[i].Cells[1].Value != null && itemDataGrid.Rows[i].Cells[2].Value != null)
                 {
-                    int cantidad = 0;
-                    float monto = 0;
-
-                    cantidad = int.Parse(itemDataGrid.Rows[i].Cells[1].Value.ToString());
-                    monto = float.Parse(itemDataGrid.Rows[i].Cells[2].Value.ToString());
+                    try
+                    {
+                        cantidad = int.Parse(itemDataGrid.Rows[i].Cells[1].Value.ToString());
+                        if (cantidad <= 0)
+                        {
+                            cantidad = 1;
+                            itemDataGrid.Rows[i].Cells[1].Value = cantidad;
+                        }
+                    }
+                    catch (OverflowException)
+                    {
+                        cantidad = 1;
+                        itemDataGrid.Rows[i].Cells[1].Value = cantidad;
+                    }
+                    try
+                    {
+                        monto = float.Parse(itemDataGrid.Rows[i].Cells[2].Value.ToString());
+                        if (monto <= 0)
+                        {
+                            monto = 1;
+                            itemDataGrid.Rows[i].Cells[2].Value = monto;
+                        }
+                    }
+                    catch (OverflowException)
+                    {
+                        monto = 1;
+                        itemDataGrid.Rows[i].Cells[2].Value = monto;
+                    }
 
                     montoActual += cantidad * monto;
                 }
