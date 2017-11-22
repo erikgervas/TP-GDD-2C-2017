@@ -97,6 +97,7 @@ namespace PagoAgil.Aplicacion.View
             this.mailTextBox.Name = "mailTextBox";
             this.mailTextBox.Size = new System.Drawing.Size(201, 26);
             this.mailTextBox.TabIndex = 3;
+            this.mailTextBox.TextChanged += new System.EventHandler(this.mailTextBox_TextChanged);
             // 
             // telefonoTextBox
             // 
@@ -319,6 +320,10 @@ namespace PagoAgil.Aplicacion.View
         private void FormAltaCliente_Load(object sender, EventArgs e)
         {
             dateTimePicker1.MaxDate = Configuracion.fecha();
+
+            
+                
+            
         }
 
         private void telefonoTextBox_TextChanged(object sender, EventArgs e)
@@ -345,7 +350,7 @@ namespace PagoAgil.Aplicacion.View
 
         private void apellidoTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (System.Text.RegularExpressions.Regex.IsMatch(apellidoTextBox.Text, "[^a-zA-Z]"))
+            if (System.Text.RegularExpressions.Regex.IsMatch(apellidoTextBox.Text, "[^a-zA-Z ]"))
             {
                 MessageBox.Show("Solo texto");
                 apellidoTextBox.Text = apellidoTextBox.Text.Remove(apellidoTextBox.Text.Length - 1);
@@ -354,11 +359,16 @@ namespace PagoAgil.Aplicacion.View
 
         private void nombreTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (System.Text.RegularExpressions.Regex.IsMatch(nombreTextBox.Text, "[^a-zA-Z]"))
+            if (System.Text.RegularExpressions.Regex.IsMatch(nombreTextBox.Text, "[^a-zA-Z ]"))
             {
                 MessageBox.Show("Solo texto");
                 nombreTextBox.Text = nombreTextBox.Text.Remove(nombreTextBox.Text.Length - 1);
             }
+        }
+
+        private void mailTextBox_TextChanged(object sender, EventArgs e)
+        {
+           
         }
     }
 }
