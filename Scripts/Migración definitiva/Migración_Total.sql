@@ -1,3 +1,11 @@
+/* Procedimiento para la migración */
+
+/* Se crea el esquema de nuestro grupo. */
+
+CREATE SCHEMA SQL_BOYS
+
+GO
+
 /* Se crean las entidades del sistema en función del DER realizado */
 
 CREATE TABLE SQL_BOYS.Funcionalidad (
@@ -715,7 +723,7 @@ CREATE PROCEDURE SQL_BOYS.bajaDeEmpresa (@id_empresa AS INT, @nombre AS NVARCHAR
 
 GO
 
-ALTER PROCEDURE SQL_BOYS.modificacionDeEmpresa (@id_empresa AS INT, @nombre AS NVARCHAR(255), @cuit AS NVARCHAR(50), @domicilio AS NVARCHAR(255), @dia_rendicion AS INT, @porcentaje_comision AS INT, @habilitadx AS BIT, @nombre_rubro AS NVARCHAR(50)) AS
+CREATE PROCEDURE SQL_BOYS.modificacionDeEmpresa (@id_empresa AS INT, @nombre AS NVARCHAR(255), @cuit AS NVARCHAR(50), @domicilio AS NVARCHAR(255), @dia_rendicion AS INT, @porcentaje_comision AS INT, @habilitadx AS BIT, @nombre_rubro AS NVARCHAR(50)) AS
 
 	BEGIN
 
