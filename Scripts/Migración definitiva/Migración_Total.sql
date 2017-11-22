@@ -268,22 +268,6 @@ WHERE [Pago_nro] IS NOT NULL
 
 GO
 
-/* Vista para no tener que recorrer la tabla otra vez para obtener los items y sus variantes. */
-
-SELECT DISTINCT
-
-	m.[ItemFactura_Monto] AS view_monto,
-	m.[ItemFactura_Cantidad] AS view_cantidad,
-	m.[Nro_Factura] AS view_numero_factura,
-	m.[ItemPago_nro] AS view_numero_pago,
-	m.[ItemRendicion_nro] AS view_numero_rendicion
-
-INTO SQL_BOYS.View_Item
-
-FROM [GD2C2017].[gd_esquema].[Maestra] m
-
-GO
-
 /* Como los clientes conflictivos también tienen facturas, pagos y rendiciones, decidimos apartar las filas de la tabla maestra de dichos clientes. */
 
 SELECT
@@ -342,6 +326,10 @@ INSERT INTO SQL_BOYS.Funcionalidad (nombre)
 		('Rendir facturas'),
 		('Devolver facturas')
 
+PRINT('Funcionalidades')
+
+GO
+
 INSERT INTO SQL_BOYS.Rol (nombre, habilitadx)
 	
 	VALUES
@@ -350,12 +338,20 @@ INSERT INTO SQL_BOYS.Rol (nombre, habilitadx)
 		('Administrador', 1),
 		('Ajustador de cuentas', 0)
 
+PRINT('Roles')
+
+GO
+
 INSERT INTO SQL_BOYS.Funcionalidad_Por_Rol (id_funcionalidad, id_rol)
 
 	VALUES
 		
 		(1 , 1) , (2 , 1) , (3 , 1) , (4 , 1) , (5 , 1) , (6 , 1),
 		(1 , 2) , (2 , 2) , (3 , 2) , (4 , 2) , (5 , 2) , (6 , 2) , (7 , 2) , (8 , 2)
+
+PRINT('Funcionalidades_Por_Rol')
+
+GO
 
 INSERT INTO SQL_BOYS.Usuario (username, contraseña, habilitadx)
 
@@ -368,6 +364,10 @@ INSERT INTO SQL_BOYS.Usuario (username, contraseña, habilitadx)
 		('cobrador4',		'fda9be620062a617156c1c6dbc788a6a204f85fe06e8ead0e3a43817b0e382db', 1),		-- Password: cobrador
 		('deshabilitado',	'68de79aa60784d315201bac92fedae8297eed7c10f105b1e7704bd193244e27b', 0),		-- Password: deshabilitado
 		('a',				'ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb', 1)		-- Password: a
+
+PRINT('Usuarios')
+
+GO
 
 INSERT INTO SQL_BOYS.Sucursal (cp_sucursal, nombre, domicilio, habilitadx)
 
@@ -382,9 +382,17 @@ INSERT INTO SQL_BOYS.Sucursal (cp_sucursal, nombre, domicilio, habilitadx)
 
 	WHERE Sucursal_Codigo_Postal IS NOT NULL
 
+PRINT('Sucursales')
+
+GO
+
 INSERT INTO SQL_BOYS.Rol_De_Usuario_Por_Sucursal (id_rol, id_usuario, cp_sucursal)
 
 	VALUES (2, 1, 7210)
+
+PRINT('Roles de usuario por sucursal')
+
+GO
 
 INSERT INTO SQL_BOYS.Cliente(dni_cliente,apellido ,nombre , nacimiento, mail, domicilio, codigo_postal, telefono, habilitadx)
 	
@@ -404,6 +412,10 @@ INSERT INTO SQL_BOYS.Cliente(dni_cliente,apellido ,nombre , nacimiento, mail, do
 	
 	WHERE NOT EXISTS (SELECT 1 FROM SQL_BOYS.View_Cliente_Conflictivo cc WHERE c1.view_dni_cliente = cc.view_dni_cliente)
 
+PRINT('Clientes')
+
+GO
+
 SET IDENTITY_INSERT SQL_BOYS.Rendicion ON;
 
 INSERT INTO SQL_BOYS.Rendicion (numero_rendicion, importe_comision, fecha_rendicion)
@@ -420,6 +432,10 @@ INSERT INTO SQL_BOYS.Rendicion (numero_rendicion, importe_comision, fecha_rendic
 
 SET IDENTITY_INSERT SQL_BOYS.Rendicion OFF;
 
+PRINT('Rendiciones')
+
+GO
+
 SET IDENTITY_INSERT SQL_BOYS.Rubro ON
 
 INSERT INTO SQL_BOYS.Rubro (id_rubro, descripcion)
@@ -432,6 +448,10 @@ INSERT INTO SQL_BOYS.Rubro (id_rubro, descripcion)
 	FROM SQL_BOYS.View_Empresa_Rubro
 
 SET IDENTITY_INSERT SQL_BOYS.Rubro OFF
+
+PRINT('Rubros')
+
+GO
 
 INSERT INTO SQL_BOYS.Empresa (nombre, cuit, domicilio, dia_rendicion, porcentaje_comision, habilitadx, id_rubro)
 
@@ -446,6 +466,10 @@ INSERT INTO SQL_BOYS.Empresa (nombre, cuit, domicilio, dia_rendicion, porcentaje
 		view_id_rubro AS id_rubro
 
 	FROM SQL_BOYS.View_Empresa_Rubro;
+
+PRINT('Empresas')
+
+GO
 
 INSERT INTO SQL_BOYS.Factura (numero_factura, factura_monto_total, factura_fecha_alta, factura_fecha_vencimiento, habilitadx, dni_cliente, id_empresa, numero_rendicion)
 
@@ -466,6 +490,10 @@ INSERT INTO SQL_BOYS.Factura (numero_factura, factura_monto_total, factura_fecha
 
 	WHERE NOT EXISTS (SELECT 1 FROM SQL_BOYS.View_Cliente_Conflictivo c WHERE f.view_dni_cliente = c.view_dni_cliente)
 
+PRINT('Facturas')
+
+GO
+
 INSERT INTO SQL_BOYS.Medio_De_Pago (descripcion)
 
 	SELECT DISTINCT 
@@ -473,6 +501,10 @@ INSERT INTO SQL_BOYS.Medio_De_Pago (descripcion)
 		view_medio_de_pago AS descripcion
 
 	FROM SQL_BOYS.View_Pago_Medio_De_Pago
+
+PRINT('Medios de pago')
+
+GO
 
 SET IDENTITY_INSERT SQL_BOYS.Pago ON;
 
@@ -495,45 +527,61 @@ INSERT INTO SQL_BOYS.Pago (numero_pago, monto_total, fecha_pago, id_medio_de_pag
 
 	WHERE NOT EXISTS (SELECT 1 FROM SQL_BOYS.View_Cliente_Conflictivo c WHERE c.view_dni_cliente = p.view_dni_cliente)
 
-SET IDENTITY_INSERT SQL_BOYS.Pago OFF;
+SET IDENTITY_INSERT SQL_BOYS.Pago OFF
+
+PRINT('Pagos')
+
+GO
 
 INSERT INTO SQL_BOYS.Item (nombre, monto, cantidad, numero_factura)
 
 	SELECT DISTINCT
 
 		'Sin nombre' AS nombre,
-		i.view_monto AS monto,
-		i.view_cantidad AS cantidad,
-		i.view_numero_factura AS numero_factura
+		m.[ItemFactura_Monto] AS monto,
+		m.[ItemFactura_Cantidad] AS cantidad,
+		m.[Nro_Factura] AS numero_factura
 
-	FROM SQL_BOYS.View_Item i
+	FROM [GD2C2017].[gd_esquema].[Maestra] m
 
-	JOIN SQL_BOYS.Factura f ON f.numero_factura = i.view_numero_factura;
+	WHERE m.[Nro_Factura] NOT IN (SELECT Nro_Factura FROM SQL_BOYS.Tabla_Maestra_Conflictiva)
+
+PRINT('Items')
+
+GO
 
 INSERT INTO SQL_BOYS.Item_Pago (id_item, numero_factura, numero_pago)
 	
 	SELECT DISTINCT
 
 		i.id_item AS id_item,
-		i.numero_factura AS numero_factura,
-		p.numero_pago AS numero_pago
+		m.[Nro_Factura] AS numero_factura,
+		m.[ItemPago_nro] AS numero_pago
 
-	FROM SQL_BOYS.View_Item vi
+FROM [GD2C2017].[gd_esquema].[Maestra] m
 
-	JOIN SQL_BOYS.Item i ON i.numero_factura = vi.view_numero_factura
-	JOIN SQL_BOYS.Pago p ON p.numero_pago = vi.view_numero_pago
+JOIN SQL_BOYS.Item i ON i.numero_factura = m.[Nro_Factura]
+
+WHERE m.[ItemPago_nro] IS NOT NULL
+
+PRINT('Items de pagos')
+
+GO
 
 INSERT INTO SQL_BOYS.Item_Rendicion(id_item, numero_rendicion)
 
 	SELECT DISTINCT
 
 		i.id_item AS id_item,
-		r.numero_rendicion AS numero_rendicion
+		m.[ItemRendicion_nro] - 1 AS numero_rendicion
 
-	FROM SQL_BOYS.View_Item vi
+FROM [GD2C2017].[gd_esquema].[Maestra] m
 
-	JOIN SQL_BOYS.Item i ON i.numero_factura = vi.view_numero_factura
-	JOIN SQL_BOYS.Rendicion r ON r.numero_rendicion = vi.view_numero_rendicion - 1
+JOIN SQL_BOYS.Item i ON i.numero_factura = m.[Nro_Factura]
+
+WHERE m.[ItemRendicion_nro] IS NOT NULL
+
+PRINT('Items de rendiciones')
 
 GO
 
@@ -546,8 +594,7 @@ DROP TABLE
 	SQL_BOYS.View_Factura,
 	SQL_BOYS.View_Factura_Con_Rendicion,
 	SQL_BOYS.View_Empresa_Rubro,
-	SQL_BOYS.View_Pago_Medio_De_Pago,
-	SQL_BOYS.View_Item
+	SQL_BOYS.View_Pago_Medio_De_Pago
 
 GO
 
