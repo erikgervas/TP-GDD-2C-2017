@@ -290,7 +290,7 @@ namespace PagoAgil.Aplicacion.View.Cliente
 
         private void nombreTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (System.Text.RegularExpressions.Regex.IsMatch(nombreTextBox.Text, "[^a-zA-Z]"))
+            if (System.Text.RegularExpressions.Regex.IsMatch(nombreTextBox.Text, "[^a-zA-Z ]"))
             {
                 MessageBox.Show("Solo texto");
                 nombreTextBox.Text = nombreTextBox.Text.Remove(nombreTextBox.Text.Length - 1);
@@ -304,7 +304,13 @@ namespace PagoAgil.Aplicacion.View.Cliente
             
 
             dateTimePicker1.MaxDate = Configuracion.fecha();
+            if (System.Text.RegularExpressions.Regex.IsMatch(cliente.nombre, "[^a-zA-Z ]"))
+                nombreTextBox.Text = "NUEVO VALOR";
+            else
             nombreTextBox.Text = cliente.nombre;
+            if (System.Text.RegularExpressions.Regex.IsMatch(cliente.apellido, "[^a-zA-Z ]"))
+                apellidoTextBox.Text = "NUEVO VALOR";
+            else
             apellidoTextBox.Text = cliente.apellido;
             dniTextBox.Text = cliente.id.ToString();
             mailTextBox.Text = cliente.mail;
@@ -316,6 +322,7 @@ namespace PagoAgil.Aplicacion.View.Cliente
                 habilitadoCheckBox.Visible = false;
             habilitadoCheckBox.Checked = cliente.habilitado;
             dniViejo = int.Parse(dniTextBox.Text);
+
         }
 
         private void guardarButton_Click(object sender, EventArgs e)
@@ -392,7 +399,7 @@ namespace PagoAgil.Aplicacion.View.Cliente
 
         private void apellidoTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (System.Text.RegularExpressions.Regex.IsMatch(apellidoTextBox.Text, "[^a-zA-Z]"))
+            if (System.Text.RegularExpressions.Regex.IsMatch(apellidoTextBox.Text, "[^a-zA-Z ]"))
             {
                 MessageBox.Show("Solo texto");
                 apellidoTextBox.Text = apellidoTextBox.Text.Remove(apellidoTextBox.Text.Length - 1);
