@@ -29,7 +29,12 @@ namespace PagoAgil.Aplicacion.Builders
 
         public Factura crear()
         {
-            return new Factura(numero, "", estado, this.items.Sum(i => i.montoTotal()), fecha_alta, fecha_vencimiento, dni_cliente, cuit_empresa, items);
+            return new Factura(numero, "", estado, this.montoFactura(), fecha_alta, fecha_vencimiento, dni_cliente, cuit_empresa, items);
+        }
+
+        public float montoFactura()
+        {
+            return this.items.Sum(i => i.montoTotal());
         }
 
         public void validar()

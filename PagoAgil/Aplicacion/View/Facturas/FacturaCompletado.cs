@@ -163,8 +163,11 @@ namespace PagoAgil.Aplicacion.View.Facturas
             {
                 if (itemDataGrid.Rows[i].Cells[1].Value != null && itemDataGrid.Rows[i].Cells[2].Value != null)
                 {
-                    int cantidad = int.Parse(itemDataGrid.Rows[i].Cells[1].Value.ToString());
-                    float monto = float.Parse(itemDataGrid.Rows[i].Cells[2].Value.ToString());
+                    int cantidad = 0;
+                    float monto = 0;
+
+                    cantidad = int.Parse(itemDataGrid.Rows[i].Cells[1].Value.ToString());
+                    monto = float.Parse(itemDataGrid.Rows[i].Cells[2].Value.ToString());
 
                     montoActual += cantidad * monto;
                 }
@@ -193,6 +196,12 @@ namespace PagoAgil.Aplicacion.View.Facturas
                 this.Close();
 
                 new FacturaConfirmado(this.viewModel.factura).Show();
+            }
+            catch (ValorException excepcion)
+            {
+                this.viewModel.factura.items = new List<Item>();
+
+                new EmpresasAdvertenciaRendicionesPendientes(excepcion.mensaje).Show();
             }
             catch (NoSePuedeCrearException excepcion)
             {

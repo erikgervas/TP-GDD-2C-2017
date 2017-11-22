@@ -11,9 +11,9 @@ namespace PagoAgil.Aplicacion.Builders
     public class ItemBuilder
     {
         public string nombre { get; set; }
+        public long numero_factura { get; set; }
         public int cantidad { get; set; }
         public float monto { get; set; }
-        public long numero_factura { get; set; }
 
         public ItemBuilder() { }
 
@@ -26,6 +26,36 @@ namespace PagoAgil.Aplicacion.Builders
         {
             revisarLlenado();
             existeOtroIgual();
+            cantidadesNegativas();
+            cantidadesMuyGrandes();
+            montoNegativo();
+            montoMuyGrande();
+            montoTotalMuyGrande();
+        }
+
+        private void cantidadesNegativas()
+        {
+            if (cantidad <= 0) throw new ValorException("Un item tiene cantidad no positiva.");
+        }
+
+        private void cantidadesMuyGrandes()
+        {
+            if (cantidad > int.MaxValue) throw new ValorException("Un item tiene una cantidad demasiado grande.");
+        }
+
+        private void montoNegativo()
+        {
+            if (monto <= 0) throw new ValorException("Un item tiene un monto no positivo.");
+        }
+
+        private void montoMuyGrande()
+        {
+            if (monto > float.MaxValue) throw new ValorException("Un item tiene un monto demasiado grande.");
+        }
+
+        private void montoTotalMuyGrande()
+        {
+            if (cantidad * monto > float.MaxValue) throw new ValorException("El monto total de un item es demasiado grande.");
         }
 
         private void revisarLlenado()

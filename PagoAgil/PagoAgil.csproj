@@ -83,6 +83,7 @@
     <Compile Include="Aplicacion\Builders\Excepciones\NoSePuedeCrearException.cs" />
     <Compile Include="Aplicacion\Builders\FacturaBuilder.cs" />
     <Compile Include="Aplicacion\Builders\ItemBuilder.cs" />
+    <Compile Include="Aplicacion\Builders\Excepciones\ValorException.cs" />
     <Compile Include="Aplicacion\Configuracion.cs" />
     <Compile Include="Aplicacion\Modelo\Cliente.cs" />
     <Compile Include="Aplicacion\Modelo\ClienteSQL\ClienteDB.cs" />
