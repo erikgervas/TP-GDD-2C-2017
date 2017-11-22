@@ -2,6 +2,11 @@ USE [GD2C2017]
 
 GO
 
+DROP INDEX
+
+	Indice_Filtro_Empresa ON SQL_BOYS.Empresa,
+	Indice_Filtro_Factura ON SQL_BOYS.Item_Pago
+
 DROP TABLE
 
 	SQL_BOYS.Item_Rendicion,

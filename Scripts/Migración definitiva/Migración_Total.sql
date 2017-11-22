@@ -1,5 +1,9 @@
 /* Procedimiento para la migración */
 
+USE [GD2C2017]
+
+GO
+
 /* Se crea el esquema de nuestro grupo. */
 
 CREATE SCHEMA SQL_BOYS
@@ -547,9 +551,23 @@ DROP VIEW
 
 GO
 
+/* Creamos índices para las tablas */
+
+/* Índices de Empresas */
+
+CREATE NONCLUSTERED INDEX Indice_Filtro_Empresa ON SQL_BOYS.Empresa (id_rubro)
+INCLUDE (id_empresa, nombre, cuit, domicilio, dia_rendicion, porcentaje_comision, habilitadx)
+
+/* Índices de Facturas */
+
+CREATE NONCLUSTERED INDEX Indice_Filtro_Factura ON SQL_BOYS.Item_Pago (numero_factura)
+INCLUDE (numero_pago)
+
 /*Creamos funciones y procedimientos necesarios*/
 
 /*ABM Sucursal*/
+
+GO
 
 CREATE FUNCTION SQL_BOYS.obtenerSucursalPorNombre(@nombre NVARCHAR(50))
 RETURNS table as 
