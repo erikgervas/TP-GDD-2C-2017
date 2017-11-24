@@ -9,6 +9,8 @@ using PagoAgil.Aplicacion.Modelo.ClienteSQL;
 using PagoAgil.Aplicacion.Modelo.Usuario;
 using PagoAgil.Aplicacion.BD.Utils;
 using System.Windows.Forms;
+using System.Collections;
+using PagoAgil.Aplicacion.Modelo.Excepciones;
 
 namespace PagoAgil.Aplicacion.BD.Utils
 {
@@ -57,9 +59,13 @@ namespace PagoAgil.Aplicacion.BD.Utils
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Cliente actualizado con exito");
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-                MessageBox.Show(ex.Message);
+
+                if (ex.ErrorCode == -2146232060)
+                    MessageBox.Show(new DniRepetidoClienteException("El cliente DNI:"+c.id +" ya existe. Por favor ingrese un DNI distinto", ex).Message);
+                else
+                    MessageBox.Show(ex.Message);
             }
 
         }

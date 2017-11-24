@@ -353,10 +353,7 @@ namespace PagoAgil.Aplicacion.View.Cliente
             c.nacimiento = DateTime.Parse(dateTimePicker1.Text);
 
             if (telefonoTextBox.Text.Length > 0)
-            {
-                string a = telefonoTextBox.Text;
-                c.telefono = int.Parse(a);
-            }
+                c.telefono = int.Parse(telefonoTextBox.Text);
             else
                 c.telefono = 0;
 

@@ -8,6 +8,7 @@ using System.Data;
 using PagoAgil.Aplicacion.Modelo.ClienteSQL;
 using PagoAgil.Aplicacion.Modelo.Usuario;
 using System.Windows.Forms;
+using PagoAgil.Aplicacion.Modelo.Excepciones;
 
 namespace PagoAgil.Aplicacion.BD.Utils
 {
@@ -78,23 +79,17 @@ namespace PagoAgil.Aplicacion.BD.Utils
             cmd.Parameters.AddWithValue("@cp", c.codigoPostal);
             cmd.Parameters.AddWithValue("@telefono", c.telefono);
             cmd.Parameters.AddWithValue("@hab",c.habilitado);
-                /*
-                cmd.Parameters[0].Value = c.id;
-                cmd.Parameters[1].Value = c.nombre;
-                cmd.Parameters[2].Value = c.apellido;
-                cmd.Parameters[3].Value = c.nacimiento;
-                cmd.Parameters[4].Value = c.mail;
-                cmd.Parameters[5].Value = c.domicilio;
-                cmd.Parameters[6].Value = c.codigoPostal;
-                cmd.Parameters[7].Value = c.telefono;
-                cmd.Parameters[8].Value = c.habilitado;
-                 */
+               
                 try {cmd.ExecuteNonQuery();
                     MessageBox.Show("Cliente actualizado con exito");
                 }
-                catch (Exception ex)
+                catch (SqlException ex)
                 {
-                    MessageBox.Show(ex.Message);
+
+                    if (ex.ErrorCode == -2146232060)
+                        MessageBox.Show(new DniRepetidoClienteException("El cliente DNI:" + c.id + " ya existe. Por favor ingrese un DNI distinto", ex).Message);
+                    else
+                        MessageBox.Show(ex.Message);
                 }
 
 

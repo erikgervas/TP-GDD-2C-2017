@@ -96,6 +96,7 @@
     <Compile Include="Aplicacion\Modelo\Empresa.cs" />
     <Compile Include="Aplicacion\Modelo\Entidad.cs" />
     <Compile Include="Aplicacion\Modelo\Estadistica\Estadistica.cs" />
+    <Compile Include="Aplicacion\Modelo\Excepciones\DniRepetidoClienteException.cs" />
     <Compile Include="Aplicacion\Modelo\Excepciones\LogingDemasiadosIntentosException.cs" />
     <Compile Include="Aplicacion\Modelo\Habilitable.cs" />
     <Compile Include="Aplicacion\Modelo\Identificable.cs" />
