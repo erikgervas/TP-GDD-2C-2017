@@ -34,20 +34,20 @@ WHERE c1.view_dni_cliente != c2.view_dni_cliente AND c1.view_mail = c2.view_mail
 
 GO
 
-SELECT DISTINCT
+CREATE VIEW SQL_BOYS.View_Items AS
+
+	SELECT DISTINCT
 	
-	Nro_Factura,
-	[Cliente-Dni],
-	ItemFactura_Cantidad,
-	ItemFactura_Monto,
-	ItemPago_nro,
-	ItemRendicion_nro
+		Nro_Factura,
+		[Cliente-Dni],
+		ItemFactura_Cantidad,
+		ItemFactura_Monto,
+		ItemPago_nro,
+		ItemRendicion_nro
 
-INTO SQL_BOYS.View_Items
+	FROM gd_esquema.Maestra
 
-FROM gd_esquema.Maestra
-
-WHERE [Cliente-Dni] NOT IN (SELECT view_dni_cliente FROM SQL_BOYS.View_Cliente_Conflictivo)
+	WHERE [Cliente-Dni] NOT IN (SELECT view_dni_cliente FROM SQL_BOYS.View_Cliente_Conflictivo)
 
 GO
 
@@ -86,5 +86,8 @@ SELECT * FROM SQL_BOYS.Item_Rendicion
 DROP TABLE
 
 	SQL_BOYS.View_Cliente, 
-	SQL_BOYS.View_Cliente_Conflictivo,
+	SQL_BOYS.View_Cliente_Conflictivo
+
+DROP VIEW
+
 	SQL_BOYS.View_Items
