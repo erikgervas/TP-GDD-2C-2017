@@ -41,7 +41,7 @@ namespace PagoAgil.Aplicacion.Modelo.Excepciones
 
         private string mensajeRendicion()
         {
-            return " tiene " + facturasPendientesDeRendicion.ToString() + " facturas por rendir.";
+            return " tiene " + facturasPendientesDeRendicion.ToString() + " facturas00 por rendir.";
         }
 
     }

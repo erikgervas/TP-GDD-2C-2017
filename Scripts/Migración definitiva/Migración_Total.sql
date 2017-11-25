@@ -159,7 +159,7 @@ FROM [GD2C2017].[gd_esquema].[Maestra]
 
 GO
 
-/* Hay clientes con el mismo mail, que impiden cumplir con el requerimiento de mails únicos. Esto optimiza el tiempo de búsqueda de los mismos usando la vista anterior. */
+/* Hay clientes con el mismo mail, a quienes los denominamos "Clientes conflictivos", que impiden cumplir con el requerimiento de mails únicos. Esto optimiza el tiempo de búsqueda de los mismos usando la vista anterior. */
 
 SELECT
 
@@ -311,7 +311,7 @@ SELECT
 
 GO
 
-/* Populamos las tablas con los datos de la tabla maestra. */
+/* Populamos las tablas con los datos de la tabla maestra y los que exige que coloquemos el enunciado. */
 
 INSERT INTO SQL_BOYS.Funcionalidad (nombre)
 
@@ -336,7 +336,7 @@ INSERT INTO SQL_BOYS.Rol (nombre, habilitadx)
 		
 		('Cobrador', 1),
 		('Administrador', 1),
-		('Ajustador de cuentas', 0)
+		('Gestor', 0)
 
 PRINT('Roles')
 
@@ -357,13 +357,10 @@ INSERT INTO SQL_BOYS.Usuario (username, contraseña, habilitadx)
 
 	VALUES 
 	
-		('admin',			'e6b87050bfcb8143fcb8db0170a4dc9ed00d904ddd3e2a4ad1b1e8dc0fdc9be7', 1),		-- Password: w23e
-		('cobrador1',		'fda9be620062a617156c1c6dbc788a6a204f85fe06e8ead0e3a43817b0e382db', 1),		-- Password: cobrador
-		('cobrador2',		'fda9be620062a617156c1c6dbc788a6a204f85fe06e8ead0e3a43817b0e382db', 1),		-- Password: cobrador
-		('cobrador3',		'fda9be620062a617156c1c6dbc788a6a204f85fe06e8ead0e3a43817b0e382db', 1),		-- Password: cobrador
-		('cobrador4',		'fda9be620062a617156c1c6dbc788a6a204f85fe06e8ead0e3a43817b0e382db', 1),		-- Password: cobrador
-		('deshabilitado',	'68de79aa60784d315201bac92fedae8297eed7c10f105b1e7704bd193244e27b', 0),		-- Password: deshabilitado
-		('a',				'ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb', 1)		-- Password: a
+		('admin',			'e6b87050bfcb8143fcb8db0170a4dc9ed00d904ddd3e2a4ad1b1e8dc0fdc9be7', 1), -- Password: w23e
+		('cobrador1',		'9f6add6fbf0991a4648e73a79860fa1d55f3576493caa8f6e2f46af050510d07', 1), -- Password: cobrador1
+		('cobrador2',		'e60fd6f95211ce790d4f8f44153ae7527798088f09d93a7f6f4bb8179955d24c', 0), -- Password: cobrador2
+		('dios',			'c3c193ec815eb5b0a292fd6ceea8c962b1d31d40b4522a0602f68653784e3733', 1)  -- Password: dios
 
 PRINT('Usuarios')
 
@@ -388,7 +385,14 @@ GO
 
 INSERT INTO SQL_BOYS.Rol_De_Usuario_Por_Sucursal (id_rol, id_usuario, cp_sucursal)
 
-	VALUES (2, 1, 7210)
+	VALUES
+	
+		(2, 1, 7210),
+		(1, 2, 7210),
+		(1, 3, 7210),
+		(1, 4, 7210),
+		(2, 4, 7210),
+		(3, 4, 7210)	
 
 PRINT('Roles de usuario por sucursal')
 
