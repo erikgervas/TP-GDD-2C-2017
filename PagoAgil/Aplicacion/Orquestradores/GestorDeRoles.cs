@@ -27,7 +27,7 @@ namespace PagoAgil.Aplicacion.Orquestradores
 
             TablaDTO tabla = LectorDeTablas.getInstance().obtener(query);
 
-            RolDB[] roles = new RolDB[tabla.cantidadDeFilas()];
+            List<RolDB> roles = new List<RolDB>();
 
             for (int i = 0; i < tabla.cantidadDeFilas(); i++)
             {
@@ -35,11 +35,11 @@ namespace PagoAgil.Aplicacion.Orquestradores
                 RolDB rol = new RolDB(tabla.obtener(i));
 
                 if (rol.getHabilitado())
-                    roles[i] = rol;
+                    roles.Add(rol);
 
             }
 
-            return roles;
+            return roles.ToArray();
 
         }
 
