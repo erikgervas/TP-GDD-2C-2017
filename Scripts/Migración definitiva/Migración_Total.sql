@@ -266,6 +266,21 @@ FROM [GD2C2017].[gd_esquema].[Maestra]
 
 WHERE [Pago_nro] IS NOT NULL
 
+SELECT DISTINCT
+	
+	Nro_Factura,
+	[Cliente-Dni],
+	ItemFactura_Cantidad,
+	ItemFactura_Monto,
+	ItemPago_nro,
+	ItemRendicion_nro
+
+INTO SQL_BOYS.View_Items
+
+FROM gd_esquema.Maestra
+
+WHERE [Cliente-Dni] NOT IN (SELECT view_dni_cliente FROM SQL_BOYS.View_Cliente_Conflictivo)
+
 GO
 
 /* Como los clientes conflictivos también tienen facturas, pagos y rendiciones, decidimos apartar las filas de la tabla maestra de dichos clientes. */
@@ -349,7 +364,7 @@ INSERT INTO SQL_BOYS.Funcionalidad_Por_Rol (id_funcionalidad, id_rol)
 		(1 , 1) , (2 , 1) , (3 , 1) , (4 , 1) , (5 , 1) , (6 , 1),
 		(1 , 2) , (2 , 2) , (3 , 2) , (4 , 2) , (5 , 2) , (6 , 2) , (7 , 2) , (8 , 2)
 
-PRINT('Funcionalidades_Por_Rol')
+PRINT('Funcionalidades por rol')
 
 GO
 
@@ -542,13 +557,11 @@ INSERT INTO SQL_BOYS.Item (nombre, monto, cantidad, numero_factura)
 	SELECT DISTINCT
 
 		'Sin nombre' AS nombre,
-		m.[ItemFactura_Monto] AS monto,
-		m.[ItemFactura_Cantidad] AS cantidad,
-		m.[Nro_Factura] AS numero_factura
+		ItemFactura_Monto AS monto,
+		ItemFactura_Cantidad AS cantidad,
+		Nro_Factura AS numero_factura
 
-	FROM [GD2C2017].[gd_esquema].[Maestra] m
-
-	WHERE m.[Nro_Factura] NOT IN (SELECT Nro_Factura FROM SQL_BOYS.Tabla_Maestra_Conflictiva)
+	FROM SQL_BOYS.View_Items
 
 PRINT('Items')
 
@@ -559,14 +572,14 @@ INSERT INTO SQL_BOYS.Item_Pago (id_item, numero_factura, numero_pago)
 	SELECT DISTINCT
 
 		i.id_item AS id_item,
-		m.[Nro_Factura] AS numero_factura,
-		m.[ItemPago_nro] AS numero_pago
+		vi.Nro_Factura AS numero_factura,
+		vi.ItemPago_nro AS numero_pago
 
-FROM [GD2C2017].[gd_esquema].[Maestra] m
+	FROM SQL_BOYS.View_Items vi
 
-JOIN SQL_BOYS.Item i ON i.numero_factura = m.[Nro_Factura]
+	JOIN SQL_BOYS.Item i ON i.numero_factura = vi.Nro_Factura
 
-WHERE m.[ItemPago_nro] IS NOT NULL
+	WHERE vi.ItemPago_nro IS NOT NULL
 
 PRINT('Items de pagos')
 
@@ -577,13 +590,13 @@ INSERT INTO SQL_BOYS.Item_Rendicion(id_item, numero_rendicion)
 	SELECT DISTINCT
 
 		i.id_item AS id_item,
-		m.[ItemRendicion_nro] - 1 AS numero_rendicion
+		vi.ItemRendicion_nro - 1 AS numero_rendicion
 
-FROM [GD2C2017].[gd_esquema].[Maestra] m
+	FROM SQL_BOYS.View_Items vi
 
-JOIN SQL_BOYS.Item i ON i.numero_factura = m.[Nro_Factura]
+	JOIN SQL_BOYS.Item i ON i.numero_factura = vi.Nro_Factura
 
-WHERE m.[ItemRendicion_nro] IS NOT NULL
+	WHERE vi.ItemRendicion_nro IS NOT NULL
 
 PRINT('Items de rendiciones')
 
@@ -598,7 +611,8 @@ DROP TABLE
 	SQL_BOYS.View_Factura,
 	SQL_BOYS.View_Factura_Con_Rendicion,
 	SQL_BOYS.View_Empresa_Rubro,
-	SQL_BOYS.View_Pago_Medio_De_Pago
+	SQL_BOYS.View_Pago_Medio_De_Pago,
+	SQL_BOYS.View_Items
 
 GO
 
