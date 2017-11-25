@@ -60,6 +60,7 @@ DROP FUNCTION
 	SQL_BOYS.obtenerSucursalPorNombre,
 	SQL_BOYS.obtenerUsuario,
 	SQL_BOYS.porcentajeDeFacturasCobradasPorEmpresa,
+	SQL_BOYS.cantidadDeFacturasPorPagarDeEmpresa,
 	SQL_BOYS.cantidadDeFacturasPorRendirDeEmpresa,
 	SQL_BOYS.esFechaValida,
 	SQL_BOYS.id_Rubro,

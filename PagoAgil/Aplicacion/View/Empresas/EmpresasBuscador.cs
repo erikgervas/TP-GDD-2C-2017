@@ -139,9 +139,11 @@ namespace PagoAgil.Aplicacion.View.Empresas
             try
             {
 
+                int facturasPendientesDePago = (int)EjecutadorDeFunciones.instanciar().ejecutarFuncion("cantidadDeFacturasPorPagarDeEmpresa", this.viewModel.empresa.id, SqlDbType.Int);
+
                 int facturasPendientesDeRendicion = (int) EjecutadorDeFunciones.instanciar().ejecutarFuncion("cantidadDeFacturasPorRendirDeEmpresa", this.viewModel.empresa.id, SqlDbType.Int);
 
-                if (facturasPendientesDeRendicion != 0) throw new FacturasPendientesDeRendicionException(this.viewModel.empresa, facturasPendientesDeRendicion);
+                if ((facturasPendientesDePago + facturasPendientesDeRendicion) > 0) throw new FacturasPendientesDeRendicionException(this.viewModel.empresa, facturasPendientesDeRendicion, facturasPendientesDePago);
 
                 EmpresaABM.instanciar().abm = new Baja<Empresa>();
 

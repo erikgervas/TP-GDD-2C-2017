@@ -836,11 +836,50 @@ CREATE FUNCTION SQL_BOYS.filtrarEmpresa (@nombre AS NVARCHAR(255), @cuit AS NVAR
 
 GO
 
-CREATE FUNCTION SQL_BOYS.cantidadDeFacturasPorRendirDeEmpresa(@id_empresa INT) RETURNS INT
+CREATE FUNCTION SQL_BOYS.cantidadDeFacturasPorPagarDeEmpresa(@id_empresa INT) RETURNS INT
 	
 	BEGIN
 
-		RETURN (SELECT COUNT(*) FROM SQL_BOYS.Empresa e JOIN SQL_BOYS.Factura f ON f.id_empresa = e.id_empresa WHERE f.id_empresa = @id_empresa AND f.numero_rendicion IS NULL)
+		RETURN
+				
+				(
+					SELECT
+						
+						COUNT(*)
+						
+					FROM SQL_BOYS.Factura f
+					
+					WHERE
+					
+						f.id_empresa = 1 AND
+						(SELECT COUNT(*) FROM SQL_BOYS.Item_Pago ip WHERE ip.numero_factura = f.numero_factura) <=
+						(SELECT COUNT(*) FROM SQL_BOYS.Devolucion d WHERE d.numero_factura = f.numero_factura)
+				)
+
+	END
+
+GO
+
+CREATE FUNCTION SQL_BOYS.cantidadDeFacturasPorRendirDeEmpresa(@id_empresa INT) RETURNS INT
+
+	BEGIN
+		
+		RETURN
+				
+				(
+					SELECT
+						
+						COUNT(*)
+						
+					FROM SQL_BOYS.Factura f
+					
+					WHERE
+					
+						f.id_empresa = @id_empresa AND
+						f.numero_rendicion IS NULL AND
+						(SELECT COUNT(*) FROM SQL_BOYS.Item_Pago ip WHERE ip.numero_factura = f.numero_factura) >
+						(SELECT COUNT(*) FROM SQL_BOYS.Devolucion d WHERE d.numero_factura = f.numero_factura)
+				)
 
 	END
 
