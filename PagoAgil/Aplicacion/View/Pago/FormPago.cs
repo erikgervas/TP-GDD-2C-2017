@@ -73,5 +73,16 @@ namespace PagoAgil.Aplicacion.View.Pago
             this.Hide();
             new FormSeleccionFacturas(pagoBuilder).Show();
         }
+
+        private void buttonBuscarCliente_Click(object sender, EventArgs e)
+        {
+            new FormBuscarCliente(this).Show();
+        }
+
+        public void ponerDNI(int DNI) 
+        {
+            numericUpDown1.Value = DNI;
+        }
+
     }
 }

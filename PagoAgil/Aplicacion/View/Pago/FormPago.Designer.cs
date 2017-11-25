@@ -38,6 +38,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.buttonBuscarCliente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,7 +62,7 @@
             0,
             0});
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(408, 24);
+            this.numericUpDown1.Size = new System.Drawing.Size(230, 24);
             this.numericUpDown1.TabIndex = 1;
             // 
             // label2
@@ -89,9 +90,9 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(27, 103);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(233, 18);
+            this.label4.Size = new System.Drawing.Size(310, 18);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Ingrese el DNI del cliente que paga";
+            this.label4.Text = "Ingrese el DNI del cliente que paga o busquelo";
             // 
             // label5
             // 
@@ -142,11 +143,23 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // buttonBuscarCliente
+            // 
+            this.buttonBuscarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBuscarCliente.Location = new System.Drawing.Point(266, 124);
+            this.buttonBuscarCliente.Name = "buttonBuscarCliente";
+            this.buttonBuscarCliente.Size = new System.Drawing.Size(168, 24);
+            this.buttonBuscarCliente.TabIndex = 15;
+            this.buttonBuscarCliente.Text = "Buscar";
+            this.buttonBuscarCliente.UseVisualStyleBackColor = true;
+            this.buttonBuscarCliente.Click += new System.EventHandler(this.buttonBuscarCliente_Click);
+            // 
             // FormPago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 339);
+            this.Controls.Add(this.buttonBuscarCliente);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.comboBox1);
@@ -177,5 +190,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonBuscarCliente;
     }
 }

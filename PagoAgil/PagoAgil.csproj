@@ -130,6 +130,7 @@
     <Compile Include="Aplicacion\ViewModel\AltaRolVM.cs" />
     <Compile Include="Aplicacion\ViewModel\BajaRolVM.cs" />
     <Compile Include="Aplicacion\ViewModel\BajaSucursalVM.cs" />
+    <Compile Include="Aplicacion\ViewModel\BuscarClientesVM.cs" />
     <Compile Include="Aplicacion\ViewModel\EmpresasCompletadoVM.cs" />
     <Compile Include="Aplicacion\ViewModel\EmpresasBuscadorVM.cs" />
     <Compile Include="Aplicacion\ViewModel\EstadisticasVM.cs" />
@@ -269,6 +270,12 @@
     <Compile Include="Aplicacion\View\Pago\Excepciones\FaltaElegirFacturaException.cs" />
     <Compile Include="Aplicacion\View\Pago\Excepciones\MedioDePagoNoIngresadoException.cs" />
     <Compile Include="Aplicacion\View\Pago\Excepciones\NoExisteClienteException.cs" />
+    <Compile Include="Aplicacion\View\Pago\FormBuscarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\View\Pago\FormBuscarCliente.Designer.cs">
+      <DependentUpon>FormBuscarCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Aplicacion\View\Pago\FormPago.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -461,6 +468,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\Facturas\FacturasOk.resx">
       <DependentUpon>FacturasOk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicacion\View\Pago\FormBuscarCliente.resx">
+      <DependentUpon>FormBuscarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicacion\View\Pago\FormPago.resx">
       <DependentUpon>FormPago.cs</DependentUpon>
