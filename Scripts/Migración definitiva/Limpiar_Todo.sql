@@ -3,9 +3,11 @@ USE [GD2C2017]
 GO
 
 DROP INDEX
-
-	Indice_Filtro_Empresa ON SQL_BOYS.Empresa,
-	Indice_Filtro_Factura ON SQL_BOYS.Item_Pago
+	
+	Indice_Cliente ON SQL_BOYS.Cliente,
+	Indice_Filtro_Factura ON SQL_BOYS.Item_Pago,
+	Indice_Obtencion_Facturas ON SQL_BOYS.Factura,
+	Indice_Busqueda_Devoluciones_Posibles ON SQL_BOYS.Factura
 
 DROP TABLE
 

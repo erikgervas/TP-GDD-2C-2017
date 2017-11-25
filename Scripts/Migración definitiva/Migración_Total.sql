@@ -559,19 +559,30 @@ GO
 
 /* Creamos índices para las tablas */
 
-/* Índices de Empresas */
+/* Índices de Clientes */
 
-CREATE NONCLUSTERED INDEX Indice_Filtro_Empresa ON SQL_BOYS.Empresa (id_rubro)
-INCLUDE (id_empresa, nombre, cuit, domicilio, dia_rendicion, porcentaje_comision, habilitadx)
-
-GO
+CREATE NONCLUSTERED INDEX Indice_Cliente ON SQL_BOYS.Cliente (dni_cliente)
 
 /* Índices de Facturas */
 
 CREATE NONCLUSTERED INDEX Indice_Filtro_Factura ON SQL_BOYS.Item_Pago (numero_factura)
 INCLUDE (numero_pago)
 
-GO
+/* Índices de Rendiciones */
+
+CREATE NONCLUSTERED INDEX Indice_Obtencion_Facturas ON SQL_BOYS.Factura (id_empresa, numero_rendicion, factura_fecha_alta)
+
+/* Índices para Devoluciones */
+
+CREATE NONCLUSTERED INDEX Indice_Busqueda_Devoluciones_Posibles ON SQL_BOYS.Factura (numero_rendicion)
+
+/* Índices para Estadísticas */
+
+CREATE NONCLUSTERED INDEX Indice_Clientes_Cumplidores ON SQL_BOYS.Item_Pago (numero_pago)
+INCLUDE (numero_factura)
+
+CREATE NONCLUSTERED INDEX Indice_Empresas_Por_Monto ON SQL_BOYS.Item_Rendicion (numero_rendicion)
+INCLUDE (id_item)
 
 /* Creamos funciones y procedimientos necesarios*/
 
