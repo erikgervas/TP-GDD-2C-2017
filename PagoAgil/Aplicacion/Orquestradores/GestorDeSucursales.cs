@@ -38,7 +38,7 @@ namespace PagoAgil.Aplicacion.Orquestradores
 
             }
 
-            return sucursales;
+            return sucursales.ToArray();
 
         }
 
