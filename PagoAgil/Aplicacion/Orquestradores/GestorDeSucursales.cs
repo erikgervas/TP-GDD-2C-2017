@@ -26,7 +26,7 @@ namespace PagoAgil.Aplicacion.Orquestradores
 
             TablaDTO tabla = LectorDeTablas.getInstance().obtener(query);
 
-            SucursalDB[] sucursales = new SucursalDB[tabla.cantidadDeFilas()];
+            List<SucursalDB> sucursales = new List<SucursalDB>();
 
             for (int i = 0; i < tabla.cantidadDeFilas(); i++)
             {
@@ -34,11 +34,11 @@ namespace PagoAgil.Aplicacion.Orquestradores
                 SucursalDB sucursal = new SucursalDB(tabla.obtener(i));
                 
                 if(sucursal.getHabilitado())
-                    sucursales[i] = sucursal;
+                    sucursales.Add(sucursal);
 
             }
 
-            return sucursales;
+            return sucursales.ToArray();
 
         }
 
