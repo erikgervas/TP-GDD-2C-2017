@@ -267,6 +267,7 @@
     <Compile Include="Aplicacion\View\Pago\Excepciones\ClienteDeshabilitadoException.cs" />
     <Compile Include="Aplicacion\View\Pago\Excepciones\FacturaDeshabilitadaException.cs" />
     <Compile Include="Aplicacion\View\Pago\Excepciones\FacturaInvalidaException.cs" />
+    <Compile Include="Aplicacion\View\Pago\Excepciones\FacturaVencidaException.cs" />
     <Compile Include="Aplicacion\View\Pago\Excepciones\FaltaElegirEmpresaException.cs" />
     <Compile Include="Aplicacion\View\Pago\Excepciones\FaltaElegirFacturaException.cs" />
     <Compile Include="Aplicacion\View\Pago\Excepciones\MedioDePagoNoIngresadoException.cs" />

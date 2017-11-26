@@ -74,6 +74,9 @@ namespace PagoAgil.Aplicacion.View.Pago
 
                 if (!factura.Rows[0].Field<bool>(4)) throw new FacturaDeshabilitadaException();
 
+                int result = DateTime.Compare(factura.Rows[0].Field<DateTime>(3),Configuracion.fecha());
+                if (result > 0) throw new FacturaVencidaException();
+
                 decimal importeActual = factura.Rows[0].Field<decimal>(1);
                 importeTotal += importeActual;
                 labelImporteTotal.Text = importeTotal.ToString("N2");
@@ -111,6 +114,22 @@ namespace PagoAgil.Aplicacion.View.Pago
                 }
 
                 MessageBox.Show("No puede pagar una factura deshabilitada. Ingrese otra/s factura/s o finalice el pago de las facturas ya confirmadas en el caso de que las haya");
+            }
+            catch(FacturaVencidaException)
+            {
+                buttonConfirmarFactura.Enabled = false;
+                buttonBuscarFactura.Enabled = true;
+
+                if (i == 0)
+                {
+                    buttonFinalizarPago.Enabled = false;
+                }
+                else
+                {
+                    buttonFinalizarPago.Enabled = true;
+                }
+
+                MessageBox.Show("No puede pagar una factura vencida");
             }
             
         }
