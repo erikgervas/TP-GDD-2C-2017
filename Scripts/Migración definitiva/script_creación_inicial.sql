@@ -211,6 +211,8 @@ INTO SQL_BOYS.View_Factura
 
 FROM [GD2C2017].[gd_esquema].[Maestra] m
 
+WHERE [Cliente-Dni] NOT IN (SELECT view_dni_cliente FROM SQL_BOYS.View_Cliente_Conflictivo)
+
 GO
 
 /* Vista para obtener las facturas con sus rendiciones, ya que en el anterior no se añadieron. */
@@ -264,7 +266,10 @@ INTO SQL_BOYS.View_Pago_Medio_De_Pago
 
 FROM [GD2C2017].[gd_esquema].[Maestra]
 
-WHERE [Pago_nro] IS NOT NULL
+WHERE
+
+	[Pago_nro] IS NOT NULL AND
+	[Cliente-Dni] NOT IN (SELECT view_dni_cliente FROM SQL_BOYS.View_Cliente_Conflictivo)
 
 GO
 
@@ -326,7 +331,7 @@ SELECT
 
 	FROM [GD2C2017].[gd_esquema].[Maestra]
 
-	WHERE EXISTS (SELECT 1 FROM SQL_BOYS.View_Cliente_Conflictivo WHERE view_dni_cliente = [Cliente-Dni])
+	WHERE [Cliente-Dni] IN (SELECT view_dni_cliente FROM SQL_BOYS.View_Cliente_Conflictivo)
 
 GO
 
@@ -365,7 +370,7 @@ INSERT INTO SQL_BOYS.Cliente(dni_cliente,apellido ,nombre , nacimiento, mail, do
 
 	FROM SQL_BOYS.View_Cliente c1
 	
-	WHERE NOT EXISTS (SELECT 1 FROM SQL_BOYS.View_Cliente_Conflictivo cc WHERE c1.view_dni_cliente = cc.view_dni_cliente)
+	WHERE c1.view_dni_cliente NOT IN (SELECT view_dni_cliente FROM SQL_BOYS.View_Cliente_Conflictivo)
 
 PRINT('Clientes')
 
@@ -377,13 +382,16 @@ INSERT INTO SQL_BOYS.Rendicion (numero_rendicion, importe_comision, fecha_rendic
 
 	SELECT DISTINCT
 		
-		[Rendicion_Nro] AS numero_rendicion,
-		[ItemRendicion_Importe] AS importe_comision,
-		[Rendicion_Fecha] AS fecha_rendicion
+		m.[Rendicion_Nro] AS numero_rendicion,
+		m.[ItemRendicion_Importe] AS importe_comision,
+		m.[Rendicion_Fecha] AS fecha_rendicion
 
-	FROM [GD2C2017].[gd_esquema].[Maestra]
+	FROM [GD2C2017].[gd_esquema].[Maestra] m
 
-	WHERE Rendicion_Nro IS NOT NULL
+	WHERE
+	
+		m.Rendicion_Nro IS NOT NULL AND
+		NOT EXISTS (SELECT 1 FROM SQL_BOYS.Tabla_Maestra_Conflictiva t WHERE t.Rendicion_Nro = m.Rendicion_Nro)
 
 SET IDENTITY_INSERT SQL_BOYS.Rendicion OFF;
 
@@ -443,8 +451,6 @@ INSERT INTO SQL_BOYS.Factura (numero_factura, factura_monto_total, factura_fecha
 
 	JOIN SQL_BOYS.Empresa e ON f.view_cuit_empresa = e.cuit
 
-	WHERE NOT EXISTS (SELECT 1 FROM SQL_BOYS.View_Cliente_Conflictivo c WHERE f.view_dni_cliente = c.view_dni_cliente)
-
 PRINT('Facturas')
 
 GO
@@ -479,8 +485,6 @@ INSERT INTO SQL_BOYS.Pago (numero_pago, monto_total, fecha_pago, id_medio_de_pag
 		SQL_BOYS.View_Pago_Medio_De_Pago p
 
     JOIN SQL_BOYS.Medio_De_Pago m ON m.descripcion = p.view_medio_de_pago
-
-	WHERE NOT EXISTS (SELECT 1 FROM SQL_BOYS.View_Cliente_Conflictivo c WHERE c.view_dni_cliente = p.view_dni_cliente)
 
 SET IDENTITY_INSERT SQL_BOYS.Pago OFF
 
@@ -565,8 +569,7 @@ CREATE NONCLUSTERED INDEX Indice_Cliente ON SQL_BOYS.Cliente (dni_cliente)
 
 /* Índices de Facturas */
 
-CREATE NONCLUSTERED INDEX Indice_Filtro_Factura ON SQL_BOYS.Item_Pago (numero_factura)
-INCLUDE (numero_pago)
+CREATE NONCLUSTERED INDEX Indice_Filtro_Factura ON SQL_BOYS.Item_Pago (numero_factura) INCLUDE (numero_pago)
 
 /* Índices de Rendiciones */
 
@@ -578,11 +581,9 @@ CREATE NONCLUSTERED INDEX Indice_Busqueda_Devoluciones_Posibles ON SQL_BOYS.Fact
 
 /* Índices para Estadísticas */
 
-CREATE NONCLUSTERED INDEX Indice_Clientes_Cumplidores ON SQL_BOYS.Item_Pago (numero_pago)
-INCLUDE (numero_factura)
+CREATE NONCLUSTERED INDEX Indice_Clientes_Cumplidores ON SQL_BOYS.Item_Pago (numero_pago) INCLUDE (numero_factura)
 
-CREATE NONCLUSTERED INDEX Indice_Empresas_Por_Monto ON SQL_BOYS.Item_Rendicion (numero_rendicion)
-INCLUDE (id_item)
+CREATE NONCLUSTERED INDEX Indice_Empresas_Por_Monto ON SQL_BOYS.Item_Rendicion (numero_rendicion) INCLUDE (id_item)
 
 /* Creamos funciones y procedimientos necesarios*/
 
