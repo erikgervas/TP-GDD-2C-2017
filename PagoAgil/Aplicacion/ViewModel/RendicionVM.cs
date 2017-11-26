@@ -33,7 +33,7 @@ namespace PagoAgil.Aplicacion.ViewModel
             foreach (var item in filasAfectadasPorEmpresa)
             {
 
-                devolucion += "La empresa " + item.Key + " tuvo " + item.Value + " filas afectadas.\r\n";
+                devolucion += "La empresa " + item.Key + " tuvo " + item.Value + " facturas rendidas.\r\n";
 
             }
 
