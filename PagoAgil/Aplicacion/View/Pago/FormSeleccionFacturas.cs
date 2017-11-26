@@ -75,7 +75,7 @@ namespace PagoAgil.Aplicacion.View.Pago
                 if (!factura.Rows[0].Field<bool>(4)) throw new FacturaDeshabilitadaException();
 
                 int result = DateTime.Compare(factura.Rows[0].Field<DateTime>(3),Configuracion.fecha());
-                if (result > 0) throw new FacturaVencidaException();
+                if (result < 0) throw new FacturaVencidaException();
 
                 decimal importeActual = factura.Rows[0].Field<decimal>(1);
                 importeTotal += importeActual;
