@@ -23,7 +23,7 @@ namespace PagoAgil.Aplicacion.BD.MediosPersistentes.Medios
             parametros.Add(ParametroFactory.crear("numero_factura", SqlDbType.Int, unaEntidad.id));
             parametros.Add(ParametroFactory.crear("factura_monto_total", SqlDbType.Decimal, unaEntidad.monto_total));
             parametros.Add(ParametroFactory.crear("factura_fecha_alta", SqlDbType.DateTime, unaEntidad.fecha_alta));
-            parametros.Add(ParametroFactory.crear("factura_fecha_vencimiento", SqlDbType.DateTime, unaEntidad.fecha_alta));
+            parametros.Add(ParametroFactory.crear("factura_fecha_vencimiento", SqlDbType.DateTime, unaEntidad.fecha_vencimiento));
             parametros.Add(ParametroFactory.crear("habilitadx", SqlDbType.Bit, unaEntidad.habilitado));
             parametros.Add(ParametroFactory.crear("dni_cliente", SqlDbType.Int, unaEntidad.dni_cliente));
             parametros.Add(ParametroFactory.crear("cuit_empresa", SqlDbType.NVarChar, unaEntidad.cuit_empresa));
