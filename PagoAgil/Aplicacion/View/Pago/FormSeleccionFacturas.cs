@@ -21,6 +21,7 @@ namespace PagoAgil.Aplicacion.View.Pago
         private decimal importeTotal;
         private int numeroFactura;
         private List<int> facturasPagadas = new List<int>();
+        private int i = 0;
 
         public FormSeleccionFacturas(PagoBuilder pagoBuilder)
         {
@@ -71,6 +72,8 @@ namespace PagoAgil.Aplicacion.View.Pago
                 dataGridViewFacturas.Columns[dataGridViewFacturas.ColumnCount - 6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridViewFacturas.Columns[dataGridViewFacturas.ColumnCount - 7].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
+                if (!factura.Rows[0].Field<bool>(4)) throw new FacturaDeshabilitadaException();
+
                 decimal importeActual = factura.Rows[0].Field<decimal>(1);
                 importeTotal += importeActual;
                 labelImporteTotal.Text = importeTotal.ToString("N2");
@@ -78,6 +81,7 @@ namespace PagoAgil.Aplicacion.View.Pago
                 buttonConfirmarFactura.Enabled = true;
                 buttonFinalizarPago.Enabled = false;
                 buttonBuscarFactura.Enabled = false;
+
             }
             catch(FacturaInvalidaException)
             {
@@ -91,6 +95,22 @@ namespace PagoAgil.Aplicacion.View.Pago
             catch(FaltaElegirFacturaException)
             {
                 MessageBox.Show("Falta seleccionar la factura correspondiente");
+            }
+            catch(FacturaDeshabilitadaException)
+            {
+                buttonConfirmarFactura.Enabled = false;
+                buttonBuscarFactura.Enabled = true;
+
+                if (i == 0) 
+                { 
+                    buttonFinalizarPago.Enabled = false;
+                }
+                else 
+                {
+                    buttonFinalizarPago.Enabled = true;
+                }
+
+                MessageBox.Show("No puede pagar una factura deshabilitada. Ingrese otra/s factura/s o finalice el pago de las facturas ya confirmadas en el caso de que las haya");
             }
             
         }
@@ -107,6 +127,8 @@ namespace PagoAgil.Aplicacion.View.Pago
             buttonFinalizarPago.Enabled = true;
             buttonBuscarFactura.Enabled = true;
             buttonConfirmarFactura.Enabled = false;
+
+            i++;
 
         }
 
