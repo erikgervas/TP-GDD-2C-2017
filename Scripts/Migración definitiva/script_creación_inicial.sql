@@ -1196,7 +1196,7 @@ returns table
 
 return 
 			(select f.* from SQL_BOYS.Factura f
-					where f.numero_rendicion is null and f.id_empresa = @id_empresa and f.factura_fecha_alta <= SQL_BOYS.obtenerFecha(@fecha_actual)
+					where f.numero_rendicion is null and f.id_empresa = @id_empresa and cast(f.factura_fecha_alta as date) <= SQL_BOYS.obtenerFecha(@fecha_actual)
 						and exists	(select * from SQL_BOYS.Item_Pago ip
 										where ip.numero_factura = f.numero_factura	
 									) -- fue pagada
@@ -1221,7 +1221,7 @@ returns table
 			and exists(select * from SQL_BOYS.obtenerFacturasARendir(e.id_empresa, @fecha_actual)) -- Tenga alguna factura a rendir
 
 			and not exists(select * from SQL_BOYS.Factura f join SQL_BOYS.Rendicion r on f.numero_rendicion = r.numero_rendicion
-								where f.id_empresa = e.id_empresa and r.fecha_rendicion = SQL_BOYS.obtenerFecha(@fecha_actual)) -- No se haya rendido hoy
+								where f.id_empresa = e.id_empresa and cast(r.fecha_rendicion as date) = SQL_BOYS.obtenerFecha(@fecha_actual)) -- No se haya rendido hoy
 
 	)
 
