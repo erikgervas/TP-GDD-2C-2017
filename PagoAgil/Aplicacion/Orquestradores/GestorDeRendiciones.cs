@@ -46,7 +46,7 @@ namespace PagoAgil.Aplicacion.Orquestradores
 
                 int filasAfectadas = EjecutadorDeProcedures.getInstance().ejecutar("rendirFacturas " + idEmpresa + ", '" + Configuracion.fechaCruda() + "'");
 
-                filasAfectadasPorEmpresa[nombreEmpresa] = idEmpresa;
+                filasAfectadasPorEmpresa[nombreEmpresa] = filasAfectadas;
 
             }
 
