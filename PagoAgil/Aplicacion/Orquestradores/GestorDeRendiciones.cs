@@ -44,9 +44,9 @@ namespace PagoAgil.Aplicacion.Orquestradores
                 int idEmpresa = (int) empresa.Cells["id_empresa"].Value;
                 string nombreEmpresa = (string) empresa.Cells["nombre"].Value;
 
-                int filasAfectadas = EjecutadorDeProcedures.getInstance().ejecutar("rendirFacturas " + idEmpresa + ", '" + Configuracion.fechaCruda() + "'");
+                EjecutadorDeProcedures.getInstance().ejecutar("rendirFacturas " + idEmpresa + ", '" + Configuracion.fechaCruda() + "'");
 
-                filasAfectadasPorEmpresa[nombreEmpresa] = filasAfectadas;
+                filasAfectadasPorEmpresa[nombreEmpresa] = (int) empresa.Cells["facturas_a_rendir"].Value;
 
             }
 
